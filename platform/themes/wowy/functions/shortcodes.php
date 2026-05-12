@@ -23,6 +23,7 @@ use Botble\Shortcode\Forms\ShortcodeForm;
 use Botble\Theme\Facades\Theme;
 use Botble\Theme\Supports\ThemeSupport;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Support\Arr;
 
 app()->booted(function (): void {
     ThemeSupport::registerGoogleMapsShortcode();
@@ -598,6 +599,22 @@ app()->booted(function (): void {
                 TextFieldOption::make()->label(__('CTA button URL'))->placeholder('https://example.com')
             );
     });
+
+    add_shortcode('shop-by-category-cards', __('Shop By Category Cards'), __('Horizontal cards with custom images and links'), function (Shortcode $shortcode) {
+        return Theme::partial('shortcodes.shop-by-category-cards', [
+            'attributes' => $shortcode->toArray(),
+            'content' => $shortcode->getContent(),
+        ]);
+    });
+
+    shortcode()->setAdminConfig('shop-by-category-cards', function (array $attributes, ?string $content = null) {
+        return Theme::partial('shortcodes.shop-by-category-cards-admin-config', compact('attributes', 'content'));
+    });
+
+    shortcode()->setPreviewImage(
+        'shop-by-category-cards',
+        asset('vendor/core/packages/theme/images/ui-blocks/media.jpg')
+    );
 
     add_filter(BASE_FILTER_AFTER_LOGIN_OR_REGISTER_FORM, function ($html, $model) {
         if ($model !== \Botble\Ecommerce\Models\Customer::class) {
