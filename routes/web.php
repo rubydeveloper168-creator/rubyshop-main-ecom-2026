@@ -9,6 +9,7 @@ use App\Http\Controllers\AboutCompanyController;
 use App\Http\Controllers\AllProductsController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\ProductLandingController;
+use App\Http\Controllers\Rb360LandingController;
 use App\Http\Controllers\Auth\LineAuthController;
 use App\Http\Controllers\HealthController;
 
@@ -24,6 +25,7 @@ Route::get('/promotion/{promotionName}', [PromotionController::class, 'show'])
     ->name('promotion.numeric');
 
 // New route pattern for custom slugs (accepts Thai characters, hyphens, etc.)    
+Route::get('/promotions', [PromotionController::class, 'index'])->name('promotion.index');
 Route::get('/promotion/{slug}', [PromotionController::class, 'show'])
     ->where('slug', '.*')
     ->name('promotion.custom');
@@ -36,7 +38,7 @@ Route::get('/blogs/{slug}', [BlogsController::class, 'show'])
 
     // New route pattern for custom slugs AboutController   
     Route::get('/aboutcompany/{slug}', [AboutCompanyController::class, 'show'])
-    ->where('aboutcompany', '.*')
+    ->where('slug', '.*')
     ->name('aboutcompany.custom');
 
 
@@ -54,6 +56,12 @@ Route::get('/categories', [AllProductsController::class, 'categories'])->name('c
 // Product landing pages
 Route::get('/landing', [ProductLandingController::class, 'index'])->name('landing.index');
 Route::get('/landing/{slug}', [ProductLandingController::class, 'show'])->name('landing.product');
+Route::get('/lp/rb-360', [Rb360LandingController::class, 'show'])->name('landing.rb360.ads');
+Route::get('/lp/rb-360-pro', [Rb360LandingController::class, 'show'])->name('landing.rb360.ads.pro');
+Route::get('/lp/rb-360-quote', [Rb360LandingController::class, 'show'])->name('landing.rb360.ads.quote');
+Route::get('/lp/rb-899-v2', [PromotionController::class, 'show'])
+    ->defaults('slug', 'rb-899-v2')
+    ->name('landing.rb899.v2');
 
 // Catalog pages
 Route::get('/catalog', [CatalogController::class, 'index'])->name('catalog.index');
@@ -66,19 +74,15 @@ Route::get('/catalog/file', [CatalogController::class, 'file'])->name('catalog.f
 Route::get('/sub/{slug}', [AllProductsController::class, 'mainCategory'])->name('main.category');
 
 // Individual category page (shows products)
-Route::get('/product-categories-test/{slug}', [AllProductsController::class, 'category'])->name('product.category');
+Route::redirect('/product-categories-test/{slug}', '/allproducts/category/{slug}', 301)
+    ->where('slug', '.*')
+    ->name('legacy.product.category');
 
 // Categories overview page
 Route::get('/product-categories', [AllProductsController::class, 'categories'])->name('product.categories.index');
 
 // Product detail page - use slug
 // Route::get('/products/{slug}', [AllProductsController::class, 'show'])->name('product.detail');
-
-
-
-
-// All products listing page
-Route::get('/allproducts', [AllProductsController::class, 'index'])->name('allproducts');
 
 // Product detail page - use your existing controller/route
 
@@ -88,16 +92,16 @@ Route::get('/allproducts/category/{slug}', [AllProductsController::class, 'categ
 
 
 // Main category page (shows subcategories)
-Route::get('/subcat2/{slug}', [AllProductsController::class, 'mainCategory'])->name('main.category');
+Route::redirect('/subcat2/{slug}', '/sub/{slug}', 301)
+    ->where('slug', '.*')
+    ->name('legacy.main.category');
 
 
 
 
 
 // Add this route definition
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::view('/', 'welcome')->name('home');
 
 Route::get('auth/line', [LineAuthController::class, 'redirect'])->name('line.login');
 Route::get('auth/line/callback', [LineAuthController::class, 'callback'])->name('line.callback');

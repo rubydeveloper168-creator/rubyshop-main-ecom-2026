@@ -6,106 +6,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         <!-- Resource Hints for Performance -->
-        <link rel="preconnect" href="https://cdn.tailwindcss.com">
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         
         <!-- Critical CSS loaded first -->
-        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="preload" href="{{ asset('css/tailwind.css') }}?v=20260424-3" as="style">
+        <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}?v=20260424-3">
+        @php
+            $isHomePage = request()->path() === '/' || request()->routeIs('public.index');
+            $isCategoryPage = request()->is('product-categories*')
+                || request()->is('categories')
+                || request()->is('allproducts/category/*')
+                || request()->is('sub/*');
+            $isContactPage = request()->is('contact*');
+            $useTailwindCdn = $isHomePage || $isCategoryPage || $isContactPage;
+            $cssVersion = '20260424-3';
+        @endphp
+        @if ($useTailwindCdn)
+            <script>
+                window.tailwind = window.tailwind || {};
+                window.tailwind.config = window.tailwind.config || {};
+                window.tailwind.config.corePlugins = Object.assign(
+                    {},
+                    window.tailwind.config.corePlugins || {},
+                    { preflight: false }
+                );
+            </script>
+            <script src="https://cdn.tailwindcss.com"></script>
+        @endif
+        @if (BaseHelper::isRtlEnabled())
+            <link rel="stylesheet" href="{{ Theme::asset()->url('plugins/bootstrap/css/bootstrap.rtl.min.css') }}?v={{ $cssVersion }}">
+        @else
+            <link rel="stylesheet" href="{{ Theme::asset()->url('plugins/bootstrap/css/bootstrap.min.css') }}?v={{ $cssVersion }}">
+        @endif
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/normalize.css') }}?v={{ $cssVersion }}">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/fontawesome-all.min.css') }}?v={{ $cssVersion }}">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/wowy-font.css') }}?v={{ $cssVersion }}">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/animate.css') }}?v={{ $cssVersion }}">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/slick.css') }}?v={{ $cssVersion }}">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/style.css') }}?v={{ $cssVersion }}">
+        @if (is_plugin_active('ecommerce'))
+            <link rel="stylesheet" href="{{ asset('vendor/core/plugins/ecommerce/css/front-ecommerce.css') }}?v={{ $cssVersion }}">
+        @endif
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Non-critical CSS loaded asynchronously -->
-        <link rel="preload" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"></noscript>
-        
-        <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></noscript>
-        
-        <link rel="preload" href="https://unpkg.com/aos@2.3.1/dist/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-        <noscript><link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"></noscript>
+        <!-- Non-critical CSS loaded in footer to keep initial render path lean -->
             
-     <!-- Event snippet for โอกาสในการขายทางโทรศัพท์ conversion page -->
-<script>
-  gtag('event', 'conversion', {'send_to': 'AW-1065750118/hV8kCIyViPkCEOacmPwD'});
-</script>
-
-        <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0PWGSWH0P4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0PWGSWH0P4');
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-VMWVKYGZ6X"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-VMWVKYGZ6X');
-</script>
-
-
-
-
-
-
-
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1073208261615128');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NHBT4DYH7D"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NHBT4DYH7D');
-</script>
-
-
-
-
-
-
-
-
-
                 <!-- Force LocalBusiness Schema on Homepage -->
         <script type="application/ld+json">
         {
@@ -153,7 +101,7 @@ src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1"
 
 
 
-        {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('font_text', 'Poppins')) . ':ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap') !!}
+        {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('font_text', 'Poppins')) . ':ital,wght@0,400;0,500;0,600;0,700;1,400&display=optional') !!}
 
         <style>
             :root {
@@ -455,500 +403,6 @@ src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1"
         
         
             @endphp
-        <script>
-    // Performance monitoring for first page load
-    const startTime = performance.now();
-    const loadStartTime = Date.now();
-    
-    console.log("%c RUBYSHOP Performance Monitor Started", "background: #dc2626; color: #ffffff; font-size: 16px; padding: 8px 16px; border-radius: 4px; font-weight: bold;");
-    console.log("%c Page Load Start Time:", "background: #3b82f6; color: white; padding: 4px 8px; border-radius: 4px;", new Date(loadStartTime).toLocaleTimeString());
-
-    // Track script loading
-    const scriptTracker = {
-        scripts: [],
-        startTime: performance.now(),
-        
-        logScript: function(name, timing) {
-            const elapsed = performance.now() - this.startTime;
-            this.scripts.push({
-                name: name,
-                timing: timing,
-                elapsed: elapsed
-            });
-            console.log(`%c Script: ${name}`, "background: #10b981; color: white; padding: 2px 6px; border-radius: 3px;", `+${elapsed.toFixed(2)}ms`);
-        },
-        
-        getSummary: function() {
-            return this.scripts;
-        }
-    };
-
-    // Performance observer for tracking resources
-    if ('PerformanceObserver' in window) {
-        const observer = new PerformanceObserver((list) => {
-            list.getEntries().forEach((entry) => {
-                if (entry.entryType === 'resource') {
-                    const duration = entry.responseEnd - entry.startTime;
-                    const filename = entry.name.split('/').pop();
-                    
-                    // Track slow resources with more detail
-                    if (duration > 100) {
-                        const isTrackingScript = entry.name.includes('collect') || 
-                                               entry.name.includes('analytics') || 
-                                               entry.name.includes('gtag') ||
-                                               entry.name.includes('google');
-                        
-                        criticalResourceManager.slowResources.push({
-                            name: filename,
-                            duration: duration,
-                            type: entry.initiatorType,
-                            url: entry.name,
-                            isTracking: isTrackingScript
-                        });
-                        
-                        // Color-code by severity and type
-                        let color = duration > 2000 ? '#dc2626' : duration > 1000 ? '#f59e0b' : '#6b7280';
-                        if (isTrackingScript) {
-                            color = '#8b5cf6'; // Purple for tracking scripts
-                            console.log(`%c Tracking ${entry.initiatorType}: ${filename}`, `background: ${color}; color: white; padding: 2px 6px; border-radius: 3px;`, `${duration.toFixed(2)}ms - This is normal for analytics`);
-                        } else {
-                            console.log(`%c Slow ${entry.initiatorType}: ${filename}`, `background: ${color}; color: white; padding: 2px 6px; border-radius: 3px;`, `${duration.toFixed(2)}ms`);
-                        }
-                        
-                        // Auto-optimize slow images
-                        if (entry.initiatorType === 'img' && duration > 1000) {
-                            setTimeout(() => {
-                                const img = document.querySelector(`img[src*="${filename}"]`);
-                                if (img && !img.loading) {
-                                    img.loading = 'lazy';
-                                    img.decoding = 'async';
-                                }
-                            }, 100);
-                        }
-                    }
-                } else if (entry.entryType === 'navigation') {
-                    console.log(`%c Navigation: ${entry.type}`, "background: #8b5cf6; color: white; padding: 2px 6px; border-radius: 3px;", `${entry.loadEventEnd.toFixed(2)}ms`);
-                }
-            });
-        });
-        
-        observer.observe({ entryTypes: ['resource', 'navigation'] });
-    }
-
-    // Track initial scripts
-    scriptTracker.logScript('Performance Monitor', 'Initialization');
-
-    // Critical Resource Manager for slow images
-    const criticalResourceManager = {
-        slowResources: [],
-        
-        optimizeSlowImages: function() {
-            // Find and optimize slow-loading images
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                if (!img.loading) {
-                    img.loading = 'lazy';
-                }
-                if (!img.decoding) {
-                    img.decoding = 'async';
-                }
-            });
-        },
-        
-        preloadCriticalImages: function() {
-            // Preload only critical above-the-fold images
-            const criticalImages = [
-                'logo',
-                'hero',
-                'banner'
-            ];
-            
-            criticalImages.forEach(keyword => {
-                const img = document.querySelector(`img[src*="${keyword}"], img[alt*="${keyword}"]`);
-                if (img && !img.dataset.preloaded) {
-                    const link = document.createElement('link');
-                    link.rel = 'preload';
-                    link.as = 'image';
-                    link.href = img.src;
-                    document.head.appendChild(link);
-                    img.dataset.preloaded = 'true';
-                }
-            });
-        },
-        
-        deferNonCriticalResources: function() {
-            // Defer non-critical scripts and resources
-            const nonCriticalScripts = document.querySelectorAll('script:not([data-critical])');
-            nonCriticalScripts.forEach(script => {
-                if (!script.defer && !script.async && script.src) {
-                    script.defer = true;
-                }
-            });
-        },
-        
-        optimizeThirdPartyScripts: function() {
-            // Defer Google Analytics and other tracking scripts
-            const trackingScripts = document.querySelectorAll('script[src*="google"], script[src*="analytics"], script[src*="gtag"]');
-            trackingScripts.forEach(script => {
-                if (script.src && !script.defer && !script.async) {
-                    script.defer = true;
-                    console.log('Deferred tracking script:', script.src);
-                }
-            });
-            
-            // Add resource hints for known third-party domains
-            const thirdPartyDomains = [
-                'https://www.google-analytics.com',
-                'https://www.googletagmanager.com',
-                'https://connect.facebook.net',
-                'https://cdn.jsdelivr.net',
-                'https://cdnjs.cloudflare.com'
-            ];
-            
-            thirdPartyDomains.forEach(domain => {
-                if (!document.querySelector(`link[href*="${domain}"]`)) {
-                    const link = document.createElement('link');
-                    link.rel = 'dns-prefetch';
-                    link.href = domain;
-                    document.head.appendChild(link);
-                }
-            });
-        }
-    };
-
-    // Apply optimizations immediately
-    criticalResourceManager.deferNonCriticalResources();
-    criticalResourceManager.optimizeThirdPartyScripts();
-
-    console.log("%c Welcome to RUBYSHOP! Header script loaded.!!", "background: #dc2626; color: #ffffff; font-size: 16px; padding: 8px 16px; border-radius: 4px;");
-    
-        // Enhanced Mobile Menu Handler with Performance Optimization
-    document.addEventListener('DOMContentLoaded', function() {
-        const domLoadTime = performance.now();
-        scriptTracker.logScript('DOMContentLoaded Event', 'DOM Ready');
-        
-        // Cache DOM elements immediately for faster access
-        const burger = document.querySelector('.burger-icon');
-        const mobileWrapper = document.querySelector('.mobile-header-active');
-        const closeButton = document.querySelector('.mobile-menu-close button');
-        const body = document.body;
-        
-        // Debug: Log what elements were found
-        console.log('Menu Elements Check:', {
-            burger: !!burger,
-            mobileWrapper: !!mobileWrapper,
-            closeButton: !!closeButton,
-            burgerClass: burger ? burger.className : 'not found'
-        });
-        
-        // Early return if critical elements are missing
-        if (!burger || !mobileWrapper) {
-            console.warn('Mobile menu elements not found!');
-            scriptTracker.logScript('Mobile Menu Setup', 'Failed - Missing Elements');
-            return;
-        }        const mobileMenuStartTime = performance.now();
-        console.log("%c Mobile Menu Handler Initialized", "background: #10b981; color: white; padding: 4px 8px; border-radius: 4px;");
-        
-        // Create overlay immediately if needed
-        let overlay = document.querySelector('.body-overlay-1');
-        if (!overlay) {
-            overlay = document.createElement('div');
-            overlay.className = 'body-overlay-1';
-            document.body.appendChild(overlay);
-        }
-        
-        // Pre-set initial styles synchronously (no setTimeout delay)
-        const initializeMenuSync = () => {
-            // Batch DOM operations for better performance
-            const style = mobileWrapper.style;
-            style.transform = 'translateX(-100%)';
-            style.visibility = 'hidden';
-            style.opacity = '0';
-            style.display = 'none';
-            style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease';
-            
-            const overlayStyle = overlay.style;
-            overlayStyle.opacity = '0';
-            overlayStyle.visibility = 'hidden';
-            
-            // Force remove classes and ensure clean state
-            mobileWrapper.classList.remove('sidebar-visible');
-            body.classList.remove('mobile-menu-active');
-            burger.classList.remove('active');
-            
-            console.log('Menu initialized to closed state');
-        };
-        
-        // Initialize menu immediately
-        initializeMenuSync();
-        
-        // Double-check after a brief delay to ensure it's closed
-        setTimeout(() => {
-            if (mobileWrapper.classList.contains('sidebar-visible')) {
-                console.log('Menu was still open - force closing');
-                closeMenu();
-            }
-        }, 100);
-        
-        // Optimized menu functions with requestAnimationFrame
-        const openMenu = () => {
-            console.log('Opening mobile menu...');
-            requestAnimationFrame(() => {
-                const style = mobileWrapper.style;
-                style.transition = 'none';
-                style.visibility = 'visible';
-                style.opacity = '1';
-                style.display = 'block';
-                
-                requestAnimationFrame(() => {
-                    style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease';
-                    style.transform = 'translateX(0)';
-                    
-                    mobileWrapper.classList.add('sidebar-visible');
-                    body.classList.add('mobile-menu-active');
-                    burger.classList.add('active');
-                    
-                    const overlayStyle = overlay.style;
-                    overlayStyle.opacity = '1';
-                    overlayStyle.visibility = 'visible';
-                    
-                    console.log('Mobile menu opened');
-                });
-            });
-        };
-        
-        const closeMenu = () => {
-            console.log('Closing mobile menu...');
-            requestAnimationFrame(() => {
-                const style = mobileWrapper.style;
-                style.transition = 'transform 0.3s ease-in-out, opacity 0.3s ease';
-                style.transform = 'translateX(-100%)';
-                style.opacity = '0';
-                
-                mobileWrapper.classList.remove('sidebar-visible');
-                body.classList.remove('mobile-menu-active');
-                burger.classList.remove('active');
-                
-                const overlayStyle = overlay.style;
-                overlayStyle.opacity = '0';
-                overlayStyle.visibility = 'hidden';
-                
-                setTimeout(() => {
-                    style.visibility = 'hidden';
-                    style.display = 'none';
-                    console.log('Mobile menu closed');
-                }, 300);
-            });
-        };
-        
-        // Enhanced state check with debugging
-        const isMenuOpen = () => {
-            // Check if we're in mobile view first
-            const isMobile = window.innerWidth <= 991;
-            if (!isMobile) {
-                console.log('Desktop view - menu should be hidden');
-                return false;
-            }
-            
-            const hasClass = mobileWrapper.classList.contains('sidebar-visible');
-            const transform = window.getComputedStyle(mobileWrapper).transform;
-            const isTransformed = transform === 'matrix(1, 0, 0, 1, 0, 0)' || transform === 'none';
-            
-            console.log('Menu State Check:', {
-                isMobile: isMobile,
-                hasClass: hasClass,
-                isTransformed: isTransformed,
-                transform: transform,
-                classList: Array.from(mobileWrapper.classList)
-            });
-            
-            return hasClass && isTransformed;
-        };
-        
-        // Event handlers with passive listeners for better performance
-        burger.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            
-            // Only handle clicks on mobile
-            if (window.innerWidth > 991) {
-                console.log('Ignoring burger click on desktop');
-                return;
-            }
-            
-            const menuState = isMenuOpen();
-            console.log('Burger clicked!', { 
-                isOpen: menuState,
-                willDo: menuState ? 'close' : 'open',
-                viewport: window.innerWidth
-            });
-            
-            if (menuState) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }, { passive: false });
-        
-        if (closeButton) {
-            closeButton.addEventListener('click', function(e) {
-                e.preventDefault();
-                console.log('Close button clicked');
-                closeMenu();
-            }, { passive: false });
-        }
-        
-        overlay.addEventListener('click', function(e) {
-            e.preventDefault();
-            console.log('Overlay clicked');
-            closeMenu();
-        }, { passive: false });
-        
-        // Optimized escape key handler
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && isMenuOpen()) {
-                closeMenu();
-            }
-        }, { passive: true });
-        
-        // Handle window resize to close menu on desktop
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 991 && isMenuOpen()) {
-                console.log('Switching to desktop - closing menu');
-                closeMenu();
-            }
-        }, { passive: true });
-        
-        const mobileMenuEndTime = performance.now();
-        const setupTime = mobileMenuEndTime - mobileMenuStartTime;
-        scriptTracker.logScript('Mobile Menu Setup', `Completed in ${setupTime.toFixed(2)}ms`);
-        
-        console.log(`%c Mobile Menu Setup Complete! (${setupTime.toFixed(2)}ms)`, "background: #10b981; color: white; padding: 4px 8px; border-radius: 4px;");
-        
-        // Apply image optimizations after mobile menu setup
-        setTimeout(() => {
-            criticalResourceManager.optimizeSlowImages();
-            criticalResourceManager.preloadCriticalImages();
-            scriptTracker.logScript('Image Optimization', 'Applied lazy loading and preload hints');
-            
-            // Delay Google Analytics to improve initial page load
-            if (window.gtag || window.ga) {
-                console.log('Google Analytics detected - already loaded');
-            } else {
-                // If GA hasn't loaded yet, delay it slightly
-                setTimeout(() => {
-                    criticalResourceManager.optimizeThirdPartyScripts();
-                    scriptTracker.logScript('Third-party Optimization', 'Deferred tracking scripts');
-                }, 1000);
-            }
-        }, 0);
-    });
-
-    // Page Load Performance Summary
-    window.addEventListener('load', function() {
-        const loadEndTime = performance.now();
-        const totalLoadTime = loadEndTime - startTime;
-        
-        console.log("%c Page Load Complete!", "background: #059669; color: white; padding: 8px 16px; border-radius: 4px; font-weight: bold;");
-        console.log(`%c Total Load Time: ${totalLoadTime.toFixed(2)}ms`, "background: #dc2626; color: white; padding: 4px 8px; border-radius: 4px;");
-        
-        // Performance metrics
-        if (performance.getEntriesByType) {
-            const navigation = performance.getEntriesByType('navigation')[0];
-            if (navigation) {
-                console.group("%c Detailed Performance Metrics", "background: #7c3aed; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold;");
-                console.log(`DNS Lookup: ${(navigation.domainLookupEnd - navigation.domainLookupStart).toFixed(2)}ms`);
-                console.log(`TCP Connection: ${(navigation.connectEnd - navigation.connectStart).toFixed(2)}ms`);
-                console.log(`Request: ${(navigation.responseStart - navigation.requestStart).toFixed(2)}ms`);
-                console.log(`Response: ${(navigation.responseEnd - navigation.responseStart).toFixed(2)}ms`);
-                console.log(`DOM Processing: ${(navigation.domContentLoadedEventEnd - navigation.responseEnd).toFixed(2)}ms`);
-                console.log(`Resource Loading: ${(navigation.loadEventStart - navigation.domContentLoadedEventEnd).toFixed(2)}ms`);
-                console.groupEnd();
-            }
-        }
-        
-        // Script execution summary
-        const scriptSummary = scriptTracker.getSummary();
-        if (scriptSummary.length > 0) {
-            console.group("%c Script Execution Summary", "background: #0891b2; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold;");
-            scriptSummary.forEach(script => {
-                console.log(`${script.name}: +${script.elapsed.toFixed(2)}ms - ${script.timing}`);
-            });
-            console.groupEnd();
-        }
-        
-        // Performance recommendations with optimization tips
-        if (totalLoadTime > 2000) {
-            console.warn("%c Page load time is over 2 seconds. Consider optimization.", "background: #dc2626; color: white; padding: 4px 8px; border-radius: 4px;");
-            
-            // Show specific recommendations
-            const slowImages = criticalResourceManager.slowResources.filter(r => r.type === 'img' && r.duration > 1000 && !r.isTracking);
-            if (slowImages.length > 0) {
-                console.warn("%c Tip: Optimize slow images with WebP format and proper sizing", "background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px;");
-            }
-            
-            const slowScripts = criticalResourceManager.slowResources.filter(r => r.type === 'script' && r.duration > 500 && !r.isTracking);
-            if (slowScripts.length > 0) {
-                console.warn("%c Tip: Consider async/defer attributes for non-critical scripts", "background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px;");
-            }
-            
-            const slowTracking = criticalResourceManager.slowResources.filter(r => r.isTracking);
-            if (slowTracking.length > 0) {
-                console.info("%c Analytics requests detected - these are normal but can be optimized", "background: #8b5cf6; color: white; padding: 4px 8px; border-radius: 4px;");
-            }
-        } else if (totalLoadTime > 1000) {
-            console.log("%c Page load time is acceptable but could be improved.", "background: #f59e0b; color: white; padding: 4px 8px; border-radius: 4px;");
-        } else {
-            console.log("%c Excellent page load performance!", "background: #059669; color: white; padding: 4px 8px; border-radius: 4px;");
-        }
-        
-        // Show top slow resources
-        if (criticalResourceManager.slowResources.length > 0) {
-            const topSlow = criticalResourceManager.slowResources
-                .sort((a, b) => b.duration - a.duration)
-                .slice(0, 5);
-                
-            console.group("%c Top 5 Slowest Resources", "background: #dc2626; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold;");
-            topSlow.forEach((resource, index) => {
-                console.log(`${index + 1}. ${resource.name} (${resource.type}): ${resource.duration.toFixed(2)}ms`);
-            });
-            console.groupEnd();
-        }
-        
-        scriptTracker.logScript('Performance Summary', 'Analysis Complete');
-    });
-
-    // Track critical resources
-    const trackCriticalResources = () => {
-        const criticalResources = [
-            'tailwindcss',
-            'swiper',
-            'font-awesome',
-            'aos',
-            'google fonts'
-        ];
-        
-        console.group("%c Critical Resources Status", "background: #be185d; color: white; padding: 4px 8px; border-radius: 4px; font-weight: bold;");
-        
-        criticalResources.forEach(resource => {
-            const entries = performance.getEntriesByType('resource').filter(entry => 
-                entry.name.toLowerCase().includes(resource.toLowerCase())
-            );
-            
-            if (entries.length > 0) {
-                const totalTime = entries.reduce((sum, entry) => sum + (entry.responseEnd - entry.startTime), 0);
-                console.log(`${resource}: ${entries.length} file(s), ${totalTime.toFixed(2)}ms total`);
-            } else {
-                console.log(`${resource}: Not detected`);
-            }
-        });
-        
-        console.groupEnd();
-    };
-    
-    // Run critical resources check after a short delay
-    setTimeout(trackCriticalResources, 1000);
-</script>    
     </head>
     <body {!! Theme::bodyAttributes() !!} class="@if (BaseHelper::isRtlEnabled()) rtl @endif header_full_true wowy-template css_scrollbar lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-index wowy_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_full_true header_sticky_true hide_scrolld_true des_header_3 h_banner_true top_bar_true prs_bordered_grid_1 search_pos_canvas lazyload @if (Theme::get('bodyClass')) {{ Theme::get('bodyClass') }} @endif">
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
@@ -1044,7 +498,7 @@ src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1"
                     <div class="header-wrap header-space-between">
                         <div class="logo logo-width-1">
                             @if (theme_option('logo'))
-                                <a href="{{ BaseHelper::getHomepageUrl() }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                                <a href="{{ BaseHelper::getHomepageUrl() }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" width="150" height="45"></a>
                             @endif
                         </div>
                         @if (is_plugin_active('ecommerce'))
@@ -1207,7 +661,7 @@ src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1"
                 <div class="mobile-header-top">
                     @if (theme_option('logo'))
                         <div class="mobile-header-logo">
-                            <a href="{{ BaseHelper::getHomepageUrl() }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}"></a>
+                            <a href="{{ BaseHelper::getHomepageUrl() }}"><img src="{{ RvMedia::getImageUrl(theme_option('logo')) }}" alt="{{ theme_option('site_title') }}" width="150" height="45"></a>
                         </div>
                     @endif
                     <div class="mobile-menu-close close-style-wrap close-style-position-inherit">

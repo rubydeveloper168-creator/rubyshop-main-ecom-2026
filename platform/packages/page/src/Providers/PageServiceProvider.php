@@ -13,6 +13,7 @@ use Botble\Shortcode\View\View;
 use Botble\Theme\Events\RenderingAdminBar;
 use Botble\Theme\Facades\AdminBar;
 use Illuminate\Support\Facades\View as ViewFacade;
+use Illuminate\Support\Arr;
 
 /**
  * @since 02/07/2016 09:50 AM
@@ -62,6 +63,51 @@ class PageServiceProvider extends ServiceProvider
             ViewFacade::composer(['packages/page::themes.page'], function (View $view): void {
                 $view->withShortcodes();
             });
+
+            add_filter(BASE_FILTER_FORM_EDITOR_BUTTONS_FOOTER, function (?string $footer, array $attributes) {
+                if (! request()->routeIs('pages.edit')) {
+                    return $footer;
+                }
+
+                if (! Arr::get($attributes, 'with-short-code', false)) {
+                    return $footer;
+                }
+
+                $editorId = Arr::get($attributes, 'id');
+
+                if ($editorId !== 'content') {
+                    return $footer;
+                }
+
+                $shortcodes = shortcode()->getAll();
+
+                $payload = collect($shortcodes)->map(
+                    function (array $shortcode, string $key): array {
+                        return [
+                            'key' => $key,
+                            'name' => $shortcode['name'] ?? null,
+                            'description' => $shortcode['description'] ?? null,
+                            'has_admin_config' => isset($shortcode['admin_config']),
+                            'has_preview_image' => ! empty($shortcode['previewImage']),
+                        ];
+                    }
+                )->values()->all();
+
+                $footer .= '<script>
+                    (function () {
+                        const payload = ' . json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . ';
+                        console.groupCollapsed("[RUBY DEBUG] /admin/pages/edit shortcode list");
+                        console.log("route:", window.location.pathname);
+                        console.log("editorId:", ' . json_encode($editorId) . ');
+                        console.log("count:", payload.length);
+                        console.table(payload);
+                        console.log("window.BB_SHORTCODES:", window.BB_SHORTCODES || null);
+                        console.groupEnd();
+                    })();
+                </script>';
+
+                return $footer;
+            }, 130, 2);
         }
 
         $this->app->booted(function (): void {

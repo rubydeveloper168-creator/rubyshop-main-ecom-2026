@@ -8,12 +8,14 @@
     <meta name="description" content="เครื่องกรีดผนัง RUBY SHOP รุ่น RB-1009 กำลัง 4800W ระบบน้ำและแห้ง 2-in-1 พร้อมถังเก็บฝุ่นในตัว กรีดลึก 42 มม. กว้าง 48 มม. เหมาะกับงานช่างไฟ ช่างประปา และงานรีโนเวท">
     <meta name="keywords" content="เครื่องกรีดผนัง,RB-1009,เครื่องเซาะร่อง,เครื่องเซาะร่องผนัง,RUBY SHOP,เครื่องกรีดผนัง 4800W">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://www.rubyshop.co.th/products/rb-1009">
+    <link rel="canonical" href="{{ request()->url() }}">
+    <link rel="alternate" hreflang="th" href="{{ request()->url() }}">
+    <link rel="alternate" hreflang="x-default" href="{{ request()->url() }}">
 
     <meta property="og:type" content="product">
     <meta property="og:title" content="เครื่องกรีดผนัง RUBY SHOP รุ่น RB-1009 4800W">
     <meta property="og:description" content="2-in-1 ระบบน้ำและแห้ง พร้อมถังเก็บฝุ่นในตัว ใช้งานสะอาด ครบจบในเครื่องเดียว">
-    <meta property="og:url" content="https://www.rubyshop.co.th/products/rb-1009">
+    <meta property="og:url" content="{{ request()->url() }}">
     <meta property="og:image" content="https://www.rubyshop.co.th/storage/products/1009/01-1009-2-800x800.jpg">
     <meta property="og:locale" content="th_TH">
     <meta property="og:site_name" content="RUBY SHOP">
@@ -32,16 +34,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="+yln8X9wf8523X4GDZmCqA" async></script>
-    <!-- Google Analytics 4 — รวม 2 Property ไว้ใน script เดียว (ลด render-blocking) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0PWGSWH0P4"></script>
+    <!-- Google Analytics โหลดเมื่อยินยอมคุกกี้ เพื่อลด payload ตอน first render -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-0PWGSWH0P4');
-      gtag('config', 'G-NHBT4DYH7D');
-      gtag('config', 'AW-1065750118');
+      window.__rbAnalyticsLoaded = false;
+      window.loadRbAnalytics = function () {
+        if (window.__rbAnalyticsLoaded) {
+          return;
+        }
+        window.__rbAnalyticsLoaded = true;
+
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-0PWGSWH0P4';
+        document.head.appendChild(script);
+
+        gtag('js', new Date());
+        gtag('config', 'G-0PWGSWH0P4');
+        gtag('config', 'G-NHBT4DYH7D');
+        gtag('config', 'AW-1065750118');
+      };
+
+      (function () {
+        var consent = document.cookie.match(/(?:^| )rb_cookie_consent=([^;]+)/);
+        var status = consent ? consent[1] : null;
+        if (status === 'accepted') {
+          window.loadRbAnalytics();
+        } else if (status === 'declined') {
+          window['ga-disable-G-0PWGSWH0P4'] = true;
+          window['ga-disable-G-NHBT4DYH7D'] = true;
+        }
+      })();
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -1870,6 +1894,9 @@
           acceptBtn.addEventListener('click', function () {
             setCookie(COOKIE_KEY, 'accepted', 365);
             if (banner) banner.style.display = 'none';
+            if (typeof window.loadRbAnalytics === 'function') {
+              window.loadRbAnalytics();
+            }
           });
         }
         if (declineBtn) {

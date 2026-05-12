@@ -1,29 +1,54 @@
 <div class="w-full bg-gray-100 px-2 py-6 md:px-6">
-    <header class="mx-auto mb-6 flex max-w-screen-2xl flex-wrap items-center justify-between gap-3 rounded-xl border border-gray-200 bg-white p-4">
-        <div>
-            <h1 class="text-2xl font-semibold text-gray-900">{{ __('Rubyshop Catalog') }}</h1>
-            <p class="text-sm text-gray-500">{{ __('Sectioned viewer - page') }} {{ $page }}</p>
-        </div>
+    <style>
+        @keyframes catalogSpin {
+            to { transform: rotate(360deg); }
+        }
+        .catalog-spinner {
+            width: 26px;
+            height: 26px;
+            border: 3px solid #e5e7eb;
+            border-top-color: #dc2626;
+            border-radius: 9999px;
+            animation: catalogSpin .8s linear infinite;
+        }
+        .catalog-loading.hidden {
+            display: none;
+        }
+        .catalog-header p {
+            margin-bottom: 0 !important;
+        }
+    </style>
 
-        <div class="flex flex-wrap items-center gap-2">
-            @if ($prevPageUrl)
-                <a href="{{ $prevPageUrl }}" class="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
-                    {{ __('Previous') }}
+    <header class="catalog-header mx-auto mb-6 max-w-screen-2xl rounded-xl border border-gray-200 bg-white p-4 md:p-5">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+            <div class="min-w-0">
+                <h1 class="text-2xl font-semibold text-gray-900">{{ __('Rubyshop Catalog') }}</h1>
+                <p class="mt-1 text-sm text-gray-500">{{ __('Sectioned viewer - page') }} {{ $page }}</p>
+            </div>
+
+            <div class="flex w-full flex-wrap items-center gap-2 lg:w-auto lg:justify-end">
+                @if ($prevPageUrl)
+                    <a href="{{ $prevPageUrl }}" class="whitespace-nowrap rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
+                        {{ __('Previous') }}
+                    </a>
+                @endif
+
+                <a href="{{ $nextPageUrl }}" class="whitespace-nowrap rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
+                    {{ __('Next') }}
                 </a>
-            @endif
 
-            <a href="{{ $nextPageUrl }}" class="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
-                {{ __('Next') }}
-            </a>
-
-            <a href="{{ route('catalog.file') }}" target="_blank" rel="noopener noreferrer" class="rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
-                {{ __('Open PDF') }}
-            </a>
+                <a href="{{ route('catalog.file') }}" target="_blank" rel="noopener noreferrer" class="whitespace-nowrap rounded-md border border-gray-300 px-4 py-2 text-sm text-gray-700 hover:border-red-500 hover:text-red-500">
+                    {{ __('Open PDF') }}
+                </a>
+            </div>
         </div>
     </header>
 
     <div class="mx-auto max-w-screen-2xl">
-        <div id="catalog-status" class="mb-4 text-sm text-gray-600">{{ __('Loading catalog...') }}</div>
+        <div id="catalog-loading" class="catalog-loading mb-4 flex items-center gap-3 rounded-lg border border-gray-200 bg-white p-3 text-sm text-gray-700">
+            <span class="catalog-spinner" aria-hidden="true"></span>
+            <span id="catalog-status">{{ __('Loading catalog...') }}</span>
+        </div>
         <div id="catalog-pages" class="flex flex-col gap-8"></div>
     </div>
 </div>
@@ -32,18 +57,70 @@
 <script>
     document.addEventListener('DOMContentLoaded', async function () {
         const statusEl = document.getElementById('catalog-status');
+        const loadingEl = document.getElementById('catalog-loading');
         const container = document.getElementById('catalog-pages');
         const pdfUrl = @json(route('catalog.file'));
         const initialPage = {{ max(1, (int) $page) }};
+        const debugHeaderPattern = /(HTTP\/1\.0 200 OK|Activated-License:\s*[^\n]+|Authorization-At:\s*[^\n]+|Cache-Control:\s*[^\n]+|Cms-Version:\s*[^\n]+|Date:\s*[^\n]+)/gi;
+
+        function sanitizeDebugText(message) {
+            if (! message) {
+                return '';
+            }
+
+            return String(message).replace(debugHeaderPattern, '').replace(/\s{2,}/g, ' ').trim();
+        }
 
         function setStatus(message) {
             if (statusEl) {
-                statusEl.textContent = message;
+                statusEl.textContent = sanitizeDebugText(message) || 'Loading catalog...';
             }
         }
 
+        function setLoading(isLoading) {
+            if (! loadingEl) {
+                return;
+            }
+
+            loadingEl.classList.toggle('hidden', !isLoading);
+        }
+
+        function scrubDebugHeaderText(node) {
+            if (! node) {
+                return;
+            }
+
+            if (node.nodeType === Node.TEXT_NODE) {
+                const sanitized = sanitizeDebugText(node.textContent);
+                if (sanitized !== node.textContent) {
+                    node.textContent = sanitized;
+                }
+                return;
+            }
+
+            node.childNodes.forEach(function (child) {
+                scrubDebugHeaderText(child);
+            });
+        }
+
+        scrubDebugHeaderText(document.body);
+
+        const textObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function (mutation) {
+                mutation.addedNodes.forEach(function (addedNode) {
+                    scrubDebugHeaderText(addedNode);
+                });
+            });
+        });
+
+        textObserver.observe(document.body, { childList: true, subtree: true });
+
+        setLoading(true);
+        setStatus('Loading catalog...');
+
         if (! container || ! window.pdfjsLib) {
             setStatus('Unable to initialize catalog renderer.');
+            setLoading(false);
             return;
         }
 
@@ -123,9 +200,11 @@
             }
 
             setStatus('Loaded ' + pdf.numPages + ' pages.');
+            setLoading(false);
         } catch (error) {
             console.error(error);
             setStatus('Failed to load catalog. Please use "Open PDF" button.');
+            setLoading(false);
         }
     });
 </script>

@@ -14,7 +14,7 @@
 <meta property="og:title" content="เกี่ยวกับเรา - หจก.รูบี้ช๊อป">
 <meta property="og:description" content="ผู้นำด้านเครื่องมือช่างและเครื่องพ่นสีคุณภาพสูง ด้วยประสบการณ์กว่า 10 ปี">
 <meta property="og:image" content="https://www.rubyshop.co.th/images/about-us-cover.jpg">
-<meta property="og:url" content="https://www.rubyshop.co.th/about.html">
+<meta property="og:url" content="{{ request()->url() }}">
 <meta property="og:type" content="website">
 
 <!-- Twitter Card -->
@@ -25,7 +25,9 @@
 
 
 <!-- Canonical URL -->
-<link rel="canonical" href="https://www.rubyshop.co.th/products/rb-mr004-plaster-sprayer">
+<link rel="canonical" href="{{ request()->url() }}">
+<link rel="alternate" hreflang="th" href="{{ request()->url() }}">
+<link rel="alternate" hreflang="x-default" href="{{ request()->url() }}">
 
 
 
@@ -54,23 +56,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'ruby': '#ed1d24',
-                        'ruby-dark': '#CC0000',
-                        'ruby-light': '#FF3355',
-                    },
-                 
-                    
-                }
-            }
-        }
-    </script>
+    <!-- Tailwind CSS (local build) -->
+    <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
     
 
     

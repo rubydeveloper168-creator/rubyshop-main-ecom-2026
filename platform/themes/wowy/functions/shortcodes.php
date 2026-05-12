@@ -3,6 +3,7 @@
 use Botble\Ads\Facades\AdsManager;
 use Botble\Ads\Models\Ads;
 use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Base\Forms\FieldOptions\MediaFileFieldOption;
 use Botble\Base\Models\BaseModel;
 use Botble\Blog\Repositories\Interfaces\PostInterface;
 use Botble\Ecommerce\Facades\EcommerceHelper;
@@ -11,6 +12,7 @@ use Botble\Ecommerce\Models\ProductCategory;
 use Botble\Ecommerce\Repositories\Interfaces\ProductInterface;
 use Botble\Faq\Repositories\Interfaces\FaqCategoryInterface;
 use Botble\Base\Forms\Fields\MediaImageField;
+use Botble\Base\Forms\Fields\MediaFileField;
 use Botble\Base\Forms\Fields\TextField;
 use Botble\Base\Forms\Fields\TextareaField;
 use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
@@ -334,6 +336,55 @@ app()->booted(function (): void {
                 TextFieldOption::make()->label(__('Button URL'))->placeholder('https://example.com')
             );
     });
+
+    add_shortcode('hero-video-mobile-image-ruby', __('Hero Video Mobile Image Ruby'), __('Hero section with video on desktop and image on mobile'), function (Shortcode $shortcode) {
+        return Theme::partial('shortcodes.hero-video-mobile-image-ruby', [
+            'attributes' => $shortcode->toArray(),
+        ]);
+    });
+
+    shortcode()->setAdminConfig('hero-video-mobile-image-ruby', function (array $attributes) {
+        return ShortcodeForm::createFromArray($attributes)
+            ->withLazyLoading()
+            ->add(
+                'desktop_video',
+                MediaFileField::class,
+                MediaFileFieldOption::make()
+                    ->label(__('Desktop video'))
+                    ->helperText(__('Upload an MP4 video for desktop browsers.'))
+            )
+            ->add(
+                'desktop_poster',
+                MediaImageField::class,
+                MediaImageFieldOption::make()
+                    ->label(__('Desktop poster image'))
+                    ->helperText(__('Shown before the video loads.'))
+            )
+            ->add(
+                'mobile_image',
+                MediaImageField::class,
+                MediaImageFieldOption::make()
+                    ->label(__('Mobile image'))
+                    ->helperText(__('Shown on mobile devices.'))
+            )
+            ->add('title', TextField::class, TextFieldOption::make()->label(__('Title'))->helperText(__('Hero title')))
+            ->add(
+                'subtitle',
+                TextareaField::class,
+                TextareaFieldOption::make()->label(__('Subtitle'))->helperText(__('Hero subtitle'))
+            )
+            ->add('button_text', TextField::class, TextFieldOption::make()->label(__('Button text')))
+            ->add(
+                'button_link',
+                TextField::class,
+                TextFieldOption::make()->label(__('Button URL'))->placeholder('https://example.com')
+            );
+    });
+
+    shortcode()->setPreviewImage(
+        'hero-video-mobile-image-ruby',
+        asset('vendor/core/packages/theme/images/ui-blocks/youtube-video.jpg')
+    );
 
     add_shortcode('ruby-feature-card', __('Ruby Feature Card'), __('Ruby feature cards grid'), function (Shortcode $shortcode) {
         return Theme::partial('shortcodes.ruby-feature-card', [

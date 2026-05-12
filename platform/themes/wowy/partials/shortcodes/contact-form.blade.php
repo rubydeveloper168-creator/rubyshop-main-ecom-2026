@@ -6,8 +6,8 @@
 </style>
 
 <section id="contact" class="bg-gradient-to-b from-white to-gray-50 pt-10 lg:pt-12 pb-16 lg:pb-20">
-    <div class="container mx-auto px-4 lg:px-8">
-        <div class="max-w-3xl mx-auto text-center">
+    <div class="w-full px-4 sm:px-6 lg:px-12 2xl:px-16">
+        <div class="w-full text-center">
             <div class="flex justify-center mb-5">
                 <img src="https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-250pxx100px.jpg" alt="RUBYSHOP" class="h-12 md:h-16 object-contain">
             </div>
@@ -20,7 +20,7 @@
             </p>
         </div>
 
-        <div class="mt-12 grid gap-10 lg:grid-cols-2">
+        <div class="mt-12 grid gap-10 xl:grid-cols-2">
             <div class="space-y-6">
                 <div class="bg-white border border-gray-100 rounded-3xl shadow-lg p-8">
                     <h3 class="text-xl font-semibold text-gray-900 mb-6">{{ __('ข้อมูลการติดต่อ') }}</h3>

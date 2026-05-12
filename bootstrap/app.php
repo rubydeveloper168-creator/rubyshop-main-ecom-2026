@@ -22,6 +22,8 @@ return Application::configure(basePath: dirname(__DIR__))
         // Add performance optimization middleware
         $middleware->web(prepend: [
             \App\Http\Middleware\SetExecutionTimeMiddleware::class,
+            \App\Http\Middleware\StripDebugHeaderTextMiddleware::class,
+            \App\Http\Middleware\SecurityHeadersMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

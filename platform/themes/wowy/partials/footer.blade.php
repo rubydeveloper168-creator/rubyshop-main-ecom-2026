@@ -47,7 +47,7 @@
     <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
             <div>
-                <img src="https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-white.png" alt="RUBYSHOP Logo" class="h-12 mb-6">
+                <img src="https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-white.png" alt="RUBYSHOP Logo" class="h-12 mb-6" width="160" height="48" loading="lazy" decoding="async">
                 <p class="text-gray-400">
                     RUBYSHOP ผู้นำเข้าและจัดจำหน่ายอุปกรณ์ก่อสร้างคุณภาพสูง มุ่งมั่นนำเสนอนวัตกรรมและเทคโนโลยีล่าสุดเพื่อตอบสนองความต้องการของลูกค้า
                 </p>
@@ -317,24 +317,120 @@
 
 <div id="scrollUp"><i class="fal fa-long-arrow-up"></i></div>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-WSR5H4YBF2"></script>
 <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-WSR5H4YBF2');
-</script>
+    (function () {
+        const nonCriticalStyles = [
+            'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css',
+            'https://unpkg.com/aos@2.3.1/dist/aos.css',
+        ];
 
+        const loadNonCriticalStyles = function () {
+            if (window.__rubyshopNonCriticalCssLoaded) {
+                return;
+            }
 
-<script>
-    console.log("%c Welcome to RUBYSHOP! Footer script loaded.!!", "background: #dc2626; color: #ffffff; font-size: 16px; padding: 8px 16px; border-radius: 4px;");
+            window.__rubyshopNonCriticalCssLoaded = true;
+            nonCriticalStyles.forEach(function (href) {
+                if (document.querySelector('link[href="' + href + '"]')) {
+                    return;
+                }
+
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                document.head.appendChild(link);
+            });
+        };
+
+        const scheduleNonCriticalStyles = function () {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadNonCriticalStyles, { timeout: 2500 });
+            } else {
+                setTimeout(loadNonCriticalStyles, 1200);
+            }
+        };
+
+        if (document.readyState === 'complete') {
+            scheduleNonCriticalStyles();
+        } else {
+            window.addEventListener('load', scheduleNonCriticalStyles, { once: true });
+        }
+
+        const gtagIds = ['G-WSR5H4YBF2', 'G-0PWGSWH0P4', 'G-VMWVKYGZ6X', 'G-NHBT4DYH7D', 'AW-1065750118'];
+
+        const loadAnalytics = function () {
+            if (window.__rubyshopAnalyticsLoaded) {
+                return;
+            }
+
+            window.__rubyshopAnalyticsLoaded = true;
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = window.gtag || function () { dataLayer.push(arguments); };
+            window.gtag('js', new Date());
+
+            gtagIds.forEach(function (id) {
+                window.gtag('config', id);
+            });
+
+            window.gtag('event', 'conversion', { send_to: 'AW-1065750118/hV8kCIyViPkCEOacmPwD' });
+
+            const ga = document.createElement('script');
+            ga.async = true;
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gtagIds[0]);
+            document.head.appendChild(ga);
+        };
+
+        const loadPixel = function () {
+            if (window.fbq) {
+                return;
+            }
+
+            !function(f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function() {
+                    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+                };
+                if (!f._fbq) f._fbq = n;
+                n.push = n;
+                n.loaded = true;
+                n.version = '2.0';
+                n.queue = [];
+                t = b.createElement(e);
+                t.async = true;
+                t.src = v;
+                s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s);
+            }(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '1073208261615128');
+            fbq('track', 'PageView');
+        };
+
+        const loadTrackers = function () {
+            loadAnalytics();
+            loadPixel();
+        };
+
+        const scheduleTrackers = function () {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadTrackers, { timeout: 3000 });
+            } else {
+                setTimeout(loadTrackers, 2000);
+            }
+        };
+
+        if (document.readyState === 'complete') {
+            scheduleTrackers();
+        } else {
+            window.addEventListener('load', scheduleTrackers, { once: true });
+        }
+    })();
 </script>
+<noscript>
+    <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1" alt="">
+</noscript>
 
 <!-- Ruby Slider Tools Script -->
 <script>
-    console.log("%c Ruby Slider Tools Script Loaded!", "background: #059669; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px;");
-    
     function initializeRubySlider(sliderId) {
         const root = document.getElementById(sliderId);
         if (!root) {
@@ -473,19 +569,10 @@
         initializeAllRubySliders();
     }
 
-    // Check for new sliders less frequently and only for uninitialized ones
-    setInterval(() => {
-        const uninitializedSliders = document.querySelectorAll('[id^="ruby-slider-tools-"]:not([data-ruby-slider-initialized="true"])');
-        if (uninitializedSliders.length > 0) {
-            initializeAllRubySliders();
-        }
-    }, 5000);
 </script>
 
 <!-- Ruby Fade Animation Script -->
 <script>
-    console.log("%c Ruby Fade Animation Script Loaded!", "background: #059669; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px;");
-    
     function initializeRubyFadeAnimation() {
         // Only run if Intersection Observer is supported
         if ('IntersectionObserver' in window) {
@@ -531,285 +618,7 @@
         initializeRubyFadeAnimation();
     }
     
-    // Re-check for new fade cards every 3 seconds
-    setInterval(() => {
-        const uninitializedCards = document.querySelectorAll('.ruby-fade-card:not([data-fade-observer-initialized="true"])');
-        if (uninitializedCards.length > 0) {
-            initializeRubyFadeAnimation();
-        }
-    }, 3000);
 </script>
-
-<!-- Hero Banner Skeleton Handler Script -->
-<script>
-    console.log("%c Hero Skeleton Handler Loaded!", "background: #059669; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px;");
-    
-    function forceShowHeroContent() {
-        // Find all hero sections and force show content
-        const heroSections = document.querySelectorAll('.hero-banner101-ruby');
-        
-        heroSections.forEach(function(heroSection) {
-            const heroMain = heroSection.querySelector('.hero-banner101-ruby__main');
-            const heroSkeleton = heroSection.querySelector('.hero-skeleton');
-            
-            if (heroMain && heroSkeleton) {
-                // Force show content
-                heroSkeleton.style.display = 'none';
-                heroMain.style.opacity = '1';
-                heroMain.classList.add('loaded');
-            }
-        });
-    }
-    
-    function initHeroSkeletonHandler() {
-        // Wait for DOM to be ready
-        setTimeout(function() {
-            const heroSections = document.querySelectorAll('.hero-banner101-ruby');
-            
-            heroSections.forEach(function(heroSection, index) {
-                const heroMain = heroSection.querySelector('.hero-banner101-ruby__main');
-                const heroSkeleton = heroSection.querySelector('.hero-skeleton');
-                const heroImage = heroSection.querySelector('.hero-image');
-                
-                if (!heroMain || !heroSkeleton) return;
-                
-                // Mark as processing
-                if (heroSection.dataset.skeletonProcessed === 'true') return;
-                heroSection.dataset.skeletonProcessed = 'true';
-                
-                let contentShown = false;
-                
-                function showContent() {
-                    if (contentShown) return;
-                    contentShown = true;
-                    
-                    heroSkeleton.style.transition = 'opacity 0.3s ease';
-                    heroSkeleton.style.opacity = '0';
-                    heroMain.style.opacity = '1';
-                    heroMain.classList.add('loaded');
-                    
-                    setTimeout(function() {
-                        heroSkeleton.style.display = 'none';
-                    }, 300);
-                }
-                
-                // Force show after 1 second regardless of image status
-                setTimeout(showContent, 1000);
-                
-                // Try to detect image load if image exists
-                if (heroImage) {
-                    if (heroImage.complete || heroImage.naturalWidth > 0) {
-                        setTimeout(showContent, 100);
-                    } else {
-                        heroImage.addEventListener('load', showContent);
-                        heroImage.addEventListener('error', showContent);
-                    }
-                } else {
-                    // No image, show immediately
-                    setTimeout(showContent, 100);
-                }
-            });
-        }, 100);
-    }
-    
-    // Initialize on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initHeroSkeletonHandler);
-    } else {
-        initHeroSkeletonHandler();
-    }
-    
-    // Re-run periodically to catch dynamically added hero sections
-    setInterval(initHeroSkeletonHandler, 2000);
-    
-    // Emergency fallback - force show all content after 3 seconds
-    setTimeout(forceShowHeroContent, 3000);
-</script>
-
-<!-- Feature Cards Skeleton Handler Script -->
-<script>
-    console.log("%c Feature Cards Skeleton Handler Loaded!", "background: #059669; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px;");
-    
-    function forceShowFeatureCards() {
-        // Find all feature card sections and force show content
-        const featureSections = document.querySelectorAll('.ruby-feature-cards');
-        
-        featureSections.forEach(function(featureSection) {
-            const featureMain = featureSection.querySelector('.ruby-feature-cards__main');
-            const featureSkeleton = featureSection.querySelector('.feature-cards-skeleton');
-            
-            if (featureMain && featureSkeleton) {
-                // Force show content
-                featureSkeleton.style.display = 'none';
-                featureMain.style.opacity = '1';
-                featureMain.classList.add('loaded');
-            }
-        });
-    }
-    
-    function initFeatureCardsSkeletonHandler() {
-        // Wait for DOM to be ready
-        setTimeout(function() {
-            const featureSections = document.querySelectorAll('.ruby-feature-cards');
-            
-            featureSections.forEach(function(featureSection, index) {
-                const featureMain = featureSection.querySelector('.ruby-feature-cards__main');
-                const featureSkeleton = featureSection.querySelector('.feature-cards-skeleton');
-                const featureImages = featureSection.querySelectorAll('.feature-card-image');
-                
-                if (!featureMain || !featureSkeleton) return;
-                
-                // Mark as processing
-                if (featureSection.dataset.skeletonProcessed === 'true') return;
-                featureSection.dataset.skeletonProcessed = 'true';
-                
-                let contentShown = false;
-                
-                function showContent() {
-                    if (contentShown) return;
-                    contentShown = true;
-                    
-                    featureSkeleton.style.transition = 'opacity 0.3s ease';
-                    featureSkeleton.style.opacity = '0';
-                    featureMain.style.opacity = '1';
-                    featureMain.classList.add('loaded');
-                    
-                    setTimeout(function() {
-                        featureSkeleton.style.display = 'none';
-                    }, 300);
-                }
-                
-                // Force show after 1.5 seconds regardless of image status
-                setTimeout(showContent, 1500);
-                
-                // Try to detect image loads if images exist
-                if (featureImages.length > 0) {
-                    let imagesLoaded = 0;
-                    let totalImages = featureImages.length;
-                    
-                    function checkAllImagesLoaded() {
-                        imagesLoaded++;
-                        if (imagesLoaded >= totalImages) {
-                            setTimeout(showContent, 100);
-                        }
-                    }
-                    
-                    featureImages.forEach(function(img) {
-                        if (img.complete || img.naturalWidth > 0) {
-                            checkAllImagesLoaded();
-                        } else {
-                            img.addEventListener('load', checkAllImagesLoaded);
-                            img.addEventListener('error', checkAllImagesLoaded);
-                        }
-                    });
-                } else {
-                    // No images, show after short delay
-                    setTimeout(showContent, 200);
-                }
-            });
-        }, 100);
-    }
-    
-    // Initialize on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initFeatureCardsSkeletonHandler);
-    } else {
-        initFeatureCardsSkeletonHandler();
-    }
-    
-    // Re-run periodically to catch dynamically added feature card sections
-    setInterval(initFeatureCardsSkeletonHandler, 2000);
-    
-    // Emergency fallback - force show all feature cards after 4 seconds
-    setTimeout(forceShowFeatureCards, 4000);
-</script>
-
-<!-- Fade Section Skeleton Handler Script -->
-<script>
-    console.log("%c Fade Section Skeleton Handler Loaded!", "background: #059669; color: #ffffff; font-size: 14px; padding: 6px 12px; border-radius: 4px;");
-    
-    function forceShowFadeSections() {
-        // Find all fade sections and force show content
-        const fadeSections = document.querySelectorAll('.ruby-fade-section');
-        
-        fadeSections.forEach(function(fadeSection) {
-            const fadeMain = fadeSection.querySelector('.ruby-fade-section__main');
-            const fadeSkeleton = fadeSection.querySelector('.fade-section-skeleton');
-            
-            if (fadeMain && fadeSkeleton) {
-                // Force show content
-                fadeSkeleton.style.display = 'none';
-                fadeMain.style.opacity = '1';
-                fadeMain.classList.add('loaded');
-            }
-        });
-    }
-    
-    function initFadeSectionSkeletonHandler() {
-        // Wait for DOM to be ready
-        setTimeout(function() {
-            const fadeSections = document.querySelectorAll('.ruby-fade-section');
-            
-            fadeSections.forEach(function(fadeSection, index) {
-                const fadeMain = fadeSection.querySelector('.ruby-fade-section__main');
-                const fadeSkeleton = fadeSection.querySelector('.fade-section-skeleton');
-                const fadeImage = fadeSection.querySelector('.fade-bg-image');
-                
-                if (!fadeMain || !fadeSkeleton) return;
-                
-                // Mark as processing
-                if (fadeSection.dataset.skeletonProcessed === 'true') return;
-                fadeSection.dataset.skeletonProcessed = 'true';
-                
-                let contentShown = false;
-                
-                function showContent() {
-                    if (contentShown) return;
-                    contentShown = true;
-                    
-                    fadeSkeleton.style.transition = 'opacity 0.3s ease';
-                    fadeSkeleton.style.opacity = '0';
-                    fadeMain.style.opacity = '1';
-                    fadeMain.classList.add('loaded');
-                    
-                    setTimeout(function() {
-                        fadeSkeleton.style.display = 'none';
-                    }, 300);
-                }
-                
-                // Force show after 1.2 seconds regardless of image status
-                setTimeout(showContent, 1200);
-                
-                // Try to detect image load if image exists
-                if (fadeImage) {
-                    if (fadeImage.complete || fadeImage.naturalWidth > 0) {
-                        setTimeout(showContent, 100);
-                    } else {
-                        fadeImage.addEventListener('load', showContent);
-                        fadeImage.addEventListener('error', showContent);
-                    }
-                } else {
-                    // No image, show after short delay
-                    setTimeout(showContent, 200);
-                }
-            });
-        }, 100);
-    }
-    
-    // Initialize on DOM ready
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initFadeSectionSkeletonHandler);
-    } else {
-        initFadeSectionSkeletonHandler();
-    }
-    
-    // Re-run periodically to catch dynamically added fade sections
-    setInterval(initFadeSectionSkeletonHandler, 2000);
-    
-    // Emergency fallback - force show all fade sections after 3.5 seconds
-    setTimeout(forceShowFadeSections, 3500);
-</script>
-
 
 <!-- Messenger Float Button -->
 <a href="https://m.me/816184855086392" target="_blank" rel="noopener noreferrer" id="messenger-float-btn" title="Chat with us on Messenger" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#0695FF,#A334FA,#FF6968);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:9998;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;">

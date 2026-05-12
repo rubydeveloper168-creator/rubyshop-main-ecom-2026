@@ -18,7 +18,8 @@
         }
 
         $slides[] = [
-            'image' => $image ? RvMedia::getImageUrl($image) : null,
+            'image' => $image ? RvMedia::getImageUrl($image, 'medium') : null,
+            'imageSmall' => $image ? RvMedia::getImageUrl($image, 'product-thumb') : null,
             'title' => $title,
             'description' => $description,
             'link' => $link,
@@ -40,7 +41,7 @@
                     <div class="w-full sm:w-1/4 flex-shrink-0 rounded-lg overflow-hidden relative group cursor-pointer">
                         @php
                             $cardContent = '<div class="h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
-                                ' . ($slide['image'] ? '<img src="' . $slide['image'] . '" alt="' . e($slide['title'] ?? __('Slider image')) . '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">' : '') . '
+                                ' . ($slide['image'] ? '<img src="' . $slide['image'] . '" srcset="' . e($slide['imageSmall']) . ' 400w, ' . e($slide['image']) . ' 800w" sizes="(max-width: 640px) 100vw, 25vw" alt="' . e($slide['title'] ?? __('Slider image')) . '" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" decoding="async">' : '') . '
                                 <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent pt-20 px-4 pb-4 text-white">
                                     ' . ($slide['title'] ? '<h2 class="text-color-class text-lg font-bold transition duration-300 group-hover:text-red-500 group-hover:translate-x-1">' . BaseHelper::clean($slide['title']) . '</h2>' : '') . '
                                     ' . ($slide['description'] ? '<p class="text-color-class text-sm mt-1 opacity-90 transition duration-300 group-hover:text-red-100 group-hover:translate-x-1">' . BaseHelper::clean($slide['description']) . '</p>' : '') . '

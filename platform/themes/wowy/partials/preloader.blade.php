@@ -1,4 +1,4 @@
-@if (theme_option('preloader_enabled', 'no') == 'yes')
+@if (false && theme_option('preloader_enabled', 'no') == 'yes')
     @if (theme_option('preloader_version', 'v1') == 'v1' && theme_option('preloader_image'))
         <style>
             .preloader {

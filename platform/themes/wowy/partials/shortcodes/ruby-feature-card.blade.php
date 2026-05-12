@@ -19,7 +19,8 @@
         $cards[] = [
             'title' => $title,
             'description' => $description,
-            'image' => $image ? RvMedia::getImageUrl($image) : null,
+            'image' => $image ? RvMedia::getImageUrl($image, 'medium') : null,
+            'imageSmall' => $image ? RvMedia::getImageUrl($image, 'product-thumb') : null,
             'buttonText' => $buttonText,
             'buttonLink' => $buttonLink,
         ];
@@ -36,8 +37,7 @@
         }
 
         .ruby-feature-cards__main {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
         }
 
         .ruby-feature-cards__main.loaded {
@@ -51,7 +51,7 @@
             padding: 64px 24px;
             max-width: 1152px;
             margin: 0 auto;
-            display: grid;
+            display: none;
             grid-template-columns: 1fr;
             gap: 24px;
         }
@@ -154,7 +154,7 @@
             @foreach ($cards as $card)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col h-full">
                     @if ($card['image'])
-                        <img src="{{ $card['image'] }}" alt="{{ $card['title'] ?? __('Feature image') }}" class="w-full h-48 object-cover feature-card-image" loading="lazy">
+                        <img src="{{ $card['image'] }}" srcset="{{ $card['imageSmall'] }} 400w, {{ $card['image'] }} 800w" sizes="(max-width: 768px) 100vw, 33vw" alt="{{ $card['title'] ?? __('Feature image') }}" class="w-full h-48 object-cover feature-card-image" loading="lazy" decoding="async">
                     @endif
                     <div class="p-6 text-center flex flex-col flex-grow">
                         @if ($card['title'])

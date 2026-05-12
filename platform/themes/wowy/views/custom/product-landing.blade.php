@@ -49,7 +49,7 @@
                     <div class="container mx-auto flex min-h-[100svh] items-center justify-start px-4 pt-[max(170px,calc(env(safe-area-inset-top)+130px))] sm:pt-32 md:min-h-[85vh] md:px-6 md:py-12 lg:py-16">
                         <div class="hero-v2-copy w-full max-w-4xl">
                             <div class="hero-v2-stack flex min-h-[68svh] flex-col md:min-h-0 md:block">
-                                <div class="my-auto md:my-0">
+                                <div class="my-auto rounded-[28px] border border-white/15 bg-black/45 p-5 shadow-2xl shadow-black/20 backdrop-blur-md sm:p-6 md:my-0 md:max-w-3xl md:p-8">
                                     <p class="mb-2 text-[11px] font-semibold leading-snug tracking-wide sm:text-xs md:mb-3 md:text-sm" style="color: {{ $heroKickerColor }};">
                                         {{ $sectionKickerText ?: ($product->name . ' | ' . ($product->brand?->name ?: 'RUBYSHOP')) }}
                                     </p>
@@ -61,22 +61,22 @@
                                     <p class="mt-3 max-w-3xl text-[clamp(0.95rem,3.8vw,1.5rem)] leading-relaxed md:mt-4" style="color: {{ $heroSubheadlineColor }};">
                                         {!! BaseHelper::clean($sectionContent ?: __('คืนทุนภายใน 3 เดือน พร้อมระบบผสมอัตโนมัติ ทำงานต่อเนื่อง ไม่สะดุด')) !!}
                                     </p>
-                                </div>
 
-                                <div class="hero-v2-actions flex flex-col gap-3 pb-[max(96px,calc(env(safe-area-inset-bottom)+96px))] sm:flex-row sm:flex-wrap md:mt-8 md:pb-0 md:justify-start">
-                                    @if ($sectionButtonText && $sectionButtonUrl)
-                                        <a href="{{ $sectionButtonUrl }}" data-ads-cta="hero-v2-primary" class="inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-red-700 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
-                                            {{ $sectionButtonText }}
-                                        </a>
-                                    @else
-                                        <a href="{{ $lineUrl }}" target="_blank" rel="noopener noreferrer" data-ads-cta="hero-v2-primary" class="inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-red-700 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
-                                            {{ __('นัดสาธิตฟรีหน้างาน') }}
-                                        </a>
-                                    @endif
+                                    <div class="hero-v2-actions mt-6 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-8 md:justify-start">
+                                        @if ($sectionButtonText && $sectionButtonUrl)
+                                            <a href="{{ $sectionButtonUrl }}" data-ads-cta="hero-v2-primary" class="inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-red-700 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
+                                                {{ $sectionButtonText }}
+                                            </a>
+                                        @else
+                                            <a href="{{ $lineUrl }}" target="_blank" rel="noopener noreferrer" data-ads-cta="hero-v2-primary" class="inline-flex w-full items-center justify-center rounded-full bg-red-600 px-6 py-3 text-sm font-bold text-white shadow-lg hover:bg-red-700 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
+                                                {{ __('นัดสาธิตฟรีหน้างาน') }}
+                                            </a>
+                                        @endif
 
-                                    <a href="{{ $productUrlWithQuery }}" data-ads-cta="hero-v2-secondary" class="inline-flex w-full items-center justify-center rounded-full bg-white/20 px-6 py-3 text-sm font-bold text-white backdrop-blur hover:bg-white/30 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
-                                        {{ __('ดูราคา & ROI') }}
-                                    </a>
+                                        <a href="{{ $productUrlWithQuery }}" data-ads-cta="hero-v2-secondary" class="inline-flex w-full items-center justify-center rounded-full bg-white/20 px-6 py-3 text-sm font-bold text-white backdrop-blur hover:bg-white/30 sm:w-auto sm:px-8 sm:py-3.5 sm:text-base">
+                                            {{ __('ดูราคา & ROI') }}
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -2,21 +2,20 @@
     <style>
         .hero-banner101-ruby {
             position: relative;
-            width: 100vw;
-            margin-left: calc(50% - 50vw);
+            width: 100%;
+            margin-left: 0;
             overflow: hidden;
-            height: clamp(340px, 60vw, 560px);
+            background: #111;
         }
 
         .hero-banner101-ruby__main {
-            position: absolute;
+            position: relative;
             left: 0;
             top: 0;
             z-index: 2;
             width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            height: auto;
+            opacity: 1;
         }
 
         .hero-banner101-ruby__main.loaded {
@@ -24,13 +23,15 @@
         }
 
         .hero-banner101-ruby .hero-image {
-            position: absolute;
-            inset: 0;
+            position: relative;
+            display: block;
             width: 100%;
-            height: 100%;
+            height: clamp(260px, 42vw, 720px);
             object-fit: cover;
             object-position: center;
             z-index: 2;
+            transform: none;
+            transform-origin: center center;
         }
 
         .hero-banner101-ruby .hero-overlay {
@@ -64,7 +65,7 @@
             background-size: 200% 100%;
             animation: skeleton-shimmer 2s infinite;
             z-index: 1;
-            display: flex;
+            display: none;
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
@@ -149,14 +150,14 @@
 
     $attributes = $attributes ?? [];
     $heroImageValue = Arr::get($attributes, 'hero_image');
-    $defaultHeroImage = 'https://res.cloudinary.com/dhcsqglul/image/upload/v1743562269/cover2_iynrdk.webp';
+    $defaultHeroImage = 'https://www.rubyshop.co.th/storage/logo/new-logo.png';
     $heroImage = $heroImageValue
         ? RvMedia::getImageUrl($heroImageValue, null, false, $defaultHeroImage)
         : $defaultHeroImage;
-    $heroTitle = Arr::get($attributes, 'title');
-    $heroDescription = Arr::get($attributes, 'subtitle');
-    $buttonText = Arr::get($attributes, 'button_text');
-    $buttonLink = Arr::get($attributes, 'button_link');
+    $heroTitle = Arr::get($attributes, 'title') ?: 'เครื่องมือช่างเพื่อมืออาชีพ';
+    $heroDescription = Arr::get($attributes, 'subtitle') ?: 'งานจบไว มาตรฐานสูง พร้อมบริการจาก RUBYSHOP';
+    $buttonText = Arr::get($attributes, 'button_text') ?: 'ดูสินค้า';
+    $buttonLink = Arr::get($attributes, 'button_link') ?: '/product-categories/airless-sprayer';
 @endphp
 
 <section class="hero-banner101-ruby">
@@ -171,7 +172,7 @@
 
     <!-- Main Hero Content -->
     <div class="hero-banner101-ruby__main" id="hero-main-{{ $heroSectionId = uniqid() }}">
-        <img src="{{ $heroImage }}" alt="Hero Image" class="hero-image" loading="lazy" id="hero-image-{{ $heroSectionId }}">
+        <img src="{{ $heroImage }}" alt="Hero Image" class="hero-image" loading="eager" fetchpriority="high" decoding="async" id="hero-image-{{ $heroSectionId }}" onerror="this.onerror=null;this.src='{{ $defaultHeroImage }}';">
 
         <div class="hero-overlay">
             <div class="text-center px-4 max-w-4xl">

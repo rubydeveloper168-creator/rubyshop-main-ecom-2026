@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @php
+        $seoTitle = trim($__env->yieldContent('seo_title', 'รวมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูง | RUBYSHOP'));
+        $seoDescription = trim($__env->yieldContent('seo_description', 'สำรวจเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูงจาก RUBYSHOP - เครื่องพ่นสีแรงดันสูง เครื่องพ่นปูนฉาบ เครื่องกรีดผนัง และอื่นๆ พร้อมส่งทั่วไทย บริการรวดเร็ว ราคาคุ้มค่า'));
+        $seoImage = trim($__env->yieldContent('seo_image', 'https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg'));
+        $seoAlternateEn = trim($__env->yieldContent('seo_alternate_en', ''));
+        $currentUrl = url()->current();
+        $thUrl = $currentUrl;
+        $xDefaultUrl = $currentUrl;
+    @endphp
     
   <!-- Primary Meta Tags -->
-<title>รวมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูง | RUBYSHOP</title>
-<meta name="title" content="รวมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูง | RUBYSHOP">
-<meta name="description" content="สำรวจเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูงจาก RUBYSHOP - เครื่องพ่นสีแรงดันสูง เครื่องพ่นปูนฉาบ เครื่องกรีดผนัง และอื่นๆ พร้อมส่งทั่วไทย บริการรวดเร็ว ราคาคุ้มค่า">
+<title>{{ $seoTitle }}</title>
+<meta name="title" content="{{ $seoTitle }}">
+<meta name="description" content="{{ $seoDescription }}">
+<link rel="canonical" href="{{ $currentUrl }}">
+<link rel="alternate" hreflang="th" href="{{ $thUrl }}">
+@if ($seoAlternateEn !== '')
+<link rel="alternate" hreflang="en" href="{{ $seoAlternateEn }}">
+@endif
+<link rel="alternate" hreflang="x-default" href="{{ $xDefaultUrl }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.rubyshop.co.th/allproducts">
-<meta property="og:title" content="รวมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูง | RUBYSHOP">
-<meta property="og:description" content="เลือกชมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูงจาก RUBYSHOP พร้อมบริการจัดส่งทั่วไทย">
-<meta property="og:image" content="https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg"> 
+<meta property="og:url" content="{{ $currentUrl }}">
+<meta property="og:title" content="{{ $seoTitle }}">
+<meta property="og:description" content="{{ $seoDescription }}">
+<meta property="og:image" content="{{ $seoImage }}"> 
 <meta property="og:site_name" content="RUBYSHOP">
 
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:url" content="https://www.rubyshop.co.th/allproducts">
-<meta name="twitter:title" content="รวมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูง | RUBYSHOP">
-<meta name="twitter:description" content="เลือกชมเครื่องมือช่างและอุปกรณ์ก่อสร้างคุณภาพสูงจาก RUBYSHOP พร้อมบริการจัดส่งทั่วไทย">
-<meta name="twitter:image" content="https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg"> 
+<meta name="twitter:url" content="{{ $currentUrl }}">
+<meta name="twitter:title" content="{{ $seoTitle }}">
+<meta name="twitter:description" content="{{ $seoDescription }}">
+<meta name="twitter:image" content="{{ $seoImage }}"> 
 <meta name="twitter:site" content="@RUBYSHOP168">
 
 
@@ -56,12 +71,11 @@
 
 
 <!-- Additional SEO Tags -->
-<link rel="canonical" href="https://www.rubyshop.co.th/allproducts" />
 <meta name="robots" content="index, follow">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&display=swap" rel="stylesheet">

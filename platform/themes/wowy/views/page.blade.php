@@ -2,9 +2,27 @@
     $page->loadMissing('metadata');
 
     Theme::set('page', $page);
+
+    $isContactPage = request()->is('contact*')
+        || \Illuminate\Support\Str::contains($page->content, ['id="contact"', "id='contact'"])
+        || \Illuminate\Support\Str::contains(strtolower((string) $page->name), 'contact');
 @endphp
 
 <style>
+    @if ($isContactPage)
+    #main-section > .container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    #main-section > .container > .mt-60.mb-60 {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    @endif
+
     .legal-page-content,
     .legal-page-content * {
         font-family: inherit;
@@ -54,9 +72,17 @@
 @if ($page->template === 'homepage')
     {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, BaseHelper::clean($page->content), $page) !!}
 @elseif ($page->template === 'default')
-    <section class="mt-60 mb-60">
-        {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, Html::tag('div', BaseHelper::clean($page->content), ['class' => 'ck-content legal-page-content'])->toHtml(), $page) !!}
-    </section>
+    @if ($isContactPage)
+        {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, BaseHelper::clean($page->content), $page) !!}
+    @else
+        <section class="mt-60 mb-60">
+            {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, Html::tag('div', BaseHelper::clean($page->content), ['class' => 'ck-content legal-page-content'])->toHtml(), $page) !!}
+        </section>
+    @endif
 @else
-    {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, Html::tag('div', BaseHelper::clean($page->content), ['class' => 'ck-content legal-page-content'])->toHtml(), $page) !!}
+    @if ($isContactPage)
+        {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, BaseHelper::clean($page->content), $page) !!}
+    @else
+        {!! apply_filters(PAGE_FILTER_FRONT_PAGE_CONTENT, Html::tag('div', BaseHelper::clean($page->content), ['class' => 'ck-content legal-page-content'])->toHtml(), $page) !!}
+    @endif
 @endif

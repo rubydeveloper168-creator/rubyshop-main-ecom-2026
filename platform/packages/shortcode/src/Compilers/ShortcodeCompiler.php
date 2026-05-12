@@ -137,7 +137,17 @@ class ShortcodeCompiler
         $compiled = $this->compileShortcode($matches);
         $name = $compiled->getName();
 
-        if ($compiled->enable_lazy_loading === 'yes' && ! request()->ajax()) {
+        // Keep above-the-fold sections server-rendered, lazy-load only non-critical shortcodes.
+        $criticalAboveFoldShortcodes = [
+            'hero-banner101-ruby',
+            'ruby-feature-card',
+        ];
+
+        $shouldLazyLoad = $compiled->enable_lazy_loading === 'yes'
+            && ! request()->ajax()
+            && ! in_array($name, $criticalAboveFoldShortcodes, true);
+
+        if ($shouldLazyLoad) {
             add_filter(THEME_FRONT_FOOTER, function (?string $html) {
                 return $html . view('packages/shortcode::partials.lazy-loading-script')->render();
             }, 120);

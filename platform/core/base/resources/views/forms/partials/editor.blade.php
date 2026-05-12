@@ -39,3 +39,20 @@
 @endif
 
 {!! call_user_func_array([Form::class, BaseHelper::getRichEditor()], [$name, $value, $attributes]) !!}
+
+@if ((request()->is('admin/pages/*/edit') || request()->routeIs('pages.edit')) && Arr::get($attributes, 'with-short-code', false))
+    @push('footer')
+        <script>
+            (function () {
+                const shortcodes = window.BB_SHORTCODES || {};
+                console.groupCollapsed('[RUBY DEBUG] editor shortcode partial');
+                console.log('path:', window.location.pathname);
+                console.log('field:', @json($name));
+                console.log('with-short-code:', @json(Arr::get($attributes, 'with-short-code', false)));
+                console.log('shortcode keys:', Object.keys(shortcodes));
+                console.log('shortcode map:', shortcodes);
+                console.groupEnd();
+            })();
+        </script>
+    @endpush
+@endif

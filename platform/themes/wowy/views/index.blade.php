@@ -11,6 +11,7 @@
             <div>- Content:</div>
             <div style="border: 1px solid rgba(0,0,0,.1); padding: 10px; margin-top: 10px;direction: ltr;">
                 <div>[simple-slider key="home-slider-1"][/simple-slider]</div>
+                <div>[hero-video-mobile-image-ruby desktop_video="https://www.rubyshop.co.th/storage/ads/vdo.mp4" desktop_poster="https://www.rubyshop.co.th/storage/ads01/30l/m30l-hero.jpg" mobile_image="https://www.rubyshop.co.th/storage/ads01/30l/m30l-hero.jpg" title="เครื่องมือช่างเพื่อมืออาชีพ" subtitle="งานจบไว มาตรฐานสูง พร้อมบริการจาก RUBYSHOP" button_text="ดูสินค้า" button_link="/product-categories/airless-sprayer"][/hero-video-mobile-image-ruby]</div>
                 <div>[site-features icon1="general/icon-truck.png" title1="Free Shipping" subtitle1="Orders $50 or more" icon2="general/icon-purchase.png" title2="Free Returns" subtitle2="Within 30 days" icon3="general/icon-bag.png" title3="Get 20% Off 1 Item" subtitle3="When you sign up" icon4="general/icon-operator.png" title4="Support Center" subtitle4="24/7 amazing services"][/site-features]</div>
                 <div>[featured-product-categories title="Top Categories"][/featured-product-categories]</div>
                 <div>[product-collections title="Exclusive Products"][/product-collections]</div>

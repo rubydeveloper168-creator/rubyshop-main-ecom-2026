@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('seo_title', 'สินค้าทั้งหมด | RUBYSHOP')
+@section('seo_description', 'รวมสินค้าทั้งหมดจาก RUBYSHOP ครอบคลุมเครื่องพ่นสี เครื่องพ่นปูน เครื่องกรีดผนัง และอุปกรณ์งานช่าง พร้อมบริการส่งทั่วไทย')
+@section('seo_image', 'https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg')
+
 @section('content')
 <div class="container">
     <h1 class="my-4 text-center text-3xl font-bold">สินค้าทั้งหมด</h1>
@@ -10,7 +14,86 @@
         $currentPage = request()->query('page', 1);
         $paginatedCategories = $categories->forPage($currentPage, $categoriesPerPage);
         $totalPages = ceil($categories->count() / $categoriesPerPage);
+        $schemaProducts = collect();
+
+        foreach ($paginatedCategories as $category) {
+            $categoryProducts = ($category->products ?? $category->featuredProducts ?? collect())
+                ->sortBy(function ($product) {
+                    return $product->sale_price ?: $product->price;
+                });
+
+            foreach ($categoryProducts as $product) {
+                if (!$schemaProducts->contains('id', $product->id)) {
+                    $schemaProducts->push($product);
+                }
+
+                if ($schemaProducts->count() >= 12) {
+                    break 2;
+                }
+            }
+        }
+
+        $schemaItemList = $schemaProducts->values()->map(function ($product, $index) {
+            $images = json_decode($product->images, true);
+            $firstImage = is_array($images) ? ($images[0] ?? null) : null;
+
+            return [
+                '@type' => 'ListItem',
+                'position' => $index + 1,
+                'url' => route('product.detail', $product->id),
+                'item' => [
+                    '@type' => 'Product',
+                    'name' => $product->name,
+                    'image' => $firstImage
+                        ? asset('storage/' . $firstImage)
+                        : asset('images/no-image.jpg'),
+                    'offers' => [
+                        '@type' => 'Offer',
+                        'priceCurrency' => 'THB',
+                        'price' => $product->sale_price ?: $product->price,
+                        'availability' => 'https://schema.org/InStock',
+                        'url' => route('product.detail', $product->id),
+                    ],
+                ],
+            ];
+        })->all();
+
+        $schemaBreadcrumbs = [
+            [
+                '@type' => 'ListItem',
+                'position' => 1,
+                'name' => 'หน้าแรก',
+                'item' => url('/'),
+            ],
+            [
+                '@type' => 'ListItem',
+                'position' => 2,
+                'name' => 'สินค้าทั้งหมด',
+                'item' => route('allproducts'),
+            ],
+        ];
     @endphp
+
+    <script type="application/ld+json">
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'BreadcrumbList',
+            'itemListElement' => $schemaBreadcrumbs,
+        ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+    </script>
+
+    @if (!empty($schemaItemList))
+        <script type="application/ld+json">
+            {!! json_encode([
+                '@context' => 'https://schema.org',
+                '@type' => 'ItemList',
+                'name' => 'สินค้าทั้งหมด',
+                'numberOfItems' => count($schemaItemList),
+                'itemListOrder' => 'https://schema.org/ItemListOrderAscending',
+                'itemListElement' => $schemaItemList,
+            ], JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}
+        </script>
+    @endif
 
     @foreach ($paginatedCategories as $key => $category)
         <div class="category-section mb-5" 

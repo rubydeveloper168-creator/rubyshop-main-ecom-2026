@@ -1,5 +1,11 @@
 @php
-    $shortcodes = Shortcode::getAll()
+    $shortcodes = Shortcode::getAll();
+
+    if (isset($shortcodes['hero-video-mobile-image-ruby'])) {
+        $heroShortcode = ['hero-video-mobile-image-ruby' => $shortcodes['hero-video-mobile-image-ruby']];
+        unset($shortcodes['hero-video-mobile-image-ruby']);
+        $shortcodes = $heroShortcode + $shortcodes;
+    }
 @endphp
 
 <script>

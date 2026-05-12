@@ -5,6 +5,19 @@
             min-height: 12rem;
         }
 
+        /* Reserve space for heavy homepage shortcodes to avoid CLS when lazy content mounts */
+        .shortcode-lazy-loading[data-name='ruby-slider-tools'] {
+            min-height: 28rem;
+        }
+
+        .shortcode-lazy-loading[data-name='ruby-powerful-perfermance'] {
+            min-height: 56rem;
+        }
+
+        .shortcode-lazy-loading[data-name='images-with-fade-animation'] {
+            min-height: 40rem;
+        }
+
         .loading-spinner {
             align-items: center;
             background: hsla(0, 0%, 100%, 0.5);

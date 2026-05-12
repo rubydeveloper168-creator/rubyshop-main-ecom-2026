@@ -21,12 +21,13 @@
         <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-0">
             @foreach ($columns as $column)
                 @php
-                    $imageUrl = $column['image'] ? RvMedia::getImageUrl($column['image']) : null;
+                    $imageUrl = $column['image'] ? RvMedia::getImageUrl($column['image'], 'medium') : null;
+                    $imageUrlSmall = $column['image'] ? RvMedia::getImageUrl($column['image'], 'product-thumb') : null;
                 @endphp
 
                 <div class="relative h-[450px] sm:h-[500px] md:h-[600px] overflow-hidden group">
                     @if ($imageUrl)
-                        <img src="{{ $imageUrl }}" alt="{{ $column['title'] ?? __('Powerful image') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                        <img src="{{ $imageUrl }}" srcset="{{ $imageUrlSmall }} 400w, {{ $imageUrl }} 800w" sizes="(max-width: 768px) 100vw, 50vw" alt="{{ $column['title'] ?? __('Powerful image') }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
                     @endif
 
                     <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-4 sm:p-6 lg:p-8 space-y-4 transition-all duration-300 group-hover:from-black/90 group-hover:via-black/50">

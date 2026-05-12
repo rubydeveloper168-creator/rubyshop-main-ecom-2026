@@ -44,8 +44,7 @@
         }
 
         .ruby-fade-section__main {
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
         }
 
         .ruby-fade-section__main.loaded {
@@ -57,7 +56,7 @@
             inset: 0;
             background: #000;
             z-index: 1;
-            display: flex;
+            display: none;
             justify-content: center;
         }
 
@@ -196,7 +195,8 @@
 
     $attributes = $attributes ?? [];
     $backgroundImage = Arr::get($attributes, 'background_image');
-    $backgroundImageUrl = $backgroundImage ? RvMedia::getImageUrl($backgroundImage) : null;
+    $backgroundImageUrl = $backgroundImage ? RvMedia::getImageUrl($backgroundImage, 'medium') : null;
+    $backgroundImageUrlSmall = $backgroundImage ? RvMedia::getImageUrl($backgroundImage, 'product-thumb') : null;
     $cardTitle = Arr::get($attributes, 'card_title');
     $cardDescription = Arr::get($attributes, 'card_description');
     $buttonText = Arr::get($attributes, 'button_text');
@@ -223,7 +223,7 @@
         <div class="relative flex justify-center">
             <div class="w-full relative h-[450px] md:h-[645px] overflow-hidden">
                 @if ($backgroundImageUrl)
-                    <img alt="{{ $cardTitle ?? __('Background image') }}" class="w-full h-full object-cover fade-bg-image" src="{{ $backgroundImageUrl }}" loading="lazy" />
+                    <img alt="{{ $cardTitle ?? __('Background image') }}" class="w-full h-full object-cover fade-bg-image" src="{{ $backgroundImageUrl }}" srcset="{{ $backgroundImageUrlSmall }} 400w, {{ $backgroundImageUrl }} 800w" sizes="100vw" loading="lazy" decoding="async" />
                 @endif
 
                 <div class="absolute top-0 right-0 w-1/4 md:w-1/5 h-full bg-black opacity-100"></div>
@@ -249,5 +249,3 @@
         </div>
     </div>
 </section>
-
-

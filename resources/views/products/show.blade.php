@@ -1,7 +1,39 @@
 @extends('layouts.app')
 
+@php
+    $productImages = json_decode($product->images ?? '[]', true);
+    $productFirstImage = is_array($productImages) ? ($productImages[0] ?? null) : null;
+    $productImageUrl = $productFirstImage ? asset($productFirstImage) : asset('images/no-image.jpg');
+    $productPrice = $product->sale_price ?: $product->price;
+    $productDescription = trim(strip_tags($product->description ?: $product->name));
+@endphp
+
+@section('seo_title', ($product->name ?? 'สินค้า') . ' | RUBYSHOP')
+@section('seo_description', \Illuminate\Support\Str::limit($productDescription, 160))
+@section('seo_image', $productImageUrl)
+
 @section('content')
 <div class="container">
+    <script type="application/ld+json">
+        {!! json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'Product',
+            'name' => $product->name,
+            'image' => [$productImageUrl],
+            'description' => $productDescription,
+            'sku' => $product->sku ?: null,
+            'offers' => [
+                '@type' => 'Offer',
+                'priceCurrency' => 'THB',
+                'price' => (float) $productPrice,
+                'availability' => $product->stock_status === 'in_stock'
+                    ? 'https://schema.org/InStock'
+                    : 'https://schema.org/OutOfStock',
+                'url' => request()->url(),
+            ],
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}
+    </script>
+
     <nav aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Products</a></li>

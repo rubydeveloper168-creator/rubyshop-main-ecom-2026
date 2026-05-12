@@ -20,7 +20,9 @@ register_page_template([
     'blog-right-sidebar' => __('Blog Right Sidebar'),
     'blog-left-sidebar' => __('Blog Left Sidebar'),
     'blog-full-width' => __('Blog Full Width'),
+    'promotion-detail' => __('Promotion Detail'),
     'rubyshop-m30l-motarsprayer' => __('RubyShop M30L Motor Sprayer'),
+    'hero-video-homepage' => __('Hero Video Homepage'),
 ]);
 
 register_sidebar([
@@ -117,6 +119,16 @@ add_filter(PAGE_FILTER_FRONT_PAGE_CONTENT, function (?string $html, $page) {
 
         return view(
             Theme::getThemeNamespace() . '::views.page-templates.rubyshop-m30l-motarsprayer',
+            compact('page')
+        )->render();
+    }
+
+    if ($page instanceof Page && $page->template === 'hero-video-homepage') {
+        Theme::set('hasBreadcrumb', false);
+        Theme::layout('blank');
+
+        return view(
+            Theme::getThemeNamespace() . '::views.page-templates.hero-video-homepage',
             compact('page')
         )->render();
     }
