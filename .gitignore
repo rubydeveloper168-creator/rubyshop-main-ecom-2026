@@ -29,6 +29,15 @@
 /coverage/
 /phpunit.result.cache
 
+# Large binary artifacts that should not be pushed to GitHub
+/hero-banner.png
+/public.zip
+/*.mp4
+/*.mov
+/*.mkv
+/*.avi
+/*.zip
+
 /database/*.sqlite
 /database/*.sql
 /database/*.sqlite-journal
