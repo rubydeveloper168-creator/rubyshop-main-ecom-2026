@@ -404,7 +404,7 @@ app()->booted(function (): void {
             'label' => __('Font text'),
             'attributes' => [
                 'name' => 'font_text',
-                'value' => 'Poppins',
+                'value' => 'Prompt',
             ],
         ])
         ->setField([
