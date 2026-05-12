@@ -25,6 +25,7 @@
 /public/build/
 /public/hot
 /public/storage
+/files/
 
 /coverage/
 /phpunit.result.cache
