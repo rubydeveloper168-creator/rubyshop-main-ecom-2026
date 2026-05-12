@@ -6,10 +6,16 @@
     $title = Arr::get($attributes, 'title', __('Shop By Category'));
     $buttonText = Arr::get($attributes, 'button_text');
     $buttonLink = Arr::get($attributes, 'button_link');
-    $rawCards = $content ?? Arr::get($attributes, 'cards', []);
+    $rawCards = filled($content) ? $content : Arr::get($attributes, 'cards', []);
 
     if (is_string($rawCards)) {
-        $rawCards = json_decode($rawCards, true) ?: [];
+        $decodedCards = base64_decode($rawCards, true);
+
+        if ($decodedCards !== false) {
+            $rawCards = json_decode($decodedCards, true) ?: [];
+        } else {
+            $rawCards = json_decode($rawCards, true) ?: [];
+        }
     }
 
     if (is_array($rawCards) && ! empty($rawCards)) {
