@@ -6,25 +6,27 @@
     $title = Arr::get($attributes, 'title', __('Shop By Category'));
     $buttonText = Arr::get($attributes, 'button_text');
     $buttonLink = Arr::get($attributes, 'button_link');
-    $rawCards = filled($content) ? $content : Arr::get($attributes, 'cards', []);
+    $rawCards = [];
 
-    if (is_string($rawCards)) {
-        $decodedCards = base64_decode($rawCards, true);
+    $legacyCards = Arr::get($attributes, 'cards', []);
+
+    if (is_string($legacyCards)) {
+        $decodedCards = base64_decode($legacyCards, true);
 
         if ($decodedCards !== false) {
-            $rawCards = json_decode($decodedCards, true) ?: [];
+            $legacyCards = json_decode($decodedCards, true) ?: [];
         } else {
-            $rawCards = json_decode($rawCards, true) ?: [];
+            $legacyCards = json_decode($legacyCards, true) ?: [];
         }
     }
 
-    if (is_array($rawCards) && ! empty($rawCards)) {
-        $firstItem = Arr::first($rawCards);
+    if (is_array($legacyCards) && ! empty($legacyCards)) {
+        $firstItem = Arr::first($legacyCards);
 
         if (is_array($firstItem) && array_key_exists('key', $firstItem) && array_key_exists('value', $firstItem)) {
             $normalized = [];
 
-            foreach ($rawCards as $card) {
+            foreach ($legacyCards as $card) {
                 $item = [];
 
                 foreach ((array) $card as $entry) {
@@ -39,7 +41,28 @@
                 }
             }
 
-            $rawCards = $normalized;
+            $legacyCards = $normalized;
+        }
+    }
+
+    if (is_array($legacyCards) && filled($legacyCards)) {
+        $rawCards = $legacyCards;
+    }
+
+    if (empty($rawCards)) {
+        for ($i = 1; $i <= 20; $i++) {
+            $card = [
+                'image' => Arr::get($attributes, "card{$i}_image"),
+                'title' => Arr::get($attributes, "card{$i}_title"),
+                'subtitle' => Arr::get($attributes, "card{$i}_subtitle"),
+                'link' => Arr::get($attributes, "card{$i}_link"),
+            ];
+
+            if (! $card['image'] && ! $card['title'] && ! $card['subtitle'] && ! $card['link']) {
+                continue;
+            }
+
+            $rawCards[] = $card;
         }
     }
 
