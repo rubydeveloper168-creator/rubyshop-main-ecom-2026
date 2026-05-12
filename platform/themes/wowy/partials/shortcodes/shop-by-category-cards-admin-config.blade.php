@@ -1,46 +1,9 @@
 @php
+    use Botble\Base\Facades\Form;
     use Botble\Media\Facades\RvMedia;
     use Illuminate\Support\Arr;
 
     $attributes = $attributes ?? [];
-    $defaultCards = [
-        [
-            'image' => null,
-            'title' => 'Control Series',
-            'subtitle' => 'Stain Sprayers',
-            'link' => '/product-categories/control-series',
-        ],
-        [
-            'image' => null,
-            'title' => 'FLEXiO',
-            'subtitle' => 'Paint & Stain Sprayers',
-            'link' => '/product-categories/flexio',
-        ],
-        [
-            'image' => null,
-            'title' => 'Control Pro',
-            'subtitle' => '',
-            'link' => '/product-categories/control-pro',
-        ],
-        [
-            'image' => null,
-            'title' => 'Earlex',
-            'subtitle' => '',
-            'link' => '/product-categories/earlex',
-        ],
-        [
-            'image' => null,
-            'title' => 'FURNO',
-            'subtitle' => '',
-            'link' => '/product-categories/furno',
-        ],
-        [
-            'image' => null,
-            'title' => 'Steamer',
-            'subtitle' => '',
-            'link' => '/product-categories/steamer',
-        ],
-    ];
 
     $cardsValue = $content ?: Arr::get($attributes, 'cards');
 
@@ -49,7 +12,7 @@
     }
 
     if (! is_array($cardsValue) || empty($cardsValue)) {
-        $cardsValue = $defaultCards;
+        $cardsValue = [];
     }
 
     if (! Arr::isList($cardsValue)) {
@@ -83,7 +46,7 @@
             </button>
         </label>
 
-        <textarea name="cards" class="d-none" data-shortcode-attribute="content" data-cards-json>{{ json_encode($cardsValue, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</textarea>
+        <textarea name="content" class="d-none" data-shortcode-attribute="content" data-cards-json>{{ json_encode($cardsValue, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</textarea>
 
         <div class="card-list" data-card-list></div>
     </div>
@@ -100,51 +63,8 @@
 
                 <div class="mb-3">
                     <label class="form-label">{{ __('Image') }}</label>
-                    <div class="image-box image-box-__IMAGE_NAME__" data-card-field="image" data-card-image-wrapper>
-                        <input class="image-data" name="__IMAGE_NAME__" type="hidden" value="">
-
-                        <div style="width: 8rem" class="preview-image-wrapper mb-1 preview-image-wrapper-not-allow-thumb">
-                            <div class="preview-image-inner">
-                                <a
-                                    data-bb-toggle="image-picker-choose"
-                                    data-target="popup"
-                                    class="image-box-actions"
-                                    data-result="__IMAGE_NAME__"
-                                    data-action="select-image"
-                                    data-allow-thumb="false"
-                                    href="#"
-                                >
-                                    <x-core::image
-                                        class="preview-image default-image"
-                                        data-default="{{ RvMedia::getDefaultImage() }}"
-                                        src="{{ RvMedia::getDefaultImage() }}"
-                                        alt="{{ trans('core/base::base.preview_image') }}"
-                                    />
-                                    <span class="image-picker-backdrop"></span>
-                                </a>
-                                <x-core::button
-                                    style="display: none; --bb-btn-font-size: 0.5rem;"
-                                    class="image-picker-remove-button p-0"
-                                    :pill="true"
-                                    data-bb-toggle="image-picker-remove"
-                                    size="sm"
-                                    icon="ti ti-x"
-                                    :icon-only="true"
-                                    :tooltip="trans('core/base::forms.remove_image')"
-                                />
-                            </div>
-                        </div>
-
-                        <a
-                            data-bb-toggle="image-picker-choose"
-                            data-target="popup"
-                            data-result="__IMAGE_NAME__"
-                            data-action="select-image"
-                            data-allow-thumb="false"
-                            href="#"
-                        >
-                            {{ trans('core/base::forms.choose_image') }}
-                        </a>
+                    <div data-card-field="image" data-card-image-wrapper>
+                        {!! Form::mediaImage('__IMAGE_NAME__', '__IMAGE_VALUE__', ['preview_image' => RvMedia::getDefaultImage()]) !!}
                     </div>
                 </div>
 
@@ -176,12 +96,25 @@
                 return;
             }
 
+            const isAdminPagesEdit = /^\/admin\/pages\/edit\/\d+/.test(window.location.pathname);
+            const debugLog = (...args) => {
+                if (!isAdminPagesEdit) {
+                    return;
+                }
+
+                console.log('[Shop By Category Cards][admin]', ...args);
+            };
+
             const list = root.querySelector('[data-card-list]');
             const template = root.querySelector('[data-card-template]');
             const jsonField = root.querySelector('[data-cards-json]');
             const addButton = root.querySelector('[data-card-add]');
 
             const defaults = @json($cardsValue);
+            debugLog('init', {
+                pathname: window.location.pathname,
+                defaults,
+            });
 
             const sanitize = (value) => (value ?? '').toString();
             const resolvePreviewUrl = (imageUrl, fallback) => {
@@ -252,6 +185,11 @@
                         $imageBox.find('.preview-image').attr('src', previewUrl).removeClass('default-image');
                         $imageBox.find('[data-bb-toggle="image-picker-remove"]').show();
 
+                        debugLog('image selected', {
+                            imageUrl,
+                            previewUrl,
+                        });
+
                         sync();
                     },
                 });
@@ -271,6 +209,7 @@
             const sync = () => {
                 const cards = Array.from(list.querySelectorAll('[data-card-item]')).map(readRow);
                 jsonField.value = JSON.stringify(cards);
+                debugLog('sync', cards);
             };
 
             const setIndexLabels = () => {
@@ -301,7 +240,7 @@
             const buildRow = (card = {}) => {
                 const rowHtml = template.innerHTML
                     .replaceAll('__IMAGE_NAME__', 'card_image_' + Math.random().toString(36).slice(2))
-                    .replaceAll('__IMAGE_VALUE__', '');
+                    .replaceAll('__IMAGE_VALUE__', sanitize(card.image));
 
                 const wrapper = document.createElement('div');
                 wrapper.innerHTML = rowHtml.trim();
@@ -324,9 +263,20 @@
                     linkField.value = sanitize(card.link);
                 }
 
+                const imageInput = row.querySelector('.image-data');
+                if (imageInput) {
+                    imageInput.removeAttribute('name');
+                }
+
                 bindRow(row);
                 initImagePicker(row);
                 updateImagePreview(row, sanitize(card.image));
+                debugLog('row built', {
+                    image: sanitize(card.image),
+                    title: sanitize(card.title),
+                    subtitle: sanitize(card.subtitle),
+                    link: sanitize(card.link),
+                });
 
                 return row;
             };

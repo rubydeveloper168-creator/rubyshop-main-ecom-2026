@@ -1,7 +1,6 @@
 @php
     use Botble\Media\Facades\RvMedia;
     use Illuminate\Support\Arr;
-    use Illuminate\Support\Facades\Log;
 
     $attributes = $attributes ?? [];
     $title = Arr::get($attributes, 'title', __('Shop By Category'));
@@ -47,16 +46,8 @@
         '#c81e1e',
     ];
 
-    $logCardDebug = static function (array $context): void {
-        if (! config('app.debug')) {
-            return;
-        }
-
-        Log::debug('Shop By Category Cards shortcode image debug', $context);
-    };
-
     $cards = collect($rawCards)
-        ->map(function ($item, $index) use ($accentColors, $logCardDebug) {
+        ->map(function ($item, $index) use ($accentColors) {
             $card = is_array($item) ? $item : [];
 
             $title = Arr::get($card, 'title');
@@ -71,17 +62,6 @@
             $resolvedImage = $image
                 ? RvMedia::getImageUrl($image, 'medium', false, RvMedia::getDefaultImage())
                 : RvMedia::getDefaultImage();
-            $usedFallback = ! $image || $resolvedImage === RvMedia::getDefaultImage();
-
-            $logCardDebug([
-                'index' => $index,
-                'title' => $title,
-                'subtitle' => $subtitle,
-                'raw_image' => $image,
-                'resolved_image' => $resolvedImage,
-                'used_fallback' => $usedFallback,
-                'link' => $link,
-            ]);
 
             return [
                 'title' => $title,
@@ -94,7 +74,35 @@
         ->filter()
         ->values();
 
+    $debugCards = collect($rawCards)
+        ->map(function ($item, $index) {
+            $card = is_array($item) ? $item : [];
+
+            $image = Arr::get($card, 'image');
+            $resolvedImage = $image
+                ? RvMedia::getImageUrl($image, 'medium', false, RvMedia::getDefaultImage())
+                : RvMedia::getDefaultImage();
+
+            return [
+                'index' => $index,
+                'title' => Arr::get($card, 'title'),
+                'subtitle' => Arr::get($card, 'subtitle'),
+                'raw_image' => $image,
+                'resolved_image' => $resolvedImage,
+                'used_fallback' => ! $image || $resolvedImage === RvMedia::getDefaultImage(),
+                'link' => Arr::get($card, 'link'),
+            ];
+        })
+        ->values()
+        ->all();
+
     $sectionId = 'shop-by-category-cards-' . uniqid();
+
+    $debugPayload = [
+        'sectionId' => $sectionId,
+        'title' => $title,
+        'cards' => $debugCards,
+    ];
 @endphp
 
 @if ($cards->isNotEmpty())
@@ -164,10 +172,31 @@
 @endif
 
 @once
+    <script>
+        window.__SHOP_BY_CATEGORY_CARDS_DEBUG__ = @json($debugPayload);
+
+        console.groupCollapsed('[Shop By Category Cards] debug');
+        console.log(window.__SHOP_BY_CATEGORY_CARDS_DEBUG__);
+        window.__SHOP_BY_CATEGORY_CARDS_DEBUG__.cards.forEach((card) => {
+            console.log(
+                `[Shop By Category Cards] card #${card.index}`,
+                {
+                    title: card.title,
+                    subtitle: card.subtitle,
+                    raw_image: card.raw_image,
+                    resolved_image: card.resolved_image,
+                    used_fallback: card.used_fallback,
+                    link: card.link,
+                }
+            );
+        });
+        console.groupEnd();
+    </script>
+
     <style>
         .shop-by-category-cards {
             background: #fff;
-            padding: 1rem 0 2.5rem;
+            padding: 2.5rem 0 2.5rem;
         }
 
         .shop-by-category-cards__inner {
@@ -220,7 +249,6 @@
 
         .shop-by-category-cards__arrow:hover {
             background: #e8e8e8;
-            transform: scale(1.03);
         }
 
         .shop-by-category-cards__arrow--prev {
@@ -326,16 +354,17 @@
             min-height: 3.5rem;
             padding: 0 1.75rem;
             border-radius: 0.25rem;
-            background: #ffcc00;
-            color: #111;
+            background: #dc2626;
+            color: #fff;
             font-weight: 800;
             text-decoration: none;
             transition: transform 0.15s ease, filter 0.15s ease;
         }
 
         .shop-by-category-cards__cta-button:hover {
+            color: #fff;
             transform: translateY(-1px);
-            filter: brightness(0.98);
+            filter: brightness(0.95);
         }
 
         @media (max-width: 767px) {
