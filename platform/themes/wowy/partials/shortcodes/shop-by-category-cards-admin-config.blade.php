@@ -8,7 +8,13 @@
     $cardsValue = $content ?: Arr::get($attributes, 'cards');
 
     if (is_string($cardsValue)) {
-        $cardsValue = json_decode($cardsValue, true) ?: [];
+        $decodedCardsValue = base64_decode($cardsValue, true);
+
+        if ($decodedCardsValue !== false) {
+            $cardsValue = json_decode($decodedCardsValue, true) ?: [];
+        } else {
+            $cardsValue = json_decode($cardsValue, true) ?: [];
+        }
     }
 
     if (! is_array($cardsValue) || empty($cardsValue)) {
@@ -46,7 +52,7 @@
             </button>
         </label>
 
-        <textarea name="content" class="d-none" data-shortcode-attribute="content" data-cards-json>{{ json_encode($cardsValue, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) }}</textarea>
+        <textarea name="cards" class="d-none" data-cards-json>{{ base64_encode(json_encode($cardsValue, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) }}</textarea>
 
         <div class="card-list" data-card-list></div>
     </div>
@@ -117,6 +123,42 @@
             });
 
             const sanitize = (value) => (value ?? '').toString();
+            const encodeCards = (cards) => {
+                const json = JSON.stringify(cards);
+
+                if (typeof window.btoa !== 'function') {
+                    return json;
+                }
+
+                return window.btoa(unescape(encodeURIComponent(json)));
+            };
+
+            const decodeCards = (value) => {
+                const raw = sanitize(value);
+
+                if (!raw) {
+                    return [];
+                }
+
+                try {
+                    const decoded = typeof window.atob === 'function'
+                        ? decodeURIComponent(escape(window.atob(raw)))
+                        : raw;
+
+                    const parsed = JSON.parse(decoded);
+
+                    return Array.isArray(parsed) ? parsed : [];
+                } catch (error) {
+                    try {
+                        const parsed = JSON.parse(raw);
+
+                        return Array.isArray(parsed) ? parsed : [];
+                    } catch (innerError) {
+                        return [];
+                    }
+                }
+            };
+
             const resolvePreviewUrl = (imageUrl, fallback) => {
                 const value = sanitize(imageUrl);
 
@@ -208,7 +250,7 @@
 
             const sync = () => {
                 const cards = Array.from(list.querySelectorAll('[data-card-item]')).map(readRow);
-                jsonField.value = JSON.stringify(cards);
+                jsonField.value = encodeCards(cards);
                 debugLog('sync', cards);
             };
 
@@ -299,7 +341,7 @@
             render(defaults);
 
             try {
-                const existing = jsonField.value ? JSON.parse(jsonField.value || '[]') : [];
+                const existing = decodeCards(jsonField.value);
                 if (Array.isArray(existing) && existing.length) {
                     render(existing);
                 }
