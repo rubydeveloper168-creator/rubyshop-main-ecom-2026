@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang='th'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>RB-MT-M6 | นิยามใหม่ของการฉาบปูนที่ง่ายที่สุด</title>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@100;300;400;500;700&display=swap');
+        body { font-family: 'Kanit', sans-serif; background-color: #ffffff; color: #1d1d1f; }
+        .text-ruby { color: #d91d1d; }
+        .bg-ruby { background-color: #d91d1d; }
+        .section-padding { padding-top: 100px; padding-bottom: 100px; }
+        .hero-title { font-weight: 700; letter-spacing: -0.02em; }
+        .feature-card { transition: all 0.5s ease; border: 1px solid #f2f2f2; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -12px rgba(0,0,0,0.08); border-color: transparent; }
+        .sticky-nav { background: rgba(255, 255, 255, 0.8); backdrop-filter: saturate(180%) blur(20px); }
+        .btn-black { background: #1d1d1f; color: white; transition: all 0.2s ease; }
+        .btn-black:hover { background: #000000; transform: scale(1.02); }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Nav -->
+    <nav class='sticky-nav fixed top-0 w-full z-50 border-b border-gray-100'>
+        <div class='container mx-auto px-6 py-4 flex justify-between items-center'>
+            <img src='/storage/logo/rubyshop-no-bg-250pxx100px.jpg' alt='RUBYSHOP' class='h-8'>
+            <div class='hidden md:flex gap-10 items-center text-sm font-medium'>
+                <a href='#features' class='hover:text-ruby'>ทำไมต้อง M6</a>
+                <a href='#details' class='hover:text-ruby'>รายละเอียด</a>
+                <a href='#contact' class='bg-ruby text-white px-6 py-2 rounded-full hover:bg-red-700 transition'>ติดต่อเรา</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero: Minimalist Apple Style -->
+    <section class='pt-32 pb-20'>
+        <div class='container mx-auto px-6 text-center'>
+            <h1 class='text-5xl md:text-8xl hero-title mb-8 tracking-tighter'>เรียบง่าย <span class='text-gray-400'>แต่</span> ทรงพลัง</h1>
+            <p class='text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto mb-12 font-light'>
+                เครื่องพ่นปูนผสมในตัว RB-MT-M6 ออกแบบมาเพื่อลดความซับซ้อนในไซต์งาน <br class='hidden md:block'> 
+                เปลี่ยนการทำงานที่เหนื่อยล้า ให้กลายเป็นเรื่องง่ายเพียงปลายนิ้ว
+            </p>
+            <div class='flex justify-center gap-6 mb-20'>
+                <a href='#contact' class='btn-black px-10 py-4 rounded-full text-lg font-medium'>เริ่มต้นใช้งานวันนี้</a>
+                <a href='tel:0896667802' class='text-ruby flex items-center gap-2 font-medium group'>
+                    โทรปรึกษาช่าง <i class='fas fa-chevron-right text-xs group-hover:translate-x-1 transition'></i>
+                </a>
+            </div>
+            <div class='max-w-5xl mx-auto'>
+                <img src='/storage/home/new/hero-images-1.webp' class='w-full h-auto rounded-3xl shadow-2xl'>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Concept -->
+    <section id='features' class='section-padding bg-gray-50'>
+        <div class='container mx-auto px-6'>
+            <div class='grid md:grid-cols-3 gap-12'>
+                <div class='text-center p-10 bg-white rounded-3xl feature-card'>
+                    <div class='text-4xl text-ruby mb-6'><i class='fas fa-cube'></i></div>
+                    <h3 class='text-2xl font-bold mb-4'>All-in-One</h3>
+                    <p class='text-gray-500 font-light'>ผสมและพ่นในตัวเดียว ไม่ต้องใช้เครื่องผสมแยก ไม่ต้องใช้คนงานเยอะ ลดขั้นตอนที่ซับซ้อนทั้งหมด</p>
+                </div>
+                <div class='text-center p-10 bg-white rounded-3xl feature-card'>
+                    <div class='text-4xl text-ruby mb-6'><i class='fas fa-feather-alt'></i></div>
+                    <h3 class='text-2xl font-bold mb-4'>Simple Operation</h3>
+                    <p class='text-gray-500 font-light'>ออกแบบมาให้ใช้งานง่าย แม้คนงานใหม่ก็เรียนรู้ได้ไวภายใน 1 วัน พร้อมระบบความปลอดภัยมาตรฐานสูง</p>
+                </div>
+                <div class='text-center p-10 bg-white rounded-3xl feature-card'>
+                    <div class='text-4xl text-ruby mb-6'><i class='fas fa-check-double'></i></div>
+                    <h3 class='text-2xl font-bold mb-4'>Perfect Finish</h3>
+                    <p class='text-gray-500 font-light'>ให้ผนังที่เรียบเนียนสม่ำเสมอ ลดการแตกร้าวและการหลุดล่อน ยกระดับมาตรฐานงานฉาบของคุณให้เหนือกว่าคู่แข่ง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed View -->
+    <section id='details' class='section-padding'>
+        <div class='container mx-auto px-6'>
+            <div class='flex flex-col md:flex-row items-center gap-20'>
+                <div class='md:w-1/2'>
+                    <img src='/storage/products/rubyshop-rb-mt-m6-7-800x800.webp' class='rounded-3xl shadow-xl'>
+                </div>
+                <div class='md:w-1/2'>
+                    <h2 class='text-4xl font-bold mb-10'>คุณภาพที่พิสูจน์ได้จากภายใน</h2>
+                    <ul class='space-y-8'>
+                        <li class='flex gap-6 items-start'>
+                            <span class='text-ruby text-xl font-bold'>01.</span>
+                            <div>
+                                <h4 class='text-xl font-bold'>มอเตอร์ทรงพลัง 5,500 วัตต์</h4>
+                                <p class='text-gray-500'>หัวใจหลักที่ทำให้เครื่องทำงานได้ต่อเนื่อง ไม่มีสะดุด แม้ในงานโครงการขนาดใหญ่</p>
+                            </div>
+                        </li>
+                        <li class='flex gap-6 items-start'>
+                            <span class='text-ruby text-xl font-bold'>02.</span>
+                            <div>
+                                <h4 class='text-xl font-bold'>ถังบรรจุปูน 115 ลิตร</h4>
+                                <p class='text-gray-500'>จุได้มากกว่า ทำงานได้นานขึ้น ลดความถี่ในการเติมปูน ทำให้งานเดินได้ต่อเนื่อง</p>
+                            </div>
+                        </li>
+                        <li class='flex gap-6 items-start'>
+                            <span class='text-ruby text-xl font-bold'>03.</span>
+                            <div>
+                                <h4 class='text-xl font-bold'>ระบบผสมน้ำที่แม่นยำ</h4>
+                                <p class='text-gray-500'>ควบคุมสัดส่วนได้ดั่งใจ เพื่อให้ได้เนื้อปูนที่เหมาะกับการพ่นที่สุดในทุกสภาวะ</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Section -->
+    <section class='section-padding bg-gray-50'>
+        <div class='container mx-auto px-6 text-center'>
+            <h2 class='text-3xl font-bold mb-16'>มากกว่าเครื่องจักร คือการดูแลที่เหนือระดับ</h2>
+            <div class='grid md:grid-cols-4 gap-8'>
+                <div>
+                    <h5 class='font-bold mb-2'>สอนฟรี</h5>
+                    <p class='text-sm text-gray-500'>เทรนนิ่งให้ถึงไซต์งาน</p>
+                </div>
+                <div>
+                    <h5 class='font-bold mb-2'>ส่งไว</h5>
+                    <p class='text-sm text-gray-500'>พร้อมส่งทั่วประเทศไทย</p>
+                </div>
+                <div>
+                    <h5 class='font-bold mb-2'>ประกันศูนย์</h5>
+                    <p class='text-sm text-gray-500'>มั่นใจด้วยอะไหล่ครบชุด</p>
+                </div>
+                <div>
+                    <h5 class='font-bold mb-2'>ปรึกษาฟรี</h5>
+                    <p class='text-sm text-gray-500'>โดยช่างผู้เชี่ยวชาญ 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id='contact' class='section-padding'>
+        <div class='container mx-auto px-6 text-center'>
+            <p class='text-gray-400 uppercase tracking-widest text-sm mb-4'>พร้อมสำหรับการเปลี่ยนแปลงหรือยัง?</p>
+            <h2 class='text-5xl md:text-7xl font-bold mb-12'>เป็นเจ้าของ RB-MT-M6</h2>
+            <div class='bg-white border border-gray-100 p-10 md:p-20 rounded-[3rem] shadow-2xl max-w-4xl mx-auto'>
+                <p class='text-6xl md:text-8xl font-black text-ruby mb-6'>190,000.-</p>
+                <p class='text-gray-400 mb-12 text-xl'>จากราคาปกติ 250,000 บาท (จำนวนจำกัด)</p>
+                <div class='flex flex-col md:flex-row justify-center gap-6'>
+                    <a href='tel:0896667802' class='btn-black px-12 py-5 rounded-full text-2xl font-bold'>โทรเลย 089-666-7802</a>
+                    <a href='https://line.me/R/ti/p/@rubyshop' class='border-2 border-gray-200 px-12 py-5 rounded-full text-2xl font-bold hover:bg-gray-50 transition flex items-center justify-center gap-2'>
+                        <i class='fab fa-line text-[#06C755]'></i> @rubyshop
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class='py-20 border-t border-gray-100'>
+        <div class='container mx-auto px-6 text-center'>
+            <img src='/storage/logo/rubyshop-no-bg-250pxx100px.jpg' alt='RUBYSHOP' class='h-6 mx-auto mb-10 opacity-30'>
+            <p class='text-gray-400 text-sm'>
+                RUBYSHOP THAILAND | ศูนย์รวมเครื่องจักรงานก่อสร้างคุณภาพสูง <br>
+                ดอนเมือง กรุงเทพฯ
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

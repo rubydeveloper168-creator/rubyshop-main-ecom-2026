@@ -101,11 +101,11 @@
 
 
 
-        {!! BaseHelper::googleFonts('https://fonts.googleapis.com/css2?family=' . urlencode(theme_option('font_text', 'Poppins')) . ':ital,wght@0,400;0,500;0,600;0,700;1,400&display=optional') !!}
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap">
 
         <style>
             :root {
-                --font-text: {{ theme_option('font_text', 'Poppins') }}, sans-serif;
+                --font-text: Prompt;
                 --color-brand: {{ theme_option('color_brand', '#5897fb') }};
                 --primary-color: {{ theme_option('color_brand', '#5897fb') }};
                 --color-brand-2: {{ theme_option('color_brand_2', '#3256e0') }};

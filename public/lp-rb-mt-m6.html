@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang='th'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>เครื่องพ่นปูนผสมในตัว RB-MT-M6 | คืนทุนไว จบงานเร็ว กำไรเพิ่ม</title>
+    <script src='https://cdn.tailwindcss.com'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css' rel='stylesheet'>
+    <script src='https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js' defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600;700&display=swap');
+        body { font-family: 'Kanit', sans-serif; }
+        .bg-ruby { background-color: #d91d1d; }
+        .text-ruby { color: #d91d1d; }
+        .border-ruby { border-color: #d91d1d; }
+        .glass-header { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(10px); }
+        .hero-gradient { background: radial-gradient(circle at top right, #fff5f5 0%, #ffffff 50%); }
+        .card-shadow { box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05); }
+        .btn-premium { background: linear-gradient(135deg, #d91d1d 0%, #b31616 100%); transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 10px 20px -10px #d91d1d; }
+        .floating-cta { position: fixed; bottom: 30px; right: 30px; z-index: 50; }
+        [x-cloak] { display: none !important; }
+    </style>
+</head>
+<body class='bg-gray-50 text-slate-900 leading-relaxed' x-data='{ workers: 10, wage: 500, days: 22 }'>
+
+    <!-- Global Floating CTA -->
+    <div class='floating-cta flex flex-col gap-4'>
+        <a href='https://line.me/R/ti/p/@rubyshop' class='bg-[#06C755] text-white p-5 rounded-full shadow-2xl hover:scale-110 transition flex items-center justify-center'>
+            <i class='fab fa-line text-3xl'></i>
+        </a>
+        <a href='tel:0896667802' class='bg-ruby text-white p-5 rounded-full shadow-2xl hover:scale-110 transition flex items-center justify-center'>
+            <i class='fas fa-phone-alt text-2xl'></i>
+        </a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class='glass-header sticky top-0 z-40 border-b border-gray-100'>
+        <div class='container mx-auto px-4 py-3 flex justify-between items-center'>
+            <div class='flex items-center gap-4'>
+                <img src='/storage/logo/rubyshop-no-bg-250pxx100px.jpg' alt='RUBYSHOP' class='h-10 md:h-12'>
+            </div>
+            <div class='hidden md:flex items-center gap-8'>
+                <a href='#calculator' class='font-medium hover:text-ruby transition'>คำนวณความคุ้มค่า</a>
+                <a href='#specs' class='font-medium hover:text-ruby transition'>สเปกเครื่อง</a>
+                <div class='h-8 w-[1px] bg-gray-200'></div>
+                <div class='text-right'>
+                    <p class='text-[10px] uppercase text-gray-400 font-bold tracking-widest'>สายด่วนฝ่ายขาย</p>
+                    <p class='text-lg font-bold'>089-666-7802</p>
+                </div>
+                <a href='#order' class='btn-premium text-white px-8 py-3 rounded-full font-bold text-sm'>จองสิทธิ์ราคาพิเศษ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class='hero-gradient pt-16 pb-24 overflow-hidden'>
+        <div class='container mx-auto px-4'>
+            <div class='flex flex-col lg:flex-row items-center gap-16'>
+                <div class='lg:w-1/2 text-center lg:text-left'>
+                    <span class='inline-block px-4 py-1 bg-red-50 text-ruby text-xs font-bold rounded-full mb-6 border border-red-100'>NEW TECHNOLOGY 2026</span>
+                    <h1 class='text-5xl lg:text-7xl font-bold text-slate-900 mb-8 leading-[1.1]'>
+                        เปลี่ยนงานฉาบ <br>ให้เป็น <span class='text-ruby underline decoration-4 underline-offset-8'>กำไร</span>
+                    </h1>
+                    <p class='text-xl text-slate-600 mb-10 max-w-xl mx-auto lg:mx-0'>
+                        หยุดเสียเวลาและค่าแรงมหาศาลไปกับการผสมปูนแบบเดิมๆ <br>
+                        เครื่อง <span class='font-bold text-slate-900'>RB-MT-M6</span> ผสมและพ่นในตัวเดียว <br>
+                        ทำงานเร็วกว่าคน 10 เท่า งานออกมาเนียนระดับพรีเมียม
+                    </p>
+                    <div class='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
+                        <a href='#order' class='btn-premium text-white px-10 py-5 rounded-2xl text-xl font-bold shadow-xl'>รับข้อเสนอที่ดีที่สุด</a>
+                        <a href='#calculator' class='bg-white text-slate-800 border-2 border-slate-100 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-slate-50 transition'>คำนวณกำไรของคุณ</a>
+                    </div>
+                </div>
+                <div class='lg:w-1/2 relative'>
+                    <div class='absolute top-0 right-0 w-64 h-64 bg-red-100 rounded-full blur-3xl opacity-30 -z-10'></div>
+                    <img src='/storage/home/new/hero-images-1.webp' alt='เครื่องพ่นปูน RB-MT-M6' class='w-full h-auto rounded-[2rem] shadow-2xl border-8 border-white transform hover:rotate-1 transition-transform duration-500'>
+                    <div class='absolute -bottom-10 left-10 bg-white p-6 rounded-3xl shadow-2xl border border-slate-50 hidden md:block'>
+                        <div class='flex items-center gap-4 mb-2 text-green-500'>
+                            <i class='fas fa-check-circle text-2xl'></i>
+                            <span class='font-bold'>READY TO SHIP</span>
+                        </div>
+                        <p class='text-slate-400 text-sm'>มีสินค้าพร้อมส่งและติดตั้งทันที</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Game Changer (ROI Calculator) -->
+    <section id='calculator' class='py-24 bg-slate-900 text-white relative overflow-hidden'>
+        <div class='container mx-auto px-4 relative z-10'>
+            <div class='text-center max-w-2xl mx-auto mb-20'>
+                <h2 class='text-4xl font-bold mb-6'>ตัวเลขไม่เคยโกหก</h2>
+                <p class='text-slate-400 text-lg'>ลองคำนวณดูว่าเครื่อง RB-MT-M6 จะคืนทุนให้คุณภายในกี่เดือน?</p>
+            </div>
+            
+            <div class='grid lg:grid-cols-2 gap-16 items-center'>
+                <div class='space-y-12 bg-slate-800/50 p-10 rounded-[3rem] border border-white/10'>
+                    <div>
+                        <label class='block mb-6 text-sm uppercase tracking-widest font-bold text-ruby'>1. จำนวนคนงานในทีมฉาบเดิม (คน)</label>
+                        <input type='range' x-model='workers' min='5' max='30' class='w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-ruby'>
+                        <div class='flex justify-between mt-4'>
+                            <span class='text-3xl font-bold' x-text='workers'></span>
+                            <span class='text-slate-500'>คน</span>
+                        </div>
+                    </div>
+                    <div>
+                        <label class='block mb-6 text-sm uppercase tracking-widest font-bold text-ruby'>2. ค่าแรงเฉลี่ยต่อคน/ต่อวัน (บาท)</label>
+                        <input type='range' x-model='wage' min='350' max='800' step='10' class='w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-ruby'>
+                        <div class='flex justify-between mt-4'>
+                            <span class='text-3xl font-bold' x-text='wage'></span>
+                            <span class='text-slate-500'>บาท</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class='text-center lg:text-left'>
+                    <div class='bg-ruby/10 border-2 border-ruby p-12 rounded-[3rem] inline-block w-full'>
+                        <p class='text-slate-400 mb-2 uppercase tracking-tighter text-sm'>คุณจะประหยัดค่าแรงได้ปีละประมาณ</p>
+                        <p class='text-6xl md:text-8xl font-black mb-8 text-ruby'>
+                            <span x-text='((workers - 3) * wage * days * 12).toLocaleString()'></span>
+                        </p>
+                        <p class='text-xl text-slate-200'>
+                            ลดจำนวนคนเหลือเพียง 3 คน <br> 
+                            <span class='text-ruby font-bold'>ประหยัดเงินเดือนละ <span x-text='((workers - 3) * wage * days).toLocaleString()'></span> บาท</span>
+                        </p>
+                    </div>
+                    <p class='mt-10 text-slate-500 italic text-sm'>*คำนวณจากการทำงาน 22 วัน/เดือน และลดพนักงานเหลือ 3 คนเพื่อคุมเครื่อง</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Deep Dive -->
+    <section class='py-24 bg-white'>
+        <div class='container mx-auto px-4'>
+            <div class='flex flex-col lg:flex-row gap-20 items-center'>
+                <div class='lg:w-1/2'>
+                    <div class='relative'>
+                        <img src='/storage/products/rubyshop-rb-mt-m6-11-1-800x800.webp' class='rounded-[2.5rem] shadow-2xl'>
+                        <div class='absolute -top-10 -right-10 bg-ruby text-white p-10 rounded-full shadow-2xl hidden md:flex flex-col items-center justify-center h-48 w-48'>
+                            <span class='text-5xl font-black'>10x</span>
+                            <span class='text-xs font-bold'>FASTER</span>
+                        </div>
+                    </div>
+                </div>
+                <div class='lg:w-1/2 space-y-10'>
+                    <h2 class='text-4xl font-bold'>ทำไมต้อง <span class='text-ruby'>RB-MT-M6</span>?</h2>
+                    <div class='grid gap-8'>
+                        <div class='flex gap-6'>
+                            <div class='h-14 w-14 bg-red-50 text-ruby rounded-2xl flex items-center justify-center shrink-0 shadow-sm'>
+                                <i class='fas fa-water text-xl'></i>
+                            </div>
+                            <div>
+                                <h4 class='text-xl font-bold mb-2'>ระบบผสมน้ำอัตโนมัติ (Mixer In-Built)</h4>
+                                <p class='text-slate-600'>คุมสัดส่วนน้ำและปูนได้แม่นยำ ไม่ต้องกลัวปูนเหลวหรือแข็งเกินไป งานออกมาสม่ำเสมอทุกถัง</p>
+                            </div>
+                        </div>
+                        <div class='flex gap-6'>
+                            <div class='h-14 w-14 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center shrink-0 shadow-sm'>
+                                <i class='fas fa-arrows-alt-v text-xl'></i>
+                            </div>
+                            <div>
+                                <h4 class='text-xl font-bold mb-2'>ส่งปูนสูง 20 เมตร แนวนอน 40 เมตร</h4>
+                                <p class='text-slate-600'>ไม่ต้องยกปูนขึ้นชั้น 2-3-4 อีกต่อไป เครื่องจัดการส่งปูนถึงที่หมาย พ่นได้ทันที ประหยัดแรงยกมหาศาล</p>
+                            </div>
+                        </div>
+                        <div class='flex gap-6'>
+                            <div class='h-14 w-14 bg-green-50 text-green-600 rounded-2xl flex items-center justify-center shrink-0 shadow-sm'>
+                                <i class='fas fa-gem text-xl'></i>
+                            </div>
+                            <div>
+                                <h4 class='text-xl font-bold mb-2'>งานสวยจนไม่ต้องเก็บงาน (Premium Finish)</h4>
+                                <p class='text-slate-600'>แรงดันพ่นช่วยให้ปูนอัดแน่นเข้าไปในรูพรุนของผนัง ลดปัญหาปูนหลุดล่อนและรอยแตกลายงา</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specs -->
+    <section id='specs' class='py-24 bg-gray-50'>
+        <div class='container mx-auto px-4'>
+            <div class='bg-white rounded-[3rem] shadow-xl overflow-hidden flex flex-col lg:flex-row'>
+                <div class='lg:w-1/3 bg-ruby p-16 text-white'>
+                    <h3 class='text-3xl font-bold mb-8 italic'>TECHNICAL DATA</h3>
+                    <p class='opacity-80 leading-relaxed mb-8'>เครื่องจักรสำหรับมืออาชีพ ออกแบบมาเพื่อการทำงานหนักต่อเนื่อง 24 ชม.</p>
+                    <div class='space-y-4'>
+                        <div class='flex justify-between border-b border-white/20 pb-2'><span>Voltage</span><span>380V (3 Phase)</span></div>
+                        <div class='flex justify-between border-b border-white/20 pb-2'><span>Mortar Motor</span><span>5500W</span></div>
+                        <div class='flex justify-between border-b border-white/20 pb-2'><span>Air Motor</span><span>3000W</span></div>
+                        <div class='flex justify-between border-b border-white/20 pb-2'><span>Max Pressure</span><span>50 Bar</span></div>
+                        <div class='flex justify-between border-b border-white/20 pb-2'><span>Speed</span><span>390 RPM</span></div>
+                    </div>
+                </div>
+                <div class='lg:w-2/3 p-10 md:p-16'>
+                    <div class='grid sm:grid-cols-2 gap-10'>
+                        <div class='space-y-4'>
+                            <img src='/storage/products/rubyshop-rb-mt-m6-5-800x800.webp' class='rounded-3xl shadow-lg border-4 border-gray-100'>
+                            <p class='text-center font-bold text-gray-500'>ถังจุ 115 ลิตร ใหญ่พิเศษ</p>
+                        </div>
+                        <div class='space-y-4'>
+                            <img src='/storage/products/rubyshop-rb-mt-m6-7-800x800.webp' class='rounded-3xl shadow-lg border-4 border-gray-100'>
+                            <p class='text-center font-bold text-gray-500'>ระบบควบคุมที่ปลอดภัย แม่นยำ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objection Handling / FAQ -->
+    <section class='py-24'>
+        <div class='container mx-auto px-4 max-w-4xl'>
+            <h2 class='text-3xl font-bold text-center mb-16 underline decoration-ruby underline-offset-8'>สิ่งที่คุณอาจกังวล (เรามีคำตอบ)</h2>
+            <div class='space-y-6' x-data='{ active: 1 }'>
+                <div class='bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden'>
+                    <button @click='active = 1' class='w-full p-6 text-left font-bold flex justify-between items-center'>
+                        <span>ใช้ไฟฟ้าแบบไหน? หน้างานต้องมีไฟ 3 เฟสไหม?</span>
+                        <i class='fas fa-chevron-down text-ruby transition-transform' :class='active === 1 ? rotate-180 : '></i>
+                    </button>
+                    <div x-show='active === 1' x-cloak class='px-6 pb-6 text-slate-600'>
+                        รุ่นนี้ใช้ไฟฟ้า 380V (3 เฟส) ซึ่งเป็นมาตรฐานสำหรับไซต์งานก่อสร้างขนาดกลาง-ใหญ่ หากหน้างานไม่มีไฟ 3 เฟส เรามีรุ่นที่รองรับไฟบ้าน 220V เช่นกัน สามารถปรึกษาทีมงานได้ครับ
+                    </div>
+                </div>
+                <div class='bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden'>
+                    <button @click='active = 2' class='w-full p-6 text-left font-bold flex justify-between items-center'>
+                        <span>ถ้าคนงานใช้ไม่เป็น จะทำอย่างไร?</span>
+                        <i class='fas fa-chevron-down text-ruby transition-transform' :class='active === 2 ? rotate-180 : '></i>
+                    </button>
+                    <div x-show='active === 2' x-cloak class='px-6 pb-6 text-slate-600'>
+                        เรามีบริการ **สอนการใช้งานหน้างานจริงฟรี!** ทีมช่างของเราจะไปสอนจนกว่าคนงานของคุณจะทำเป็น ตั้งแต่การล้างเครื่อง การผสมปูน ไปจนถึงเทคนิคการพ่นให้สวย
+                    </div>
+                </div>
+                <div class='bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden'>
+                    <button @click='active = 3' class='w-full p-6 text-left font-bold flex justify-between items-center'>
+                        <span>อะไหล่หายากไหม? ถ้าพังใครจะซ่อม?</span>
+                        <i class='fas fa-chevron-down text-ruby transition-transform' :class='active === 3 ? rotate-180 : '></i>
+                    </button>
+                    <div x-show='active === 3' x-cloak class='px-6 pb-6 text-slate-600'>
+                        RUBYSHOP มีสต็อกอะไหล่ทุกชิ้นในประเทศไทย ไม่ต้องรอสั่งจากต่างประเทศ และเรามีทีมช่างวิ่งดูแลถึงหน้างาน มั่นใจได้ว่างานของคุณจะไม่สะดุดแน่นอน
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section id='order' class='py-32 bg-white relative overflow-hidden'>
+        <div class='absolute top-0 left-0 w-full h-full bg-red-50/30 -z-10'></div>
+        <div class='container mx-auto px-4 text-center'>
+            <h2 class='text-5xl md:text-7xl font-black text-slate-900 mb-8'>ข้อเสนอที่ <br class='md:hidden'> <span class='text-ruby'>ดีที่สุด</span> ในปีนี้</h2>
+            <div class='max-w-4xl mx-auto bg-white p-10 md:p-20 rounded-[4rem] shadow-2xl border border-gray-100 relative'>
+                <div class='absolute -top-10 left-1/2 -translate-x-1/2 bg-yellow-400 text-black px-10 py-3 rounded-full font-black shadow-lg text-lg animate-pulse'>
+                    LIMITED DEAL: 3 UNITS LEFT
+                </div>
+                <div class='flex flex-col md:flex-row items-center justify-between gap-12'>
+                    <div class='text-left space-y-4'>
+                        <p class='text-gray-400 line-through text-3xl'>250,000 บาท</p>
+                        <p class='text-7xl font-black text-ruby'>190,000.-</p>
+                        <p class='text-sm text-gray-500 font-bold'>*ราคายังไม่รวมภาษีมูลค่าเพิ่มและค่าจัดส่ง</p>
+                    </div>
+                    <div class='w-full md:w-auto space-y-4'>
+                        <a href='tel:0896667802' class='block btn-premium text-white px-12 py-6 rounded-3xl text-3xl font-bold shadow-2xl text-center'>โทรสั่งซื้อทันที</a>
+                        <a href='https://line.me/R/ti/p/@rubyshop' class='block bg-white text-slate-800 border-2 border-gray-100 px-12 py-6 rounded-3xl text-2xl font-bold hover:bg-gray-50 transition text-center'>ติดต่อผ่าน LINE</a>
+                    </div>
+                </div>
+                <div class='mt-16 pt-10 border-t border-gray-100 grid grid-cols-2 md:grid-cols-4 gap-6 grayscale opacity-60'>
+                    <div class='flex flex-col items-center gap-2'>
+                        <i class='fas fa-shield-alt text-3xl'></i>
+                        <span class='text-[10px] font-bold uppercase'>Warranty 1 Year</span>
+                    </div>
+                    <div class='flex flex-col items-center gap-2'>
+                        <i class='fas fa-truck text-3xl'></i>
+                        <span class='text-[10px] font-bold uppercase'>Fast Delivery</span>
+                    </div>
+                    <div class='flex flex-col items-center gap-2'>
+                        <i class='fas fa-graduation-cap text-3xl'></i>
+                        <span class='text-[10px] font-bold uppercase'>Free Training</span>
+                    </div>
+                    <div class='flex flex-col items-center gap-2'>
+                        <i class='fas fa-headset text-3xl'></i>
+                        <span class='text-[10px] font-bold uppercase'>24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class='bg-slate-900 py-16 text-white'>
+        <div class='container mx-auto px-4 text-center'>
+            <img src='/storage/logo/rubyshop-no-bg-white.png' alt='RUBYSHOP' class='h-12 mx-auto mb-10'>
+            <div class='flex justify-center gap-10 mb-10 text-3xl'>
+                <a href='#' class='hover:text-ruby'><i class='fab fa-facebook'></i></a>
+                <a href='https://line.me/R/ti/p/@rubyshop' class='hover:text-green-500'><i class='fab fa-line'></i></a>
+                <a href='#' class='hover:text-red-500'><i class='fab fa-youtube'></i></a>
+            </div>
+            <p class='text-slate-400 max-w-2xl mx-auto mb-10'>
+                RUBYSHOP (THAILAND) | ผู้นำเข้าเครื่องจักรงานก่อสร้างระดับมืออาชีพ <br> 
+                เราคัดสรรเทคโนโลยีที่ช่วยให้งานของคุณง่ายขึ้น มีกำไรมากขึ้น และจบงานได้ตามกำหนด
+            </p>
+            <div class='text-[10px] uppercase tracking-[0.5em] text-slate-600 border-t border-white/5 pt-10'>
+                © 2026 RUBYSHOP THAILAND. MASTER OF MORTAR SPRAYING.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

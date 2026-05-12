@@ -1,6 +1,7 @@
 @php
     use Botble\Media\Facades\RvMedia;
     use Illuminate\Support\Arr;
+    use Illuminate\Support\Facades\Log;
 
     $attributes = $attributes ?? [];
     $title = Arr::get($attributes, 'title', __('Shop By Category'));
@@ -46,8 +47,16 @@
         '#c81e1e',
     ];
 
+    $logCardDebug = static function (array $context): void {
+        if (! config('app.debug')) {
+            return;
+        }
+
+        Log::debug('Shop By Category Cards shortcode image debug', $context);
+    };
+
     $cards = collect($rawCards)
-        ->map(function ($item, $index) use ($accentColors) {
+        ->map(function ($item, $index) use ($accentColors, $logCardDebug) {
             $card = is_array($item) ? $item : [];
 
             $title = Arr::get($card, 'title');
@@ -59,10 +68,25 @@
                 return null;
             }
 
+            $resolvedImage = $image
+                ? RvMedia::getImageUrl($image, 'medium', false, RvMedia::getDefaultImage())
+                : RvMedia::getDefaultImage();
+            $usedFallback = ! $image || $resolvedImage === RvMedia::getDefaultImage();
+
+            $logCardDebug([
+                'index' => $index,
+                'title' => $title,
+                'subtitle' => $subtitle,
+                'raw_image' => $image,
+                'resolved_image' => $resolvedImage,
+                'used_fallback' => $usedFallback,
+                'link' => $link,
+            ]);
+
             return [
                 'title' => $title,
                 'subtitle' => $subtitle,
-                'image' => $image ? RvMedia::getImageUrl($image, 'medium', false, RvMedia::getDefaultImage()) : RvMedia::getDefaultImage(),
+                'image' => $resolvedImage,
                 'link' => $link,
                 'accent' => $accentColors[$index % count($accentColors)],
             ];
