@@ -4,17 +4,19 @@ namespace Botble\Blog\Http\Controllers;
 
 use Botble\Base\Http\Actions\DeleteResourceAction;
 use Botble\Base\Http\Controllers\BaseController;
-use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Base\Facades\Assets;
+use Botble\Base\Http\Responses\BaseHttpResponse;
 use Botble\Base\Supports\Breadcrumb;
 use Botble\Blog\Forms\PostForm;
 use Botble\Blog\Http\Requests\PostRequest;
 use Botble\Blog\Http\Requests\PostUpdateOrderByRequest;
+use Botble\Blog\Http\Requests\PostUpdateOrdersRequest;
 use Botble\Blog\Models\Post;
 use Botble\Blog\Services\StoreCategoryService;
 use Botble\Blog\Services\StoreTagService;
 use Botble\Blog\Tables\PostTable;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PostController extends BaseController
 {
@@ -29,7 +31,7 @@ class PostController extends BaseController
     {
         $this->pageTitle(trans('plugins/blog::posts.menu_name'));
 
-        Assets::addScripts(['bootstrap-editable'])
+        Assets::addScripts(['bootstrap-editable', 'sortable'])
             ->addStyles(['bootstrap-editable']);
 
         return $dataTable->renderTable();
@@ -108,6 +110,29 @@ class PostController extends BaseController
 
         $post->order = $request->input('value');
         $post->save();
+
+        return $this
+            ->httpResponse()
+            ->setMessage(trans('core/base::notices.update_success_message'));
+    }
+
+    public function postUpdateOrders(PostUpdateOrdersRequest $request): BaseHttpResponse
+    {
+        DB::transaction(function () use ($request): void {
+            foreach ($request->input('orders', []) as $item) {
+                /**
+                 * @var Post $post
+                 */
+                $post = Post::query()->find($item['id']);
+
+                if (! $post) {
+                    continue;
+                }
+
+                $post->order = $item['order'];
+                $post->save();
+            }
+        });
 
         return $this
             ->httpResponse()

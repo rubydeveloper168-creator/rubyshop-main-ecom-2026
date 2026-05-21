@@ -19,6 +19,12 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers'], function (): void 
                     'permission' => 'posts.edit',
                 ]);
 
+                Route::post('update-orders', [
+                    'as' => 'update-orders',
+                    'uses' => 'PostController@postUpdateOrders',
+                    'permission' => 'posts.edit',
+                ]);
+
                 Route::get('widgets/recent-posts', [
                     'as' => 'widget.recent-posts',
                     'uses' => 'PostController@getWidgetRecentPosts',

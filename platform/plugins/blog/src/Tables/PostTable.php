@@ -54,7 +54,7 @@ class PostTable extends TableAbstract
                 ImageColumn::make(),
                 FormattedColumn::make('order')
                     ->title(trans('core/base::forms.sort_order'))
-                    ->width(80)
+                    ->width(120)
                     ->alignCenter()
                     ->renderUsing(function (FormattedColumn $column) {
                         return view('plugins/blog::posts.partials.sort-order', [
@@ -191,6 +191,84 @@ class PostTable extends TableAbstract
 
     public function htmlDrawCallbackFunction(): ?string
     {
-        return parent::htmlDrawCallbackFunction() . 'Botble.initEditable()';
+        $updateOrdersUrl = json_encode(route('posts.update-orders'));
+
+        return parent::htmlDrawCallbackFunction() . <<<JS
+            Botble.initEditable();
+
+            (function () {
+                var updateOrdersUrl = {$updateOrdersUrl};
+                var $tableWrapper = $(this).closest('.dataTables_wrapper');
+                var $table = $tableWrapper.find('table');
+                var dataTable = $table.DataTable();
+                var $tbody = $table.find('tbody');
+
+                if (! $tbody.length) {
+                    return;
+                }
+
+                if ($tbody.data('ui-sortable')) {
+                    $tbody.sortable('destroy');
+                }
+
+                $tbody.sortable({
+                    axis: 'y',
+                    cursor: 'move',
+                    handle: '.post-order-handle',
+                    helper: function (event, tr) {
+                        var $originals = tr.children();
+                        var $helper = tr.clone();
+
+                        $helper.children().each(function (index) {
+                            $(this).width($originals.eq(index).width());
+                        });
+
+                        return $helper;
+                    },
+                    update: function () {
+                        var pageInfo = dataTable.page.info();
+                        var orders = [];
+
+                        $tbody.find('tr').each(function (index) {
+                            var row = dataTable.row(this);
+                            var data = row.data();
+
+                            if (! data) {
+                                return;
+                            }
+
+                            orders.push({
+                                id: data.id,
+                                order: pageInfo.start + index + 1,
+                            });
+                        });
+
+                        if (! orders.length) {
+                            return;
+                        }
+
+                        $.ajax({
+                            url: updateOrdersUrl,
+                            method: 'POST',
+                            data: {
+                                orders: orders,
+                            },
+                            success: function (response) {
+                                if (response.error) {
+                                    Botble.showError(response.message);
+                                    return;
+                                }
+
+                                Botble.showSuccess(response.message);
+                                dataTable.ajax.reload(null, false);
+                            },
+                            error: function (error) {
+                                Botble.handleError(error);
+                            },
+                        });
+                    },
+                });
+            }).call(this);
+JS;
     }
 }
