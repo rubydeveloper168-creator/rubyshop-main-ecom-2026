@@ -5,7 +5,7 @@
 
     $attributes = $attributes ?? [];
 
-    $cardsValue = $content ?: Arr::get($attributes, 'cards');
+    $cardsValue = Arr::get($attributes, 'cards', []);
 
     if (is_string($cardsValue)) {
         $decodedCardsValue = base64_decode($cardsValue, true);
@@ -17,12 +17,31 @@
         }
     }
 
-    if (! is_array($cardsValue) || empty($cardsValue)) {
+    if (! is_array($cardsValue)) {
         $cardsValue = [];
     }
 
     if (! Arr::isList($cardsValue)) {
         $cardsValue = array_values($cardsValue);
+    }
+
+    if (empty($cardsValue)) {
+        for ($i = 1; $i <= 20; $i++) {
+            $card = [
+                'image' => Arr::get($attributes, "card{$i}_image"),
+                'title' => Arr::get($attributes, "card{$i}_title"),
+                'subtitle' => Arr::get($attributes, "card{$i}_subtitle"),
+                'link' => Arr::get($attributes, "card{$i}_link"),
+            ];
+
+            if (filled($card['image']) || filled($card['title']) || filled($card['subtitle']) || filled($card['link'])) {
+                $card['preview'] = $card['image']
+                    ? RvMedia::getImageUrl($card['image'], null, false, RvMedia::getDefaultImage())
+                    : RvMedia::getDefaultImage();
+
+                $cardsValue[] = $card;
+            }
+        }
     }
 
     $sectionId = 'shop-by-category-admin-' . uniqid();
@@ -52,8 +71,6 @@
             </button>
         </label>
 
-        <textarea name="cards" class="d-none" data-cards-json>{{ base64_encode(json_encode($cardsValue, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE)) }}</textarea>
-
         <div class="card-list" data-card-list></div>
     </div>
 
@@ -70,23 +87,23 @@
                 <div class="mb-3">
                     <label class="form-label">{{ __('Image') }}</label>
                     <div data-card-field="image" data-card-image-wrapper>
-                        {!! Form::mediaImage('__IMAGE_NAME__', '__IMAGE_VALUE__', ['preview_image' => RvMedia::getDefaultImage()]) !!}
+                        {!! Form::mediaImage('__CARD_IMAGE_NAME__', '__CARD_IMAGE_VALUE__', ['preview_image' => RvMedia::getDefaultImage()]) !!}
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">{{ __('Title') }}</label>
-                    <input type="text" class="form-control" data-card-field="title" value="" placeholder="{{ __('Title') }}">
+                    <input type="text" class="form-control" data-card-field="title" name="__CARD_TITLE_NAME__" value="" placeholder="{{ __('Title') }}">
                 </div>
 
                 <div class="mb-3">
                     <label class="form-label">{{ __('Subtitle') }}</label>
-                    <input type="text" class="form-control" data-card-field="subtitle" value="" placeholder="{{ __('Subtitle') }}">
+                    <input type="text" class="form-control" data-card-field="subtitle" name="__CARD_SUBTITLE_NAME__" value="" placeholder="{{ __('Subtitle') }}">
                 </div>
 
                 <div class="mb-0">
                     <label class="form-label">{{ __('Link') }}</label>
-                    <input type="text" class="form-control" data-card-field="link" value="" placeholder="/product-categories/example">
+                    <input type="text" class="form-control" data-card-field="link" name="__CARD_LINK_NAME__" value="" placeholder="/product-categories/example">
                 </div>
             </div>
         </div>
@@ -113,7 +130,6 @@
 
             const list = root.querySelector('[data-card-list]');
             const template = root.querySelector('[data-card-template]');
-            const jsonField = root.querySelector('[data-cards-json]');
             const addButton = root.querySelector('[data-card-add]');
 
             const defaults = @json($cardsValue);
@@ -123,41 +139,6 @@
             });
 
             const sanitize = (value) => (value ?? '').toString();
-            const encodeCards = (cards) => {
-                const json = JSON.stringify(cards);
-
-                if (typeof window.btoa !== 'function') {
-                    return json;
-                }
-
-                return window.btoa(unescape(encodeURIComponent(json)));
-            };
-
-            const decodeCards = (value) => {
-                const raw = sanitize(value);
-
-                if (!raw) {
-                    return [];
-                }
-
-                try {
-                    const decoded = typeof window.atob === 'function'
-                        ? decodeURIComponent(escape(window.atob(raw)))
-                        : raw;
-
-                    const parsed = JSON.parse(decoded);
-
-                    return Array.isArray(parsed) ? parsed : [];
-                } catch (error) {
-                    try {
-                        const parsed = JSON.parse(raw);
-
-                        return Array.isArray(parsed) ? parsed : [];
-                    } catch (innerError) {
-                        return [];
-                    }
-                }
-            };
 
             const resolvePreviewUrl = (imageUrl, fallback) => {
                 const value = sanitize(imageUrl);
@@ -170,7 +151,38 @@
                     return value;
                 }
 
-                return `/${value.replace(/^\/+/, '')}`;
+                return fallback;
+            };
+
+            const rowState = (row) => ({
+                image: sanitize(row.querySelector('.image-data')?.value),
+                title: sanitize(row.querySelector('[data-card-field="title"]')?.value),
+                subtitle: sanitize(row.querySelector('[data-card-field="subtitle"]')?.value),
+                link: sanitize(row.querySelector('[data-card-field="link"]')?.value),
+            });
+
+            const setRowNames = (row, index) => {
+                const prefix = `card${index}`;
+                const imageInput = row.querySelector('.image-data');
+                const titleField = row.querySelector('[data-card-field="title"]');
+                const subtitleField = row.querySelector('[data-card-field="subtitle"]');
+                const linkField = row.querySelector('[data-card-field="link"]');
+
+                if (imageInput) {
+                    imageInput.name = `${prefix}_image`;
+                }
+
+                if (titleField) {
+                    titleField.name = `${prefix}_title`;
+                }
+
+                if (subtitleField) {
+                    subtitleField.name = `${prefix}_subtitle`;
+                }
+
+                if (linkField) {
+                    linkField.name = `${prefix}_link`;
+                }
             };
 
             const getImageBox = (row) => row.querySelector('[data-card-field="image"]');
@@ -184,6 +196,7 @@
                 const input = imageBox.querySelector('.image-data');
                 const preview = imageBox.querySelector('.preview-image');
                 const removeButton = imageBox.querySelector('[data-bb-toggle="image-picker-remove"]');
+                const defaultPreview = row.dataset.previewUrl || preview?.dataset.default || preview?.getAttribute('src');
 
                 if (input) {
                     input.value = sanitize(imageUrl);
@@ -191,7 +204,7 @@
                 }
 
                 if (preview) {
-                    preview.setAttribute('src', resolvePreviewUrl(imageUrl, preview.dataset.default || preview.getAttribute('src')));
+                    preview.setAttribute('src', resolvePreviewUrl(imageUrl, defaultPreview));
 
                     if (imageUrl) {
                         preview.classList.remove('default-image');
@@ -206,7 +219,7 @@
             };
 
             const initImagePicker = (row) => {
-                const chooseButton = row.querySelector('[data-bb-toggle="image-picker-choose"][data-target="popup"]');
+                const chooseButton = row.querySelector('[data-bb-toggle="image-picker-choose"]');
 
                 if (!chooseButton || typeof $.fn.rvMedia !== 'function') {
                     return;
@@ -231,26 +244,16 @@
                             imageUrl,
                             previewUrl,
                         });
-
-                        sync();
                     },
                 });
             };
 
-            const readRow = (row) => {
-                const imageField = row.querySelector('[data-card-field="image"] .image-data') || row.querySelector('[data-card-field="image"] input') || row.querySelector('[data-card-field="image"]');
-
-                return {
-                    image: sanitize(imageField && imageField.value),
-                    title: sanitize(row.querySelector('[data-card-field="title"]')?.value),
-                    subtitle: sanitize(row.querySelector('[data-card-field="subtitle"]')?.value),
-                    link: sanitize(row.querySelector('[data-card-field="link"]')?.value),
-                };
-            };
-
             const sync = () => {
-                const cards = Array.from(list.querySelectorAll('[data-card-item]')).map(readRow);
-                jsonField.value = encodeCards(cards);
+                Array.from(list.querySelectorAll('[data-card-item]')).forEach((row, index) => {
+                    setRowNames(row, index + 1);
+                });
+
+                const cards = Array.from(list.querySelectorAll('[data-card-item]')).map(rowState);
                 debugLog('sync', cards);
             };
 
@@ -269,8 +272,8 @@
 
                 removeButton?.addEventListener('click', () => {
                     row.remove();
-                    setIndexLabels();
                     sync();
+                    setIndexLabels();
                 });
 
                 inputs.forEach((input) => {
@@ -279,15 +282,22 @@
                 });
             };
 
-            const buildRow = (card = {}) => {
+            const buildRow = (card = {}, index = 1) => {
                 const rowHtml = template.innerHTML
-                    .replaceAll('__IMAGE_NAME__', 'card_image_' + Math.random().toString(36).slice(2))
-                    .replaceAll('__IMAGE_VALUE__', sanitize(card.image));
+                    .replaceAll('__CARD_IMAGE_NAME__', `card${index}_image`)
+                    .replaceAll('__CARD_IMAGE_VALUE__', sanitize(card.image))
+                    .replaceAll('__CARD_IMAGE_PREVIEW__', sanitize(card.preview || ''))
+                    .replaceAll('__CARD_TITLE_NAME__', `card${index}_title`)
+                    .replaceAll('__CARD_SUBTITLE_NAME__', `card${index}_subtitle`)
+                    .replaceAll('__CARD_LINK_NAME__', `card${index}_link`);
 
                 const wrapper = document.createElement('div');
                 wrapper.innerHTML = rowHtml.trim();
 
                 const row = wrapper.firstElementChild;
+                row.dataset.previewUrl = sanitize(card.preview || '');
+
+                setRowNames(row, index);
 
                 const titleField = row.querySelector('[data-card-field="title"]');
                 const subtitleField = row.querySelector('[data-card-field="subtitle"]');
@@ -305,19 +315,11 @@
                     linkField.value = sanitize(card.link);
                 }
 
-                const imageInput = row.querySelector('.image-data');
-                if (imageInput) {
-                    imageInput.removeAttribute('name');
-                }
-
                 bindRow(row);
                 initImagePicker(row);
                 updateImagePreview(row, sanitize(card.image));
                 debugLog('row built', {
-                    image: sanitize(card.image),
-                    title: sanitize(card.title),
-                    subtitle: sanitize(card.subtitle),
-                    link: sanitize(card.link),
+                    ...rowState(row),
                 });
 
                 return row;
@@ -325,29 +327,20 @@
 
             const render = (cards) => {
                 list.innerHTML = '';
-                (cards.length ? cards : [{}]).forEach((card) => {
-                    list.appendChild(buildRow(card));
+                (cards.length ? cards : [{}]).forEach((card, index) => {
+                    list.appendChild(buildRow(card, index + 1));
                 });
                 setIndexLabels();
                 sync();
             };
 
             addButton?.addEventListener('click', () => {
-                list.appendChild(buildRow({}));
+                list.appendChild(buildRow({}, list.querySelectorAll('[data-card-item]').length + 1));
                 setIndexLabels();
                 sync();
             });
 
             render(defaults);
-
-            try {
-                const existing = decodeCards(jsonField.value);
-                if (Array.isArray(existing) && existing.length) {
-                    render(existing);
-                }
-            } catch (error) {
-                render(defaults);
-            }
 
             root.closest('form')?.addEventListener('submit', sync);
         })();
