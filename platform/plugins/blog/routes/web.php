@@ -13,6 +13,12 @@ Route::group(['namespace' => 'Botble\Blog\Http\Controllers'], function (): void 
                 Route::resource('', 'PostController')
                     ->parameters(['' => 'post']);
 
+                Route::post('update-order-by', [
+                    'as' => 'update-order-by',
+                    'uses' => 'PostController@postUpdateOrderBy',
+                    'permission' => 'posts.edit',
+                ]);
+
                 Route::get('widgets/recent-posts', [
                     'as' => 'widget.recent-posts',
                     'uses' => 'PostController@getWidgetRecentPosts',

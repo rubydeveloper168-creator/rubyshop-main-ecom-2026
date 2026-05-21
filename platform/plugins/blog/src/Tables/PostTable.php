@@ -55,7 +55,12 @@ class PostTable extends TableAbstract
                 FormattedColumn::make('order')
                     ->title(trans('core/base::forms.sort_order'))
                     ->width(80)
-                    ->alignCenter(),
+                    ->alignCenter()
+                    ->renderUsing(function (FormattedColumn $column) {
+                        return view('plugins/blog::posts.partials.sort-order', [
+                            'item' => $column->getItem(),
+                        ])->render();
+                    }),
                 NameColumn::make()->route('posts.edit'),
                 FormattedColumn::make('categories_name')
                     ->title(trans('plugins/blog::posts.categories'))
@@ -182,5 +187,10 @@ class PostTable extends TableAbstract
 
                 return $item;
             });
+    }
+
+    public function htmlDrawCallbackFunction(): ?string
+    {
+        return parent::htmlDrawCallbackFunction() . 'Botble.initEditable()';
     }
 }

@@ -5,9 +5,11 @@ namespace Botble\Blog\Http\Controllers;
 use Botble\Base\Http\Actions\DeleteResourceAction;
 use Botble\Base\Http\Controllers\BaseController;
 use Botble\Base\Http\Responses\BaseHttpResponse;
+use Botble\Base\Facades\Assets;
 use Botble\Base\Supports\Breadcrumb;
 use Botble\Blog\Forms\PostForm;
 use Botble\Blog\Http\Requests\PostRequest;
+use Botble\Blog\Http\Requests\PostUpdateOrderByRequest;
 use Botble\Blog\Models\Post;
 use Botble\Blog\Services\StoreCategoryService;
 use Botble\Blog\Services\StoreTagService;
@@ -26,6 +28,9 @@ class PostController extends BaseController
     public function index(PostTable $dataTable)
     {
         $this->pageTitle(trans('plugins/blog::posts.menu_name'));
+
+        Assets::addScripts(['bootstrap-editable'])
+            ->addStyles(['bootstrap-editable']);
 
         return $dataTable->renderTable();
     }
@@ -92,6 +97,21 @@ class PostController extends BaseController
     public function destroy(Post $post): DeleteResourceAction
     {
         return DeleteResourceAction::make($post);
+    }
+
+    public function postUpdateOrderBy(PostUpdateOrderByRequest $request): BaseHttpResponse
+    {
+        /**
+         * @var Post $post
+         */
+        $post = Post::query()->findOrFail($request->integer('pk'));
+
+        $post->order = $request->input('value');
+        $post->save();
+
+        return $this
+            ->httpResponse()
+            ->setMessage(trans('core/base::notices.update_success_message'));
     }
 
     public function getWidgetRecentPosts(Request $request): BaseHttpResponse
