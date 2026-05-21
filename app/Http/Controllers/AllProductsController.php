@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Botble\Base\Enums\BaseStatusEnum;
+use Botble\Ecommerce\Facades\EcommerceHelper;
+use Botble\Ecommerce\Models\Product as EcommerceProduct;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route; // Add this import
@@ -175,27 +178,51 @@ public function mainCategory($slug)
      */
     public function show($slug)
     {
-        // Try to find the product using different possible identifiers
-        $product = Product::where(function($query) use ($slug) {
-            // Try different possible ways to identify the product
-            $query->where('id', $slug) // In case slug is actually an ID
-                  ->orWhereRaw("LOWER(REPLACE(name, ' ', '-')) = ?", [strtolower($slug)]); // Generate slug from name
-        })
-        ->where('status', 'published')
-        ->where('is_variation', 0)
-        ->firstOrFail();
-    
-        // Load product images
-        $productImages = [];
-        if ($product->images) {
-            $images = json_decode($product->images, true);
-            foreach ($images as $image) {
-                $productImages[] = $image;
-            }
+        $product = get_products([
+            'condition' => [
+                'ec_products.id' => $slug,
+                'ec_products.status' => BaseStatusEnum::PUBLISHED,
+                'ec_products.is_variation' => 0,
+            ],
+            'take' => 1,
+            'with' => array_merge([
+                'slugable',
+                'brand',
+                'categories',
+                'tags',
+                'productLabels',
+                'defaultVariation',
+                'variations',
+            ], EcommerceHelper::withProductEagerLoadingRelations()),
+            ...EcommerceHelper::withReviewsParams(),
+        ]);
+
+        if (! $product) {
+            $product = EcommerceProduct::query()
+                ->where('status', BaseStatusEnum::PUBLISHED)
+                ->where('is_variation', 0)
+                ->where(function ($query) use ($slug) {
+                    $query->where('id', $slug)
+                        ->orWhereRaw("LOWER(REPLACE(name, ' ', '-')) = ?", [strtolower($slug)]);
+                })
+                ->with([
+                    'slugable',
+                    'brand',
+                    'categories',
+                    'tags',
+                    'productLabels',
+                    'defaultVariation',
+                    'variations',
+                ])
+                ->withCount(['reviews'])
+                ->firstOrFail();
         }
-    
-        // Use the existing product detail template
-        return view('platform.themes.wowy.views.ecommerce.product', compact('product', 'productImages'));
+
+        [$productImages, , $selectedAttrs] = EcommerceHelper::getProductVariationInfo($product);
+
+        Theme::layout('product-right-sidebar');
+
+        return Theme::scope('ecommerce.product', compact('product', 'productImages', 'selectedAttrs'))->render();
     }
 
     /**

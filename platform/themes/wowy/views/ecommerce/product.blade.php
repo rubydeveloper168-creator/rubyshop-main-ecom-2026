@@ -47,7 +47,7 @@
             <div class="detail-info">
                 <h2 class="title-detail">{{ $product->name }}</h2>
                 <div class="product-detail-rating">
-                    @if ($product->brand->id)
+                    @if ($product->brand && $product->brand->id)
                         <div class="pro-details-brand">
                             <span class="d-inline-block me-1">{{ __('Brands') }}:</span> <a href="{{ $product->brand->url }}">{{ $product->brand->name }}</a>
                         </div>
