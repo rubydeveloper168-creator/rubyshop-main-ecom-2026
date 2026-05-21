@@ -22,7 +22,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->where('is_featured', true)
             ->limit($limit)
             ->with(array_merge(['slugable'], $with))
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -34,7 +34,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->whereNotIn('id', $selected)
             ->limit($limit)
             ->with($with)
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -51,7 +51,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->where('id', '!=', $id)
             ->limit($limit)
             ->with('slugable')
-            ->orderByDesc('created_at')
+            ->orderBy('order')->orderByDesc('created_at')
             ->whereHas('categories', function (Builder $query) use ($id): void {
                 $query->whereIn('categories.id', $this->getRelatedCategoryIds($id));
             });
@@ -87,7 +87,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->select('*')
             ->distinct()
             ->with('slugable')
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         if ($paginate != 0) {
             return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
@@ -102,7 +102,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->wherePublished()
             ->where('author_id', $authorId)
             ->with('slugable')
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
@@ -112,7 +112,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $this->model
             ->wherePublished()
             ->with('slugable')
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -125,7 +125,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->whereHas('tags', function (Builder $query) use ($tag): void {
                 $query->where('tags.id', $tag);
             })
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
@@ -144,7 +144,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $data->limit($limit)
             ->with('slugable')
             ->select('*')
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -157,7 +157,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $this->model
             ->with('slugable')
             ->wherePublished()
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         $data = $this->search($data, $keyword);
 
@@ -179,7 +179,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     ): Collection|LengthAwarePaginator {
         $data = $this->model
             ->with($with)
-            ->orderByDesc('created_at');
+            ->orderBy('order')->orderByDesc('created_at');
 
         if ($active) {
             $data = $data->wherePublished();
@@ -246,8 +246,8 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             $data = $this->search($data, $filters['search']);
         }
 
-        $orderBy = Arr::get($filters, 'order_by', 'updated_at');
-        $order = Arr::get($filters, 'order', 'desc');
+        $orderBy = Arr::get($filters, 'order_by', 'order');
+        $order = Arr::get($filters, 'order', 'asc');
 
         $data = $data
             ->wherePublished()

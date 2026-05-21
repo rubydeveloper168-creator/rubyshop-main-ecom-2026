@@ -30,6 +30,7 @@ class PostExporter extends Exporter
                 ->dropdown(array_keys(PostFormat::getPostFormats(true))),
             ExportColumn::make('image'),
             ExportColumn::make('views'),
+            ExportColumn::make('order'),
             ExportColumn::make('slug'),
             ExportColumn::make('url')
                 ->label('URL'),

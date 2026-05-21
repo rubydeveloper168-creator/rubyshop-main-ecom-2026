@@ -55,6 +55,8 @@ class PostImporter extends Importer implements WithMapping
                 ->rules(['boolean'], trans('plugins/blog::posts.import.rules.in', ['attribute' => 'Is featured', 'values' => 'Yes, No'])),
             ImportColumn::make('image')
                 ->rules(['nullable', 'string'], trans('plugins/blog::posts.import.rules.nullable_string', ['attribute' => 'Image'])),
+            ImportColumn::make('order')
+                ->rules(['nullable', 'integer', 'min:0', 'max:10000'], trans('plugins/blog::posts.import.rules.nullable_string', ['attribute' => 'Order'])),
         ];
 
         $postFormats = array_keys(PostFormat::getPostFormats(true));
@@ -86,6 +88,7 @@ class PostImporter extends Importer implements WithMapping
                     'categories' => $post->categories->pluck('name')->implode(', '),
                     'is_featured' => rand(0, 1) ? 'Yes' : 'No',
                     'image' => RvMedia::getImageUrl($post->image),
+                    'order' => $post->order,
                 ];
             });
 
@@ -103,6 +106,7 @@ class PostImporter extends Importer implements WithMapping
                 'categories' => 'Travel, History',
                 'is_featured' => 'Yes',
                 'image' => 'https://via.placeholder.com/600x400',
+                'order' => 1,
                 'status' => BaseStatusEnum::PUBLISHED,
                 'format_type' => '',
             ],
@@ -115,6 +119,7 @@ class PostImporter extends Importer implements WithMapping
                 'categories' => 'Food, Travel',
                 'is_featured' => 'Yes',
                 'image' => 'https://via.placeholder.com/600x400',
+                'order' => 2,
                 'status' => BaseStatusEnum::PENDING,
                 'format_type' => '',
             ],
@@ -127,6 +132,7 @@ class PostImporter extends Importer implements WithMapping
                 'categories' => 'Science, Technology',
                 'is_featured' => 'No',
                 'image' => 'https://via.placeholder.com/600x400',
+                'order' => 3,
                 'status' => BaseStatusEnum::DRAFT,
                 'format_type' => '',
             ],

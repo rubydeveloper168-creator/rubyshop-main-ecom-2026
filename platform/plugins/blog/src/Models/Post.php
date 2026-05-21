@@ -35,6 +35,7 @@ class Post extends BaseModel
         'image',
         'is_featured',
         'format_type',
+        'order',
         'status',
         'author_id',
         'author_type',

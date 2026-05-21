@@ -30,6 +30,7 @@ class PostController extends BaseController
             ->advancedGet([
                 'with' => ['tags', 'categories', 'author', 'slugable'],
                 'condition' => ['status' => BaseStatusEnum::PUBLISHED],
+                'order_by' => ['order' => 'asc', 'created_at' => 'desc'],
                 'paginate' => [
                     'per_page' => $request->integer('per_page', 10),
                     'current_paged' => $request->integer('page', 1),
@@ -86,7 +87,7 @@ class PostController extends BaseController
      * @queryParam exclude              Ensure result set excludes specific IDs.
      * @queryParam include              Limit result set to specific IDs.
      * @queryParam order                Order sort attribute ascending or descending. Default: desc .One of: asc, desc
-     * @queryParam order_by             Sort collection by object attribute. Default: updated_at. One of: author, created_at, updated_at, id,  slug, title
+     * @queryParam order_by             Sort collection by object attribute. Default: order. One of: author, created_at, updated_at, id, slug, title, order
      * @queryParam categories           Limit result set to all items that have the specified term assigned in the categories taxonomy.
      * @queryParam categories_exclude   Limit result set to all items except those that have the specified term assigned in the categories taxonomy.
      * @queryParam tags                 Limit result set to all items that have the specified term assigned in the tags taxonomy.

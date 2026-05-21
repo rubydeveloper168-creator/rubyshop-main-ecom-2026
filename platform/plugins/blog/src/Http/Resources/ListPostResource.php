@@ -23,6 +23,7 @@ class ListPostResource extends JsonResource
             'tags' => TagResource::collection($this->tags),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'order' => $this->order,
         ];
     }
 }

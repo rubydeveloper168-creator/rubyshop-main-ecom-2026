@@ -23,6 +23,7 @@ class PostRequest extends Request
             'categories.*' => ['sometimes', Rule::exists((new Category())->getTable(), 'id')],
             'status' => Rule::in(BaseStatusEnum::values()),
             'is_featured' => [new OnOffRule()],
+            'order' => ['nullable', 'integer', 'min:0', 'max:10000'],
             'image' => ['nullable', 'string', new MediaImageRule()],
         ];
 

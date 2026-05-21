@@ -31,7 +31,16 @@ class PostTable extends TableAbstract
 {
     public function setup(): void
     {
-        $this->defaultSortColumnName = 'created_at';
+        $this->defaultSortColumnName = 'order';
+        $this->defaultSortingUsing(function (self $table): array {
+            foreach ($table->getColumns() as $index => $column) {
+                if (($column->toArray()['name'] ?? null) === 'order') {
+                    return [[$index, 'asc']];
+                }
+            }
+
+            return [[0, 'asc']];
+        });
 
         $this
             ->model(Post::class)
@@ -43,6 +52,10 @@ class PostTable extends TableAbstract
             ->addColumns([
                 IdColumn::make(),
                 ImageColumn::make(),
+                FormattedColumn::make('order')
+                    ->title(trans('core/base::forms.sort_order'))
+                    ->width(80)
+                    ->alignCenter(),
                 NameColumn::make()->route('posts.edit'),
                 FormattedColumn::make('categories_name')
                     ->title(trans('plugins/blog::posts.categories'))
@@ -108,6 +121,7 @@ class PostTable extends TableAbstract
                         'id',
                         'name',
                         'image',
+                        'order',
                         'created_at',
                         'status',
                         'updated_at',

@@ -7,12 +7,14 @@ use Botble\Base\Forms\FieldOptions\DescriptionFieldOption;
 use Botble\Base\Forms\FieldOptions\IsFeaturedFieldOption;
 use Botble\Base\Forms\FieldOptions\MediaImageFieldOption;
 use Botble\Base\Forms\FieldOptions\NameFieldOption;
+use Botble\Base\Forms\FieldOptions\SortOrderFieldOption;
 use Botble\Base\Forms\FieldOptions\RadioFieldOption;
 use Botble\Base\Forms\FieldOptions\SelectFieldOption;
 use Botble\Base\Forms\FieldOptions\StatusFieldOption;
 use Botble\Base\Forms\FieldOptions\TagFieldOption;
 use Botble\Base\Forms\Fields\EditorField;
 use Botble\Base\Forms\Fields\MediaImageField;
+use Botble\Base\Forms\Fields\NumberField;
 use Botble\Base\Forms\Fields\OnOffField;
 use Botble\Base\Forms\Fields\RadioField;
 use Botble\Base\Forms\Fields\SelectField;
@@ -39,6 +41,18 @@ class PostForm extends FormAbstract
                 'is_featured',
                 OnOffField::class,
                 IsFeaturedFieldOption::make()
+            )
+            ->add(
+                'order',
+                NumberField::class,
+                SortOrderFieldOption::make()
+                    ->value(function () {
+                        if ($this->getModel()->exists) {
+                            return $this->getModel()->order;
+                        }
+
+                        return ((int) Post::query()->latest('order')->value('order')) + 1;
+                    })
             )
             ->add('content', EditorField::class, ContentFieldOption::make()->allowedShortcodes())
             ->add('status', SelectField::class, StatusFieldOption::make())
