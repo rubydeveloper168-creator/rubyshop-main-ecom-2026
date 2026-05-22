@@ -50,9 +50,3 @@
         </div>
     </div>
 </div>
-
-@if (! empty($sortDebug))
-    <script>
-        console.log('Ecommerce sort debug', @json($sortDebug));
-    </script>
-@endif

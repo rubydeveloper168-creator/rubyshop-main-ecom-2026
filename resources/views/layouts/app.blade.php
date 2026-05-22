@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ str_replace('_', '-', app()->getLocale() ?: 'th') }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -200,7 +200,7 @@
         <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 hidden opacity-0 pointer-events-none transition-opacity duration-300 ease-in-out z-40 lg:hidden"></div>
     </header>
 
-    <main>
+    <main id="main-content">
         @yield('content')
     </main>
 
@@ -214,16 +214,16 @@
                         RUBYSHOP ผู้นำเข้าและจัดจำหน่ายอุปกรณ์ก่อสร้างคุณภาพสูง มุ่งมั่นนำเสนอนวัตกรรมและเทคโนโลยีล่าสุดเพื่อตอบสนองความต้องการของลูกค้า
                     </p>
                     <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/rubyshopcoth" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.facebook.com/rubyshopcoth" class="text-gray-400 hover:text-white transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white transition-colors" aria-label="LINE">
                             <i class="fab fa-line"></i>
                         </a>
-                        <a href="https://www.instagram.com/rubyshop_168/" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.instagram.com/rubyshop_168/" class="text-gray-400 hover:text-white transition-colors" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg" class="text-gray-400 hover:text-white transition-colors">
+                        <a href="https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg" class="text-gray-400 hover:text-white transition-colors" aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </div>

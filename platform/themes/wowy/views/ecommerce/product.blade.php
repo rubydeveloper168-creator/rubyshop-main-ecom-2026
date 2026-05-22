@@ -8,12 +8,10 @@
         ->add('lightGallery-js', 'plugins/lightGallery/js/lightgallery.min.js', ['jquery']);
 @endphp
 <style>
- 
- img {
-  background-color: transparent !important; /* Ensure this is set */
-}
-
- </style>
+    .product-detail .detail-gallery img {
+        background-color: transparent !important;
+    }
+</style>
 <div class="product-detail accordion-detail mx-4">
     <div class="row mb-50">
         <div class="col-md-6 col-sm-12 col-xs-12">
@@ -36,8 +34,8 @@
             <div class="single-social-share clearfix mt-50 mb-15">
                 <p class="mb-15 mt-30 font-sm"> <i class="fa fa-share-alt mr-5"></i> <span class="d-inline-block">{{ __('Share this') }}</span></p>
                 <div class="mobile-social-icon wow fadeIn  mb-sm-5 mb-md-0 animated">
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                    <a class="twitter" href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ strip_tags(strip_tags(SeoHelper::getDescription())) }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on Facebook') }}"><i class="fab fa-facebook-f"></i></a>
+                    <a class="twitter" href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ strip_tags(strip_tags(SeoHelper::getDescription())) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on X') }}"><i class="fab fa-twitter"></i></a>
                     <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(url()->current()) }}&summary={{ rawurldecode(strip_tags(SeoHelper::getDescription())) }}" target="_blank"><i class="fab fa-linkedin"></i></a> -->
                 </div>
             </div>
@@ -45,7 +43,7 @@
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="detail-info">
-                <h2 class="title-detail">{{ $product->name }}</h2>
+                <h1 class="title-detail">{{ $product->name }}</h1>
                 <div class="product-detail-rating">
                     @if ($product->brand && $product->brand->id)
                         <div class="pro-details-brand">
@@ -198,13 +196,13 @@
                             <div class="card">
                                 <div class="card-header" id="heading-faq-{{ $loop->index }}">
                                     <h2 class="mb-0">
-                                        <button class="btn btn-link btn-block text-left @if (!$loop->first) collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-{{ $loop->index }}" aria-expanded="true" aria-controls="collapse-faq-{{ $loop->index }}">
+                                        <button class="btn btn-link btn-block text-left @if (!$loop->first) collapsed @endif" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-{{ $loop->index }}" aria-expanded="{{ $loop->first ? 'true' : 'false' }}" aria-controls="collapse-faq-{{ $loop->index }}">
                                             {!! BaseHelper::clean($faq[0]['value']) !!}
                                         </button>
                                     </h2>
                                 </div>
 
-                                <div id="collapse-faq-{{ $loop->index }}" class="collapse @if ($loop->first) show @endif" aria-labelledby="heading-faq-{{ $loop->index }}" data-parent="#faq-accordion">
+                                <div id="collapse-faq-{{ $loop->index }}" class="collapse @if ($loop->first) show @endif" aria-labelledby="heading-faq-{{ $loop->index }}" data-bs-parent="#faq-accordion">
                                     <div class="card-body">
                                         {!! BaseHelper::clean($faq[1]['value']) !!}
                                     </div>
@@ -229,7 +227,7 @@
     @if (count($crossSellProducts) > 0)
         <div class="row mt-60">
             <div class="col-12">
-                <h3 class="section-title style-1 mb-30">{{ __('You may also like') }}</h3>
+                <h2 class="section-title style-1 mb-30">{{ __('You may also like') }}</h2>
             </div>
             @foreach($crossSellProducts as $crossProduct)
                 <div class="col-lg-{{ 12 / ($layout == 'product-full-width' ? 4 : 3) }} col-md-4 col-12 col-sm-6">
@@ -246,7 +244,7 @@
     @if (count($relatedProducts) > 0)
         <div class="row mt-60" id="related-products">
             <div class="col-12">
-                <h3 class="section-title style-1 mb-30">{{ __('Related products') }}</h3>
+                <h2 class="section-title style-1 mb-30">{{ __('Related products') }}</h2>
             </div>
             @foreach($relatedProducts as $relatedProduct)
                 <div class="col-lg-{{ 12 / ($layout == 'product-full-width' ? 4 : 3) }} col-md-4 col-12 col-sm-6">

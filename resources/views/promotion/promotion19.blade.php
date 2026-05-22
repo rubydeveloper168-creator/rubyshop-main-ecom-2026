@@ -568,9 +568,6 @@
         // Set the image source based on the clicked image
         modalImage.src = `${modalImage[imageNumber]}`;
         modalImage.alt = `Image ${imageNumber + 1}`;
-        console.log('modalImage',modalImage)
-        console.log('modalImage.src',modalImage.src)
-
         // Show the modal
         modal.classList.remove('hidden');
         modal.style.background = `${modalImage.src}`;
@@ -2097,5 +2094,4 @@ document.addEventListener('DOMContentLoaded', function() {
 </a>
 </body>
 </html>
-
 

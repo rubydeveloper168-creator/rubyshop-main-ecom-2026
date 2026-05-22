@@ -1068,8 +1068,6 @@ document.addEventListener('DOMContentLoaded', function() {
   <script>
     // Wait for the DOM to be fully loaded
     document.addEventListener('DOMContentLoaded', function() {
-      // console.log("DOM loaded, looking for form");
-      
       // Get the form element
       const contactForm = document.getElementById('contactForm');
       
@@ -1078,9 +1076,6 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error("Contact form element not found!");
         return;
       }
-      
-      // console.log("Form found:", contactForm);
-      
       // Google Form mapping
       const googleFormURL = 'https://docs.google.com/forms/d/e/1FAIpQLScQ3LjJBELRFViTGhNwJ4YnekoT063jlEwa0gvIlVUfe_lQLQ/formResponse';
       const fieldMapping = {
@@ -1094,8 +1089,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Add submit handler
       contactForm.addEventListener('submit', function(e) {
         e.preventDefault();
-        // console.log("Form submitted");
-        
+
         // Form validation
         let isValid = true;
         const requiredFields = contactForm.querySelectorAll('[required]');
@@ -1122,7 +1116,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         for (const [key, value] of formData.entries()) {
           formValues[key] = value;
-          // console.log(`Form value ${key}:`, value);
         }
         
         // Show loading state
@@ -1132,8 +1125,7 @@ document.addEventListener('DOMContentLoaded', function() {
         submitButton.disabled = true;
         
         // Create hidden iframe for form submission
-          // Create hidden iframe for form submission
-          const iframe = document.createElement('iframe');
+        const iframe = document.createElement('iframe');
         iframe.name = 'hidden_iframe';
         iframe.style.display = 'none';
         document.body.appendChild(iframe);
@@ -1151,16 +1143,12 @@ document.addEventListener('DOMContentLoaded', function() {
             input.type = 'text';
             input.name = fieldMapping[fieldId];
             input.value = formValues[fieldId];
-            // console.log(`Adding field ${fieldId} with value:`, formValues[fieldId]);
             hiddenForm.appendChild(input);
-          } else {
-            console.warn(`Field ${fieldId} has no value`);
           }
         }
         
         // Submit the form
         document.body.appendChild(hiddenForm);
-        // console.log("Submitting form to Google:", hiddenForm);
         hiddenForm.submit();
         
         // Show success message

@@ -2242,12 +2242,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Scroll to success message
                         successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         
-                        // Log webhook status (optional)
-                        if (webhookResponse.ok) {
-                            console.log('Webhook sent successfully');
-                        } else {
-                            console.warn('Webhook failed but form submitted successfully');
-                        }
+                        // Webhook completed successfully; keep the UI response silent.
                     }
                 })
                 .catch(error => {
@@ -2946,4 +2941,3 @@ document.addEventListener('DOMContentLoaded', function() {
 </a>
 </body>
 </html>
-

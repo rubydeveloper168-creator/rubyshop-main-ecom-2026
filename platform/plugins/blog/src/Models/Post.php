@@ -56,6 +56,7 @@ class Post extends BaseModel
 
     protected $casts = [
         'status' => PostStatusEnum::class,
+        'order' => 'int',
         'name' => SafeContent::class,
         'description' => SafeContent::class,
     ];

@@ -25,7 +25,7 @@
         <div class="row">
             @if ($categories->isNotEmpty())
                 <div class="col-lg-3 col-md-4 mb-lg-0 mb-md-5 mb-sm-5 widget-filter-item product-categories-filter-widget">
-                    <h5 class="mb-20 widget__title" data-title="{{ __('Category') }}">{{ ucfirst(__('categories')) }}</h5>
+                    <h2 class="mb-20 widget__title" data-title="{{ __('Category') }}">{{ ucfirst(__('categories')) }}</h2>
                     <div class="custome-checkbox ps-custom-scrollbar">
                         <ul class="ps-list--categories">
                             @include(Theme::getThemeNamespace('views.ecommerce.includes.categories'), [
@@ -41,7 +41,7 @@
 
             @if ($brands->isNotEmpty())
                 <div class="col-lg-3 col-md-4 mb-lg-0 mb-md-5 mb-sm-5 widget-filter-item">
-                    <h5 class="mb-20 widget__title" data-title="{{ __('Brand') }}">{{ ucfirst(__('Brands')) }}</h5>
+                    <h2 class="mb-20 widget__title" data-title="{{ __('Brand') }}">{{ ucfirst(__('Brands')) }}</h2>
                     <div class="custome-checkbox ps-custom-scrollbar">
                         @foreach($brands as $brand)
                             <input class="form-check-input"
@@ -59,7 +59,7 @@
 
             @if ($tags->isNotEmpty())
                 <div class="col-lg-3 col-md-4 mb-lg-0 mb-md-5 mb-sm-5 widget-filter-item">
-                    <h5 class="mb-20 widget__title" data-title="{{ __('Tag') }}">{{ ucfirst(__('tags')) }}</h5>
+                    <h2 class="mb-20 widget__title" data-title="{{ __('Tag') }}">{{ ucfirst(__('tags')) }}</h2>
                     <div class="custome-checkbox ps-custom-scrollbar">
                         @foreach($tags as $tag)
                             <input class="form-check-input"
@@ -77,7 +77,7 @@
 
             @if ($maxFilterPrice)
                 <div class="col-lg-3 col-md-4 mb-lg-0 mb-md-5 mb-sm-5 widget-filter-item" data-type="price">
-                    <h5 class="mb-20 widget__title" data-title="{{ __('Price') }}">{{ ucfirst(__('Price')) }}</h5>
+                    <h2 class="mb-20 widget__title" data-title="{{ __('Price') }}">{{ ucfirst(__('Price')) }}</h2>
                     @include(Theme::getThemeNamespace('views.ecommerce.includes.filter-by-price'))
                 </div>
             @endif

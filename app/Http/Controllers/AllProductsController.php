@@ -271,20 +271,3 @@ public function mainCategory($slug)
         return Theme::scope('custom.product-categories', compact('categories'))->render();
     }
 }
-
-// Add this to a temporary route for debugging
-\Illuminate\Support\Facades\Route::get('/debug-category', function() {
-    $slug = 'tv-videos';
-    $category = \App\Models\ProductCategory::where('status', 'published')
-        ->where(function($query) use ($slug) {
-            $query->whereRaw("LOWER(REPLACE(name, ' ', '-')) = ?", [strtolower($slug)])
-                  ->orWhereRaw("LOWER(REPLACE(name, ' ', '')) = ?", [strtolower(str_replace('-', '', $slug))]);
-        })
-        ->first();
-    
-    if ($category) {
-        return 'Category found: ' . $category->name . ' (ID: ' . $category->id . ')';
-    } else {
-        return 'Category not found';
-    }
-});

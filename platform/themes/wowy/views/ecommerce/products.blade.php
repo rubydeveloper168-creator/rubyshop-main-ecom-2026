@@ -28,17 +28,20 @@
 </style>
 
 <div class="container mb-30">
+    <h1 class="visually-hidden">
+        {{ isset($category) && $category ? $category->name : __('Products') }}
+    </h1>
     <div class="row">
         @if ($layout === 'product-full-width')
             <div class="col-lg-12 m-auto mt-4">
-                <a class="shop-filter-toggle mb-0" href="#" aria-expanded="false" aria-controls="products-filter">
+                <a class="shop-filter-toggle mb-0" href="#" aria-expanded="false" aria-controls="products-filter-ajax">
                     <span class="fal fa-filter mr-5"></span>
                     <span class="title">{{ __('Filters') }}</span>
                     <i class="fal fa-angle-small-up angle-up"></i>
                     <i class="fal fa-angle-small-down angle-down"></i>
                 </a>
                 <form action="{{ URL::current() }}" method="GET" id="products-filter-ajax" class="collapse">
-                    @include(Theme::getThemeNamespace() . '::views.ecommerce.includes.filters')
+                    @include(Theme::getThemeNamespace('views.ecommerce.includes.filters'))
                 </form>
             </div>
 
@@ -50,7 +53,7 @@
         @elseif($layout === 'product-left-sidebar')
             <div class="col-xl-3 primary-sidebar mt-4 d-none d-xl-block">
                 <div class="widget-area">
-                    @include(Theme::getThemeNamespace('views.ecommerce.includes.filters'))
+                    @include(Theme::getThemeNamespace() . '::views.ecommerce.includes.filters')
                 </div>
             </div>
             <div class="col-lg-12 col-xl-9">
@@ -344,6 +347,8 @@
 <!-- Add JavaScript for enhanced mobile experience -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        let productsContainer = document.querySelector('.products-listing');
+
         // Initialize filter toggles
         const filterToggles = document.querySelectorAll('.shop-filter-toggle');
         filterToggles.forEach(toggle => {
@@ -518,8 +523,6 @@ if (window.innerWidth <= 768) {
         // Enhance AJAX filtering
         const filterForm = document.getElementById('products-filter-ajax');
         if (filterForm) {
-            const productsContainer = document.querySelector('.products-listing');
-            
             // Add debounce function for filter inputs
             function debounce(func, wait) {
                 let timeout;
@@ -545,13 +548,16 @@ if (window.innerWidth <= 768) {
                     
                     // Submit form via AJAX
                     const formData = new FormData(filterForm);
-                    
-                    fetch(filterForm.action, {
+                    const requestUrl = new URL(filterForm.action, window.location.origin);
+                    formData.forEach((value, key) => {
+                        requestUrl.searchParams.append(key, value);
+                    });
+
+                    fetch(requestUrl.toString(), {
                         method: 'GET',
                         headers: {
                             'X-Requested-With': 'XMLHttpRequest'
-                        },
-                        body: formData
+                        }
                     })
                     .then(response => response.text())
                     .then(html => {
@@ -688,4 +694,3 @@ if (window.innerWidth <= 768) {
         }
     });
 </script>
-

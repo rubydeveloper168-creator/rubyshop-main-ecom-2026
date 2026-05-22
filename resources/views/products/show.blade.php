@@ -13,7 +13,7 @@
 @section('seo_image', $productImageUrl)
 
 @section('content')
-<div class="container">
+<article class="container">
     <script type="application/ld+json">
         {!! json_encode([
             '@context' => 'https://schema.org',
@@ -36,26 +36,14 @@
 
     <nav aria-label="breadcrumb" class="mt-3">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Products</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('products.index') }}">{{ __('Products') }}</a></li>
             <li class="breadcrumb-item active" aria-current="page">{{ $product->name }}</li>
         </ol>
     </nav>
 
     <div class="row mt-4">
         <div class="col-md-6">
-            @if ($product->images)
-                @php
-                    $images = json_decode($product->images, true);
-                    $firstImage = $images[0] ?? null;
-                @endphp
-                @if ($firstImage)
-                    <img src="{{ asset($firstImage) }}" class="img-fluid" alt="{{ $product->name }}">
-                @else
-                    <img src="{{ asset('images/no-image.jpg') }}" class="img-fluid" alt="No Image">
-                @endif
-            @else
-                <img src="{{ asset('images/no-image.jpg') }}" class="img-fluid" alt="No Image">
-            @endif
+            <img src="{{ $productImageUrl }}" class="img-fluid" alt="{{ $product->name }}">
         </div>
         <div class="col-md-6">
             <h1>{{ $product->name }}</h1>
@@ -93,12 +81,12 @@
     
     <div class="row mt-5">
         <div class="col-12">
-            <h3>Product Details</h3>
+            <h2 id="product-details">{{ __('Product Details') }}</h2>
             <hr>
             <div>
                 {!! $product->content !!}
             </div>
         </div>
     </div>
-</div>
+</article>
 @endsection
