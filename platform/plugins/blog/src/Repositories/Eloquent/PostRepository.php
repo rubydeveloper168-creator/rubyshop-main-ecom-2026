@@ -22,7 +22,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->where('is_featured', true)
             ->limit($limit)
             ->with(array_merge(['slugable'], $with))
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -34,7 +36,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->whereNotIn('id', $selected)
             ->limit($limit)
             ->with($with)
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -51,7 +55,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->where('id', '!=', $id)
             ->limit($limit)
             ->with('slugable')
-            ->orderBy('order')->orderByDesc('created_at')
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at')
             ->whereHas('categories', function (Builder $query) use ($id): void {
                 $query->whereIn('categories.id', $this->getRelatedCategoryIds($id));
             });
@@ -87,7 +93,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->select('*')
             ->distinct()
             ->with('slugable')
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         if ($paginate != 0) {
             return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
@@ -102,7 +110,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->wherePublished()
             ->where('author_id', $authorId)
             ->with('slugable')
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
@@ -112,7 +122,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $this->model
             ->wherePublished()
             ->with('slugable')
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -125,7 +137,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
             ->whereHas('tags', function (Builder $query) use ($tag): void {
                 $query->where('tags.id', $tag);
             })
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->paginate($paginate);
     }
@@ -144,7 +158,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $data->limit($limit)
             ->with('slugable')
             ->select('*')
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         return $this->applyBeforeExecuteQuery($data)->get();
     }
@@ -157,7 +173,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         $data = $this->model
             ->with('slugable')
             ->wherePublished()
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         $data = $this->search($data, $keyword);
 
@@ -179,7 +197,9 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
     ): Collection|LengthAwarePaginator {
         $data = $this->model
             ->with($with)
-            ->orderBy('order')->orderByDesc('created_at');
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
+            ->orderByDesc('created_at');
 
         if ($active) {
             $data = $data->wherePublished();
@@ -216,10 +236,13 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         }
 
         if ($filters['categories_exclude'] !== null) {
-            $data = $data
-                ->whereHas('categories', function (Builder $query) use ($filters): void {
-                    $query->whereNotIn('categories.id', array_filter((array) $filters['categories_exclude']));
+            $categories = array_filter((array) $filters['categories_exclude']);
+
+            if ($categories) {
+                $data = $data->whereDoesntHave('categories', function (Builder $query) use ($categories): void {
+                    $query->whereIn('categories.id', $categories);
                 });
+            }
         }
 
         if ($filters['exclude'] !== null) {
@@ -227,7 +250,7 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
         }
 
         if ($filters['include'] !== null) {
-            $data = $data->whereNotIn('id', array_filter((array) $filters['include']));
+            $data = $data->whereIn('id', array_filter((array) $filters['include']));
         }
 
         if ($filters['author'] !== null) {
@@ -251,7 +274,13 @@ class PostRepository extends RepositoriesAbstract implements PostInterface
 
         $data = $data
             ->wherePublished()
-            ->orderBy($orderBy, $order);
+            ->when(
+                $orderBy === 'order',
+                fn (Builder $query) => $query
+                    ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+                    ->orderBy('order', $order),
+                fn (Builder $query) => $query->orderBy($orderBy, $order)
+            );
 
         return $this->applyBeforeExecuteQuery($data)->paginate((int) $filters['per_page']);
     }

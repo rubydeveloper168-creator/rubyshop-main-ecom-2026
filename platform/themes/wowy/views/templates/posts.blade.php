@@ -1,13 +1,19 @@
 @if ($posts->isNotEmpty())
-    <div class="single-header mb-80 mx-4 sm:mx-0">
-        <h1 class="font-xxl text-brand">{{ SeoHelper::getTitle() }}</h1>
+    @php
+        $showPageHeader = $showPageHeader ?? true;
+    @endphp
 
-        <div class="entry-meta meta-1 font-xs mt-15 mb-15">
-            <span class="post-by has-dot d-inline-block">{{ __(':count Categories', ['count' => Botble\Blog\Models\Category::query()->wherePublished()->count()]) }}</span>
-            <span class="post-on d-inline-block has-dot">{{ __(':count Articles', ['count' => Botble\Blog\Models\Post::query()->wherePublished()->count()]) }}</span>
-            <span class="hit-count d-inline-block has-dot">{{ __(':count Views', ['count' => number_format(Botble\Blog\Models\Post::query()->wherePublished()->sum('views'))]) }}</span>
+    @if ($showPageHeader)
+        <div class="single-header mb-80 mx-4 sm:mx-0">
+            <h1 class="font-xxl text-brand">{{ SeoHelper::getTitle() }}</h1>
+
+            <div class="entry-meta meta-1 font-xs mt-15 mb-15">
+                <span class="post-by has-dot d-inline-block">{{ __(':count Categories', ['count' => Botble\Blog\Models\Category::query()->wherePublished()->count()]) }}</span>
+                <span class="post-on d-inline-block has-dot">{{ __(':count Articles', ['count' => Botble\Blog\Models\Post::query()->wherePublished()->count()]) }}</span>
+                <span class="hit-count d-inline-block has-dot">{{ __(':count Views', ['count' => number_format(Botble\Blog\Models\Post::query()->wherePublished()->sum('views'))]) }}</span>
+            </div>
         </div>
-    </div>
+    @endif
 
     <div class="loop-grid pr-30 mx-4 sm:mx-0">
         <div class="row">

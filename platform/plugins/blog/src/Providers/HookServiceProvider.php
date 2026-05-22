@@ -258,6 +258,8 @@ class HookServiceProvider extends ServiceProvider
 
         $posts = Post::query()
             ->wherePublished()
+            ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+            ->orderBy('order')
             ->orderByDesc('created_at')
             ->with(['slugable', 'categories.slugable'])
             ->when(! empty($categoryIds), function ($query) use ($categoryIds): void {

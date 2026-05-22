@@ -4,6 +4,56 @@
     Theme::layout($layout);
 @endphp
 
+<style>
+    .single-page .ck-content {
+        line-height: 1.8;
+        font-size: 16px;
+        word-break: break-word;
+    }
+
+    .single-page .ck-content > * + * {
+        margin-top: 1rem;
+    }
+
+    .single-page .ck-content h1,
+    .single-page .ck-content h2,
+    .single-page .ck-content h3,
+    .single-page .ck-content h4,
+    .single-page .ck-content h5,
+    .single-page .ck-content h6 {
+        line-height: 1.3;
+        margin: 1.5rem 0 1rem;
+    }
+
+    .single-page .ck-content h1 {
+        font-size: 2rem;
+    }
+
+    .single-page .ck-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .single-page .ck-content h3 {
+        font-size: 1.5rem;
+    }
+
+    .single-page .ck-content p,
+    .single-page .ck-content li {
+        font-size: 1rem;
+        line-height: 1.85;
+    }
+
+    .single-page .ck-content ul,
+    .single-page .ck-content ol {
+        padding-left: 1.4rem;
+        margin: 0 0 1rem;
+    }
+
+    .single-page .ck-content li {
+        margin-bottom: 0.5rem;
+    }
+</style>
+
 
 
 
@@ -19,7 +69,7 @@
         </div>
     </div>
     <div class="single-content">
-     <div class="ck-content">{!! BaseHelper::clean($post->content) !!}</div>
+        <div class="ck-content">{!! BaseHelper::clean($post->content) !!}</div>
 
         <br>
         {!! apply_filters(BASE_FILTER_PUBLIC_COMMENT_AREA, null, $post) !!}
@@ -37,7 +87,7 @@
         <ul class="text-grey-5 d-inline-block">
             <li><strong class="mr-10">{{ __('Share this') }}:</strong></li>
             <li class="social-facebook">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}" target="_blgiank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
             </li>
             <li class="social-twitter">
                 <a href="https://twitter.com/intent/tweet?url={{ urlencode($post->url) }}&text={{ strip_tags($post->description) }}" target="_blank"><i class="fab fa-twitter"></i></a>

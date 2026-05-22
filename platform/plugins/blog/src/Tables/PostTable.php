@@ -139,6 +139,11 @@ class PostTable extends TableAbstract
                     $table
                         ->table
                         ->eloquent($table->query())
+                        ->orderColumn('order', function (Builder $query, string $direction): void {
+                            $query
+                                ->orderByRaw('CASE WHEN `order` = 0 THEN 1 ELSE 0 END')
+                                ->orderBy('order', $direction);
+                        })
                         ->filter(function ($query) {
                             if ($keyword = $this->request->input('search.value')) {
                                 $keyword = '%' . $keyword . '%';
@@ -198,38 +203,38 @@ class PostTable extends TableAbstract
 
             (function () {
                 var updateOrdersUrl = {$updateOrdersUrl};
-                var $tableWrapper = $(this).closest('.dataTables_wrapper');
-                var $table = $tableWrapper.find('table');
-                var dataTable = $table.DataTable();
-                var $tbody = $table.find('tbody');
+                var \$tableWrapper = \$(this).closest('.dataTables_wrapper');
+                var \$table = \$tableWrapper.find('table');
+                var dataTable = \$table.DataTable();
+                var \$tbody = \$table.find('tbody');
 
-                if (! $tbody.length) {
+                if (! \$tbody.length) {
                     return;
                 }
 
-                if ($tbody.data('ui-sortable')) {
-                    $tbody.sortable('destroy');
+                if (\$tbody.data('ui-sortable')) {
+                    \$tbody.sortable('destroy');
                 }
 
-                $tbody.sortable({
+                \$tbody.sortable({
                     axis: 'y',
                     cursor: 'move',
                     handle: '.post-order-handle',
                     helper: function (event, tr) {
-                        var $originals = tr.children();
-                        var $helper = tr.clone();
+                        var \$originals = tr.children();
+                        var \$helper = tr.clone();
 
-                        $helper.children().each(function (index) {
-                            $(this).width($originals.eq(index).width());
+                        \$helper.children().each(function (index) {
+                            \$(this).width(\$originals.eq(index).width());
                         });
 
-                        return $helper;
+                        return \$helper;
                     },
                     update: function () {
                         var pageInfo = dataTable.page.info();
                         var orders = [];
 
-                        $tbody.find('tr').each(function (index) {
+                        \$tbody.find('tr').each(function (index) {
                             var row = dataTable.row(this);
                             var data = row.data();
 
@@ -247,7 +252,7 @@ class PostTable extends TableAbstract
                             return;
                         }
 
-                        $.ajax({
+                        \$.ajax({
                             url: updateOrdersUrl,
                             method: 'POST',
                             data: {

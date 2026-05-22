@@ -31,7 +31,7 @@ class PostController extends BaseController
     {
         $this->pageTitle(trans('plugins/blog::posts.menu_name'));
 
-        Assets::addScripts(['bootstrap-editable', 'sortable'])
+        Assets::addScripts(['bootstrap-editable', 'jquery-ui'])
             ->addStyles(['bootstrap-editable']);
 
         return $dataTable->renderTable();
