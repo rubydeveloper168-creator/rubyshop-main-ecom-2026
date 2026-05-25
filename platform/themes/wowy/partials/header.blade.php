@@ -56,13 +56,16 @@
             $fallbackSeoDescription = trim(strip_tags(SeoHelper::getDescription() ?: theme_option('seo_description', '')));
             $fallbackSeoImage = trim(SeoHelper::openGraph()->getProperty('image') ?: theme_option('seo_og_image', asset('storage/ads/rubyshop-catalog2.jpg')));
             $fallbackSeoUrl = url()->current();
+            $fallbackOgTitle = mb_strlen($fallbackSeoTitle) > 60 ? rtrim(mb_substr($fallbackSeoTitle, 0, 57)) . '...' : $fallbackSeoTitle;
+            $fallbackTwitterTitle = mb_strlen($fallbackSeoTitle) > 70 ? rtrim(mb_substr($fallbackSeoTitle, 0, 67)) . '...' : $fallbackSeoTitle;
         @endphp
         <meta name="twitter:card" content="summary_large_image">
-        <meta name="twitter:title" content="{{ $fallbackSeoTitle }}">
+        <meta name="twitter:title" content="{{ $fallbackTwitterTitle }}">
         <meta name="twitter:description" content="{{ $fallbackSeoDescription }}">
         <meta name="twitter:image" content="{{ $fallbackSeoImage }}">
         <meta name="twitter:url" content="{{ $fallbackSeoUrl }}">
         <meta name="twitter:site" content="@RUBYSHOP168">
+        <meta property="og:title" content="{{ $fallbackOgTitle }}">
 
         <!-- Non-critical CSS loaded in footer to keep initial render path lean -->
             
@@ -102,7 +105,9 @@
                 "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
                 "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
                 "https://www.instagram.com/rubyshop_thailand",
-                "https://www.youtube.com/@rubyshop-thailand"
+                "https://www.youtube.com/@rubyshop-thailand",
+                "https://x.com/RUBYSHOP168",
+                "https://www.linkedin.com/company/rubyshop-thailand"
             ],
             "priceRange": "฿฿",
             "paymentAccepted": ["Cash", "Credit Card", "Bank Transfer"],
@@ -817,6 +822,7 @@
                                     <a href="{{ $socialUrl }}"
                                        title="{{ $socialLink[0]['value'] }}" style="background-color: {{ $socialLink[3]['value'] }}; border: 1px solid {{ $socialLink[3]['value'] }};">
                                         {!! BaseHelper::renderIcon($socialLink[1]['value']) !!}
+                                        <span class="visually-hidden">{{ $socialLink[0]['value'] }}</span>
                                     </a>
                                     @endif
                                 @endif

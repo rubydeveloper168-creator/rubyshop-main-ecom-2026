@@ -52,10 +52,10 @@
                     RUBYSHOP ผู้นำเข้าและจัดจำหน่ายอุปกรณ์ก่อสร้างคุณภาพสูง มุ่งมั่นนำเสนอนวัตกรรมและเทคโนโลยีล่าสุดเพื่อตอบสนองความต้องการของลูกค้า
                 </p>
                 <div class="flex space-x-4 mt-6 text-xl">
-                    <a href="https://www.facebook.com/rubyshopcoth" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white"><i class="fab fa-line"></i></a>
-                    <a href="https://www.instagram.com/rubyshop_168/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.facebook.com/rubyshopcoth" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i><span class="sr-only">Facebook</span></a>
+                    <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white"><i class="fab fa-line"></i><span class="sr-only">LINE</span></a>
+                    <a href="https://www.instagram.com/rubyshop_168/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a>
+                    <a href="https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg" class="text-gray-400 hover:text-white"><i class="fab fa-youtube"></i><span class="sr-only">YouTube</span></a>
                 </div>
             </div>
 
