@@ -811,11 +811,14 @@
                                         if (Str::contains($socialUrl, 'x.com/i/flow/login')) {
                                             $socialUrl = 'https://x.com/RUBYSHOP168';
                                         }
+                                        $skipSocialLink = Str::contains($socialUrl, 'x.com/');
                                     @endphp
+                                    @if (! $skipSocialLink)
                                     <a href="{{ $socialUrl }}"
                                        title="{{ $socialLink[0]['value'] }}" style="background-color: {{ $socialLink[3]['value'] }}; border: 1px solid {{ $socialLink[3]['value'] }};">
                                         {!! BaseHelper::renderIcon($socialLink[1]['value']) !!}
                                     </a>
+                                    @endif
                                 @endif
                             @endforeach
                         </div>
