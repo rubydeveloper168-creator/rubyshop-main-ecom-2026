@@ -9,8 +9,18 @@
         <span class="cookie-consent__message">
             {!! BaseHelper::clean(theme_option('cookie_consent_message', trans('plugins/cookie-consent::cookie-consent.message'))) !!}
             @if (($learnMoreUrl = theme_option('cookie_consent_learn_more_url')) && ($learnMoreText = theme_option('cookie_consent_learn_more_text')))
+                @php
+                    $rawLearnMoreUrl = trim($learnMoreUrl);
+                    $baseUrl = rtrim(config('app.url') ?: BaseHelper::getHomepageUrl(), '/');
+
+                    if (Str::startsWith($rawLearnMoreUrl, ['http://', 'https://'])) {
+                        $resolvedLearnMoreUrl = preg_replace('#^https?://wowy\.test#i', $baseUrl, $rawLearnMoreUrl) ?: $rawLearnMoreUrl;
+                    } else {
+                        $resolvedLearnMoreUrl = $baseUrl . '/' . ltrim($rawLearnMoreUrl, '/');
+                    }
+                @endphp
                 <a
-                    href="{{ Str::startsWith($learnMoreUrl, ['http://', 'https://']) ? $learnMoreUrl : BaseHelper::getHomepageUrl() . '/' . $learnMoreUrl }}">{{ $learnMoreText }}</a>
+                    href="{{ $resolvedLearnMoreUrl }}">{{ $learnMoreText }}</a>
             @endif
         </span>
 

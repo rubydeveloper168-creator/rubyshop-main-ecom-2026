@@ -51,6 +51,18 @@
             <link rel="stylesheet" href="{{ asset('vendor/core/plugins/ecommerce/css/front-ecommerce.css') }}?v={{ $cssVersion }}">
         @endif
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        @php
+            $fallbackSeoTitle = trim(strip_tags(SeoHelper::getTitle() ?: theme_option('seo_title', theme_option('site_title', 'RUBYSHOP'))));
+            $fallbackSeoDescription = trim(strip_tags(SeoHelper::getDescription() ?: theme_option('seo_description', '')));
+            $fallbackSeoImage = trim(SeoHelper::openGraph()->getProperty('image') ?: theme_option('seo_og_image', asset('storage/ads/rubyshop-catalog2.jpg')));
+            $fallbackSeoUrl = url()->current();
+        @endphp
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:title" content="{{ $fallbackSeoTitle }}">
+        <meta name="twitter:description" content="{{ $fallbackSeoDescription }}">
+        <meta name="twitter:image" content="{{ $fallbackSeoImage }}">
+        <meta name="twitter:url" content="{{ $fallbackSeoUrl }}">
+        <meta name="twitter:site" content="@RUBYSHOP168">
 
         <!-- Non-critical CSS loaded in footer to keep initial render path lean -->
             

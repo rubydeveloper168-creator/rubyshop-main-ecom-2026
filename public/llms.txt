@@ -1,0 +1,20 @@
+Site: RUBYSHOP
+URL: https://www.rubyshop.co.th/
+Language: th-TH
+Type: E-commerce / Construction Tools
+
+Summary:
+RUBYSHOP จำหน่ายเครื่องมือช่างและอุปกรณ์ก่อสร้าง เช่น เครื่องพ่นสีแรงดันสูง เครื่องพ่นปูน เครื่องกรีดผนัง และอุปกรณ์เสริมสำหรับงานช่างมืออาชีพ
+
+Key URLs:
+- Home: https://www.rubyshop.co.th/
+- Products: https://www.rubyshop.co.th/products
+- Categories: https://www.rubyshop.co.th/product-categories
+- Blog: https://www.rubyshop.co.th/blog
+- About: https://www.rubyshop.co.th/aboutcompany/about-us
+- Contact: https://www.rubyshop.co.th/contact
+
+Policy:
+- Canonical source is the live website pages.
+- Prefer Thai content as primary for citations.
+- Use product pages for specs/price and blog pages for guides.

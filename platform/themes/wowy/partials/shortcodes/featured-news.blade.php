@@ -9,7 +9,7 @@
 
     <!-- Images (8 in total) -->
     <div class="w-full sm:w-1/4 flex-shrink-0 rounded-lg overflow-hidden relative group cursor-pointer"> 
-      <a href="https://www.rubyshop.co.th/product-categories/airless-sprayer-professional">
+      <a href="https://www.rubyshop.co.th/product-categories/airless-sprayer">
         <div class="h-64 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
         <img src="https://www.rubyshop.co.th/storage/home/airless-spayer-4.webp" alt="เครื่องพ่นสีแบบไร้อากาศ" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
         <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent pt-20 px-4 pb-4 text-white">
@@ -247,7 +247,7 @@
             ประสิทธิภาพเหนือระดับ ให้ผลลัพธ์ที่แม่นยำและรวดเร็ว ช่วยให้งานของคุณเสร็จสมบูรณ์อย่างมืออาชีพในทุกรายละเอียด
           </p>
           <div class="text-center mt-3 sm:mt-4 transform transition-all duration-300 group-hover:translate-y-[-4px]">
-            <a href="https://www.rubyshop.co.th/product-categories/airless-sprayer-professional" class="inline-block bg-red-600 text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-red-500 hover:shadow-lg hover:scale-105 transition-all duration-300">
+            <a href="https://www.rubyshop.co.th/product-categories/airless-sprayer" class="inline-block bg-red-600 text-white font-semibold py-2 px-4 sm:px-6 rounded-full hover:bg-red-500 hover:shadow-lg hover:scale-105 transition-all duration-300">
               LEARN MORE
             </a>
           </div>

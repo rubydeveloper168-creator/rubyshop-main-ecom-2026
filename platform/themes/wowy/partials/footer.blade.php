@@ -73,7 +73,7 @@
                 <h4 class="text-lg font-semibold mb-6 text-white">ผลิตภัณฑ์อื่นๆ</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
                     <li><a href="https://www.rubyshop.co.th/products/rubyshop-rb-32-3000-rebar-bending-machine" class="hover:text-white">เครื่องตัดเหล็ก</a></li>
-                    <li><a href="https://www.rubyshop.co.th/product-categories/airless-sprayer-professional" class="hover:text-white">เครื่องพ่นสี</a></li>
+                    <li><a href="https://www.rubyshop.co.th/product-categories/airless-sprayer" class="hover:text-white">เครื่องพ่นสี</a></li>
                     <li><a href="https://www.rubyshop.co.th/products?layout=product-full-width&categories%5B%5D=70&page=2" class="hover:text-white">อุปกรณ์เสริม</a></li>
                     <li><a href="https://www.rubyshop.co.th/products?layout=product-full-width&categories%5B%5D=70&page=1" class="hover:text-white">อะไหล่</a></li>
                 </ul>
@@ -94,7 +94,7 @@
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-envelope mt-1 mr-3 text-red-500"></i>
-                        <a class="hover:text-white hover:underline" href="mailto:saleruby.benjavan@gmail.com">info@rubyshop.co.th</a>
+                        <a class="hover:text-white hover:underline" href="https://www.rubyshop.co.th/contact">info@rubyshop.co.th</a>
                     </li>
                     <li class="flex items-start">
                         <i class="fas fa-clock mt-1 mr-3 text-red-500"></i>

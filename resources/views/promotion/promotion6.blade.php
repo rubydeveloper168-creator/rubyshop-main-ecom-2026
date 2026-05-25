@@ -1554,7 +1554,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white transition">
                             <i class="fab fa-line"></i>
                         </a>
-                        <a href="https://x.com/i/flow/login?redirect_after_login=%2FRUBYSHOP168" class="text-gray-400 hover:text-white transition">
+                        <a href="https://x.com/RUBYSHOP168" class="text-gray-400 hover:text-white transition">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </div>
@@ -2151,6 +2151,5 @@ a:focus, button:focus, input:focus, select:focus, textarea:focus {
 </a>
 </body>
 </html>
-
 
 
