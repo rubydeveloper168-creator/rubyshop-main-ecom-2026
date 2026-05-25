@@ -35,7 +35,11 @@ jobs:
             composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
             if command -v npm >/dev/null 2>&1; then
-              npm ci
+              if [ -f package-lock.json ]; then
+                npm ci
+              else
+                npm install
+              fi
               npm run production
             else
               echo "npm not found, skip frontend build"

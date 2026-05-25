@@ -42,7 +42,12 @@ jobs:
           cache: npm
 
       - name: Install Node dependencies
-        run: npm ci
+        run: |
+          if [ -f package-lock.json ]; then
+            npm ci
+          else
+            npm install
+          fi
 
       - name: Build frontend assets
         run: npm run production
