@@ -1,0 +1,50 @@
+name: Deploy Production
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, production, rubyshop]
+    timeout-minutes: 30
+    env:
+      APP_DIR: /var/www/rubyshop.co.th/rubyshop-main-ecom-2026
+      BRANCH: main
+    steps:
+      - name: Deploy latest code on production server
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$APP_DIR"
+
+          echo "[$(date -u +%F_%T)] Start deploy on $(hostname)"
+          flock -w 300 /tmp/rubyshop-deploy.lock bash -c '
+            set -euo pipefail
+
+            git fetch origin "$BRANCH"
+            git checkout "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+
+            composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+            if command -v npm >/dev/null 2>&1; then
+              npm ci
+              npm run production
+            else
+              echo "npm not found, skip frontend build"
+            fi
+
+            php artisan migrate --force
+            php artisan optimize:clear
+            php artisan optimize
+            php artisan cms:publish:assets
+          '
+
+          echo "[$(date -u +%F_%T)] Deploy completed"
