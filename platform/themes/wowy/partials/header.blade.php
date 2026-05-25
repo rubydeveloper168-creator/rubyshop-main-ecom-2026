@@ -806,7 +806,13 @@
                         <div class="mobile-social-icon">
                             @foreach($socialLinks as $socialLink)
                                 @if (count($socialLink) == 4 && isset($socialLink[0]['value']) && isset($socialLink[1]['value']) && isset($socialLink[2]['value']) && isset($socialLink[3]['value']))
-                                    <a href="{{ $socialLink[2]['value'] }}"
+                                    @php
+                                        $socialUrl = (string) $socialLink[2]['value'];
+                                        if (Str::contains($socialUrl, 'x.com/i/flow/login')) {
+                                            $socialUrl = 'https://x.com/RUBYSHOP168';
+                                        }
+                                    @endphp
+                                    <a href="{{ $socialUrl }}"
                                        title="{{ $socialLink[0]['value'] }}" style="background-color: {{ $socialLink[3]['value'] }}; border: 1px solid {{ $socialLink[3]['value'] }};">
                                         {!! BaseHelper::renderIcon($socialLink[1]['value']) !!}
                                     </a>
