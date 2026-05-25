@@ -65,7 +65,7 @@
                     <li><a href="/" class="hover:text-white text-white">หน้าแรก</a></li>
                     <li><a href="https://www.rubyshop.co.th/products" class="hover:text-white">สินค้าทั้งหมด</a></li>
                     <li><a href="https://www.rubyshop.co.th/aboutcompany/about-us" class="hover:text-white">เกี่ยวกับเรา</a></li>
-                    <li><a href="https://www.rubyshop.co.th/aboutcompany/about-us" class="hover:text-white">ติดต่อเรา</a></li>
+                    <li><a href="https://www.rubyshop.co.th/contact" class="hover:text-white">ติดต่อเรา</a></li>
                 </ul>
             </div>
 
@@ -101,6 +101,20 @@
                         <span>เปิดทำการ: จันทร์-เสาร์ 08:30-17:30 น.</span>
                     </li>
                 </ul>
+            </div>
+        </div>
+
+        <div class="mb-10 border-t border-gray-800 pt-8">
+            <h4 class="text-lg font-semibold text-white mb-4">ลิงก์แนะนำสำหรับการเลือกสินค้า</h4>
+            <p class="text-gray-400 text-sm mb-4">
+                RUBYSHOP มีเครื่องมือสำหรับงานพ่นสี งานกรีดผนัง และงานพ่นปูนฉาบครบในที่เดียว
+                คุณสามารถเริ่มจากหน้าหมวดหมู่ แล้วเปรียบเทียบสเปกจากหน้าสินค้าก่อนตัดสินใจได้ทันที
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
+                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/airless-sprayer">เครื่องพ่นสีแรงดันสูง Airless Sprayer</a>
+                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/wallchaser">เครื่องกรีดผนัง Wall Chaser</a>
+                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/mortar-sprayer">เครื่องพ่นปูนซีเมนต์ Mortar Sprayer</a>
+                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/blog">บทความรีวิวและคู่มือใช้งาน</a>
             </div>
         </div>
 

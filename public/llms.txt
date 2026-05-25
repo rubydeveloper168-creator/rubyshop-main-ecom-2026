@@ -1,20 +1,20 @@
-Site: RUBYSHOP
-URL: https://www.rubyshop.co.th/
-Language: th-TH
-Type: E-commerce / Construction Tools
+# RUBYSHOP
+> RUBYSHOP คือเว็บไซต์ขายเครื่องมือช่างและอุปกรณ์ก่อสร้างสำหรับช่างมืออาชีพและผู้รับเหมาในประเทศไทย โดยใช้ภาษาไทยเป็นหลัก
 
-Summary:
-RUBYSHOP จำหน่ายเครื่องมือช่างและอุปกรณ์ก่อสร้าง เช่น เครื่องพ่นสีแรงดันสูง เครื่องพ่นปูน เครื่องกรีดผนัง และอุปกรณ์เสริมสำหรับงานช่างมืออาชีพ
+## Main Pages
+- [Home](https://www.rubyshop.co.th/): หน้าแรกของเว็บไซต์
+- [All Products](https://www.rubyshop.co.th/products): รวมสินค้าทั้งหมด
+- [Product Categories](https://www.rubyshop.co.th/product-categories): หมวดหมู่สินค้า
+- [Blog](https://www.rubyshop.co.th/blog): บทความและคู่มือการใช้งาน
+- [About Us](https://www.rubyshop.co.th/aboutcompany/about-us): ข้อมูลบริษัท
+- [Contact](https://www.rubyshop.co.th/contact): ช่องทางติดต่อ
 
-Key URLs:
-- Home: https://www.rubyshop.co.th/
-- Products: https://www.rubyshop.co.th/products
-- Categories: https://www.rubyshop.co.th/product-categories
-- Blog: https://www.rubyshop.co.th/blog
-- About: https://www.rubyshop.co.th/aboutcompany/about-us
-- Contact: https://www.rubyshop.co.th/contact
+## Priority Categories
+- [Airless Sprayer](https://www.rubyshop.co.th/product-categories/airless-sprayer): เครื่องพ่นสีแรงดันสูง
+- [Wall Chaser](https://www.rubyshop.co.th/product-categories/wallchaser): เครื่องกรีดผนัง
+- [Mortar Sprayer](https://www.rubyshop.co.th/product-categories/mortar-sprayer): เครื่องพ่นปูนซีเมนต์
 
-Policy:
-- Canonical source is the live website pages.
-- Prefer Thai content as primary for citations.
-- Use product pages for specs/price and blog pages for guides.
+## AI Usage Notes
+- [Canonical Policy](https://www.rubyshop.co.th/): อ้างอิงข้อมูลจากหน้าเว็บจริงเป็นหลัก
+- [Thai-first Content](https://www.rubyshop.co.th/blog): ใช้เนื้อหาภาษาไทยเป็นข้อมูลหลักเมื่อสรุปคำตอบ
+- [Specs Source](https://www.rubyshop.co.th/products): ใช้หน้าสินค้าสำหรับสเปก ราคา และสถานะสินค้า

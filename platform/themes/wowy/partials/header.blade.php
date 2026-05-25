@@ -539,6 +539,7 @@
                                         <div class="header-action-icon-2">
                                             <a href="{{ route('public.compare') }}" class="compare-count">
                                                 <img class="svgInject" alt="{{ __('Compare') }}" src="{{ Theme::asset()->url('images/icons/icon-compare.svg') }}">
+                                                <span class="visually-hidden">{{ __('Compare products') }}</span>
                                                 <span class="pro-count blue"><span>{{ Cart::instance('compare')->count() }}</span></span>
                                             </a>
                                         </div>
@@ -547,6 +548,7 @@
                                         <div class="header-action-icon-2">
                                             <a href="{{ route('public.wishlist') }}" class="wishlist-count">
                                                 <img class="svgInject" alt="{{ __('Wishlist') }}" src="{{ Theme::asset()->url('images/icons/icon-heart.svg') }}">
+                                                <span class="visually-hidden">{{ __('Wishlist') }}</span>
                                                 <span class="pro-count blue">@if (auth('customer')->check())<span>{{ auth('customer')->user()->wishlist()->count() }}</span> @else <span>{{ Cart::instance('wishlist')->count() }}</span>@endif</span>
                                             </a>
                                         </div>
@@ -554,6 +556,7 @@
                                     <div class="header-action-icon-2">
                                         <a class="mini-cart-icon" href="{{ route('public.cart') }}">
                                             <img alt="{{ __('Cart') }}" src="{{ Theme::asset()->url('images/icons/icon-cart.svg') }}">
+                                            <span class="visually-hidden">{{ __('Shopping cart') }}</span>
                                             <span class="pro-count blue">{{ Cart::instance('cart')->count() }}</span>
                                         </a>
                                         <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -563,6 +566,7 @@
                                     <div class="header-action-icon-2">
                                         <a href="{{ route('customer.login') }}">
                                             <img alt="{{ __('Sign In') }}" src="{{ Theme::asset()->url('images/icons/icon-user.svg') }}">
+                                            <span class="visually-hidden">{{ __('Sign in') }}</span>
                                         </a>
                                     </div>
                                 </div>
@@ -633,6 +637,7 @@
                                         <div class="header-action-icon-2">
                                             <a href="{{ route('public.compare') }}" class="compare-count">
                                                 <img class="svgInject" alt="{{ __('Compare') }}" src="{{ Theme::asset()->url('images/icons/icon-compare-white.svg') }}">
+                                                <span class="visually-hidden">{{ __('Compare products') }}</span>
                                                 <span class="pro-count white"><span>{{ Cart::instance('compare')->count() }}</span></span>
                                             </a>
                                         </div>
@@ -641,6 +646,7 @@
                                         <div class="header-action-icon-2">
                                             <a href="{{ route('public.wishlist') }}" class="wishlist-count">
                                                 <img alt="wowy" src="{{ Theme::asset()->url('images/icons/icon-heart-white.svg') }}">
+                                                <span class="visually-hidden">{{ __('Wishlist') }}</span>
                                                 <span class="pro-count white">@if (auth('customer')->check())<span>{{ auth('customer')->user()->wishlist()->count() }}</span> @else <span>{{ Cart::instance('wishlist')->count() }}</span>@endif</span>
                                             </a>
                                         </div>
@@ -648,6 +654,7 @@
                                     <div class="header-action-icon-2">
                                         <a class="mini-cart-icon" href="{{ route('public.cart') }}">
                                             <img alt="cart" src="{{ Theme::asset()->url('images/icons/icon-cart-white.svg') }}">
+                                            <span class="visually-hidden">{{ __('Shopping cart') }}</span>
                                             <span class="pro-count white">{{ Cart::instance('cart')->count() }}</span>
                                         </a>
                                         <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -657,6 +664,7 @@
                                     <div class="header-action-icon-2">
                                         <a href="{{ route('customer.login') }}">
                                             <img alt="wowy" src="{{ Theme::asset()->url('images/icons/icon-user-white.svg') }}">
+                                            <span class="visually-hidden">{{ __('Sign in') }}</span>
                                         </a>
                                     </div>
                                     <div class="header-action-icon-2 d-block d-lg-none">

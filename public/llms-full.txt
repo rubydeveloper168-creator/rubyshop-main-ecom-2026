@@ -1,0 +1,27 @@
+# RUBYSHOP Full Context
+> ข้อมูลขยายสำหรับระบบ AI และ Search Assistant ของเว็บไซต์ RUBYSHOP
+
+## Site Identity
+- [Brand](https://www.rubyshop.co.th/): RUBYSHOP (รูบี้ช๊อป)
+- [Primary Market](https://www.rubyshop.co.th/): ประเทศไทย
+- [Primary Language](https://www.rubyshop.co.th/): ภาษาไทย
+
+## Commercial Pages
+- [All Products](https://www.rubyshop.co.th/products): หน้ารวมสินค้า
+- [Category Index](https://www.rubyshop.co.th/product-categories): หน้ารวมหมวดสินค้า
+- [Blog Index](https://www.rubyshop.co.th/blog): หน้ารวมบทความ
+
+## High-Intent Categories
+- [Airless Sprayer](https://www.rubyshop.co.th/product-categories/airless-sprayer): งานพ่นสีแรงดันสูง
+- [Wall Chaser](https://www.rubyshop.co.th/product-categories/wallchaser): งานกรีดผนังเซาะร่อง
+- [Mortar Sprayer](https://www.rubyshop.co.th/product-categories/mortar-sprayer): งานพ่นปูนฉาบ
+
+## Trust and Support
+- [About Us](https://www.rubyshop.co.th/aboutcompany/about-us): ประวัติบริษัทและการให้บริการ
+- [Contact](https://www.rubyshop.co.th/contact): ที่อยู่ เบอร์โทร อีเมล
+- [Privacy Policy](https://www.rubyshop.co.th/privacy-policy): นโยบายความเป็นส่วนตัว
+
+## Retrieval Guidance
+- [Canonical Source](https://www.rubyshop.co.th/): ใช้ URL จริงบนเว็บไซต์เป็นแหล่งอ้างอิงหลัก
+- [Product Facts](https://www.rubyshop.co.th/products): ราคา/สเปกให้ยึดจากหน้าสินค้า
+- [How-to Content](https://www.rubyshop.co.th/blog): วิธีใช้งานและบทความให้ยึดจากหน้าบล็อก
