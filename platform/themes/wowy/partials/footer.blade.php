@@ -1019,90 +1019,169 @@
 (function () {
     'use strict';
 
-    function snap(label) {
-        var wrap = document.querySelector('.categories-dropdown-wrap');
-        if (!wrap) { console.warn('[DD] wrap not found'); return; }
+    // ── DEBUG ──────────────────────────────────────────────────────
+    var DD = {
+        log: function() { console.log.apply(console, ['[FLY]'].concat(Array.from(arguments))); },
+        warn: function() { console.warn.apply(console, ['[FLY]'].concat(Array.from(arguments))); }
+    };
+    // ── END DEBUG ───────────────────────────────────────────────────
 
-        var wCS = getComputedStyle(wrap);
-        console.group('[DD] ' + label);
-        console.log('wrap overflow=' + wCS.overflow + ' | overflowX=' + wCS.overflowX + ' | overflowY=' + wCS.overflowY);
-        console.log('wrap display=' + wCS.display + ' | visibility=' + wCS.visibility + ' | height=' + wCS.height);
-
-        // more_slide_open
-        var more = wrap.querySelector('.more_slide_open');
-        if (more) {
-            var mCS = getComputedStyle(more);
-            console.log('more_slide_open display=' + mCS.display + ' | overflow=' + mCS.overflow + ' | height=' + mCS.height + ' | visibility=' + mCS.visibility);
-        }
-
-        // Each ancestor of wrap up to header
-        var el = wrap.parentElement;
-        while (el && !el.classList.contains('header-area')) {
-            var cs = getComputedStyle(el);
-            if (cs.overflow !== 'visible' || cs.overflowX !== 'visible' || cs.overflowY !== 'visible') {
-                console.warn('⚠️ ANCESTOR CLIPPING: <' + el.tagName + ' class="' + el.className + '"> overflow=' + cs.overflow + ' overflowX=' + cs.overflowX + ' overflowY=' + cs.overflowY + ' height=' + cs.height, el);
-            }
-            el = el.parentElement;
-        }
-
-        // All li.has-children
-        wrap.querySelectorAll('li.has-children').forEach(function (li, i) {
-            var liCS = getComputedStyle(li);
-            var menu = li.querySelector(':scope > .dropdown-menu');
-            var menuInfo = 'NO .dropdown-menu!';
-            if (menu) {
-                var mCS = getComputedStyle(menu);
-                menuInfo = 'display=' + mCS.display + ' visibility=' + mCS.visibility + ' left=' + mCS.left + ' width=' + mCS.width + ' zIndex=' + mCS.zIndex;
-            }
-            console.log('li[' + i + '] "' + li.innerText.trim().slice(0,25) + '" | li.display=' + liCS.display + ' | li.overflow=' + liCS.overflow + ' | li.position=' + liCS.position + ' | menu → ' + menuInfo);
-        });
-
-        console.groupEnd();
-    }
-
+    // Flyout hover-intent: JS controls show/hide so position:fixed menus
+    // stay visible when mouse travels from li → menu (CSS :hover can't do this
+    // because mouse physically leaves the li before reaching the fixed flyout).
     document.addEventListener('DOMContentLoaded', function () {
         var wrap = document.querySelector('.categories-dropdown-wrap');
-        if (!wrap) { console.warn('[DD] wrap not found'); return; }
+        if (!wrap) { return; }
 
-        // Snapshot on load
-        snap('PAGE LOAD');
+        var hideTimer  = null;
+        var activeLi   = null;
 
-        // Watch more_categories click
-        var moreBtn = document.querySelector('.more_categories');
-        if (moreBtn) {
-            moreBtn.addEventListener('click', function () {
-                console.log('[DD] 🖱 more_categories CLICKED');
-                // Snapshot before + after jQuery animation
-                setTimeout(function () { snap('100ms after more click'); }, 100);
-                setTimeout(function () { snap('600ms after more click (post-slideToggle)'); }, 600);
-                setTimeout(function () { snap('1200ms after more click'); }, 1200);
-            });
-        } else {
-            console.warn('[DD] .more_categories button NOT FOUND');
+        function positionMenu(li, menu) {
+            menu.style.visibility = 'hidden';
+            menu.style.display = 'block';
+            var menuH = menu.offsetHeight;
+            var menuW = menu.offsetWidth;
+            menu.style.display = '';
+            menu.style.visibility = '';
+
+            var rect = li.getBoundingClientRect();
+            var vw   = window.innerWidth;
+            var vh   = window.innerHeight;
+
+            var left = rect.right;
+            var top  = rect.top;
+            var flippedH = false, flippedV = false;
+
+            if (left + menuW > vw) { left = Math.max(0, rect.left - menuW); flippedH = true; }
+            if (top  + menuH > vh) { top  = Math.max(0, vh - menuH - 8);   flippedV = true; }
+
+            menu.style.left = left + 'px';
+            menu.style.top  = top  + 'px';
+
+            DD.log('positionMenu "' + li.innerText.trim().slice(0,20) + '"',
+                'li.rect={top:' + Math.round(rect.top) + ',right:' + Math.round(rect.right) + ',bottom:' + Math.round(rect.bottom) + '}',
+                'menu={w:' + menuW + ',h:' + menuH + '}',
+                '→ left=' + Math.round(left) + ' top=' + Math.round(top),
+                flippedH ? '⬅ flipped-left' : '',
+                flippedV ? '⬆ flipped-up'   : ''
+            );
         }
 
-        // Watch hover on every li.has-children (delegate so new items work too)
-        wrap.addEventListener('mouseover', function (e) {
-            var li = e.target.closest('li.has-children');
-            if (!li) return;
-            var menu = li.querySelector(':scope > .dropdown-menu');
-            if (!menu) { console.warn('[DD] hovered li has no menu'); return; }
-            var cs = getComputedStyle(menu);
-            var liCS = getComputedStyle(li);
-            console.log('[DD] 🟢 hover li "' + li.innerText.trim().slice(0,25) + '" | menu display=' + cs.display + ' visibility=' + cs.visibility + ' left=' + cs.left + ' height=' + cs.height + ' | li.overflow=' + liCS.overflow + ' | li.position=' + liCS.position);
+        function show(li) {
+            clearTimeout(hideTimer);
+            var label = '"' + li.innerText.trim().slice(0,20) + '"';
 
-            // Clip check
-            var el = menu.parentElement;
-            while (el && el !== document.body) {
-                var ov = getComputedStyle(el);
-                if (ov.overflow === 'hidden' || ov.overflowX === 'hidden' || ov.overflowY === 'hidden') {
-                    console.warn('[DD] ⚠️ CLIP: <' + el.tagName + ' class="' + el.className + '"> overflow=' + ov.overflow + ' overflowX=' + ov.overflowX + ' overflowY=' + ov.overflowY, el);
-                }
-                el = el.parentElement;
+            // Already active — skip re-positioning to prevent width growth
+            if (li === activeLi) {
+                DD.log('show', label, '— already active, skip');
+                return;
+            }
+
+            if (activeLi && activeLi !== li) {
+                DD.log('switching away from', '"' + activeLi.innerText.trim().slice(0,20) + '"');
+                activeLi.classList.remove('is-active');
+            }
+            var menu = li.querySelector(':scope > .dropdown-menu');
+            DD.log('show', label, '| menu found:', !!menu);
+            if (menu) {
+                positionMenu(li, menu);
+                var cs = getComputedStyle(menu);
+                DD.log('  menu after position: display=' + cs.display + ' left=' + menu.style.left + ' top=' + menu.style.top + ' w=' + cs.width + ' h=' + cs.height);
+            }
+            li.classList.add('is-active');
+            activeLi = li;
+        }
+
+        function hide(li) {
+            clearTimeout(hideTimer);
+            var label = '"' + li.innerText.trim().slice(0,20) + '"';
+            DD.log('hide scheduled for', label, '(120ms)');
+            hideTimer = setTimeout(function () {
+                DD.log('hide EXECUTED for', label);
+                li.classList.remove('is-active');
+                if (activeLi === li) { activeLi = null; }
+            }, 120);
+        }
+
+        wrap.addEventListener('mouseenter', function (e) {
+            var li = e.target.closest && e.target.closest('li.has-children');
+            // Only handle top-level li — ignore nested li inside .dropdown-menu
+            if (li && wrap.contains(li) && !li.closest('.dropdown-menu')) {
+                DD.log('mouseenter li', '"' + li.innerText.trim().slice(0,20) + '"');
+                show(li);
+            }
+        }, true);
+
+        wrap.addEventListener('mouseleave', function (e) {
+            var li = e.target.closest && e.target.closest('li.has-children');
+            // Only handle top-level li — ignore nested li inside .dropdown-menu
+            if (li && wrap.contains(li) && !li.closest('.dropdown-menu')) {
+                DD.log('mouseleave li', '"' + li.innerText.trim().slice(0,20) + '"');
+                hide(li);
+            }
+        }, true);
+
+        document.addEventListener('mouseover', function (e) {
+            if (!activeLi) { return; }
+            var menu = activeLi.querySelector(':scope > .dropdown-menu');
+            if (menu && menu.contains(e.target)) {
+                DD.log('mouse ENTERED flyout → cancel hide');
+                clearTimeout(hideTimer);
             }
         });
+        document.addEventListener('mouseout', function (e) {
+            if (!activeLi) { return; }
+            var menu = activeLi.querySelector(':scope > .dropdown-menu');
+            if (menu && menu.contains(e.target) && !menu.contains(e.relatedTarget)) {
+                DD.log('mouse LEFT flyout → schedule hide');
+                hide(activeLi);
+            }
+        });
+    });
+}());
+</script>
 
-        console.log('[DD] ✅ Listeners ready — click "see more" then hover a category.');
+<script>
+(function () {
+    'use strict';
+
+    // Patch main.js scroll handler so it does NOT close the categories dropdown
+    // while it is open. All other scroll behaviour (sticky header etc.) is preserved.
+    // We wait 500ms for main.js to finish attaching its own handlers first.
+
+    window.addEventListener('load', function () {
+        var $ = window.jQuery;
+        if (!$ || !$.fn) { return; }
+
+        setTimeout(function () {
+            var $win     = $(window);
+            var $header  = $('header.header-area');
+
+            try {
+                var eventsData = $._data(window, 'events');
+                if (!eventsData || !eventsData.scroll) { return; }
+
+                var originalHandlers = eventsData.scroll.slice();
+                $win.off('scroll');
+
+                originalHandlers.forEach(function (h) {
+                    $win.on('scroll', function (e) {
+                        var $dropdown = $header.find('.categories-dropdown-active-large');
+                        var $button   = $header.find('.categories-button-active');
+                        var wasOpen   = $dropdown.hasClass('open');
+
+                        // Run the original main.js scroll handler (sticky, etc.)
+                        h.handler.call(this, e);
+
+                        // If the dropdown was open and the handler just closed it, re-open it
+                        if (wasOpen && !$dropdown.hasClass('open')) {
+                            $dropdown.addClass('open');
+                            $button.addClass('open');
+                        }
+                    });
+                });
+            } catch (e) { /* silent fail */ }
+        }, 500);
     });
 }());
 </script>

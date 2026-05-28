@@ -454,6 +454,78 @@
             }
 
             /* ======================================================
+               MAIN NAV DROPDOWN — redesign
+               ====================================================== */
+
+            /* Dropdown container */
+            .main-menu > nav > ul > li ul.sub-menu {
+                border-radius: 14px !important;
+                box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06) !important;
+                border: 1px solid #f0f0f0 !important;
+                padding: 8px 0 !important;
+                margin-top: 12px !important;
+                width: 240px !important;
+            }
+
+            /* Each item */
+            .main-menu > nav > ul > li ul.sub-menu li {
+                margin-bottom: 0 !important;
+                border-bottom: 1px solid #f5f5f5 !important;
+            }
+            .main-menu > nav > ul > li ul.sub-menu li:last-child {
+                border-bottom: none !important;
+            }
+
+            /* Item link */
+            .main-menu > nav > ul > li ul.sub-menu li a {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                padding: 10px 18px !important;
+                font-size: 13.5px !important;
+                font-weight: 500 !important;
+                color: #1f2937 !important;
+                border-left: 3px solid transparent !important;
+                transition: background 0.15s, color 0.15s, border-color 0.15s, padding-left 0.15s !important;
+                line-height: 1.4 !important;
+            }
+
+            /* Hover */
+            .main-menu > nav > ul > li ul.sub-menu li:hover > a {
+                color: #dc2626 !important;
+                background: #fef2f2 !important;
+                border-left-color: #dc2626 !important;
+                padding-left: 22px !important;
+            }
+
+            /* Active link */
+            .main-menu > nav > ul > li ul.sub-menu li a.active {
+                color: #dc2626 !important;
+                font-weight: 600 !important;
+            }
+
+            /* Chevron icon */
+            .main-menu > nav > ul > li ul.sub-menu li a i {
+                font-size: 10px !important;
+                color: #9ca3af !important;
+                float: none !important;
+                top: 0 !important;
+                transition: color 0.15s !important;
+            }
+            .main-menu > nav > ul > li ul.sub-menu li:hover > a i {
+                color: #dc2626 !important;
+            }
+
+            /* Nested level-menu */
+            .main-menu > nav > ul > li ul.sub-menu li ul.level-menu {
+                border-radius: 14px !important;
+                box-shadow: 0 12px 40px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.06) !important;
+                border: 1px solid #f0f0f0 !important;
+                padding: 8px 0 !important;
+                width: 220px !important;
+            }
+
+            /* ======================================================
                CATEGORY DROPDOWN — redesign
                ====================================================== */
 
@@ -487,7 +559,9 @@
                 margin-top: 10px !important;
             }
             .categories-dropdown-wrap > ul {
-                overflow: visible !important;
+                overflow-y: auto !important;
+                overflow-x: visible !important;
+                max-height: calc(100vh - 100px) !important;
                 border-radius: 14px !important;
             }
 
@@ -554,17 +628,18 @@
 
             /* ── Flyout panel (right side) ── */
 
-            /* Hidden by default, shown on parent hover */
+            /* Hidden by default — JS controls show/hide via .is-active class */
             .categories-dropdown-wrap ul li.has-children > .dropdown-menu {
-                display: none !important;
-                position: absolute !important;
-                left: 100% !important;
-                top: 0 !important;
-                z-index: 9999 !important;
+                display: none;
+                position: fixed !important;
+                z-index: 99999 !important;
                 min-width: 220px !important;
-                width: auto !important;
+                max-width: 320px !important;
+                width: 260px !important;
+                max-height: calc(100vh - 80px) !important;
+                overflow-y: auto !important;
             }
-            .categories-dropdown-wrap ul li.has-children:hover > .dropdown-menu {
+            .categories-dropdown-wrap ul li.has-children.is-active > .dropdown-menu {
                 display: block !important;
                 visibility: visible !important;
                 opacity: 1 !important;

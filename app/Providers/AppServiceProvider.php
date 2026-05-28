@@ -29,6 +29,15 @@ class AppServiceProvider extends ServiceProvider
                 'route' => 'line-feature.index',
                 'permissions' => false,
             ]);
+
+            DashboardMenu::make()->registerItem([
+                'id' => 'cms-app-seo-machine',
+                'priority' => 126,
+                'name' => 'SEO Machine',
+                'icon' => 'ti ti-search',
+                'route' => 'seo-machine.index',
+                'permissions' => false,
+            ]);
         });
     }
 }

@@ -2,6 +2,7 @@
 
 use Botble\Base\Facades\AdminHelper;
 use App\Http\Controllers\Admin\LineFeatureController;
+use App\Http\Controllers\Admin\SeoMachineController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\BlogsController;
@@ -113,5 +114,14 @@ AdminHelper::registerRoutes(function (): void {
         'permission' => false,
     ], function (): void {
         Route::get('/', [LineFeatureController::class, 'index'])->name('index');
+    });
+
+    Route::group([
+        'prefix' => 'seo-machine',
+        'as' => 'seo-machine.',
+        'permission' => false,
+    ], function (): void {
+        Route::get('/', [SeoMachineController::class, 'index'])->name('index');
+        Route::post('/run-now', [SeoMachineController::class, 'runNow'])->name('run-now');
     });
 });
