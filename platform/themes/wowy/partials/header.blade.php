@@ -4,6 +4,20 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        @php
+            $isUtilityNoindexPage = request()->is('cart')
+                || request()->is('compare')
+                || request()->is('wishlist')
+                || request()->is('login')
+                || request()->is('register')
+                || request()->is('checkout*')
+                || request()->is('customer*')
+                || request()->is('orders/tracking*')
+                || request()->is('currency/switch/*');
+        @endphp
+        @if ($isUtilityNoindexPage)
+            <meta name="robots" content="noindex,follow">
+        @endif
         
         <!-- Resource Hints for Performance -->
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -11,19 +25,33 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         
-        <!-- Critical CSS loaded first -->
-        <link rel="preload" href="{{ asset('css/tailwind.css') }}?v=20260424-3" as="style">
-        <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}?v=20260424-3">
         @php
             $isHomePage = request()->path() === '/' || request()->routeIs('public.index');
+            $isBlogPage = request()->is('blog') || request()->is('blog/*');
             $isCategoryPage = request()->is('product-categories*')
                 || request()->is('categories')
                 || request()->is('allproducts/category/*')
                 || request()->is('sub/*');
             $isContactPage = request()->is('contact*');
+            $isAuthPage = request()->is('login')
+                || request()->is('register')
+                || request()->is('password/reset*')
+                || request()->is('customer/login*')
+                || request()->is('customer/register*')
+                || request()->is('th/login*')
+                || request()->is('th/register*');
+            $useTailwindCss = $isBlogPage || $isAuthPage;
             $useTailwindCdn = $isHomePage || $isCategoryPage || $isContactPage;
             $cssVersion = '20260424-3';
         @endphp
+        @if ($isHomePage)
+            <link rel="preload" as="image" href="{{ asset('storage/ads01/30l/m30l-hero.jpg') }}" fetchpriority="high" media="(max-width: 767px)">
+            <link rel="preload" as="image" href="{{ asset('storage/ads01/30l/m30l-hero.jpg') }}" fetchpriority="high" media="(min-width: 768px)">
+        @endif
+        @if ($useTailwindCss)
+            <link rel="preload" href="{{ asset('css/tailwind.css') }}?v=20260424-3" as="style">
+            <link rel="stylesheet" href="{{ asset('css/tailwind.css') }}?v=20260424-3">
+        @endif
         @if ($useTailwindCdn)
             <script>
                 window.tailwind = window.tailwind || {};
@@ -44,8 +72,16 @@
         <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/normalize.css') }}?v={{ $cssVersion }}">
         <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/fontawesome-all.min.css') }}?v={{ $cssVersion }}">
         <link rel="stylesheet" href="{{ Theme::asset()->url('css/vendors/wowy-font.css') }}?v={{ $cssVersion }}">
-        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/animate.css') }}?v={{ $cssVersion }}">
-        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/slick.css') }}?v={{ $cssVersion }}">
+        <link rel="preload" href="{{ Theme::asset()->url('css/plugins/animate.css') }}?v={{ $cssVersion }}" as="style">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/animate.css') }}?v={{ $cssVersion }}" media="print" onload="this.media='all'">
+        <noscript>
+            <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/animate.css') }}?v={{ $cssVersion }}">
+        </noscript>
+        <link rel="preload" href="{{ Theme::asset()->url('css/plugins/slick.css') }}?v={{ $cssVersion }}" as="style">
+        <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/slick.css') }}?v={{ $cssVersion }}" media="print" onload="this.media='all'">
+        <noscript>
+            <link rel="stylesheet" href="{{ Theme::asset()->url('css/plugins/slick.css') }}?v={{ $cssVersion }}">
+        </noscript>
         <link rel="stylesheet" href="{{ Theme::asset()->url('css/style.css') }}?v={{ $cssVersion }}">
         @if (is_plugin_active('ecommerce'))
             <link rel="stylesheet" href="{{ asset('vendor/core/plugins/ecommerce/css/front-ecommerce.css') }}?v={{ $cssVersion }}">
@@ -184,51 +220,51 @@
                 visibility: visible;
             }
 
-            /* Hamburger Menu Animation */
+            /* Hamburger Menu */
             .burger-icon {
                 cursor: pointer;
-                padding: 8px;
-                position: relative;
+                position: relative !important;
                 z-index: 10000;
                 display: flex !important;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background: rgba(0,0,0,0.1);
+                flex-direction: column !important;
+                justify-content: space-between !important;
+                align-items: center !important;
+                width: 38px !important;
+                height: 38px !important;
+                padding: 9px 7px !important;
+                box-sizing: border-box !important;
+                background: rgba(0,0,0,0.15);
                 border-radius: 4px;
                 transition: background 0.2s ease;
             }
 
             .burger-icon:hover {
-                background: rgba(0,0,0,0.2);
+                background: rgba(0,0,0,0.25);
             }
 
+            /* Force spans out of absolute positioning from theme CSS */
             .burger-icon span,
             .burger-icon .burger-icon-top,
             .burger-icon .burger-icon-mid,
             .burger-icon .burger-icon-bottom {
-                display: block;
-                width: 24px;
-                height: 2px;
-                background: white;
-                margin: 3px 0;
+                display: block !important;
+                position: relative !important;
+                top: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                width: 100% !important;
+                height: 2px !important;
+                background: #fff !important;
+                margin: 0 !important;
+                flex-shrink: 0;
                 transition: all 0.3s ease;
                 transform-origin: center;
             }
 
-            .burger-icon.active .burger-icon-top {
-                transform: rotate(45deg) translate(5px, 5px);
-                background: #333;
-            }
-
-            .burger-icon.active .burger-icon-mid {
-                opacity: 0;
-                transform: scale(0);
-            }
-
-            .burger-icon.active .burger-icon-bottom {
-                transform: rotate(-45deg) translate(7px, -6px);
-                background: #333;
+            /* Hide theme pseudo-elements — we use background directly */
+            .burger-icon span::before,
+            .burger-icon span::after {
+                display: none !important;
             }
 
             /* Additional Mobile Menu Styles */
@@ -334,9 +370,15 @@
                     display: none !important;
                 }
             }
-             p{
+            .header-bottom p,
+            .header-top p,
+            .header-middle p {
                 margin-bottom: -24px !important;
-            }         
+            }
+
+            @media (max-width: 991px) {
+                html { overflow-x: hidden; }
+            }
             .header-bottom .header-wrap {
                 display: flex;
                 align-items: center;
@@ -791,7 +833,7 @@
                                 <div class="lang-curr-dropdown lang-dropdown-active">
                                     <ul>
                                         @foreach ($currencies as $currency)
-                                            <li><a href="{{ route('public.change-currency', $currency->title) }}">{{ $currency->title }}</a></li>
+                                            <li><a href="{{ route('public.change-currency', $currency->title) }}" rel="nofollow">{{ $currency->title }}</a></li>
                                         @endforeach
                                     </ul>
                                 </div>
@@ -821,6 +863,7 @@
                                 @if (count($socialLink) == 4 && isset($socialLink[0]['value']) && isset($socialLink[1]['value']) && isset($socialLink[2]['value']) && isset($socialLink[3]['value']))
                                     @php
                                         $socialUrl = (string) $socialLink[2]['value'];
+                                        $socialUrlLower = Str::lower($socialUrl);
                                         if (Str::contains($socialUrl, 'x.com/i/flow/login')) {
                                             $socialUrl = 'https://x.com/RUBYSHOP168';
                                         }
@@ -828,8 +871,26 @@
                                     @endphp
                                     @if (! $skipSocialLink)
                                     <a href="{{ $socialUrl }}"
-                                       title="{{ $socialLink[0]['value'] }}" style="background-color: {{ $socialLink[3]['value'] }}; border: 1px solid {{ $socialLink[3]['value'] }};">
-                                        {!! BaseHelper::renderIcon($socialLink[1]['value']) !!}
+                                       title="{{ $socialLink[0]['value'] }}">
+                                        @if (Str::contains($socialUrlLower, 'facebook.com'))
+                                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M13.5 9H16V6h-2.5C11.6 6 10 7.6 10 9.5V12H8v3h2v6h3v-6h2.3l.7-3H13v-2.5c0-.3.2-.5.5-.5z"/>
+                                            </svg>
+                                        @elseif (Str::contains($socialUrlLower, 'instagram.com'))
+                                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm11.5 1.5a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+                                            </svg>
+                                        @elseif (Str::contains($socialUrlLower, 'line.me'))
+                                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M12 2C6.5 2 2 5.9 2 10.8c0 4.4 3.6 8 8.3 8.6l-.6 2.8c-.1.4.4.8.8.5l3.2-2.4h.3c5.5 0 10-3.9 10-8.8S17.5 2 12 2zm-4 6.2h1.6v5H8V8.2zm4.9 5.1H10.7V8.2h1.6v3.7h1.3v1.4zm3.8-3.7h-1.8v.7h1.8v1.4h-1.8v.7h1.8v1.4h-3.4V8.2h3.4v1.4zm3.3 3.7h-1.4l-1.7-2.3v2.3h-1.6V8.2h1.4l1.7 2.3V8.2H20v5.1z"/>
+                                            </svg>
+                                        @elseif (Str::contains($socialUrlLower, 'youtube.com'))
+                                            <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                                <path fill="currentColor" d="M23 12s0-3.2-.4-4.7c-.2-.8-.8-1.4-1.6-1.6C19.5 5.3 12 5.3 12 5.3s-7.5 0-9 .4c-.8.2-1.4.8-1.6 1.6C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.8.8 1.4 1.6 1.6 1.5.4 9 .4 9 .4s7.5 0 9-.4c.8-.2 1.4-.8 1.6-1.6.4-1.5.4-4.7.4-4.7zM10 15.5v-7l6 3.5-6 3.5z"/>
+                                            </svg>
+                                        @else
+                                            {!! BaseHelper::renderIcon($socialLink[1]['value']) !!}
+                                        @endif
                                         <span class="visually-hidden">{{ $socialLink[0]['value'] }}</span>
                                     </a>
                                     @endif

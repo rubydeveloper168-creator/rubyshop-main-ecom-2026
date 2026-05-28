@@ -2,9 +2,196 @@
 
 <!-- Custom RubyShop Footer -->
 <style>
+    .ruby-footer {
+        background: #0b1635;
+        color: #fff;
+        line-height: 1.7;
+        padding: 64px 0 32px;
+    }
+
+    .ruby-footer .ruby-footer-container {
+        width: min(1200px, calc(100% - 32px));
+        margin: 0 auto;
+    }
+
+    .ruby-footer .ruby-footer-grid {
+        display: flex !important;
+        flex-wrap: nowrap !important;
+        gap: 2rem !important;
+        justify-content: space-between !important;
+        align-items: flex-start !important;
+        margin-bottom: 3rem;
+    }
+
+    .ruby-footer .ruby-footer-grid > div {
+        width: calc((100% - 10rem) / 6);
+        min-width: 0;
+    }
+
+    .ruby-footer .ruby-footer-bottom-links {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: .75rem;
+    }
+
+    .ruby-footer .ruby-footer-legal {
+        display: flex;
+        justify-content: center;
+        gap: .75rem;
+        flex-wrap: wrap;
+    }
+
     .ruby-footer p {
         margin-bottom: 0.75rem;
         line-height: 1.6;
+    }
+
+    .ruby-footer h4,
+    .ruby-footer li,
+    .ruby-footer a,
+    .ruby-footer span {
+        line-height: 1.7;
+    }
+
+    .ruby-footer ul li {
+        margin-bottom: 0.35rem;
+    }
+
+    .ruby-footer .ruby-footer-link-grid a {
+        display: block;
+        line-height: 1.8;
+        padding: 0.1rem 0;
+    }
+
+    .ruby-footer .ruby-footer-about-text {
+        margin-bottom: 1rem !important;
+    }
+
+    .ruby-footer .ruby-social-links {
+        display: flex;
+        gap: 0.75rem;
+        margin-top: 1rem !important;
+        align-items: center;
+        line-height: 1;
+    }
+
+    .ruby-footer .ruby-social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+    }
+
+    .ruby-footer .ruby-contact-list li {
+        display: flex !important;
+        align-items: flex-start !important;
+        gap: 0.65rem !important;
+    }
+
+    .ruby-footer .ruby-contact-list li i {
+        margin-top: 0.2rem !important;
+        margin-right: 0.55rem !important;
+        min-width: 1rem;
+        text-align: center;
+        flex: 0 0 1rem;
+    }
+
+    .ruby-footer .ruby-contact-list li a,
+    .ruby-footer .ruby-contact-list li span {
+        display: inline-block;
+        line-height: 1.7 !important;
+    }
+
+    .ruby-footer img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .ruby-footer a {
+        color: #2f7cff;
+        text-decoration: none;
+    }
+
+    .ruby-footer .text-gray-400 {
+        color: #a7b3d1 !important;
+    }
+
+    .ruby-footer .text-gray-300 {
+        color: #c3cceb !important;
+    }
+
+    .ruby-footer .text-white {
+        color: #fff !important;
+    }
+
+    .ruby-footer .border-gray-800 {
+        border-color: #233259 !important;
+    }
+
+    @media (max-width: 1024px) {
+        .ruby-footer .ruby-footer-grid {
+            flex-wrap: wrap !important;
+            justify-content: flex-start !important;
+        }
+
+        .ruby-footer .ruby-footer-grid > div {
+            width: calc((100% - 2rem) / 2);
+        }
+
+        .ruby-footer .ruby-footer-bottom-links {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 768px) {
+        .ruby-footer {
+            padding: 36px 16px 24px !important;
+        }
+
+        .ruby-footer .container.ruby-footer-container {
+            width: 100% !important;
+            max-width: 100% !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+            box-sizing: border-box;
+        }
+
+        .ruby-footer .ruby-footer-grid {
+            display: grid !important;
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            gap: 1.1rem !important;
+            margin-bottom: 1.75rem;
+        }
+
+        .ruby-footer .ruby-footer-grid > div {
+            width: auto !important;
+        }
+
+        .ruby-footer .ruby-footer-grid > div:first-child {
+            grid-column: 1 / -1;
+        }
+
+        .ruby-footer h4 {
+            margin-bottom: 0.75rem !important;
+            font-size: 1.2rem;
+        }
+
+        .ruby-footer ul li {
+            margin-bottom: 0.45rem;
+        }
+
+        .ruby-footer .ruby-footer-legal {
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .ruby-footer .ruby-footer-bottom-links {
+            grid-template-columns: 1fr;
+        }
     }
 
     .ruby-footer a {
@@ -44,14 +231,12 @@
 </style>
 
 <footer class="ruby-footer bg-gray-900 text-white pt-16 pb-8">
-    <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+    <div class="container mx-auto px-4 ruby-footer-container">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12 ruby-footer-grid">
             <div>
                 <img src="https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-white.png" alt="RUBYSHOP Logo" class="h-12 mb-6" width="160" height="48" loading="lazy" decoding="async">
-                <p class="text-gray-400">
-                    RUBYSHOP ผู้นำเข้าและจัดจำหน่ายอุปกรณ์ก่อสร้างคุณภาพสูง มุ่งมั่นนำเสนอนวัตกรรมและเทคโนโลยีล่าสุดเพื่อตอบสนองความต้องการของลูกค้า
-                </p>
-                <div class="flex space-x-4 mt-6 text-xl">
+                <p class="text-gray-400 ruby-footer-about-text">เครื่องมือช่างคุณภาพ สำหรับงานมืออาชีพ</p>
+                <div class="flex space-x-4 mt-6 text-xl ruby-social-links">
                     <a href="https://www.facebook.com/rubyshopcoth" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i><span class="sr-only">Facebook</span></a>
                     <a href="https://page.line.me/rubyshop168?openQrModal=true" class="text-gray-400 hover:text-white"><i class="fab fa-line"></i><span class="sr-only">LINE</span></a>
                     <a href="https://www.instagram.com/rubyshop_168/" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i><span class="sr-only">Instagram</span></a>
@@ -61,7 +246,7 @@
 
             <div>
                 <h4 class="text-lg font-semibold mb-6 text-white">เมนูหลัก</h4>
-                <ul class="space-y-3 text-gray-400 text-sm">
+                <ul class="space-y-3 text-gray-400 text-sm ruby-contact-list">
                     <li><a href="/" class="hover:text-white text-white">หน้าแรก</a></li>
                     <li><a href="https://www.rubyshop.co.th/products" class="hover:text-white">สินค้าทั้งหมด</a></li>
                     <li><a href="https://www.rubyshop.co.th/aboutcompany/about-us" class="hover:text-white">เกี่ยวกับเรา</a></li>
@@ -83,44 +268,46 @@
                 <h4 class="text-lg font-semibold mb-6 text-white">ติดต่อเรา</h4>
                 <ul class="space-y-3 text-gray-400 text-sm">
                     <li class="flex items-start">
-                        <i class="fas fa-map-marker-alt mt-1 mr-3 text-red-500"></i>
                         <a class="hover:text-white hover:underline" href="https://www.google.com/maps/place/%E0%B8%AB%E0%B8%88%E0%B8%81.%E0%B8%A3%E0%B8%B9%E0%B8%9A%E0%B8%B5%E0%B9%89%E0%B8%8A%E0%B9%8A%E0%B8%AD%E0%B8%9B/@13.9105948,100.5740356,20z/data=!4m6!3m5!1s0x30e28301fbf17fbd:0x806362f26ffe576f!8m2!3d13.9104803!4d100.5742382!16s%2Fg%2F12m9309nd?entry=ttu">
                             97/60 โกสุมรวมใจ ซ. 39 แขวงดอนเมือง ดอนเมือง กรุงเทพมหานคร 10210
                         </a>
                     </li>
                     <li class="flex items-start">
-                        <i class="fas fa-phone-alt mt-1 mr-3 text-red-500"></i>
                         <a class="hover:text-white hover:underline" href="tel:0896667802">089-666-7802</a>
                     </li>
                     <li class="flex items-start">
-                        <i class="fas fa-envelope mt-1 mr-3 text-red-500"></i>
                         <a class="hover:text-white hover:underline" href="https://www.rubyshop.co.th/contact">info@rubyshop.co.th</a>
                     </li>
                     <li class="flex items-start">
-                        <i class="fas fa-clock mt-1 mr-3 text-red-500"></i>
                         <span>เปิดทำการ: จันทร์-เสาร์ 08:30-17:30 น.</span>
                     </li>
                 </ul>
             </div>
-        </div>
 
-        <div class="mb-10 border-t border-gray-800 pt-8">
-            <h4 class="text-lg font-semibold text-white mb-4">ลิงก์แนะนำสำหรับการเลือกสินค้า</h4>
-            <p class="text-gray-400 text-sm mb-4">
-                RUBYSHOP มีเครื่องมือสำหรับงานพ่นสี งานกรีดผนัง และงานพ่นปูนฉาบครบในที่เดียว
-                คุณสามารถเริ่มจากหน้าหมวดหมู่ แล้วเปรียบเทียบสเปกจากหน้าสินค้าก่อนตัดสินใจได้ทันที
-            </p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm">
-                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/airless-sprayer">เครื่องพ่นสีแรงดันสูง Airless Sprayer</a>
-                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/wallchaser">เครื่องกรีดผนัง Wall Chaser</a>
-                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/product-categories/mortar-sprayer">เครื่องพ่นปูนซีเมนต์ Mortar Sprayer</a>
-                <a class="text-gray-300 hover:text-white" href="https://www.rubyshop.co.th/blog">บทความรีวิวและคู่มือใช้งาน</a>
+            <div>
+                <h4 class="text-lg font-semibold mb-6 text-white">ลิงก์แนะนำ</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="https://www.rubyshop.co.th/product-categories/airless-sprayer" class="hover:text-white">เครื่องพ่นสีแรงดันสูง Airless Sprayer</a></li>
+                    <li><a href="https://www.rubyshop.co.th/product-categories/wallcheser" class="hover:text-white">เครื่องกรีดผนัง Wall Chaser</a></li>
+                    <li><a href="https://www.rubyshop.co.th/product-categories/mortar-sprayer" class="hover:text-white">เครื่องพ่นปูนซีเมนต์ Mortar Sprayer</a></li>
+                    <li><a href="https://www.rubyshop.co.th/blog" class="hover:text-white">บทความรีวิวและคู่มือใช้งาน</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-lg font-semibold mb-6 text-white">บัญชี</h4>
+                <ul class="space-y-3 text-gray-400 text-sm">
+                    <li><a href="https://www.rubyshop.co.th/th/login" class="hover:text-white">เข้าสู่ระบบ (TH)</a></li>
+                    <li><a href="https://www.rubyshop.co.th/register" class="hover:text-white">สมัครสมาชิก</a></li>
+                    <li><a href="https://www.rubyshop.co.th/password/reset" class="hover:text-white">ลืมรหัสผ่าน</a></li>
+                    <li><a href="https://www.rubyshop.co.th/th/orders/tracking" class="hover:text-white">ติดตามคำสั่งซื้อ</a></li>
+                </ul>
             </div>
         </div>
 
         <div class="pt-8 border-t border-gray-800 text-center text-gray-400 text-sm">
             <p class="mb-4 text-white">&copy; 2025 RUBYSHOP. All rights reserved.</p>
-            <div class="flex justify-center space-x-4">
+            <div class="flex justify-center space-x-4 ruby-footer-legal">
                 <a href="https://www.rubyshop.co.th/privacy-policy" class="hover:text-white">นโยบายความเป็นส่วนตัว</a>
                 <span>|</span>
                 <a href="https://www.rubyshop.co.th/terms-conditions" class="hover:text-white">เงื่อนไขการใช้บริการ</a>
@@ -277,6 +464,11 @@
                 return;
             }
 
+            // Remove jQuery click handler (registered by main.js) to prevent double-fire conflict
+            if (window.jQuery) {
+                window.jQuery(burger).off('click');
+            }
+
             const overlay = ensureOverlay();
 
             const openMenu = () => {
@@ -333,6 +525,7 @@
 
 <script>
     (function () {
+        const isBlogPage = {{ request()->is('blog') || request()->is('blog/*') ? 'true' : 'false' }};
         const nonCriticalStyles = [
             'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css',
             'https://unpkg.com/aos@2.3.1/dist/aos.css',
@@ -357,6 +550,10 @@
         };
 
         const scheduleNonCriticalStyles = function () {
+            if (!isBlogPage) {
+                return;
+            }
+
             if ('requestIdleCallback' in window) {
                 requestIdleCallback(loadNonCriticalStyles, { timeout: 2500 });
             } else {
@@ -426,16 +623,32 @@
 
         const scheduleTrackers = function () {
             if ('requestIdleCallback' in window) {
-                requestIdleCallback(loadTrackers, { timeout: 3000 });
+                requestIdleCallback(loadTrackers, { timeout: 8000 });
             } else {
-                setTimeout(loadTrackers, 2000);
+                setTimeout(loadTrackers, 8000);
             }
         };
 
-        if (document.readyState === 'complete') {
+        let trackerScheduled = false;
+        const triggerTrackers = function () {
+            if (trackerScheduled) {
+                return;
+            }
+
+            trackerScheduled = true;
             scheduleTrackers();
+        };
+
+        ['scroll', 'click', 'keydown', 'touchstart'].forEach(function (eventName) {
+            window.addEventListener(eventName, triggerTrackers, { once: true, passive: true });
+        });
+
+        if (document.readyState === 'complete') {
+            setTimeout(triggerTrackers, 12000);
         } else {
-            window.addEventListener('load', scheduleTrackers, { once: true });
+            window.addEventListener('load', function () {
+                setTimeout(triggerTrackers, 12000);
+            }, { once: true });
         }
     })();
 </script>
@@ -567,20 +780,62 @@
         root.dataset.rubySliderInitialized = 'true';
     }
 
-    // Auto-initialize all Ruby Sliders when DOM is ready
     function initializeAllRubySliders() {
         const sliders = document.querySelectorAll('[id^="ruby-slider-tools-"]:not([data-ruby-slider-initialized="true"])');
-        
-        sliders.forEach(slider => {
+
+        sliders.forEach((slider) => {
             initializeRubySlider(slider.id);
         });
     }
 
-    // Initialize only once when DOM is ready
+    function initializeRubySlidersLazy() {
+        const sliders = document.querySelectorAll('[id^="ruby-slider-tools-"]:not([data-ruby-slider-initialized="true"])');
+
+        if (!sliders.length) {
+            return;
+        }
+
+        if (!('IntersectionObserver' in window)) {
+            initializeAllRubySliders();
+            return;
+        }
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) {
+                    return;
+                }
+
+                initializeRubySlider(entry.target.id);
+                observer.unobserve(entry.target);
+            });
+        }, { rootMargin: '200px 0px' });
+
+        sliders.forEach((slider) => {
+            observer.observe(slider);
+        });
+
+        let forcedInitDone = false;
+        const forceInit = () => {
+            if (forcedInitDone) {
+                return;
+            }
+
+            forcedInitDone = true;
+            initializeAllRubySliders();
+        };
+
+        ['scroll', 'touchstart', 'click'].forEach((eventName) => {
+            window.addEventListener(eventName, forceInit, { once: true, passive: true });
+        });
+
+        setTimeout(forceInit, 10000);
+    }
+
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initializeAllRubySliders);
+        document.addEventListener('DOMContentLoaded', initializeRubySlidersLazy);
     } else {
-        initializeAllRubySliders();
+        initializeRubySlidersLazy();
     }
 
 </script>
@@ -634,10 +889,131 @@
     
 </script>
 
-<!-- Messenger Float Button -->
-<a href="https://m.me/816184855086392" target="_blank" rel="noopener noreferrer" id="messenger-float-btn" title="Chat with us on Messenger" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#0695FF,#A334FA,#FF6968);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:9998;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;">
+<!-- Messenger Float Button — raised above bottom nav on mobile -->
+<a href="https://m.me/816184855086392" target="_blank" rel="noopener noreferrer" id="messenger-float-btn" title="Chat with us on Messenger" style="position:fixed;bottom:24px;right:24px;width:60px;height:60px;border-radius:50%;background:linear-gradient(135deg,#0695FF,#A334FA,#FF6968);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(0,0,0,0.25);z-index:9999;text-decoration:none;transition:transform 0.3s,box-shadow 0.3s;">
     <svg width="32" height="32" viewBox="0 0 36 36" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M18 3C9.716 3 3 9.146 3 16.5c0 4.243 2.117 8.025 5.42 10.504V33l5.783-3.175c1.217.338 2.508.525 3.797.525 8.284 0 15-6.146 15-13.5S26.284 3 18 3zm1.488 18.182l-3.822-4.08-7.46 4.08 8.2-8.707 3.915 4.08 7.367-4.08-8.2 8.707z"/></svg>
 </a>
+
+<!-- Mobile Bottom Navigation -->
+<style>
+    @media (max-width: 991px) {
+        body { padding-bottom: calc(64px + env(safe-area-inset-bottom, 0px)) !important; }
+        #messenger-float-btn { bottom: calc(80px + env(safe-area-inset-bottom, 0px)) !important; right: 16px !important; width: 50px !important; height: 50px !important; }
+    }
+
+    .ruby-mobile-bottom-nav {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(64px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: env(safe-area-inset-bottom, 0px);
+        background: #fff;
+        border-top: 1px solid #e9eaf0;
+        box-shadow: 0 -2px 12px rgba(0,0,0,0.08);
+        z-index: 10001;
+        align-items: stretch;
+    }
+
+    @media (max-width: 991px) {
+        .ruby-mobile-bottom-nav { display: flex; }
+    }
+
+    .ruby-mobile-bottom-nav-item {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        padding: 6px 4px 8px;
+        text-decoration: none !important;
+        color: #9ca3af;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+        -webkit-tap-highlight-color: transparent;
+        transition: color 0.2s ease;
+    }
+
+    .ruby-mobile-bottom-nav-icon {
+        width: 46px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        font-size: 17px;
+        transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    .ruby-mobile-bottom-nav-label {
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 1;
+        color: inherit;
+    }
+
+    .ruby-mobile-bottom-nav-item.active { color: #dc2626; }
+
+    .ruby-mobile-bottom-nav-item.active .ruby-mobile-bottom-nav-icon {
+        background-color: #dc2626;
+        color: #fff;
+    }
+
+    .ruby-mobile-bottom-nav-item.active .ruby-mobile-bottom-nav-label { font-weight: 600; }
+</style>
+
+@php
+    $mobileNavHome     = request()->is('/') || request()->routeIs('public.index');
+    $mobileNavSpare    = request()->is('product-categories/spare-parts-accessories*');
+    $mobileNavProducts = request()->is('products') || request()->is('products/*') || request()->routeIs('public.products');
+    $mobileNavCat      = !$mobileNavSpare && (request()->is('product-categories*') || request()->is('categories*') || request()->is('sub/*'));
+    $mobileNavProfile  = request()->is('customer*') || request()->is('login') || request()->is('register');
+@endphp
+
+<nav class="ruby-mobile-bottom-nav" aria-label="{{ __('Main navigation') }}">
+    <a href="{{ BaseHelper::getHomepageUrl() }}"
+       class="ruby-mobile-bottom-nav-item {{ $mobileNavHome ? 'active' : '' }}"
+       aria-label="{{ __('Home') }}">
+        <span class="ruby-mobile-bottom-nav-icon"><i class="fas fa-home"></i></span>
+        <span class="ruby-mobile-bottom-nav-label">{{ __('Home') }}</span>
+    </a>
+
+    <a href="{{ url('product-categories/spare-parts-accessories') }}"
+       class="ruby-mobile-bottom-nav-item {{ $mobileNavSpare ? 'active' : '' }}"
+       aria-label="{{ __('Spare Parts') }}">
+        <span class="ruby-mobile-bottom-nav-icon"><i class="fas fa-tools"></i></span>
+        <span class="ruby-mobile-bottom-nav-label">{{ __('Spare Parts') }}</span>
+    </a>
+
+    @if (is_plugin_active('ecommerce'))
+    <a href="{{ route('public.products') }}"
+       class="ruby-mobile-bottom-nav-item {{ $mobileNavProducts ? 'active' : '' }}"
+       aria-label="{{ __('Products') }}">
+        <span class="ruby-mobile-bottom-nav-icon"><i class="fas fa-box"></i></span>
+        <span class="ruby-mobile-bottom-nav-label">{{ __('Products') }}</span>
+    </a>
+    @endif
+
+    <a href="{{ url('product-categories') }}"
+       class="ruby-mobile-bottom-nav-item {{ $mobileNavCat ? 'active' : '' }}"
+       aria-label="{{ __('Categories') }}">
+        <span class="ruby-mobile-bottom-nav-icon"><i class="fas fa-th"></i></span>
+        <span class="ruby-mobile-bottom-nav-label">{{ __('Categories') }}</span>
+    </a>
+
+    @if (is_plugin_active('ecommerce'))
+    <a href="{{ auth('customer')->check() ? route('customer.overview') : route('customer.login') }}"
+       class="ruby-mobile-bottom-nav-item {{ $mobileNavProfile ? 'active' : '' }}"
+       aria-label="{{ __('Profile') }}">
+        <span class="ruby-mobile-bottom-nav-icon"><i class="fas fa-user"></i></span>
+        <span class="ruby-mobile-bottom-nav-label">{{ __('Profile') }}</span>
+    </a>
+    @endif
+</nav>
 
 </body>
 </html>

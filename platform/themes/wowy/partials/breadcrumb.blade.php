@@ -1,7 +1,14 @@
 <div class="page-header breadcrumb-wrap">
     <div class="container">
+        @php
+            $crumbs = Theme::breadcrumb()->getCrumbs();
+
+            if (request()->is('products/*')) {
+                $crumbs = array_values(array_slice($crumbs, -2));
+            }
+        @endphp
         <div class="breadcrumb">
-            @foreach ($crumbs = Theme::breadcrumb()->getCrumbs() as $i => $crumb)
+            @foreach ($crumbs as $i => $crumb)
                 @if ($i != (count($crumbs) - 1))
                     <div class="breadcrumb-item d-inline-block">
                         <a href="{{ $crumb['url'] }}" title="{{ $crumb['label'] }}">

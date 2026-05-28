@@ -11,6 +11,185 @@
     .product-detail .detail-gallery img {
         background-color: transparent !important;
     }
+
+    .product-detail .single-social-share .mobile-social-icon a {
+        background: transparent !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        color: #1f2937 !important;
+        opacity: 1 !important;
+    }
+
+    .product-detail .single-social-share .mobile-social-icon a i {
+        color: #1f2937 !important;
+    }
+
+    .product-detail .product-more-actions {
+        position: relative;
+        display: inline-block;
+    }
+
+    .product-detail .product-more-actions .more-btn {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid #d1d5db;
+        background: #fff;
+        color: #111827;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    .product-detail .product-more-actions-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 220px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+        padding: 8px;
+        z-index: 30;
+        display: none;
+    }
+
+    .product-detail .product-more-actions-menu.is-open {
+        display: block;
+    }
+
+    .product-detail .product-more-actions-menu a {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        width: 100% !important;
+        padding: 10px 12px !important;
+        border-radius: 8px;
+        color: #111827 !important;
+        text-decoration: none !important;
+        line-height: 1.35 !important;
+        white-space: nowrap !important;
+    }
+
+    .product-detail .product-more-actions-menu a i {
+        flex: 0 0 16px !important;
+        width: 16px !important;
+        text-align: center !important;
+        font-size: 14px !important;
+        margin: 0 !important;
+    }
+
+    .product-detail .product-more-actions-menu a span {
+        display: block !important;
+        flex: 1 1 auto !important;
+        font-size: 14px !important;
+        font-weight: 500 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .product-detail .product-more-actions-menu a:hover {
+        background: #f3f4f6;
+    }
+
+    .product-detail .detail-extralink {
+        display: flex !important;
+        align-items: center !important;
+        gap: 10px !important;
+        flex-wrap: nowrap !important;
+    }
+
+    .product-detail .detail-extralink .detail-qty {
+        margin: 0 !important;
+        flex: 0 0 auto !important;
+    }
+
+    .product-detail .detail-extralink .product-extra-link2 {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px !important;
+        flex-wrap: nowrap !important;
+        margin: 0 !important;
+    }
+
+    .product-detail .detail-extralink .product-extra-link2 .button {
+        margin: 0 !important;
+        white-space: nowrap !important;
+    }
+
+    @media (max-width: 767px) {
+        .product-detail .product-more-actions-menu {
+            right: 0 !important;
+            min-width: 190px !important;
+            max-width: 220px !important;
+        }
+
+        .product-detail .detail-extralink {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            padding-bottom: 2px;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .product-detail .detail-gallery,
+        .product-detail .product-image-slider,
+        .product-detail .slider-nav-thumbnails {
+            margin-bottom: 0 !important;
+            padding-bottom: 0 !important;
+        }
+
+        .product-detail .row.mb-50 {
+            margin-bottom: 0 !important;
+        }
+
+        .product-detail .row.mb-50 > .col-md-6 {
+            padding-top: 0 !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .product-detail .detail-info {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+        }
+
+        .product-detail .row.mb-50 > .col-md-6:last-child {
+            margin-top: 0 !important;
+        }
+
+        .product-detail .detail-info .title-detail {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 1.3;
+            margin-top: 0 !important;
+            margin-bottom: 0.25rem !important;
+            font-size: 1.5rem;
+        }
+
+        .product-detail .detail-info .product-detail-rating {
+            margin-top: 0 !important;
+            margin-bottom: 0.35rem !important;
+        }
+
+        .product-detail .detail-info .clearfix.product-price-cover {
+            margin-top: 0 !important;
+            margin-bottom: 0.35rem !important;
+        }
+
+        .product-detail .detail-info .bt-1.border-color-1.mt-15.mb-15 {
+            margin-top: 0.35rem !important;
+            margin-bottom: 0.5rem !important;
+        }
+
+        .product-detail .detail-info .short-desc.mb-30 {
+            margin-bottom: 0.75rem !important;
+        }
+    }
 </style>
 <div class="product-detail accordion-detail mx-4">
     <div class="row mb-50">
@@ -31,37 +210,10 @@
                     @endforeach
                 </div>
             </div>
-            <div class="single-social-share clearfix mt-50 mb-15">
-                <p class="mb-15 mt-30 font-sm"> <i class="fa fa-share-alt mr-5"></i> <span class="d-inline-block">{{ __('Share this') }}</span></p>
-                <div class="mobile-social-icon wow fadeIn  mb-sm-5 mb-md-0 animated">
-                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on Facebook') }}"><i class="fab fa-facebook-f"></i></a>
-                    <a class="twitter" href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ strip_tags(strip_tags(SeoHelper::getDescription())) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on X') }}"><i class="fab fa-twitter"></i></a>
-                    <!-- <a class="linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode(url()->current()) }}&summary={{ rawurldecode(strip_tags(SeoHelper::getDescription())) }}" target="_blank"><i class="fab fa-linkedin"></i></a> -->
-                </div>
-            </div>
-            <a class="mail-to-friend font-sm color-grey" href="mailto:someone@example.com?subject={{ __('Buy') }} {{ $product->name }}&body={{ __('Buy this one: :link', ['link' => $product->url]) }}"><i class="far fa-envelope"></i> {{ __('Email to a Friend') }}</a>
         </div>
         <div class="col-md-6 col-sm-12 col-xs-12">
             <div class="detail-info">
-                <h1 class="title-detail">{{ $product->name }}</h1>
-                <div class="product-detail-rating">
-                    @if ($product->brand && $product->brand->id)
-                        <div class="pro-details-brand">
-                            <span class="d-inline-block me-1">{{ __('Brands') }}:</span> <a href="{{ $product->brand->url }}">{{ $product->brand->name }}</a>
-                        </div>
-                    @endif
-
-                    @if (EcommerceHelper::isReviewEnabled())
-                        <div class="product-rate-cover text-end">
-                            <div class="rating_wrap">
-                                <div class="rating">
-                                    <div class="product_rate" style="width: {{ $product->reviews_avg * 20 }}%"></div>
-                                </div>
-                                <span class="rating_num">({{ __(':count reviews', ['count' => $product->reviews_count]) }})</span>
-                            </div>
-                        </div>
-                    @endif
-                </div>
+                <h1 class="title-detail pt-4">{{ $product->name }}</h1>
                 <div class="clearfix product-price-cover">
                     <div class="product-price primary-color float-left">
                         <ins><span class="text-brand">{{ format_price($product->front_sale_price_with_taxes) }}</span></ins>
@@ -118,11 +270,36 @@
                             @endif
 
                             @if (EcommerceHelper::isWishlistEnabled())
-                                <a aria-label="{{ __('Add To Wishlist') }}" class="action-btn hover-up js-add-to-wishlist-button" data-url="{{ route('public.wishlist.add', $product->id) }}" href="#"><i class="far fa-heart"></i></a>
+                                
                             @endif
                             @if (EcommerceHelper::isCompareEnabled())
-                                <a aria-label="{{ __('Add To Compare') }}" href="#" class="action-btn hover-up js-add-to-compare-button" data-url="{{ route('public.compare.add', $product->id) }}"><i class="far fa-exchange-alt"></i></a>
+                                
                             @endif
+                            <div class="product-more-actions ms-2">
+                                <button class="more-btn product-more-toggle" type="button" aria-label="{{ __('More actions') }}">...</button>
+                                <div class="product-more-actions-menu product-more-menu" role="menu" aria-hidden="true">
+                                    @if (EcommerceHelper::isWishlistEnabled())
+                                        <a aria-label="{{ __('Add To Wishlist') }}" class="js-add-to-wishlist-button" data-url="{{ route('public.wishlist.add', $product->id) }}" href="#" role="menuitem">
+                                            <i class="far fa-heart"></i>
+                                            <span>{{ __('Add To Wishlist') }}</span>
+                                        </a>
+                                    @endif
+                                    @if (EcommerceHelper::isCompareEnabled())
+                                        <a aria-label="{{ __('Add To Compare') }}" href="#" class="js-add-to-compare-button" data-url="{{ route('public.compare.add', $product->id) }}" role="menuitem">
+                                            <i class="far fa-exchange-alt"></i>
+                                            <span>{{ __('Add To Compare') }}</span>
+                                        </a>
+                                    @endif
+                                    <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode(url()->current()) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on Facebook') }}" role="menuitem">
+                                        <i class="fab fa-facebook-f"></i>
+                                        <span>{{ __('Share on Facebook') }}</span>
+                                    </a>
+                                    <a class="twitter" href="https://twitter.com/intent/tweet?url={{ urlencode(url()->current()) }}&text={{ strip_tags(strip_tags(SeoHelper::getDescription())) }}" target="_blank" rel="noopener noreferrer" aria-label="{{ __('Share on X') }}" role="menuitem">
+                                        <i class="fab fa-twitter"></i>
+                                        <span>{{ __('Share on X') }}</span>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -254,3 +431,25 @@
         </div>
     @endif
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var toggle = document.querySelector('.product-more-toggle');
+        var menu = document.querySelector('.product-more-menu');
+        if (!toggle || !menu) {
+            return;
+        }
+
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+            menu.classList.toggle('is-open');
+        });
+
+        document.addEventListener('click', function (event) {
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                menu.classList.remove('is-open');
+            }
+        });
+    });
+</script>

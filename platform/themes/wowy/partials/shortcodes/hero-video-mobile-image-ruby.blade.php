@@ -169,8 +169,16 @@
             }
 
             .ruby-hero-video-mobile__button {
-                width: 100%;
+                width: auto;
+                min-width: 200px;
+                max-width: 100%;
                 padding: 18px 24px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .ruby-hero-video-mobile__copy {
+                display: none !important;
             }
         }
 
@@ -200,6 +208,9 @@
         ? RvMedia::getImageUrl($desktopPoster, null, false, $defaultImage)
         : ($mobileImage ? RvMedia::getImageUrl($mobileImage, null, false, $defaultImage) : $defaultImage);
     $mobileImageUrl = $mobileImage
+        ? RvMedia::getImageUrl($mobileImage, 'medium', false, $defaultImage)
+        : $desktopPosterUrl;
+    $mobileImageUrlOrigin = $mobileImage
         ? RvMedia::getImageUrl($mobileImage, null, false, $defaultImage)
         : $desktopPosterUrl;
 
@@ -220,13 +231,14 @@
                 muted
                 loop
                 playsinline
-                preload="metadata"
+                preload="none"
                 poster="{{ $desktopPosterUrl }}"
                 disablepictureinpicture="true"
                 disableremoteplayback="true"
                 controlslist="nodownload,nofullscreen,noremoteplayback"
+                data-ruby-desktop-video="1"
             >
-                <source src="{{ $desktopVideoUrl }}" type="video/mp4">
+                <source data-src="{{ $desktopVideoUrl }}" type="video/mp4">
             </video>
         @else
             <img
@@ -242,6 +254,8 @@
     <div class="ruby-hero-video-mobile__media md:hidden">
         <img
             src="{{ $mobileImageUrl }}"
+            srcset="{{ $mobileImageUrl }} 768w, {{ $mobileImageUrlOrigin }} 1600w"
+            sizes="100vw"
             alt="{{ BaseHelper::clean($title) }}"
             loading="eager"
             fetchpriority="high"
@@ -277,3 +291,34 @@
         </div>
     </div>
 </section>
+
+@once
+    <script>
+        (function () {
+            const hydrateDesktopHeroVideo = function () {
+                if (!window.matchMedia('(min-width: 768px)').matches) {
+                    return;
+                }
+
+                document.querySelectorAll('video[data-ruby-desktop-video="1"]').forEach(function (video) {
+                    const source = video.querySelector('source[data-src]');
+
+                    if (!source || source.getAttribute('src')) {
+                        return;
+                    }
+
+                    source.setAttribute('src', source.getAttribute('data-src'));
+                    video.load();
+                });
+            };
+
+            if (document.readyState === 'complete') {
+                setTimeout(hydrateDesktopHeroVideo, 300);
+            } else {
+                window.addEventListener('load', function () {
+                    setTimeout(hydrateDesktopHeroVideo, 300);
+                }, { once: true });
+            }
+        })();
+    </script>
+@endonce

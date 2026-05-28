@@ -133,6 +133,11 @@ add_filter(PAGE_FILTER_FRONT_PAGE_CONTENT, function (?string $html, $page) {
         )->render();
     }
 
+    if (is_string($html) && $html !== '') {
+        // Remove editor-generated empty paragraph blocks between shortcodes.
+        $html = preg_replace('/<p\b[^>]*>(?:\s|&nbsp;|&#160;|\x{00a0}|<br\s*\/?>)*<\/p>/iu', '', $html) ?: $html;
+    }
+
     return $html;
 }, 120, 2);
 

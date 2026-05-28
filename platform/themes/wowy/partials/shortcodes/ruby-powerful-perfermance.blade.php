@@ -17,7 +17,7 @@
 @endphp
 
 @if (collect($columns)->filter(fn ($column) => $column['image'] || $column['title'] || $column['description'])->isNotEmpty())
-    <section class="relative w-full py-8 sm:py-12">
+    <section class="relative w-full py-0">
         <div class="grid grid-cols-1 md:grid-cols-2 w-full gap-0">
             @foreach ($columns as $column)
                 @php

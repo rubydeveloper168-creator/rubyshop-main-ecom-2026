@@ -211,7 +211,7 @@
 
 
 
-<section class="relative w-full py-8 sm:py-12">
+<section class="relative w-full py-0">
   <div class="grid grid-cols-1 md:grid-cols-2 w-full">
     <!-- Left Section - Full width to left edge -->
     <div class="relative h-[450px] sm:h-[500px] md:h-[600px] overflow-hidden group">

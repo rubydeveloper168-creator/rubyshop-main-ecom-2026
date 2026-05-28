@@ -1,5 +1,14 @@
 User-agent: *
 Disallow:
+Disallow: /currency/switch/
+Disallow: /cart
+Disallow: /compare
+Disallow: /wishlist
+Disallow: /login
+Disallow: /register
+Disallow: /customer/
+Disallow: /checkout
+Disallow: /orders/tracking
 
 User-agent: GPTBot
 Allow: /

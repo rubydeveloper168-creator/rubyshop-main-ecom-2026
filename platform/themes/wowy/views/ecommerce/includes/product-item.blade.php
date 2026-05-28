@@ -7,21 +7,7 @@
                     <img class="hover-img" src="{{ RvMedia::getImageUrl($product->images[1] ?? $product->image, 'product-thumb', false, RvMedia::getDefaultImage()) }}" alt="{{ $product->name }}">
                 </a>
             </div>
-            <div class="product-action-1">
-                <a aria-label="{{ __('Quick View') }}" href="#" class="action-btn hover-up js-quick-view-button" data-url="{{ route('public.ajax.quick-view', $product->id) }}">
-                    <i class="far fa-eye"></i>
-                </a>
-                @if (EcommerceHelper::isWishlistEnabled())
-                    <a aria-label="{{ __('Add To Wishlist') }}" href="#" class="action-btn hover-up js-add-to-wishlist-button" data-url="{{ route('public.wishlist.add', $product->id) }}">
-                        <i class="far fa-heart"></i>
-                    </a>
-                @endif
-                @if (EcommerceHelper::isCompareEnabled())
-                    <a aria-label="{{ __('Add To Compare') }}" href="#" class="action-btn hover-up js-add-to-compare-button" data-url="{{ route('public.compare.add', $product->id) }}">
-                        <i class="far fa-exchange-alt"></i>
-                    </a>
-                @endif
-            </div>
+            
             <div class="product-badges product-badges-position product-badges-mrg">
                 @if ($product->isOutOfStock())
                     <span style="background-color: #000; font-size: 11px;">{{ __('Out Of Stock') }}</span>
@@ -79,6 +65,50 @@
     
 
 <style>
+    .product-item-wrapper .product-img-action-wrap:hover .product-action-1:not(.show) {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+
+    .product-item-wrapper.product-cart-wrap,
+    .product-item-wrapper .product-cart-wrap {
+        height: 100%;
+    }
+
+    .product-item-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .product-item-wrapper .product-content-wrap {
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 auto;
+    }
+
+    .product-item-wrapper .product-category {
+        min-height: 20px;
+        margin-bottom: 4px;
+    }
+
+    .product-item-wrapper .product-title {
+        min-height: 44px;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+
+    .product-item-wrapper .rating_wrap {
+        min-height: 22px;
+    }
+
+    .product-item-wrapper .product-price {
+        min-height: 34px;
+    }
+
     @media (max-width: 767px) {
         /* Force 2-column layout */
         .products-listing .row,
@@ -88,8 +118,8 @@
         .row.product-grid-5 {
             display: flex;
             flex-wrap: wrap;
-            margin-left: -5px;
-            margin-right: -5px;
+            margin-left: -7px;
+            margin-right: -7px;
         }
         
         /* Target all product containers */
@@ -103,8 +133,9 @@
         .col-xl-3.col-lg-4.col-md-6.col-sm-6.col-12 {
             flex: 0 0 50% !important;
             max-width: 50% !important;
-            padding-left: 5px !important;
-            padding-right: 5px !important;
+            padding-left: 7px !important;
+            padding-right: 7px !important;
+            margin-bottom: 12px !important;
         }
         
         /* Adjust image size */
@@ -132,6 +163,7 @@
             position: relative !important;
             padding: 10px 5px 5px 5px !important;
             margin-top: 20px !important;
+            min-height: 168px !important;
         }
         
         /* Move rating below the title */
@@ -142,7 +174,7 @@
         }
         
         /* Position title above rating */
-        .product-title, 
+        .product-title,
         .product-cart-wrap h2,
         .product-content-wrap h2 {
             position: absolute !important;
@@ -160,6 +192,7 @@
             z-index: 5 !important; /* Very high z-index */
             margin: 0 !important;
             padding: 0 !important;
+            min-height: 40px !important;
         }
         
         /* Category positioning */
@@ -216,7 +249,8 @@
         
         /* Reduce spacing between products */
         .product-cart-wrap {
-            margin-bottom: 10px !important;
+            margin-bottom: 12px !important;
+            min-height: 320px !important;
         }
         
         /* Increase overall height to accommodate the repositioned elements */

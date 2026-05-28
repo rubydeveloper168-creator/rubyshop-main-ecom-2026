@@ -1,0 +1,3290 @@
+{
+  "url": "https://www.rubyshop.co.th/",
+  "scores": {
+    "overall": 84,
+    "categories": {
+      "security": 100,
+      "social": 85,
+      "robots": 100,
+      "article": 50,
+      "broken_links": 96,
+      "internal_links": 60,
+      "redirects": 100,
+      "llms_txt": 100,
+      "pagespeed": 0,
+      "onpage": 100,
+      "readability": 0,
+      "entity": 50,
+      "link_profile": 35,
+      "hreflang": 100,
+      "duplicate_content": 0
+    },
+    "weights": {
+      "security": 10,
+      "social": 3,
+      "robots": 12,
+      "broken_links": 10,
+      "internal_links": 10,
+      "redirects": 5,
+      "llms_txt": 5,
+      "pagespeed": 18,
+      "onpage": 12,
+      "readability": 2,
+      "entity": 3,
+      "link_profile": 7,
+      "hreflang": 3,
+      "duplicate_content": 0
+    },
+    "scoring_version": 1
+  },
+  "data": {
+    "url": "https://www.rubyshop.co.th/",
+    "domain": "www.rubyshop.co.th",
+    "timestamp": "2026-05-26T14:56:23.662298",
+    "sections": {
+      "robots": {
+        "url": "https://www.rubyshop.co.th/robots.txt",
+        "status": 200,
+        "user_agents": {
+          "*": {
+            "allow": [],
+            "disallow": []
+          },
+          "GPTBot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "ChatGPT-User": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "ClaudeBot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "PerplexityBot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "Google-Extended": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "Applebot-Extended": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "Bytespider": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "CCBot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "anthropic-ai": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "FacebookBot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          },
+          "Amazonbot": {
+            "allow": [
+              "/"
+            ],
+            "disallow": []
+          }
+        },
+        "sitemaps": [
+          "https://www.rubyshop.co.th/sitemap.xml"
+        ],
+        "crawl_delays": {},
+        "ai_crawler_status": {
+          "GPTBot": "explicitly allowed",
+          "ChatGPT-User": "explicitly allowed",
+          "ClaudeBot": "explicitly allowed",
+          "PerplexityBot": "explicitly allowed",
+          "Google-Extended": "explicitly allowed",
+          "Applebot-Extended": "explicitly allowed",
+          "Bytespider": "explicitly allowed",
+          "CCBot": "explicitly allowed",
+          "anthropic-ai": "explicitly allowed",
+          "FacebookBot": "explicitly allowed",
+          "Amazonbot": "explicitly allowed"
+        },
+        "issues": [],
+        "error": null
+      },
+      "security": {
+        "url": "https://www.rubyshop.co.th/",
+        "score": 100,
+        "https": true,
+        "headers_present": {
+          "HSTS (Strict-Transport-Security)": "max-age=31536000; includeSubDomains; preload",
+          "Content-Security-Policy (CSP)": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://connect.facebook.net https://embed.tawk.to https://tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self' https: wss: ws:; frame-src 'self' https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com https://embed.tawk.to https://tawk.to; media-src 'self' data: blob: https:; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests",
+          "X-Frame-Options": "SAMEORIGIN",
+          "X-Content-Type-Options": "nosniff",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+          "Permissions-Policy": "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()"
+        },
+        "headers_missing": {},
+        "header_values": {
+          "strict-transport-security": "max-age=31536000; includeSubDomains; preload",
+          "content-security-policy": "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'self'; form-action 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com https://connect.facebook.net https://embed.tawk.to https://tawk.to; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; img-src 'self' data: blob: https:; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; connect-src 'self' https: wss: ws:; frame-src 'self' https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com https://embed.tawk.to https://tawk.to; media-src 'self' data: blob: https:; worker-src 'self' blob:; manifest-src 'self'; upgrade-insecure-requests",
+          "x-frame-options": "SAMEORIGIN",
+          "x-content-type-options": "nosniff",
+          "referrer-policy": "strict-origin-when-cross-origin",
+          "permissions-policy": "accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), geolocation=(), gyroscope=(), microphone=(), midi=(), payment=(), usb=(), interest-cohort=()"
+        },
+        "issues": [],
+        "recommendations": [],
+        "error": null
+      },
+      "social": {
+        "url": "https://www.rubyshop.co.th/",
+        "score": 85,
+        "og_tags": {
+          "og:title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+          "og:site_name": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD.",
+          "og:type": "article",
+          "og:description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+          "og:image": "https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg",
+          "og:url": "https://www.rubyshop.co.th"
+        },
+        "twitter_tags": {
+          "twitter:card": "summary_large_image",
+          "twitter:title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+          "twitter:description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+          "twitter:image": "https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg",
+          "twitter:url": "https://www.rubyshop.co.th",
+          "twitter:site": "@RUBYSHOP168"
+        },
+        "og_present": [
+          "og:title",
+          "og:description",
+          "og:image",
+          "og:url",
+          "og:type",
+          "og:site_name"
+        ],
+        "og_missing": [],
+        "twitter_present": [
+          "twitter:card",
+          "twitter:title",
+          "twitter:description",
+          "twitter:image",
+          "twitter:site"
+        ],
+        "twitter_missing": [],
+        "issues": [
+          "\u26a0\ufe0f og:title is too long (73 chars, max 60)",
+          "\u26a0\ufe0f twitter:title is too long (73 chars, max 70)"
+        ],
+        "recommendations": [
+          "Add og:image:width and og:image:height for optimal rendering (1200\u00d7630 recommended)"
+        ],
+        "preview": {
+          "title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+          "description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+          "image": "https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg",
+          "site_name": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD."
+        },
+        "error": null
+      },
+      "redirects": {
+        "url": "https://www.rubyshop.co.th/",
+        "final_url": "https://www.rubyshop.co.th/",
+        "chain": [
+          {
+            "step": 1,
+            "url": "https://www.rubyshop.co.th/",
+            "status": 200,
+            "time_ms": 401,
+            "final": true
+          }
+        ],
+        "total_hops": 0,
+        "total_time_ms": 401,
+        "has_loop": false,
+        "has_mixed_protocol": false,
+        "issues": [],
+        "error": null
+      },
+      "llms_txt": {
+        "url": "https://www.rubyshop.co.th/llms.txt",
+        "full_url": "https://www.rubyshop.co.th/llms-full.txt",
+        "exists": true,
+        "full_exists": true,
+        "status": 200,
+        "full_status": 200,
+        "parsed": {
+          "title": "RUBYSHOP",
+          "description": "RUBYSHOP \u00e0\u00b8\u0084\u00e0\u00b8\u00b7\u00e0\u00b8\u00ad\u00e0\u00b9\u0080\u00e0\u00b8\u00a7\u00e0\u00b9\u0087\u00e0\u00b8\u009a\u00e0\u00b9\u0084\u00e0\u00b8\u008b\u00e0\u00b8\u0095\u00e0\u00b9\u008c\u00e0\u00b8\u0082\u00e0\u00b8\u00b2\u00e0\u00b8\u00a2\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b8\u00ad\u00e0\u00b8\u008a\u00e0\u00b9\u0088\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u00ad\u00e0\u00b8\u00b8\u00e0\u00b8\u009b\u00e0\u00b8\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u0093\u00e0\u00b9\u008c\u00e0\u00b8\u0081\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u00aa\u00e0\u00b8\u00a3\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u00aa\u00e0\u00b8\u00b3\u00e0\u00b8\u00ab\u00e0\u00b8\u00a3\u00e0\u00b8\u00b1\u00e0\u00b8\u009a\u00e0\u00b8\u008a\u00e0\u00b9\u0088\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b8\u00ad\u00e0\u00b8\u00ad\u00e0\u00b8\u00b2\u00e0\u00b8\u008a\u00e0\u00b8\u00b5\u00e0\u00b8\u009e\u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u009c\u00e0\u00b8\u00b9\u00e0\u00b9\u0089\u00e0\u00b8\u00a3\u00e0\u00b8\u00b1\u00e0\u00b8\u009a\u00e0\u00b9\u0080\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u00b2\u00e0\u00b9\u0083\u00e0\u00b8\u0099\u00e0\u00b8\u009b\u00e0\u00b8\u00a3\u00e0\u00b8\u00b0\u00e0\u00b9\u0080\u00e0\u00b8\u0097\u00e0\u00b8\u00a8\u00e0\u00b9\u0084\u00e0\u00b8\u0097\u00e0\u00b8\u00a2 \u00e0\u00b9\u0082\u00e0\u00b8\u0094\u00e0\u00b8\u00a2\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b8\u00a0\u00e0\u00b8\u00b2\u00e0\u00b8\u00a9\u00e0\u00b8\u00b2\u00e0\u00b9\u0084\u00e0\u00b8\u0097\u00e0\u00b8\u00a2\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b9\u0087\u00e0\u00b8\u0099\u00e0\u00b8\u00ab\u00e0\u00b8\u00a5\u00e0\u00b8\u00b1\u00e0\u00b8\u0081",
+          "sections": [
+            {
+              "name": "Main Pages",
+              "links": [
+                {
+                  "title": "Home",
+                  "url": "https://www.rubyshop.co.th/",
+                  "description": "\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b9\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u0081\u00e0\u00b8\u0082\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b9\u0080\u00e0\u00b8\u00a7\u00e0\u00b9\u0087\u00e0\u00b8\u009a\u00e0\u00b9\u0084\u00e0\u00b8\u008b\u00e0\u00b8\u0095\u00e0\u00b9\u008c"
+                },
+                {
+                  "title": "All Products",
+                  "url": "https://www.rubyshop.co.th/products",
+                  "description": "\u00e0\u00b8\u00a3\u00e0\u00b8\u00a7\u00e0\u00b8\u00a1\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u0097\u00e0\u00b8\u00b1\u00e0\u00b9\u0089\u00e0\u00b8\u0087\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u0094"
+                },
+                {
+                  "title": "Product Categories",
+                  "url": "https://www.rubyshop.co.th/product-categories",
+                  "description": "\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u00a7\u00e0\u00b8\u0094\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b9\u0088\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2"
+                },
+                {
+                  "title": "Blog",
+                  "url": "https://www.rubyshop.co.th/blog",
+                  "description": "\u00e0\u00b8\u009a\u00e0\u00b8\u0097\u00e0\u00b8\u0084\u00e0\u00b8\u00a7\u00e0\u00b8\u00b2\u00e0\u00b8\u00a1\u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u0084\u00e0\u00b8\u00b9\u00e0\u00b9\u0088\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b8\u00ad\u00e0\u00b8\u0081\u00e0\u00b8\u00b2\u00e0\u00b8\u00a3\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b8\u0087\u00e0\u00b8\u00b2\u00e0\u00b8\u0099"
+                },
+                {
+                  "title": "About Us",
+                  "url": "https://www.rubyshop.co.th/aboutcompany/about-us",
+                  "description": "\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u009a\u00e0\u00b8\u00a3\u00e0\u00b8\u00b4\u00e0\u00b8\u00a9\u00e0\u00b8\u00b1\u00e0\u00b8\u0097"
+                },
+                {
+                  "title": "Contact",
+                  "url": "https://www.rubyshop.co.th/contact",
+                  "description": "\u00e0\u00b8\u008a\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u0097\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u0095\u00e0\u00b8\u00b4\u00e0\u00b8\u0094\u00e0\u00b8\u0095\u00e0\u00b9\u0088\u00e0\u00b8\u00ad"
+                }
+              ]
+            },
+            {
+              "name": "Priority Categories",
+              "links": [
+                {
+                  "title": "Airless Sprayer",
+                  "url": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+                  "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u009e\u00e0\u00b9\u0088\u00e0\u00b8\u0099\u00e0\u00b8\u00aa\u00e0\u00b8\u00b5\u00e0\u00b9\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u0087\u00e0\u00b8\u0094\u00e0\u00b8\u00b1\u00e0\u00b8\u0099\u00e0\u00b8\u00aa\u00e0\u00b8\u00b9\u00e0\u00b8\u0087"
+                },
+                {
+                  "title": "Wall Chaser",
+                  "url": "https://www.rubyshop.co.th/product-categories/wallchaser",
+                  "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u00b5\u00e0\u00b8\u0094\u00e0\u00b8\u009c\u00e0\u00b8\u0099\u00e0\u00b8\u00b1\u00e0\u00b8\u0087"
+                },
+                {
+                  "title": "Mortar Sprayer",
+                  "url": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+                  "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u009e\u00e0\u00b9\u0088\u00e0\u00b8\u0099\u00e0\u00b8\u009b\u00e0\u00b8\u00b9\u00e0\u00b8\u0099\u00e0\u00b8\u008b\u00e0\u00b8\u00b5\u00e0\u00b9\u0080\u00e0\u00b8\u00a1\u00e0\u00b8\u0099\u00e0\u00b8\u0095\u00e0\u00b9\u008c"
+                }
+              ]
+            },
+            {
+              "name": "AI Usage Notes",
+              "links": [
+                {
+                  "title": "Canonical Policy",
+                  "url": "https://www.rubyshop.co.th/",
+                  "description": "\u00e0\u00b8\u00ad\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u00ad\u00e0\u00b8\u00b4\u00e0\u00b8\u0087\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u0088\u00e0\u00b8\u00b2\u00e0\u00b8\u0081\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b9\u0080\u00e0\u00b8\u00a7\u00e0\u00b9\u0087\u00e0\u00b8\u009a\u00e0\u00b8\u0088\u00e0\u00b8\u00a3\u00e0\u00b8\u00b4\u00e0\u00b8\u0087\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b9\u0087\u00e0\u00b8\u0099\u00e0\u00b8\u00ab\u00e0\u00b8\u00a5\u00e0\u00b8\u00b1\u00e0\u00b8\u0081"
+                },
+                {
+                  "title": "Thai-first Content",
+                  "url": "https://www.rubyshop.co.th/blog",
+                  "description": "\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b9\u0080\u00e0\u00b8\u0099\u00e0\u00b8\u00b7\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00ab\u00e0\u00b8\u00b2\u00e0\u00b8\u00a0\u00e0\u00b8\u00b2\u00e0\u00b8\u00a9\u00e0\u00b8\u00b2\u00e0\u00b9\u0084\u00e0\u00b8\u0097\u00e0\u00b8\u00a2\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b9\u0087\u00e0\u00b8\u0099\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u00ab\u00e0\u00b8\u00a5\u00e0\u00b8\u00b1\u00e0\u00b8\u0081\u00e0\u00b9\u0080\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u00aa\u00e0\u00b8\u00a3\u00e0\u00b8\u00b8\u00e0\u00b8\u009b\u00e0\u00b8\u0084\u00e0\u00b8\u00b3\u00e0\u00b8\u0095\u00e0\u00b8\u00ad\u00e0\u00b8\u009a"
+                },
+                {
+                  "title": "Specs Source",
+                  "url": "https://www.rubyshop.co.th/products",
+                  "description": "\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u00aa\u00e0\u00b8\u00b3\u00e0\u00b8\u00ab\u00e0\u00b8\u00a3\u00e0\u00b8\u00b1\u00e0\u00b8\u009a\u00e0\u00b8\u00aa\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b8\u0081 \u00e0\u00b8\u00a3\u00e0\u00b8\u00b2\u00e0\u00b8\u0084\u00e0\u00b8\u00b2 \u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u00aa\u00e0\u00b8\u0096\u00e0\u00b8\u00b2\u00e0\u00b8\u0099\u00e0\u00b8\u00b0\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2"
+                }
+              ]
+            }
+          ],
+          "links": [
+            {
+              "title": "Home",
+              "url": "https://www.rubyshop.co.th/",
+              "description": "\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b9\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u0081\u00e0\u00b8\u0082\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b9\u0080\u00e0\u00b8\u00a7\u00e0\u00b9\u0087\u00e0\u00b8\u009a\u00e0\u00b9\u0084\u00e0\u00b8\u008b\u00e0\u00b8\u0095\u00e0\u00b9\u008c"
+            },
+            {
+              "title": "All Products",
+              "url": "https://www.rubyshop.co.th/products",
+              "description": "\u00e0\u00b8\u00a3\u00e0\u00b8\u00a7\u00e0\u00b8\u00a1\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u0097\u00e0\u00b8\u00b1\u00e0\u00b9\u0089\u00e0\u00b8\u0087\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u0094"
+            },
+            {
+              "title": "Product Categories",
+              "url": "https://www.rubyshop.co.th/product-categories",
+              "description": "\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u00a7\u00e0\u00b8\u0094\u00e0\u00b8\u00ab\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b9\u0088\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2"
+            },
+            {
+              "title": "Blog",
+              "url": "https://www.rubyshop.co.th/blog",
+              "description": "\u00e0\u00b8\u009a\u00e0\u00b8\u0097\u00e0\u00b8\u0084\u00e0\u00b8\u00a7\u00e0\u00b8\u00b2\u00e0\u00b8\u00a1\u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u0084\u00e0\u00b8\u00b9\u00e0\u00b9\u0088\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b8\u00ad\u00e0\u00b8\u0081\u00e0\u00b8\u00b2\u00e0\u00b8\u00a3\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b8\u0087\u00e0\u00b8\u00b2\u00e0\u00b8\u0099"
+            },
+            {
+              "title": "About Us",
+              "url": "https://www.rubyshop.co.th/aboutcompany/about-us",
+              "description": "\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u009a\u00e0\u00b8\u00a3\u00e0\u00b8\u00b4\u00e0\u00b8\u00a9\u00e0\u00b8\u00b1\u00e0\u00b8\u0097"
+            },
+            {
+              "title": "Contact",
+              "url": "https://www.rubyshop.co.th/contact",
+              "description": "\u00e0\u00b8\u008a\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u0097\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u0095\u00e0\u00b8\u00b4\u00e0\u00b8\u0094\u00e0\u00b8\u0095\u00e0\u00b9\u0088\u00e0\u00b8\u00ad"
+            },
+            {
+              "title": "Airless Sprayer",
+              "url": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u009e\u00e0\u00b9\u0088\u00e0\u00b8\u0099\u00e0\u00b8\u00aa\u00e0\u00b8\u00b5\u00e0\u00b9\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u0087\u00e0\u00b8\u0094\u00e0\u00b8\u00b1\u00e0\u00b8\u0099\u00e0\u00b8\u00aa\u00e0\u00b8\u00b9\u00e0\u00b8\u0087"
+            },
+            {
+              "title": "Wall Chaser",
+              "url": "https://www.rubyshop.co.th/product-categories/wallchaser",
+              "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u0081\u00e0\u00b8\u00a3\u00e0\u00b8\u00b5\u00e0\u00b8\u0094\u00e0\u00b8\u009c\u00e0\u00b8\u0099\u00e0\u00b8\u00b1\u00e0\u00b8\u0087"
+            },
+            {
+              "title": "Mortar Sprayer",
+              "url": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "description": "\u00e0\u00b9\u0080\u00e0\u00b8\u0084\u00e0\u00b8\u00a3\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u0087\u00e0\u00b8\u009e\u00e0\u00b9\u0088\u00e0\u00b8\u0099\u00e0\u00b8\u009b\u00e0\u00b8\u00b9\u00e0\u00b8\u0099\u00e0\u00b8\u008b\u00e0\u00b8\u00b5\u00e0\u00b9\u0080\u00e0\u00b8\u00a1\u00e0\u00b8\u0099\u00e0\u00b8\u0095\u00e0\u00b9\u008c"
+            },
+            {
+              "title": "Canonical Policy",
+              "url": "https://www.rubyshop.co.th/",
+              "description": "\u00e0\u00b8\u00ad\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u0087\u00e0\u00b8\u00ad\u00e0\u00b8\u00b4\u00e0\u00b8\u0087\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u0088\u00e0\u00b8\u00b2\u00e0\u00b8\u0081\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b9\u0080\u00e0\u00b8\u00a7\u00e0\u00b9\u0087\u00e0\u00b8\u009a\u00e0\u00b8\u0088\u00e0\u00b8\u00a3\u00e0\u00b8\u00b4\u00e0\u00b8\u0087\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b9\u0087\u00e0\u00b8\u0099\u00e0\u00b8\u00ab\u00e0\u00b8\u00a5\u00e0\u00b8\u00b1\u00e0\u00b8\u0081"
+            },
+            {
+              "title": "Thai-first Content",
+              "url": "https://www.rubyshop.co.th/blog",
+              "description": "\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b9\u0080\u00e0\u00b8\u0099\u00e0\u00b8\u00b7\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00ab\u00e0\u00b8\u00b2\u00e0\u00b8\u00a0\u00e0\u00b8\u00b2\u00e0\u00b8\u00a9\u00e0\u00b8\u00b2\u00e0\u00b9\u0084\u00e0\u00b8\u0097\u00e0\u00b8\u00a2\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b9\u0087\u00e0\u00b8\u0099\u00e0\u00b8\u0082\u00e0\u00b9\u0089\u00e0\u00b8\u00ad\u00e0\u00b8\u00a1\u00e0\u00b8\u00b9\u00e0\u00b8\u00a5\u00e0\u00b8\u00ab\u00e0\u00b8\u00a5\u00e0\u00b8\u00b1\u00e0\u00b8\u0081\u00e0\u00b9\u0080\u00e0\u00b8\u00a1\u00e0\u00b8\u00b7\u00e0\u00b9\u0088\u00e0\u00b8\u00ad\u00e0\u00b8\u00aa\u00e0\u00b8\u00a3\u00e0\u00b8\u00b8\u00e0\u00b8\u009b\u00e0\u00b8\u0084\u00e0\u00b8\u00b3\u00e0\u00b8\u0095\u00e0\u00b8\u00ad\u00e0\u00b8\u009a"
+            },
+            {
+              "title": "Specs Source",
+              "url": "https://www.rubyshop.co.th/products",
+              "description": "\u00e0\u00b9\u0083\u00e0\u00b8\u008a\u00e0\u00b9\u0089\u00e0\u00b8\u00ab\u00e0\u00b8\u0099\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2\u00e0\u00b8\u00aa\u00e0\u00b8\u00b3\u00e0\u00b8\u00ab\u00e0\u00b8\u00a3\u00e0\u00b8\u00b1\u00e0\u00b8\u009a\u00e0\u00b8\u00aa\u00e0\u00b9\u0080\u00e0\u00b8\u009b\u00e0\u00b8\u0081 \u00e0\u00b8\u00a3\u00e0\u00b8\u00b2\u00e0\u00b8\u0084\u00e0\u00b8\u00b2 \u00e0\u00b9\u0081\u00e0\u00b8\u00a5\u00e0\u00b8\u00b0\u00e0\u00b8\u00aa\u00e0\u00b8\u0096\u00e0\u00b8\u00b2\u00e0\u00b8\u0099\u00e0\u00b8\u00b0\u00e0\u00b8\u00aa\u00e0\u00b8\u00b4\u00e0\u00b8\u0099\u00e0\u00b8\u0084\u00e0\u00b9\u0089\u00e0\u00b8\u00b2"
+            }
+          ]
+        },
+        "quality": {
+          "score": 100,
+          "issues": [],
+          "suggestions": []
+        },
+        "error": null
+      },
+      "broken_links": {
+        "page_url": "https://www.rubyshop.co.th/",
+        "total_links": 72,
+        "checked": 72,
+        "broken": [
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "anchor_text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 Wall Chaser",
+            "is_internal": true,
+            "status": 404,
+            "error": null,
+            "redirect": null,
+            "response_time_ms": 446
+          }
+        ],
+        "redirected": [
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/EUR",
+            "anchor_text": "EUR",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/currency/switch/EUR",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 326
+          },
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/USD",
+            "anchor_text": "USD",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/currency/switch/USD",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 328
+          },
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/NGN",
+            "anchor_text": "NGN",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/currency/switch/NGN",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 368
+          },
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/VND",
+            "anchor_text": "VND",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/currency/switch/VND",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 392
+          },
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/THB",
+            "anchor_text": "THB",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/currency/switch/THB",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 336
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th",
+            "anchor_text": "\u0e44\u0e17\u0e22",
+            "is_internal": true,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://www.rubyshop.co.th/th",
+              "to": "https://www.rubyshop.co.th/",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 367
+          },
+          {
+            "url": "https://web.facebook.com/rubyshopcoth?_rdc=1&amp;_rdr",
+            "anchor_text": "Facebook",
+            "is_internal": false,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://web.facebook.com/rubyshopcoth?_rdc=1&amp;_rdr",
+              "to": "https://www.facebook.com/rubyshopcoth?amp%3B_rdr&_rdc=2&_rdr",
+              "hops": 1,
+              "codes": [
+                302
+              ]
+            },
+            "response_time_ms": 348
+          },
+          {
+            "url": "https://m.me/816184855086392",
+            "anchor_text": "[no text]",
+            "is_internal": false,
+            "status": 200,
+            "error": null,
+            "redirect": {
+              "from": "https://m.me/816184855086392",
+              "to": "https://www.messenger.com/login.php?next=https%3A%2F%2Fwww.messenger.com%2Ft%2F816184855086392%2F%3Fmessaging_source%3Dsource%253Apages%253Amessage_shortlink%26source_id%3D1441792%26recurring_notification%3D0",
+              "hops": 3,
+              "codes": [
+                302,
+                302,
+                302
+              ]
+            },
+            "response_time_ms": 558
+          }
+        ],
+        "timeout": [],
+        "healthy": 63,
+        "summary": {
+          "total": 72,
+          "healthy": 63,
+          "broken": 1,
+          "redirected": 8,
+          "timeout": 0
+        },
+        "issues": [
+          "\ud83d\udd34 1 broken link(s) found",
+          "\u26a0\ufe0f 1 redirect chain(s) detected (>1 hop)"
+        ],
+        "error": null
+      },
+      "internal_links": {
+        "start_url": "https://www.rubyshop.co.th/",
+        "domain": "www.rubyshop.co.th",
+        "pages_crawled": 16,
+        "total_internal_links": 947,
+        "unique_pages_found": 89,
+        "max_depth_reached": 1,
+        "pages": {
+          "https://www.rubyshop.co.th/login": {
+            "outgoing_links": 58,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/product-categories/electric-airless-paint-sprayer": {
+            "outgoing_links": 61,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/product-categories/airless-spray-guns": {
+            "outgoing_links": 57,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/product-categories/skim-coat-machine": {
+            "outgoing_links": 57,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/orders/tracking": {
+            "outgoing_links": 54,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/product-categories/airless-sprayer": {
+            "outgoing_links": 68,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/wishlist": {
+            "outgoing_links": 54,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/currency/switch/VND": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/currency/switch/USD": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine": {
+            "outgoing_links": 58,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/cart": {
+            "outgoing_links": 54,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/currency/switch/NGN": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/compare": {
+            "outgoing_links": 54,
+            "incoming_links": 16
+          },
+          "https://www.rubyshop.co.th/currency/switch/EUR": {
+            "outgoing_links": 62,
+            "incoming_links": 16
+          }
+        },
+        "anchor_texts": {
+          "\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07\u0e0b\u0e37\u0e49\u0e2d\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13": 16,
+          "USD": 16,
+          "EUR": 16,
+          "VND": 16,
+          "NGN": 16,
+          "\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e1a\u0e1a / \u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19": 16,
+          "Compare products0": 16,
+          "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e32\u0e23\u0e16\u0e19\u0e320": 16,
+          "Shopping cart0": 16,
+          "Airless Sprayer | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07": 16,
+          "Electric Airless paint sprayer": 16,
+          "Airless spray guns": 16,
+          "Skim coat machine | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17": 16,
+          "Cement Mortar Spraying Machine |  \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19": 16,
+          "Wallcheser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07": 16,
+          "Concrete chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15": 16,
+          "Cutting chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e42\u0e14\u0e22\u0e40\u0e09\u0e1e\u0e32\u0e30": 16,
+          "Wall Dry Sander \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e41\u0e2b\u0e49\u0e07 | \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e07\u0e32\u0e19\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e1d\u0e49\u0e32": 16,
+          "Tape Mask tools": 16,
+          "Sandpaper | \u0e01\u0e23\u0e30\u0e14\u0e32\u0e29\u0e17\u0e23\u0e32\u0e22": 16
+        },
+        "link_distribution": {
+          "min": 54,
+          "max": 68,
+          "avg": 59.2
+        },
+        "orphan_candidates": [
+          {
+            "url": "https://www.rubyshop.co.th/th/orders/tracking",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/compare",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/login",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/customer/google/login",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/auth/line",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/password/reset",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/register",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/wishlist",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/cart",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/product-categories/skim-coat-machine",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/product-categories/cement-mortar-spraying-machine",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/products/rubyshop-rb-mr004-70-30",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/products/rubyshop-rb-m30l-30",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/products/rubyshop-rb-cm18",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/product-categories/airless-sprayer",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/airless-sprayers",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/product-categories/electric-airless-paint-sprayer",
+            "incoming_links": 1
+          },
+          {
+            "url": "https://www.rubyshop.co.th/th/product-categories/airless-spray-guns",
+            "incoming_links": 1
+          }
+        ],
+        "nofollow_links": [],
+        "issues": [
+          "\u26a0\ufe0f 18 potential orphan page(s) (\u22641 internal link pointing to them)",
+          "\u26a0\ufe0f 44 link(s) have no anchor text"
+        ],
+        "recommendations": [
+          "Add internal links pointing to orphan pages from related content"
+        ],
+        "error": null
+      },
+      "pagespeed": {
+        "url": "https://www.rubyshop.co.th/",
+        "strategy": "mobile",
+        "performance_score": null,
+        "metrics": {},
+        "opportunities": [],
+        "diagnostics": [],
+        "field_data_available": false,
+        "error": "Rate limited by Google API. Wait a few minutes or add an API key."
+      },
+      "entity": {
+        "url": "https://www.rubyshop.co.th/",
+        "entity_name": "RUBYSHOP",
+        "entities_in_schema": [
+          {
+            "type": "LocalBusiness",
+            "name": "RUBYSHOP",
+            "url": "https://www.rubyshop.co.th/",
+            "sameAs": [
+              "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+              "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+              "https://www.instagram.com/rubyshop_thailand",
+              "https://www.youtube.com/@rubyshop-thailand",
+              "https://x.com/RUBYSHOP168",
+              "https://www.linkedin.com/company/rubyshop-thailand"
+            ],
+            "logo": "",
+            "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+            "identifier": ""
+          },
+          {
+            "type": "LocalBusiness",
+            "name": "RUBYSHOP",
+            "url": "https://www.rubyshop.co.th/",
+            "sameAs": [
+              "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+              "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+              "https://www.instagram.com/rubyshop_168/",
+              "https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg"
+            ],
+            "logo": "",
+            "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+            "identifier": ""
+          }
+        ],
+        "sameas_analysis": {
+          "found": {
+            "Facebook": {
+              "url": "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+              "priority": "Low",
+              "kg_signal": "Weak"
+            },
+            "maps.app.goo.gl": {
+              "url": "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+              "priority": "Low",
+              "kg_signal": "Unknown"
+            },
+            "Instagram": {
+              "url": "https://www.instagram.com/rubyshop_168/",
+              "priority": "Low",
+              "kg_signal": "Weak"
+            },
+            "YouTube": {
+              "url": "https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg",
+              "priority": "Medium",
+              "kg_signal": "Moderate"
+            },
+            "Twitter/X": {
+              "url": "https://x.com/RUBYSHOP168",
+              "priority": "High",
+              "kg_signal": "Strong"
+            },
+            "LinkedIn": {
+              "url": "https://www.linkedin.com/company/rubyshop-thailand",
+              "priority": "High",
+              "kg_signal": "Strong"
+            }
+          },
+          "missing": {
+            "Wikipedia": {
+              "domain": "wikipedia.org",
+              "priority": "Critical",
+              "kg_signal": "Primary"
+            },
+            "Wikidata": {
+              "domain": "wikidata.org",
+              "priority": "Critical",
+              "kg_signal": "Primary"
+            }
+          },
+          "issues": [],
+          "total_found": 6,
+          "total_missing_critical": 2
+        },
+        "wikidata": {
+          "found": false,
+          "qid": null,
+          "url": null
+        },
+        "wikipedia": {
+          "found": false,
+          "url": null
+        },
+        "google_kg": {
+          "checked": false,
+          "found": false,
+          "result": null
+        },
+        "nap_issues": [],
+        "issues": [
+          {
+            "severity": "Info",
+            "area": "Wikidata",
+            "finding": "No Wikidata entry found for 'RUBYSHOP'.",
+            "fix": "If the entity meets Wikidata notability guidelines, create or improve an item with accurate third-party references. Do not create one solely for SEO."
+          },
+          {
+            "severity": "Info",
+            "area": "Wikipedia",
+            "finding": "No Wikipedia article found for 'RUBYSHOP'.",
+            "fix": "Only pursue Wikipedia if the entity meets independent notability standards. Otherwise, strengthen official schema, sameAs profiles, citations, and About/Contact signals."
+          },
+          {
+            "severity": "Info",
+            "area": "sameAs",
+            "finding": "Missing sameAs link to Wikipedia (Primary KG signal).",
+            "fix": "Add the existing official 'wikipedia.org' URL to sameAs; do not create this profile solely for SEO."
+          },
+          {
+            "severity": "Info",
+            "area": "sameAs",
+            "finding": "Missing sameAs link to Wikidata (Primary KG signal).",
+            "fix": "Add the existing official 'wikidata.org' URL to sameAs; do not create this profile solely for SEO."
+          }
+        ],
+        "summary": {
+          "entities_found": 2,
+          "sameas_count": 10,
+          "sameas_missing_critical": 2,
+          "wikidata_found": false,
+          "wikipedia_found": false,
+          "google_kg_checked": false,
+          "google_kg_found": false,
+          "total_issues": 4
+        }
+      },
+      "link_profile": {
+        "pages_crawled": 17,
+        "total_internal_links": 160,
+        "total_external_links": 10,
+        "unique_internal_targets": 62,
+        "unique_external_domains": 8,
+        "avg_internal_links_per_page": 9.4,
+        "orphan_pages": {
+          "count": 16,
+          "urls": [
+            "https://www.rubyshop.co.th/products-2025-03.xml",
+            "https://www.rubyshop.co.th/blog-posts-2026-05.xml",
+            "https://www.rubyshop.co.th/products-2025-05.xml",
+            "https://www.rubyshop.co.th/product-tags.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-03.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-11.xml",
+            "https://www.rubyshop.co.th/blog-categories.xml",
+            "https://www.rubyshop.co.th/blog-tags.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-07.xml",
+            "https://www.rubyshop.co.th/pages.xml",
+            "https://www.rubyshop.co.th/product-brands.xml",
+            "https://www.rubyshop.co.th/products-2026-05.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-08.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-05.xml",
+            "https://www.rubyshop.co.th/product-categories.xml"
+          ]
+        },
+        "dead_end_pages": {
+          "count": 16,
+          "urls": [
+            "https://www.rubyshop.co.th/pages.xml",
+            "https://www.rubyshop.co.th/blog-posts-2026-05.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-11.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-08.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-07.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-05.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-04.xml",
+            "https://www.rubyshop.co.th/blog-posts-2025-03.xml",
+            "https://www.rubyshop.co.th/blog-categories.xml",
+            "https://www.rubyshop.co.th/blog-tags.xml",
+            "https://www.rubyshop.co.th/products-2026-05.xml",
+            "https://www.rubyshop.co.th/products-2025-05.xml",
+            "https://www.rubyshop.co.th/products-2025-03.xml",
+            "https://www.rubyshop.co.th/product-categories.xml",
+            "https://www.rubyshop.co.th/product-brands.xml"
+          ]
+        },
+        "top_linked_pages": [
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+            "inbound_links": 13
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+            "inbound_links": 7
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/wallcheser",
+            "inbound_links": 7
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+            "inbound_links": 6
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+            "inbound_links": 6
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+            "inbound_links": 5
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+            "inbound_links": 5
+          },
+          {
+            "url": "https://www.rubyshop.co.th/login",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/rotorstator",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/road-line-striper-machine",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/motar-sprayer-220v-380v",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/grouting-injection",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/pressure-tank",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/contact",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th/products",
+            "inbound_links": 4
+          },
+          {
+            "url": "https://www.rubyshop.co.th",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/wall-dry-sander",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.rubyshop.co.th/product-categories/spare-parts-accessories",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.rubyshop.co.th/blog",
+            "inbound_links": 3
+          },
+          {
+            "url": "https://www.rubyshop.co.th/currency/switch/USD",
+            "inbound_links": 2
+          }
+        ],
+        "top_external_domains": [
+          {
+            "domain": "web.facebook.com",
+            "links": 1
+          },
+          {
+            "domain": "www.instagram.com",
+            "links": 1
+          },
+          {
+            "domain": "page.line.me",
+            "links": 1
+          },
+          {
+            "domain": "www.facebook.com",
+            "links": 1
+          },
+          {
+            "domain": "www.youtube.com",
+            "links": 1
+          },
+          {
+            "domain": "www.google.com",
+            "links": 1
+          },
+          {
+            "domain": "rubyshop.co.th",
+            "links": 1
+          },
+          {
+            "domain": "m.me",
+            "links": 1
+          }
+        ],
+        "issues": [
+          {
+            "type": "orphan_pages",
+            "severity": "High",
+            "count": 16,
+            "finding": "16 orphan page(s) with zero inbound internal links.",
+            "pages": [
+              "https://www.rubyshop.co.th/products-2025-03.xml",
+              "https://www.rubyshop.co.th/blog-posts-2026-05.xml",
+              "https://www.rubyshop.co.th/products-2025-05.xml",
+              "https://www.rubyshop.co.th/product-tags.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-03.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-11.xml",
+              "https://www.rubyshop.co.th/blog-categories.xml",
+              "https://www.rubyshop.co.th/blog-tags.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-07.xml",
+              "https://www.rubyshop.co.th/pages.xml"
+            ],
+            "fix": "Add internal links from relevant content pages to these orphan pages."
+          },
+          {
+            "type": "dead_end_pages",
+            "severity": "Medium",
+            "count": 16,
+            "finding": "16 page(s) with no outbound internal links (dead ends).",
+            "pages": [
+              "https://www.rubyshop.co.th/pages.xml",
+              "https://www.rubyshop.co.th/blog-posts-2026-05.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-11.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-08.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-07.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-05.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-04.xml",
+              "https://www.rubyshop.co.th/blog-posts-2025-03.xml",
+              "https://www.rubyshop.co.th/blog-categories.xml",
+              "https://www.rubyshop.co.th/blog-tags.xml"
+            ],
+            "fix": "Add contextual internal links to related content from these pages."
+          }
+        ],
+        "site_url": "https://www.rubyshop.co.th/"
+      },
+      "hreflang": {
+        "url": "https://www.rubyshop.co.th/",
+        "implementation_method": "html_link_tags",
+        "hreflang_tags_found": 2,
+        "tags": [
+          {
+            "lang": "x-default",
+            "raw_lang": "x-default",
+            "url": "https://www.rubyshop.co.th/",
+            "raw_url": "https://www.rubyshop.co.th/"
+          },
+          {
+            "lang": "th",
+            "raw_lang": "th",
+            "url": "https://www.rubyshop.co.th/",
+            "raw_url": "https://www.rubyshop.co.th/"
+          }
+        ],
+        "sitemap": {
+          "found": false,
+          "url": "https://www.rubyshop.co.th/sitemap.xml",
+          "has_xhtml_namespace": false,
+          "language_variants_found": [],
+          "note": "No hreflang found in sitemap."
+        },
+        "checks": {
+          "self_reference": {
+            "passed": true,
+            "detail": "Self-referencing hreflang tag found."
+          },
+          "x_default": {
+            "passed": true,
+            "detail": "x-default present \u2192 https://www.rubyshop.co.th/"
+          },
+          "protocol_consistency": {
+            "passed": true,
+            "detail": "All hreflang URLs use: https"
+          },
+          "canonical_alignment": {
+            "passed": true,
+            "detail": "Canonical URL matches page URL: https://www.rubyshop.co.th"
+          }
+        },
+        "language_code_issues": [],
+        "return_tag_checks": [],
+        "summary": {
+          "critical": 0,
+          "high": 0,
+          "medium": 0,
+          "low": 0,
+          "passed": 4
+        }
+      },
+      "duplicate_content": {
+        "pages_analyzed": 50,
+        "exact_duplicates": [
+          {
+            "type": "exact_duplicate",
+            "severity": "Critical",
+            "urls": [
+              "https://www.rubyshop.co.th/",
+              "https://www.rubyshop.co.th/currency/switch/VND",
+              "https://www.rubyshop.co.th",
+              "https://www.rubyshop.co.th/currency/switch/THB",
+              "https://www.rubyshop.co.th/currency/switch/USD",
+              "https://www.rubyshop.co.th/th",
+              "https://www.rubyshop.co.th/currency/switch/EUR"
+            ],
+            "finding": "7 indexable pages have identical content.",
+            "fix": "Consolidate into a single canonical page and redirect duplicates with 301."
+          },
+          {
+            "type": "exact_duplicate",
+            "severity": "Critical",
+            "urls": [
+              "https://www.rubyshop.co.th/categories",
+              "https://www.rubyshop.co.th/product-categories"
+            ],
+            "finding": "2 indexable pages have identical content.",
+            "fix": "Consolidate into a single canonical page and redirect duplicates with 301."
+          }
+        ],
+        "near_duplicates": [
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.85,
+            "url_a": "https://www.rubyshop.co.th/login",
+            "url_b": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "word_count_a": 293,
+            "word_count_b": 270,
+            "noindex_in_pair": false,
+            "finding": "Pages are 85% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.85,
+            "url_a": "https://www.rubyshop.co.th/login",
+            "url_b": "https://www.rubyshop.co.th/cart",
+            "word_count_a": 293,
+            "word_count_b": 250,
+            "noindex_in_pair": false,
+            "finding": "Pages are 85% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.85,
+            "url_a": "https://www.rubyshop.co.th/login",
+            "url_b": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count_a": 293,
+            "word_count_b": 263,
+            "noindex_in_pair": false,
+            "finding": "Pages are 85% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.85,
+            "url_a": "https://www.rubyshop.co.th/login",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 293,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 85% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/contact",
+            "url_b": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "word_count_a": 452,
+            "word_count_b": 270,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/contact",
+            "url_b": "https://www.rubyshop.co.th/cart",
+            "word_count_a": 452,
+            "word_count_b": 250,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/contact",
+            "url_b": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count_a": 452,
+            "word_count_b": 263,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/contact",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 452,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.87,
+            "url_a": "https://www.rubyshop.co.th/terms-conditions",
+            "url_b": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "word_count_a": 730,
+            "word_count_b": 270,
+            "noindex_in_pair": false,
+            "finding": "Pages are 87% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.87,
+            "url_a": "https://www.rubyshop.co.th/terms-conditions",
+            "url_b": "https://www.rubyshop.co.th/cart",
+            "word_count_a": 730,
+            "word_count_b": 250,
+            "noindex_in_pair": false,
+            "finding": "Pages are 87% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.87,
+            "url_a": "https://www.rubyshop.co.th/terms-conditions",
+            "url_b": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count_a": 730,
+            "word_count_b": 263,
+            "noindex_in_pair": false,
+            "finding": "Pages are 87% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.87,
+            "url_a": "https://www.rubyshop.co.th/terms-conditions",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 730,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 87% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "url_b": "https://www.rubyshop.co.th/cart",
+            "word_count_a": 270,
+            "word_count_b": 250,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "url_b": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count_a": 270,
+            "word_count_b": 263,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 270,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "url_b": "https://www.rubyshop.co.th/cookie-policy",
+            "word_count_a": 270,
+            "word_count_b": 717,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/cart",
+            "url_b": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count_a": 250,
+            "word_count_b": 263,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/cart",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 250,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/cart",
+            "url_b": "https://www.rubyshop.co.th/cookie-policy",
+            "word_count_a": 250,
+            "word_count_b": 717,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 1.0,
+            "url_a": "https://www.rubyshop.co.th/orders/tracking",
+            "url_b": "https://www.rubyshop.co.th/compare",
+            "word_count_a": 263,
+            "word_count_b": 251,
+            "noindex_in_pair": false,
+            "finding": "Pages are 100% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/orders/tracking",
+            "url_b": "https://www.rubyshop.co.th/cookie-policy",
+            "word_count_a": 263,
+            "word_count_b": 717,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          },
+          {
+            "type": "near_duplicate",
+            "severity": "Warning",
+            "similarity": 0.86,
+            "url_a": "https://www.rubyshop.co.th/compare",
+            "url_b": "https://www.rubyshop.co.th/cookie-policy",
+            "word_count_a": 251,
+            "word_count_b": 717,
+            "noindex_in_pair": false,
+            "finding": "Pages are 86% similar \u2014 likely near-duplicate content.",
+            "fix": "Differentiate content significantly, or set one as canonical and noindex the other."
+          }
+        ],
+        "thin_content": [
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/login",
+            "word_count": 293,
+            "threshold": 300,
+            "finding": "Only 293 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/product-categories/wallchaser",
+            "word_count": 270,
+            "threshold": 300,
+            "finding": "Only 270 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/cart",
+            "word_count": 250,
+            "threshold": 300,
+            "finding": "Only 250 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/privacy-policy",
+            "word_count": 174,
+            "threshold": 300,
+            "finding": "Only 174 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/orders/tracking",
+            "word_count": 263,
+            "threshold": 300,
+            "finding": "Only 263 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Critical",
+            "url": "https://www.rubyshop.co.th/aboutcompany/about-us",
+            "word_count": 63,
+            "threshold": 300,
+            "finding": "Only 63 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          },
+          {
+            "type": "thin_content",
+            "severity": "Warning",
+            "url": "https://www.rubyshop.co.th/compare",
+            "word_count": 251,
+            "threshold": 300,
+            "finding": "Only 251 words (minimum: 300).",
+            "fix": "Expand content to at least 300 words of substantive, unique content, or noindex if low-value."
+          }
+        ],
+        "summary": {
+          "exact_duplicate_groups": 2,
+          "near_duplicate_pairs": 22,
+          "thin_pages": 7,
+          "avg_word_count": 537
+        }
+      },
+      "onpage": {
+        "title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+        "meta_description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+        "meta_robots": "index, follow",
+        "x_robots_tag": null,
+        "canonical": "https://www.rubyshop.co.th",
+        "lang": "th",
+        "charset": "utf-8",
+        "viewport": "width=device-width, initial-scale=1",
+        "favicon": "https://www.rubyshop.co.th/storage/logo/icon-rubyshop-ico.png",
+        "h1": [
+          "RUBYSHOP TOOLS",
+          "Featured products"
+        ],
+        "h2": [
+          "Shop By Category",
+          "Top Categories"
+        ],
+        "h3": [
+          "Portable Series",
+          "Compact Piston Series",
+          "Professional Piston Series",
+          "Screw Pump Series",
+          "Cement Mortar Spraying Machine",
+          "Wallcheser",
+          "Wall Dry Sander",
+          "Airless Accessories",
+          "CONCRETE CHASER | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+          "AIRLESS SPRAYER | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+          "CUTTING CHASER | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e42\u0e14\u0e22\u0e40\u0e09\u0e1e\u0e32\u0e30",
+          "MORTAR SPRAYER-\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e0b\u0e35\u0e40\u0e21\u0e19\u0e15\u0e4c - \u0e23\u0e30\u0e1a\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27",
+          "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e42\u0e1f\u0e21 GROUTING INJECTION"
+        ],
+        "h4": [
+          "\u0e40\u0e21\u0e19\u0e39\u0e2b\u0e25\u0e31\u0e01",
+          "\u0e1c\u0e25\u0e34\u0e15\u0e20\u0e31\u0e13\u0e11\u0e4c\u0e2d\u0e37\u0e48\u0e19\u0e46",
+          "\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e40\u0e23\u0e32",
+          "\u0e25\u0e34\u0e07\u0e01\u0e4c\u0e41\u0e19\u0e30\u0e19\u0e33\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e01\u0e32\u0e23\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32"
+        ],
+        "h5": [],
+        "h6": [],
+        "images": [
+          {
+            "src": "https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-250pxx100px.jpg",
+            "alt": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD.",
+            "width": "150",
+            "height": "45",
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-compare.svg",
+            "alt": "\u0e40\u0e1b\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e35\u0e22\u0e1a",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-heart.svg",
+            "alt": "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e32\u0e23\u0e16\u0e19\u0e32",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-cart.svg",
+            "alt": "\u0e23\u0e16\u0e40\u0e02\u0e47\u0e19",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-user.svg",
+            "alt": "\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e1a\u0e1a",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-white.png",
+            "alt": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD.",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/rb-1060-3-1.webp",
+            "alt": "Skim coat machine | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17",
+            "width": "18",
+            "height": "18",
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-compare-white.svg",
+            "alt": "\u0e40\u0e1b\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e17\u0e35\u0e22\u0e1a",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-heart-white.svg",
+            "alt": "wowy",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-cart-white.svg",
+            "alt": "cart",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/themes/wowy/images/icons/icon-user-white.svg",
+            "alt": "wowy",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-250pxx100px.jpg",
+            "alt": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD.",
+            "width": "150",
+            "height": "45",
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/rb-1060-3-1.webp",
+            "alt": "Skim coat machine | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17",
+            "width": "18",
+            "height": "18",
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/logo/chatgpt-image-may-19-2026-01-51-11-pm.webp",
+            "alt": "RUBYSHOP TOOLS",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "eager"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/1-11-800x800-removebg-preview-1-800x800.png",
+            "alt": "Portable Series",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/01rb-395-01-removebg-preview-800x800.png",
+            "alt": "Compact Piston Series",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/1060-removebg-preview-800x800.png",
+            "alt": "Professional Piston Series",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/ce5a8da92b6449dc75c7f90106c338cd-removebg-preview-800x800.png",
+            "alt": "Screw Pump Series",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/f13-1-removebg-preview-800x800.png",
+            "alt": "Cement Mortar Spraying Machine",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/3-8-400x400-removebg-preview-800x800.png",
+            "alt": "Wallcheser ",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/1-20-1-removebg-preview-800x800.png",
+            "alt": "Wall Dry Sander",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/screenshot-2569-05-12-at-180041-removebg-preview-1-800x800.png",
+            "alt": "Airless Accessories",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/3-1-1-400x400.webp",
+            "alt": "Concrete chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/1rb899-1-400x400.jpg",
+            "alt": "Airless Sprayer | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/wall-cutter-2500-wallcd-100a-1-1-400x400.webp",
+            "alt": "Cutting chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e42\u0e14\u0e22\u0e40\u0e09\u0e1e\u0e32\u0e30",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/home/new/m6-400x400.webp",
+            "alt": "Mortar Sprayer-\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e0b\u0e35\u0e40\u0e21\u0e19\u0e15\u0e4c - \u0e23\u0e30\u0e1a\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/1-70-400x400.webp",
+            "alt": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e42\u0e1f\u0e21 Grouting injection",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/999s-1-720x720-1-800x800.webp",
+            "alt": "RUBYSHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB999s \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/100a/100a-wallchaser-800x800.png",
+            "alt": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07 Wall Cutter 2500 \u0e27\u0e31\u0e15\u0e15\u0e4c \u0e23\u0e38\u0e48\u0e19 WALLCD-100A \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e40\u0e09\u0e1e\u0e32\u0e30",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/rubyshop-rb-mt-m6-11-1-800x800.webp",
+            "alt": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27 RUBYSHOP \u0e23\u0e38\u0e48\u0e19 RB-MT-M6: \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e2a\u0e1a\u0e32\u0e22 \u0e41\u0e23\u0e07",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/rb-1060-3-1-800x800.webp",
+            "alt": "RUBYSHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17 \u0e23\u0e30\u0e1a\u0e1a\u0e25\u0e39\u0e01\u0e2a\u0e39\u0e1a \u0e23\u0e38\u0e48\u0e19 RB-1060 \u0e40\u0e1b\u0e47\u0e19 2 IN 1 Skim coat machine & Airless sprayer",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/rb-gm91-1-800x800.webp",
+            "alt": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e08\u0e23\u0e32\u0e08\u0e23 RB-GM91: \u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e08\u0e23\u0e32\u0e08\u0e23\u0e04\u0e21\u0e0a\u0e31\u0e14 \u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27\u0e17\u0e31\u0e19\u0e43\u0e08",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/5300-bg-white-01-800x800.webp",
+            "alt": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB5300 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e2a\u0e35\u0e40\u0e19\u0e35\u0e22\u0e19\u0e01\u0e23\u0e34\u0e4a\u0e1a \u0e14\u0e49\u0e27\u0e22\u0e23\u0e30\u0e1a\u0e1a Inverter \u0e2a\u0e38\u0e14\u0e25\u0e49\u0e33",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/products/1rb899-1-800x800.jpg",
+            "alt": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB899: \u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e0a\u0e49 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e1e\u0e48\u0e19\u0e44\u0e14\u0e49\u0e17\u0e38\u0e01\u0e2a\u0e35",
+            "width": null,
+            "height": null,
+            "is_responsive_fill": false,
+            "loading": null
+          },
+          {
+            "src": "https://www.rubyshop.co.th/storage/logo/rubyshop-no-bg-white.png",
+            "alt": "RUBYSHOP Logo",
+            "width": "160",
+            "height": "48",
+            "is_responsive_fill": false,
+            "loading": "lazy"
+          },
+          {
+            "src": "https://www.facebook.com/tr?id=1073208261615128&ev=PageView&noscript=1",
+            "alt": "",
+            "width": "1",
+            "height": "1",
+            "is_responsive_fill": false,
+            "loading": null
+          }
+        ],
+        "links": {
+          "internal": [
+            {
+              "href": "https://www.rubyshop.co.th/orders/tracking",
+              "text": "\u0e15\u0e34\u0e14\u0e15\u0e32\u0e21\u0e04\u0e33\u0e2a\u0e31\u0e48\u0e07\u0e0b\u0e37\u0e49\u0e2d\u0e02\u0e2d\u0e07\u0e04\u0e38\u0e13",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/USD",
+              "text": "USD",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/EUR",
+              "text": "EUR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/VND",
+              "text": "VND",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/NGN",
+              "text": "NGN",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/login",
+              "text": "\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e1a\u0e1a / \u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/compare",
+              "text": "Compare products0",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/wishlist",
+              "text": "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e32\u0e23\u0e16\u0e19\u0e320",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/cart",
+              "text": "Shopping cart0",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/login",
+              "text": "Sign in",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "Airless Sprayer | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/electric-airless-paint-sprayer",
+              "text": "Electric Airless paint sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-spray-guns",
+              "text": "Airless spray guns",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+              "text": "Skim coat machine | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "Cement Mortar Spraying Machine |  \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "Wallcheser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "Concrete chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "Cutting chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e42\u0e14\u0e22\u0e40\u0e09\u0e1e\u0e32\u0e30",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wall-dry-sander",
+              "text": "Wall Dry Sander \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e41\u0e2b\u0e49\u0e07 | \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e07\u0e32\u0e19\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e1d\u0e49\u0e32",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/tape-mask-tools",
+              "text": "Tape Mask tools",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/sandpaper",
+              "text": "Sandpaper | \u0e01\u0e23\u0e30\u0e14\u0e32\u0e29\u0e17\u0e23\u0e32\u0e22",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/spare-parts-accessories",
+              "text": "Spare parts / Accessories",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/rotorstator",
+              "text": "ROTOR/STATOR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/texture-sprayer",
+              "text": "Texture sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/road-line-striper-machine",
+              "text": "Road line striper machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/paddle-mixer",
+              "text": "Paddle Mixer\u2013 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1c\u0e2a\u0e21\u0e2a\u0e35",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/motar-sprayer-220v-380v",
+              "text": "Motar Sprayer - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a 220v / 380v",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/water-proof",
+              "text": "Water Proof \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e09\u0e35\u0e14 \u0e2d\u0e31\u0e14 \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 \u0e22\u0e31\u0e07\u0e42\u0e1f\u0e21 \u0e1e\u0e37\u0e49\u0e19 \u0e1c\u0e19\u0e31\u0e07 \u0e23\u0e49\u0e32\u0e27 \u0e2d\u0e35\u0e1e\u0e4a\u0e2d\u0e01\u0e0b\u0e35\u0e48",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wall-plaster-smooth-machine",
+              "text": "Wall plaster smooth machine - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1b\u0e31\u0e48\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "text": "Mortar Sprayer-\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e0b\u0e35\u0e40\u0e21\u0e19\u0e15\u0e4c - \u0e23\u0e30\u0e1a\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/paint-remover",
+              "text": "Paint Remover - \u0e25\u0e2d\u0e01\u0e2a\u0e35\u0e1c\u0e19\u0e31\u0e07 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e25\u0e2d\u0e01\u0e1e\u0e37\u0e49\u0e19\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/plastering-smoothing-machine",
+              "text": "plastering smoothing machine - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1b\u0e31\u0e48\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/grouting-injection",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e42\u0e1f\u0e21 Grouting injection",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/power-tools",
+              "text": "Power Tools",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/equipment-tools",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/pressure-tank",
+              "text": "Pressure Tank",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/plastering-trowel",
+              "text": "plastering trowel | \u0e40\u0e01\u0e23\u0e35\u0e22\u0e07\u0e09\u0e32\u0e1a\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/phosset-injection-pump",
+              "text": "Phosset injection pump |  \u0e2b\u0e31\u0e27\u0e2d\u0e31\u0e14\u0e08\u0e32\u0e23\u0e1a\u0e35 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e22\u0e34\u0e07\u0e42\u0e1f\u0e21",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-spray-gun-tips-guard",
+              "text": "Airless spray gun tips / guard",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-cutting-diamond-blade",
+              "text": "Concrete cutting diamond blade | \u0e43\u0e1a\u0e40\u0e1e\u0e0a\u0e23\u0e15\u0e31\u0e14\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-trowel-rubyshop",
+              "text": "Skim coat trowel - \u0e40\u0e01\u0e23\u0e35\u0e22\u0e07\u0e09\u0e32\u0e1a\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17 | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e09\u0e32\u0e1a\u0e1a\u0e32\u0e07 \u0e1c\u0e34\u0e27\u0e40\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e19\u0e35\u0e22\u0e19\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e \u2013 RubyShop",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+              "text": "Skim coat machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/pressure-tank",
+              "text": "Pressure Tank",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/road-line-striper-machine",
+              "text": "Road line striper machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/motar-sprayer-220v-380v",
+              "text": "Mortar Sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/rotorstator",
+              "text": "ROTOR/STATOR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "Concrete chaser",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "Cutting-chaser",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories",
+              "text": "\u0e2b\u0e21\u0e27\u0e14\u0e2b\u0e21\u0e39\u0e48\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/contact",
+              "text": "contact",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/blog",
+              "text": "Blog \u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e02\u0e48\u0e32\u0e27\u0e2a\u0e32\u0e23",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/compare",
+              "text": "Compare products0",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/wishlist",
+              "text": "\u0e2a\u0e34\u0e48\u0e07\u0e17\u0e35\u0e48\u0e1b\u0e23\u0e32\u0e23\u0e16\u0e19\u0e320",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/cart",
+              "text": "Shopping cart0",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/login",
+              "text": "Sign in",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "Airless Sprayer | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/electric-airless-paint-sprayer",
+              "text": "Electric Airless paint sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+              "text": "Skim coat machine | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "Cement Mortar Spraying Machine |  \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "Wallcheser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "Concrete chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "Cutting chaser | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e42\u0e14\u0e22\u0e40\u0e09\u0e1e\u0e32\u0e30",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wall-dry-sander",
+              "text": "Wall Dry Sander \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e41\u0e2b\u0e49\u0e07 | \u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e07\u0e32\u0e19\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e1d\u0e49\u0e32",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/tape-mask-tools",
+              "text": "Tape Mask tools",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/sandpaper",
+              "text": "Sandpaper | \u0e01\u0e23\u0e30\u0e14\u0e32\u0e29\u0e17\u0e23\u0e32\u0e22",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/spare-parts-accessories",
+              "text": "Spare parts / Accessories",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/rotorstator",
+              "text": "ROTOR/STATOR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/texture-sprayer",
+              "text": "Texture sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/road-line-striper-machine",
+              "text": "Road line striper machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/paddle-mixer",
+              "text": "Paddle Mixer\u2013 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1c\u0e2a\u0e21\u0e2a\u0e35",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/motar-sprayer-220v-380v",
+              "text": "Motar Sprayer - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a 220v / 380v",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/water-proof",
+              "text": "Water Proof \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e09\u0e35\u0e14 \u0e2d\u0e31\u0e14 \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 \u0e22\u0e31\u0e07\u0e42\u0e1f\u0e21 \u0e1e\u0e37\u0e49\u0e19 \u0e1c\u0e19\u0e31\u0e07 \u0e23\u0e49\u0e32\u0e27 \u0e2d\u0e35\u0e1e\u0e4a\u0e2d\u0e01\u0e0b\u0e35\u0e48",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wall-plaster-smooth-machine",
+              "text": "Wall plaster smooth machine - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1b\u0e31\u0e48\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "text": "Mortar Sprayer-\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e0b\u0e35\u0e40\u0e21\u0e19\u0e15\u0e4c - \u0e23\u0e30\u0e1a\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/paint-remover",
+              "text": "Paint Remover - \u0e25\u0e2d\u0e01\u0e2a\u0e35\u0e1c\u0e19\u0e31\u0e07 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e25\u0e2d\u0e01\u0e1e\u0e37\u0e49\u0e19\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/plastering-smoothing-machine",
+              "text": "plastering smoothing machine - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1b\u0e31\u0e48\u0e19\u0e2b\u0e19\u0e49\u0e32\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/grouting-injection",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e42\u0e1f\u0e21 Grouting injection",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/power-tools",
+              "text": "Power Tools",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/equipment-tools",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/pressure-tank",
+              "text": "Pressure Tank",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/plastering-trowel",
+              "text": "plastering trowel | \u0e40\u0e01\u0e23\u0e35\u0e22\u0e07\u0e09\u0e32\u0e1a\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/phosset-injection-pump",
+              "text": "Phosset injection pump |  \u0e2b\u0e31\u0e27\u0e2d\u0e31\u0e14\u0e08\u0e32\u0e23\u0e1a\u0e35 \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e22\u0e34\u0e07\u0e42\u0e1f\u0e21",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-spray-gun-tips-guard",
+              "text": "Airless spray gun tips / guard",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-cutting-diamond-blade",
+              "text": "Concrete cutting diamond blade | \u0e43\u0e1a\u0e40\u0e1e\u0e0a\u0e23\u0e15\u0e31\u0e14\u0e04\u0e2d\u0e19\u0e01\u0e23\u0e35\u0e15",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-trowel-rubyshop",
+              "text": "Skim coat trowel - \u0e40\u0e01\u0e23\u0e35\u0e22\u0e07\u0e09\u0e32\u0e1a\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17 | \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e09\u0e32\u0e1a\u0e1a\u0e32\u0e07 \u0e1c\u0e34\u0e27\u0e40\u0e23\u0e35\u0e22\u0e1a\u0e40\u0e19\u0e35\u0e22\u0e19\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e \u2013 RubyShop",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+              "text": "Skim coat machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/pressure-tank",
+              "text": "Pressure Tank",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/road-line-striper-machine",
+              "text": "Road line striper machine",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/motar-sprayer-220v-380v",
+              "text": "Mortar Sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/rotorstator",
+              "text": "ROTOR/STATOR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "Concrete chaser",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "Cutting-chaser",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories",
+              "text": "\u0e2b\u0e21\u0e27\u0e14\u0e2b\u0e21\u0e39\u0e48\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/contact",
+              "text": "contact",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/blog",
+              "text": "Blog \u0e2d\u0e31\u0e1b\u0e40\u0e14\u0e15\u0e02\u0e48\u0e32\u0e27\u0e2a\u0e32\u0e23",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/th",
+              "text": "\u0e44\u0e17\u0e22",
+              "rel": [
+                "alternate"
+              ]
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/USD",
+              "text": "USD",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/EUR",
+              "text": "EUR",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/VND",
+              "text": "VND",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/NGN",
+              "text": "NGN",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/currency/switch/THB",
+              "text": "THB",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/login",
+              "text": "\u0e40\u0e02\u0e49\u0e32\u0e2a\u0e39\u0e48\u0e23\u0e30\u0e1a\u0e1a / \u0e25\u0e07\u0e17\u0e30\u0e40\u0e1a\u0e35\u0e22\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/categories",
+              "text": "SHOP NOW",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "Portable Series\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e1a\u0e1a\u0e1e\u0e01\u0e1e\u0e32 / \u0e2a\u0e30\u0e1e\u0e32\u0e22",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "Compact Piston Series\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e25\u0e39\u0e01\u0e2a\u0e39\u0e1a\u0e02\u0e19\u0e32\u0e14\u0e40\u0e25\u0e47\u0e01",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/skim-coat-machine",
+              "text": "Professional Piston Series\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e25\u0e39\u0e01\u0e2a\u0e39\u0e1a\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "Screw Pump Series\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e23\u0e39\u0e1b\u0e31\u0e4a\u0e21 / \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 / \u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cement-mortar-spraying-machine",
+              "text": "Cement Mortar Spraying Machine\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallcheser",
+              "text": "Wallcheser\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wall-dry-sander",
+              "text": "Wall Dry Sander\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e02\u0e31\u0e14\u0e1c\u0e19\u0e31\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/spare-parts-accessories",
+              "text": "Airless Accessories\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e40\u0e2a\u0e23\u0e34\u0e21\u0e23\u0e30\u0e1a\u0e1a\u0e1e\u0e48\u0e19\u0e2a\u0e35",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products",
+              "text": "View All Products",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/concrete-chaser",
+              "text": "EXPLORE ALL",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "EXPLORE ALL",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/cutting-chaser",
+              "text": "EXPLORE ALL",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "text": "EXPLORE ALL",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/grouting-injection",
+              "text": "",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/grouting-injection",
+              "text": "EXPLORE ALL",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/rubyshop-rb999s",
+              "text": "RUBYSHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB999s \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e2d\u0e38\u0e15\u0e2a\u0e32\u0e2b\u0e01\u0e23\u0e23\u0e21 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/ruby-shop-wall-cutter-2500-wallcd-100a",
+              "text": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 \u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07 Wall Cutter 2500 \u0e27\u0e31\u0e15\u0e15\u0e4c \u0e23\u0e38\u0e48\u0e19 WALLCD-100A \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e2d\u0e34\u0e10\u0e21\u0e27\u0e25\u0e40\u0e1a\u0e32\u0e40\u0e09\u0e1e\u0e32\u0e30",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/rubyshop-rb-mt-m6",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a\u0e1c\u0e2a\u0e21\u0e43\u0e19\u0e15\u0e31\u0e27 RUBYSHOP \u0e23\u0e38\u0e48\u0e19 RB-MT-M6: \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e2a\u0e1a\u0e32\u0e22 \u0e41\u0e23\u0e07",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/rubyshop-rb-1060-2-in-1-skim-coat-machine-amp-airless-sprayer",
+              "text": "RUBYSHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e01\u0e34\u0e21\u0e42\u0e04\u0e49\u0e17 \u0e23\u0e30\u0e1a\u0e1a\u0e25\u0e39\u0e01\u0e2a\u0e39\u0e1a \u0e23\u0e38\u0e48\u0e19 RB-1060 \u0e40\u0e1b\u0e47\u0e19 2 IN 1 Skim coat machine & Airless sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/ruby-shop-rb-gm91",
+              "text": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e08\u0e23\u0e32\u0e08\u0e23 RB-GM91: \u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e08\u0e23\u0e32\u0e08\u0e23\u0e04\u0e21\u0e0a\u0e31\u0e14 \u0e23\u0e27\u0e14\u0e40\u0e23\u0e47\u0e27\u0e17\u0e31\u0e19\u0e43\u0e08",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/ruby-shop-rb5300-inverter",
+              "text": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB5300 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e2a\u0e35\u0e40\u0e19\u0e35\u0e22\u0e19\u0e01\u0e23\u0e34\u0e4a\u0e1a \u0e14\u0e49\u0e27\u0e22\u0e23\u0e30\u0e1a\u0e1a Inverter \u0e2a\u0e38\u0e14\u0e25\u0e49\u0e33",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/ruby-shop-rb899",
+              "text": "RUBY SHOP \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 \u0e23\u0e38\u0e48\u0e19 RB899: \u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e25\u0e37\u0e2d\u0e01\u0e43\u0e0a\u0e49 \u0e08\u0e1a\u0e07\u0e32\u0e19\u0e44\u0e27 \u0e1e\u0e48\u0e19\u0e44\u0e14\u0e49\u0e17\u0e38\u0e01\u0e2a\u0e35",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/",
+              "text": "\u0e2b\u0e19\u0e49\u0e32\u0e41\u0e23\u0e01",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products",
+              "text": "\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32\u0e17\u0e31\u0e49\u0e07\u0e2b\u0e21\u0e14",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/aboutcompany/about-us",
+              "text": "\u0e40\u0e01\u0e35\u0e48\u0e22\u0e27\u0e01\u0e31\u0e1a\u0e40\u0e23\u0e32",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/contact",
+              "text": "\u0e15\u0e34\u0e14\u0e15\u0e48\u0e2d\u0e40\u0e23\u0e32",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products/rubyshop-rb-32-3000-rebar-bending-machine",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e31\u0e14\u0e40\u0e2b\u0e25\u0e47\u0e01",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products?layout=product-full-width&categories%5B%5D=70&page=2",
+              "text": "\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e40\u0e2a\u0e23\u0e34\u0e21",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/products?layout=product-full-width&categories%5B%5D=70&page=1",
+              "text": "\u0e2d\u0e30\u0e44\u0e2b\u0e25\u0e48",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/contact",
+              "text": "[email\u00a0protected]",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/airless-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 Airless Sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/wallchaser",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 Wall Chaser",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/product-categories/mortar-sprayer",
+              "text": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e0b\u0e35\u0e40\u0e21\u0e19\u0e15\u0e4c Mortar Sprayer",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/blog",
+              "text": "\u0e1a\u0e17\u0e04\u0e27\u0e32\u0e21\u0e23\u0e35\u0e27\u0e34\u0e27\u0e41\u0e25\u0e30\u0e04\u0e39\u0e48\u0e21\u0e37\u0e2d\u0e43\u0e0a\u0e49\u0e07\u0e32\u0e19",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/privacy-policy",
+              "text": "\u0e19\u0e42\u0e22\u0e1a\u0e32\u0e22\u0e04\u0e27\u0e32\u0e21\u0e40\u0e1b\u0e47\u0e19\u0e2a\u0e48\u0e27\u0e19\u0e15\u0e31\u0e27",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/terms-conditions",
+              "text": "\u0e40\u0e07\u0e37\u0e48\u0e2d\u0e19\u0e44\u0e02\u0e01\u0e32\u0e23\u0e43\u0e0a\u0e49\u0e1a\u0e23\u0e34\u0e01\u0e32\u0e23",
+              "rel": []
+            },
+            {
+              "href": "https://www.rubyshop.co.th/cookie-policy",
+              "text": "\u0e19\u0e42\u0e22\u0e1a\u0e32\u0e22\u0e01\u0e32\u0e23\u0e04\u0e37\u0e19\u0e2a\u0e34\u0e19\u0e04\u0e49\u0e32",
+              "rel": []
+            }
+          ],
+          "external": [
+            {
+              "href": "tel:0896667802",
+              "text": "0896667802",
+              "rel": []
+            },
+            {
+              "href": "tel:0896667802",
+              "text": "0896667802",
+              "rel": []
+            },
+            {
+              "href": "https://web.facebook.com/rubyshopcoth?_rdc=1&amp;_rdr",
+              "text": "Facebook",
+              "rel": []
+            },
+            {
+              "href": "https://www.instagram.com/rubyshop_168/",
+              "text": "Instagram",
+              "rel": []
+            },
+            {
+              "href": "https://page.line.me/rubyshop168?openQrModal=true",
+              "text": "line",
+              "rel": []
+            },
+            {
+              "href": "https://www.facebook.com/rubyshopcoth",
+              "text": "Facebook",
+              "rel": []
+            },
+            {
+              "href": "https://page.line.me/rubyshop168?openQrModal=true",
+              "text": "LINE",
+              "rel": []
+            },
+            {
+              "href": "https://www.instagram.com/rubyshop_168/",
+              "text": "Instagram",
+              "rel": []
+            },
+            {
+              "href": "https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg",
+              "text": "YouTube",
+              "rel": []
+            },
+            {
+              "href": "https://www.google.com/maps/place/%E0%B8%AB%E0%B8%88%E0%B8%81.%E0%B8%A3%E0%B8%B9%E0%B8%9A%E0%B8%B5%E0%B9%89%E0%B8%8A%E0%B9%8A%E0%B8%AD%E0%B8%9B/@13.9105948,100.5740356,20z/data=!4m6!3m5!1s0x30e28301fbf17fbd:0x806362f26ffe576f!8m2!3d13.9104803!4d100.5742382!16s%2Fg%2F12m9309nd?entry=ttu",
+              "text": "97/60 \u0e42\u0e01\u0e2a\u0e38\u0e21\u0e23\u0e27\u0e21\u0e43\u0e08 \u0e0b. 39 \u0e41\u0e02\u0e27\u0e07\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07 \u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07 \u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 10210",
+              "rel": []
+            },
+            {
+              "href": "tel:0896667802",
+              "text": "089-666-7802",
+              "rel": []
+            },
+            {
+              "href": "https://rubyshop.co.th/cookie-policy",
+              "text": "Cookie Policy",
+              "rel": []
+            },
+            {
+              "href": "https://m.me/816184855086392",
+              "text": "",
+              "rel": [
+                "noopener",
+                "noreferrer"
+              ]
+            }
+          ]
+        },
+        "pagination": {
+          "prev": null,
+          "next": null
+        },
+        "resource_hints": {
+          "preload": [
+            {
+              "href": "https://www.rubyshop.co.th/css/tailwind.css?v=20260424-3",
+              "as": "style",
+              "type": null,
+              "crossorigin": null
+            }
+          ],
+          "preconnect": [
+            {
+              "href": "https://cdn.jsdelivr.net",
+              "as": null,
+              "type": null,
+              "crossorigin": null
+            },
+            {
+              "href": "https://cdnjs.cloudflare.com",
+              "as": null,
+              "type": null,
+              "crossorigin": null
+            },
+            {
+              "href": "https://fonts.googleapis.com",
+              "as": null,
+              "type": null,
+              "crossorigin": null
+            },
+            {
+              "href": "https://fonts.gstatic.com",
+              "as": null,
+              "type": null,
+              "crossorigin": ""
+            }
+          ],
+          "dns-prefetch": [],
+          "prefetch": [],
+          "prerender": []
+        },
+        "schema": [
+          {
+            "@type": "LocalBusiness",
+            "@types": [
+              "LocalBusiness"
+            ],
+            "@id": "https://www.rubyshop.co.th/",
+            "@context": "https://schema.org",
+            "status": "active",
+            "note": "",
+            "has_context": true,
+            "has_type": true,
+            "from_graph": false,
+            "raw": {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "RUBYSHOP",
+              "alternateName": "\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b",
+              "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+              "image": "https://www.rubyshop.co.th/logo.png",
+              "@id": "https://www.rubyshop.co.th/",
+              "url": "https://www.rubyshop.co.th/",
+              "telephone": "+66-89-666-7802",
+              "email": "info@rubyshop.co.th",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "9 \u0e16\u0e19\u0e19\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e2d\u0e38\u0e17\u0e34\u0e28 \u0e41\u0e02\u0e27\u0e07\u0e2a\u0e35\u0e01\u0e31\u0e19 \u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressLocality": "\u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressRegion": "\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23",
+                "postalCode": "10210",
+                "addressCountry": "TH"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 14.0273154,
+                "longitude": 100.1725207
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "08:30",
+                  "closes": "17:30"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+                "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+                "https://www.instagram.com/rubyshop_thailand",
+                "https://www.youtube.com/@rubyshop-thailand",
+                "https://x.com/RUBYSHOP168",
+                "https://www.linkedin.com/company/rubyshop-thailand"
+              ],
+              "priceRange": "\u0e3f\u0e3f",
+              "paymentAccepted": [
+                "Cash",
+                "Credit Card",
+                "Bank Transfer"
+              ],
+              "currenciesAccepted": "THB"
+            }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@types": [
+              "LocalBusiness"
+            ],
+            "@id": "https://www.rubyshop.co.th/",
+            "@context": "https://schema.org",
+            "status": "active",
+            "note": "",
+            "has_context": true,
+            "has_type": true,
+            "from_graph": false,
+            "raw": {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "RUBYSHOP",
+              "alternateName": "\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b",
+              "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+              "image": "https://www.rubyshop.co.th/logo.png",
+              "@id": "https://www.rubyshop.co.th/",
+              "url": "https://www.rubyshop.co.th/",
+              "telephone": "+66-89-666-7802",
+              "email": "info@rubyshop.co.th",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "9 \u0e16\u0e19\u0e19\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e2d\u0e38\u0e17\u0e34\u0e28 \u0e41\u0e02\u0e27\u0e07\u0e2a\u0e35\u0e01\u0e31\u0e19 \u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressLocality": "\u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressRegion": "\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23",
+                "postalCode": "10210",
+                "addressCountry": "TH"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 14.0273154,
+                "longitude": 100.1725207
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "08:30",
+                  "closes": "17:30"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+                "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+                "https://www.instagram.com/rubyshop_168/",
+                "https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg"
+              ],
+              "priceRange": "\u0e3f\u0e3f",
+              "paymentAccepted": [
+                "Cash",
+                "Credit Card",
+                "Bank Transfer"
+              ],
+              "currenciesAccepted": "THB",
+              "areaServed": [
+                {
+                  "@type": "Country",
+                  "name": "Thailand"
+                },
+                {
+                  "@type": "City",
+                  "name": "Bangkok"
+                }
+              ],
+              "serviceArea": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 14.0273154,
+                  "longitude": 100.1725207
+                },
+                "geoRadius": "50000"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 Airless Sprayer"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19 Mortar Sprayer"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 Wall Chaser"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21 Foam Injection"
+                  }
+                ]
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "RUBYSHOP Founder"
+              },
+              "foundingDate": "2015",
+              "slogan": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23"
+            }
+          }
+        ],
+        "open_graph": {
+          "og:title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+          "og:site_name": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21 - \u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b RUBYSHOP PART.,LTD.",
+          "og:type": "article",
+          "og:description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+          "og:image": "https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg",
+          "og:url": "https://www.rubyshop.co.th"
+        },
+        "twitter_card": {
+          "twitter:card": "summary_large_image",
+          "twitter:title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+          "twitter:description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+          "twitter:image": "https://www.rubyshop.co.th/storage/ads/rubyshop-catalog2.jpg",
+          "twitter:url": "https://www.rubyshop.co.th",
+          "twitter:site": "@RUBYSHOP168"
+        },
+        "word_count": 554,
+        "hreflang": [
+          {
+            "lang": "x-default",
+            "href": "https://www.rubyshop.co.th/"
+          },
+          {
+            "lang": "th",
+            "href": "https://www.rubyshop.co.th/"
+          }
+        ]
+      },
+      "readability": {
+        "word_count": 107,
+        "sentence_count": 1,
+        "paragraph_count": 48,
+        "syllable_count": 177,
+        "avg_sentence_length": 107.0,
+        "avg_paragraph_length": 0.0,
+        "avg_syllables_per_word": 1.65,
+        "flesch_reading_ease": 0,
+        "flesch_kincaid_grade": 45.7,
+        "reading_level": "Extremely Difficult (post-graduate)",
+        "estimated_reading_time_min": 0.5,
+        "complex_words": 14,
+        "complex_word_pct": 13.1,
+        "issues": [
+          "\u26a0\ufe0f Average sentence length (107.0 words) is too long \u2014 target 15-20",
+          "\u26a0\ufe0f Content is difficult to read (Flesch: 0) \u2014 may reduce engagement",
+          "\u26a0\ufe0f Thin content (107 words) \u2014 may rank poorly"
+        ],
+        "recommendations": [
+          "Break long sentences into shorter ones for better readability",
+          "Simplify vocabulary and shorten sentences",
+          "Rewrite the flagged long sentences below using the suggested replacements."
+        ],
+        "sentence_rewrites": [
+          {
+            "current": "Homepage hero intro block is broad and hard to scan.",
+            "suggested": "Use a 2-3 sentence hero: who you help, what users can do here, and where to start. Example: \"Learn practical ethical hacking with step-by-step guides. Start with Wi-Fi security, Active Directory, or malware analysis using the tracks below.\"",
+            "current_word_count": "template",
+            "target_word_count": "40-60 total (split into 2-3 sentences)"
+          },
+          {
+            "current": "Section descriptions mix too many topics in one long paragraph.",
+            "suggested": "Replace with short blurbs per section (1 sentence each) and add a clear CTA link: \"Start Wi-Fi Security\", \"Explore AD Attack Paths\", \"View Red-Team Cheat Sheets\".",
+            "current_word_count": "template",
+            "target_word_count": "12-20 words per blurb"
+          }
+        ]
+      },
+      "article": {
+        "url": "https://www.rubyshop.co.th/",
+        "cms_detected": "generic",
+        "title": "RUBYSHOP | \u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07\u0e04\u0e38\u0e13\u0e20\u0e32\u0e1e\u0e2a\u0e39\u0e07 \u0e23\u0e32\u0e04\u0e32\u0e14\u0e35 \u0e2a\u0e48\u0e07\u0e44\u0e27",
+        "meta_description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+        "og_description": "\u0e2b\u0e08\u0e01.\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b\u0e40\u0e23\u0e32\u0e04\u0e37\u0e2d\u0e1c\u0e39\u0e49\u0e19\u0e33\u0e40\u0e02\u0e49\u0e32\u0e08\u0e31\u0e14\u0e2b\u0e32\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e2a\u0e33\u0e2b\u0e23\u0e31\u0e1a\u0e0a\u0e48\u0e32\u0e07\u0e21\u0e37\u0e2d\u0e2d\u0e32\u0e0a\u0e35\u0e1e\u0e40\u0e0a\u0e48\u0e19 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e01\u0e31\u0e19\u0e44\u0e1f - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19\u0e09\u0e32\u0e1a - \u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e15\u0e35\u0e40\u0e2a\u0e49\u0e19\u0e16\u0e19\u0e19",
+        "author": "",
+        "publish_date": "",
+        "labels": [],
+        "headings": {
+          "h1": [],
+          "h2": [],
+          "h3": [
+            "Portable Series"
+          ]
+        },
+        "paragraphs": [],
+        "images": [
+          {
+            "src": "https://www.rubyshop.co.th/storage/1-11-800x800-removebg-preview-1-800x800.png",
+            "alt": "Portable Series",
+            "width": "",
+            "height": "",
+            "loading": "lazy"
+          }
+        ],
+        "structured_data": [
+          {
+            "@type": "LocalBusiness",
+            "@context": "https://schema.org",
+            "status": "active",
+            "note": "",
+            "has_context": true,
+            "has_type": true,
+            "raw": {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "RUBYSHOP",
+              "alternateName": "\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b",
+              "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+              "image": "https://www.rubyshop.co.th/logo.png",
+              "@id": "https://www.rubyshop.co.th/",
+              "url": "https://www.rubyshop.co.th/",
+              "telephone": "+66-89-666-7802",
+              "email": "info@rubyshop.co.th",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "9 \u0e16\u0e19\u0e19\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e2d\u0e38\u0e17\u0e34\u0e28 \u0e41\u0e02\u0e27\u0e07\u0e2a\u0e35\u0e01\u0e31\u0e19 \u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressLocality": "\u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressRegion": "\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23",
+                "postalCode": "10210",
+                "addressCountry": "TH"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 14.0273154,
+                "longitude": 100.1725207
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "08:30",
+                  "closes": "17:30"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+                "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+                "https://www.instagram.com/rubyshop_thailand",
+                "https://www.youtube.com/@rubyshop-thailand",
+                "https://x.com/RUBYSHOP168",
+                "https://www.linkedin.com/company/rubyshop-thailand"
+              ],
+              "priceRange": "\u0e3f\u0e3f",
+              "paymentAccepted": [
+                "Cash",
+                "Credit Card",
+                "Bank Transfer"
+              ],
+              "currenciesAccepted": "THB"
+            }
+          },
+          {
+            "@type": "LocalBusiness",
+            "@context": "https://schema.org",
+            "status": "active",
+            "note": "",
+            "has_context": true,
+            "has_type": true,
+            "raw": {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "RUBYSHOP",
+              "alternateName": "\u0e23\u0e39\u0e1a\u0e35\u0e49\u0e0a\u0e4a\u0e2d\u0e1b",
+              "description": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07 \u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07 \u0e41\u0e25\u0e30\u0e40\u0e17\u0e04\u0e42\u0e19\u0e42\u0e25\u0e22\u0e35\u0e07\u0e32\u0e19\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23 - \u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19, \u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07, \u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07\u0e40\u0e0b\u0e32\u0e30\u0e23\u0e48\u0e2d\u0e07, \u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21, \u0e01\u0e31\u0e19\u0e0b\u0e36\u0e21",
+              "image": "https://www.rubyshop.co.th/logo.png",
+              "@id": "https://www.rubyshop.co.th/",
+              "url": "https://www.rubyshop.co.th/",
+              "telephone": "+66-89-666-7802",
+              "email": "info@rubyshop.co.th",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "9 \u0e16\u0e19\u0e19\u0e1b\u0e23\u0e30\u0e0a\u0e32\u0e2d\u0e38\u0e17\u0e34\u0e28 \u0e41\u0e02\u0e27\u0e07\u0e2a\u0e35\u0e01\u0e31\u0e19 \u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressLocality": "\u0e40\u0e02\u0e15\u0e14\u0e2d\u0e19\u0e40\u0e21\u0e37\u0e2d\u0e07",
+                "addressRegion": "\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23",
+                "postalCode": "10210",
+                "addressCountry": "TH"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 14.0273154,
+                "longitude": 100.1725207
+              },
+              "openingHoursSpecification": [
+                {
+                  "@type": "OpeningHoursSpecification",
+                  "dayOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday",
+                    "Saturday"
+                  ],
+                  "opens": "08:30",
+                  "closes": "17:30"
+                }
+              ],
+              "sameAs": [
+                "https://www.facebook.com/photo/?fbid=707251024751513&set=a.432474452229173",
+                "https://maps.app.goo.gl/8QtWpT29vT1Rspgq8",
+                "https://www.instagram.com/rubyshop_168/",
+                "https://www.youtube.com/channel/UCxiaZiIC8qs2C228jwIjcHg"
+              ],
+              "priceRange": "\u0e3f\u0e3f",
+              "paymentAccepted": [
+                "Cash",
+                "Credit Card",
+                "Bank Transfer"
+              ],
+              "currenciesAccepted": "THB",
+              "areaServed": [
+                {
+                  "@type": "Country",
+                  "name": "Thailand"
+                },
+                {
+                  "@type": "City",
+                  "name": "Bangkok"
+                }
+              ],
+              "serviceArea": {
+                "@type": "GeoCircle",
+                "geoMidpoint": {
+                  "@type": "GeoCoordinates",
+                  "latitude": 14.0273154,
+                  "longitude": 100.1725207
+                },
+                "geoRadius": "50000"
+              },
+              "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e41\u0e25\u0e30\u0e2d\u0e38\u0e1b\u0e01\u0e23\u0e13\u0e4c\u0e01\u0e48\u0e2d\u0e2a\u0e23\u0e49\u0e32\u0e07",
+                "itemListElement": [
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e2a\u0e35\u0e41\u0e23\u0e07\u0e14\u0e31\u0e19\u0e2a\u0e39\u0e07 Airless Sprayer"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e1e\u0e48\u0e19\u0e1b\u0e39\u0e19 Mortar Sprayer"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e01\u0e23\u0e35\u0e14\u0e1c\u0e19\u0e31\u0e07 Wall Chaser"
+                  },
+                  {
+                    "@type": "OfferCatalog",
+                    "name": "\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e09\u0e35\u0e14\u0e42\u0e1e\u0e21 Foam Injection"
+                  }
+                ]
+              },
+              "founder": {
+                "@type": "Person",
+                "name": "RUBYSHOP Founder"
+              },
+              "foundingDate": "2015",
+              "slogan": "\u0e28\u0e39\u0e19\u0e22\u0e4c\u0e23\u0e27\u0e21\u0e40\u0e04\u0e23\u0e37\u0e48\u0e2d\u0e07\u0e21\u0e37\u0e2d\u0e0a\u0e48\u0e32\u0e07\u0e04\u0e23\u0e1a\u0e27\u0e07\u0e08\u0e23"
+            }
+          }
+        ],
+        "readability": {
+          "flesch_reading_ease": 35.6,
+          "fkgl": 8.8,
+          "grade_label": "Difficult (technical / specialist audience)",
+          "word_count": 2,
+          "sentence_count": 1,
+          "avg_sentence_length": 2.0,
+          "avg_syllables_per_word": 2.0
+        },
+        "target_keyword": "",
+        "extracted_keywords": [],
+        "related_keywords": [],
+        "seo_issues": [
+          {
+            "severity": "Warning",
+            "area": "Title",
+            "finding": "Title may be truncated in SERPs (73 chars).",
+            "fix": "Keep title under 60 characters."
+          },
+          {
+            "severity": "Critical",
+            "area": "H1",
+            "finding": "No H1 tag detected.",
+            "fix": "Add a single, descriptive H1 containing the primary keyword."
+          },
+          {
+            "severity": "Critical",
+            "area": "Content",
+            "finding": "Very thin content (2 words).",
+            "fix": "Expand content to at least 1,500 words for blog posts."
+          },
+          {
+            "severity": "Warning",
+            "area": "E-E-A-T",
+            "finding": "No author attribution detected.",
+            "fix": "Add a visible author byline with credentials. Critical post-Dec 2025 E-E-A-T update."
+          },
+          {
+            "severity": "Info",
+            "area": "Freshness",
+            "finding": "No publish date detected in markup.",
+            "fix": "Add visible publish/update date and datePublished in Article schema."
+          }
+        ]
+      }
+    },
+    "environment": {
+      "primary": "Unknown",
+      "runtime": "Unknown",
+      "confidence": "low",
+      "signals": [
+        "No strong CMS/framework markers were found in HTML source."
+      ],
+      "alternatives": []
+    },
+    "environment_fixes": [
+      {
+        "severity": "warning",
+        "title": "Title tag needs optimization",
+        "reason": "Title length/content is likely suboptimal for rankings and click-through.",
+        "fix": "Update page templates to set complete title/meta/OG/Twitter tags."
+      },
+      {
+        "severity": "warning",
+        "title": "1 broken links detected",
+        "reason": "Broken internal links hurt crawl flow and user trust.",
+        "fix": "Repair or remove broken internal links and refresh outdated navigation targets."
+      },
+      {
+        "severity": "info",
+        "title": "Performance measurement incomplete",
+        "reason": "PageSpeed API returned an error, so CWV recommendations are less reliable.",
+        "fix": "Set `PAGESPEED_API_KEY` in your environment or `.env` file (see `.env.example`), then rerun. The CLI also accepts `--api-key`. Prioritize LCP/INP/CLS fixes from that output."
+      },
+      {
+        "severity": "warning",
+        "title": "Content readability is difficult",
+        "reason": "Long, complex text can reduce engagement and comprehension.",
+        "fix": "Rewrite key sections with shorter sentences (15-20 words), shorter paragraphs (2-4 sentences), and clearer subheadings."
+      }
+    ]
+  }
+}

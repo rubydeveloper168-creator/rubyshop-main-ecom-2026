@@ -87,13 +87,19 @@
         <ul class="text-grey-5 d-inline-block">
             <li><strong class="mr-10">{{ __('Share this') }}:</strong></li>
             <li class="social-facebook">
-                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u={{ urlencode($post->url) }}" target="_blank">
+                    <i class="fab fa-facebook-f"></i><span class="visually-hidden">Share on Facebook</span>
+                </a>
             </li>
             <li class="social-twitter">
-                <a href="https://twitter.com/intent/tweet?url={{ urlencode($post->url) }}&text={{ strip_tags($post->description) }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://twitter.com/intent/tweet?url={{ urlencode($post->url) }}&text={{ strip_tags($post->description) }}" target="_blank">
+                    <i class="fab fa-twitter"></i><span class="visually-hidden">Share on X</span>
+                </a>
             </li>
             <li class="social-linkedin">
-                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode($post->url) }}&summary={{ rawurldecode(strip_tags($post->description)) }}" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ urlencode($post->url) }}&summary={{ rawurldecode(strip_tags($post->description)) }}" target="_blank">
+                    <i class="fab fa-linkedin"></i><span class="visually-hidden">Share on LinkedIn</span>
+                </a>
             </li>
         </ul>
     </div>

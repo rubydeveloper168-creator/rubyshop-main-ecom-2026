@@ -27,7 +27,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ($cards as $card)
                     @if ($card['title'] || $card['description'])
-                        <div class="bg-gray-200 p-6 flex flex-col justify-between h-[460px]">
+                        <div class="bg-gray-200 p-6 flex flex-col justify-between h-[460px] mt-4">
                             <div class="text-center">
                                 @if ($card['icon'])
                                     <i class="{{ $card['icon'] }} text-4xl mb-4"></i>

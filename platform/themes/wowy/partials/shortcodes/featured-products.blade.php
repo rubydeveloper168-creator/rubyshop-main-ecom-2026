@@ -1,13 +1,17 @@
 
 <!-- featture product -->
 
-<section class="bg-white">
+<section class="bg-white" data-featuredv1-section>
     <div class="container mx-auto px-4 py-8">
         @if ($title)
-            <h1 class="text-2xl font-bold mb-6">{!! BaseHelper::clean($title) !!}</h1>
+            <h1 class="hidden lg:block text-2xl font-bold mb-6">{!! BaseHelper::clean($title) !!}</h1>
         @endif
-        <div class="flex items-center justify-between flex-wrap gap-4">
-            <div></div>
+        <div class="flex items-center justify-between flex-wrap gap-4 pt-4">
+            <div>
+                @if ($title)
+                    <h2 class="text-2xl font-bold lg:hidden mb-0">{!! BaseHelper::clean($title) !!}</h2>
+                @endif
+            </div>
             <div class="flex gap-2 lg:hidden">
                 <button type="button" class="p-2 rounded-full border border-gray-200 text-gray-600 focus:outline-none focus:ring hover:bg-gray-100" data-featuredv1-prev>
                     <i class="fas fa-chevron-left"></i>
@@ -64,9 +68,59 @@
         .aspect-square {
             aspect-ratio: 1 / 1;
         }
+
+        @media (max-width: 767px) {
+            [data-featuredv1-track] > a {
+                width: 72vw !important;
+            }
+
+            [data-featuredv1-track] .aspect-square {
+                aspect-ratio: auto;
+                height: 210px;
+            }
+
+            [data-featuredv1-track] .aspect-square img {
+                max-height: 190px;
+                width: auto;
+                max-width: 100%;
+                margin: 0 auto;
+            }
+        }
     </style>
     <script>
         (function () {
+            document.querySelectorAll('[data-featuredv1-section]').forEach(function (section) {
+                var node = section.previousSibling;
+
+                while (node) {
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        if ((node.textContent || '').trim() === '') {
+                            var textNode = node;
+                            node = node.previousSibling;
+                            textNode.remove();
+                            continue;
+                        }
+                        break;
+                    }
+
+                    if (node.nodeType === Node.ELEMENT_NODE && node.tagName === 'P') {
+                        var normalized = (node.innerHTML || '')
+                            .replace(/&nbsp;|\u00a0/gi, '')
+                            .replace(/<br\s*\/?>/gi, '')
+                            .trim();
+
+                        if (normalized === '' && (node.textContent || '').trim() === '') {
+                            var pNode = node;
+                            node = node.previousSibling;
+                            pNode.remove();
+                            continue;
+                        }
+                    }
+
+                    break;
+                }
+            });
+
             const track = document.querySelector('[data-featuredv1-track]');
             const prevBtn = document.querySelector('[data-featuredv1-prev]');
             const nextBtn = document.querySelector('[data-featuredv1-next]');
