@@ -1015,5 +1015,97 @@
     @endif
 </nav>
 
+<script>
+(function () {
+    'use strict';
+
+    function snap(label) {
+        var wrap = document.querySelector('.categories-dropdown-wrap');
+        if (!wrap) { console.warn('[DD] wrap not found'); return; }
+
+        var wCS = getComputedStyle(wrap);
+        console.group('[DD] ' + label);
+        console.log('wrap overflow=' + wCS.overflow + ' | overflowX=' + wCS.overflowX + ' | overflowY=' + wCS.overflowY);
+        console.log('wrap display=' + wCS.display + ' | visibility=' + wCS.visibility + ' | height=' + wCS.height);
+
+        // more_slide_open
+        var more = wrap.querySelector('.more_slide_open');
+        if (more) {
+            var mCS = getComputedStyle(more);
+            console.log('more_slide_open display=' + mCS.display + ' | overflow=' + mCS.overflow + ' | height=' + mCS.height + ' | visibility=' + mCS.visibility);
+        }
+
+        // Each ancestor of wrap up to header
+        var el = wrap.parentElement;
+        while (el && !el.classList.contains('header-area')) {
+            var cs = getComputedStyle(el);
+            if (cs.overflow !== 'visible' || cs.overflowX !== 'visible' || cs.overflowY !== 'visible') {
+                console.warn('⚠️ ANCESTOR CLIPPING: <' + el.tagName + ' class="' + el.className + '"> overflow=' + cs.overflow + ' overflowX=' + cs.overflowX + ' overflowY=' + cs.overflowY + ' height=' + cs.height, el);
+            }
+            el = el.parentElement;
+        }
+
+        // All li.has-children
+        wrap.querySelectorAll('li.has-children').forEach(function (li, i) {
+            var liCS = getComputedStyle(li);
+            var menu = li.querySelector(':scope > .dropdown-menu');
+            var menuInfo = 'NO .dropdown-menu!';
+            if (menu) {
+                var mCS = getComputedStyle(menu);
+                menuInfo = 'display=' + mCS.display + ' visibility=' + mCS.visibility + ' left=' + mCS.left + ' width=' + mCS.width + ' zIndex=' + mCS.zIndex;
+            }
+            console.log('li[' + i + '] "' + li.innerText.trim().slice(0,25) + '" | li.display=' + liCS.display + ' | li.overflow=' + liCS.overflow + ' | li.position=' + liCS.position + ' | menu → ' + menuInfo);
+        });
+
+        console.groupEnd();
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var wrap = document.querySelector('.categories-dropdown-wrap');
+        if (!wrap) { console.warn('[DD] wrap not found'); return; }
+
+        // Snapshot on load
+        snap('PAGE LOAD');
+
+        // Watch more_categories click
+        var moreBtn = document.querySelector('.more_categories');
+        if (moreBtn) {
+            moreBtn.addEventListener('click', function () {
+                console.log('[DD] 🖱 more_categories CLICKED');
+                // Snapshot before + after jQuery animation
+                setTimeout(function () { snap('100ms after more click'); }, 100);
+                setTimeout(function () { snap('600ms after more click (post-slideToggle)'); }, 600);
+                setTimeout(function () { snap('1200ms after more click'); }, 1200);
+            });
+        } else {
+            console.warn('[DD] .more_categories button NOT FOUND');
+        }
+
+        // Watch hover on every li.has-children (delegate so new items work too)
+        wrap.addEventListener('mouseover', function (e) {
+            var li = e.target.closest('li.has-children');
+            if (!li) return;
+            var menu = li.querySelector(':scope > .dropdown-menu');
+            if (!menu) { console.warn('[DD] hovered li has no menu'); return; }
+            var cs = getComputedStyle(menu);
+            var liCS = getComputedStyle(li);
+            console.log('[DD] 🟢 hover li "' + li.innerText.trim().slice(0,25) + '" | menu display=' + cs.display + ' visibility=' + cs.visibility + ' left=' + cs.left + ' height=' + cs.height + ' | li.overflow=' + liCS.overflow + ' | li.position=' + liCS.position);
+
+            // Clip check
+            var el = menu.parentElement;
+            while (el && el !== document.body) {
+                var ov = getComputedStyle(el);
+                if (ov.overflow === 'hidden' || ov.overflowX === 'hidden' || ov.overflowY === 'hidden') {
+                    console.warn('[DD] ⚠️ CLIP: <' + el.tagName + ' class="' + el.className + '"> overflow=' + ov.overflow + ' overflowX=' + ov.overflowX + ' overflowY=' + ov.overflowY, el);
+                }
+                el = el.parentElement;
+            }
+        });
+
+        console.log('[DD] ✅ Listeners ready — click "see more" then hover a category.');
+    });
+}());
+</script>
+
 </body>
 </html>

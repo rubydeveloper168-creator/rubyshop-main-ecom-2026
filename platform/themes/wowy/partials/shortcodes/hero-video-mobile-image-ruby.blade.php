@@ -60,6 +60,7 @@
 }
 .ruby-hero__copy {
     max-width: 600px;
+    margin-left: 80px;
 }
 
 /* ── Eyebrow badge ── */
@@ -197,7 +198,7 @@
 @media (max-width: 1024px) {
     .ruby-hero { min-height: 520px; }
     .ruby-hero__content { min-height: 520px; padding: 36px 24px; }
-    .ruby-hero__copy { margin: 0 auto; max-width: 100%; }
+    .ruby-hero__copy { margin: 0 auto; margin-left: 32px; max-width: 100%; }
 }
 
 /* ── Mobile ── */
@@ -221,6 +222,7 @@
     .ruby-hero__copy {
         max-width: 100%;
         text-align: left;
+        margin-left: 0;
     }
     .ruby-hero__eyebrow {
         font-size: 10px;

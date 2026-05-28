@@ -432,6 +432,13 @@
                 }
             }
 
+            @media (min-width: 992px) and (max-width: 1380px) {
+                .header-bottom .main-categories-wrap,
+                .header-bottom .hotline {
+                    display: none !important;
+                }
+            }
+
             .header-bottom .hotline {
                 display: flex;
                 align-items: center;
@@ -444,6 +451,176 @@
                 gap: 10px;
                 margin: 0;
                 line-height: 1.4;
+            }
+
+            /* ======================================================
+               CATEGORY DROPDOWN — redesign
+               ====================================================== */
+
+            /* Trigger button */
+            .categories-button-active {
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                background: rgba(255,255,255,0.13) !important;
+                border-radius: 8px !important;
+                padding: 9px 15px !important;
+                font-size: 14px !important;
+                font-weight: 700 !important;
+                color: #fff !important;
+                letter-spacing: 0.01em !important;
+                transition: background 0.2s !important;
+                white-space: nowrap !important;
+            }
+            .categories-button-active:hover,
+            .categories-button-active.open {
+                background: rgba(255,255,255,0.24) !important;
+                color: #fff !important;
+            }
+
+            /* Dropdown container */
+            .categories-dropdown-wrap {
+                border-radius: 14px !important;
+                border: 1px solid #f0f0f0 !important;
+                box-shadow: 0 12px 48px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06) !important;
+                overflow: visible !important;
+                margin-top: 10px !important;
+            }
+            .categories-dropdown-wrap > ul {
+                overflow: visible !important;
+                border-radius: 14px !important;
+            }
+
+            /* Every list item row */
+            .categories-dropdown-wrap > ul > li > a,
+            .categories-dropdown-wrap ul li a {
+                display: flex !important;
+                align-items: center !important;
+                gap: 10px !important;
+                padding: 10px 18px !important;
+                font-size: 13.5px !important;
+                font-weight: 500 !important;
+                color: #1f2937 !important;
+                line-height: 1.4 !important;
+                border-left: 3px solid transparent !important;
+                transition: background 0.15s, color 0.15s, border-color 0.15s, padding-left 0.15s !important;
+            }
+
+            /* Hover state */
+            .categories-dropdown-wrap ul li a:hover {
+                background-color: #fef2f2 !important;
+                color: #dc2626 !important;
+                border-left-color: #dc2626 !important;
+                padding-left: 22px !important;
+            }
+
+            /* Active / current category */
+            .categories-dropdown-wrap ul li.active > a {
+                color: #dc2626 !important;
+                background-color: #fef2f2 !important;
+                border-left-color: #dc2626 !important;
+                font-weight: 700 !important;
+            }
+
+            /* Arrow for items with sub-menu */
+            .categories-dropdown-wrap ul li.has-children > a::after {
+                content: '›' !important;
+                margin-left: auto !important;
+                font-size: 18px !important;
+                line-height: 1 !important;
+                color: #9ca3af !important;
+                font-weight: 400 !important;
+            }
+            .categories-dropdown-wrap ul li.has-children > a:hover::after {
+                color: #dc2626 !important;
+            }
+
+            /* Thin divider between rows */
+            .categories-dropdown-wrap > ul > li + li {
+                border-top: 1px solid #f9fafb !important;
+            }
+
+            /* Category icon / image */
+            .categories-dropdown-wrap ul li a img {
+                width: 22px !important;
+                height: 22px !important;
+                object-fit: contain !important;
+                border-radius: 5px !important;
+                flex-shrink: 0 !important;
+                opacity: 0.8 !important;
+                transition: opacity 0.15s !important;
+            }
+            .categories-dropdown-wrap ul li a:hover img { opacity: 1 !important; }
+
+            /* ── Flyout panel (right side) ── */
+
+            /* Hidden by default, shown on parent hover */
+            .categories-dropdown-wrap ul li.has-children > .dropdown-menu {
+                display: none !important;
+                position: absolute !important;
+                left: 100% !important;
+                top: 0 !important;
+                z-index: 9999 !important;
+                min-width: 220px !important;
+                width: auto !important;
+            }
+            .categories-dropdown-wrap ul li.has-children:hover > .dropdown-menu {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                pointer-events: auto !important;
+            }
+
+            /* Panel styling */
+            .categories-dropdown-wrap .dropdown-menu {
+                border: 1px solid #f0f0f0 !important;
+                border-radius: 0 12px 12px 0 !important;
+                box-shadow: 4px 8px 24px rgba(0,0,0,0.10) !important;
+                padding: 6px 0 !important;
+                background: #fff !important;
+            }
+
+            /* Divider between sub-items */
+            .categories-dropdown-wrap .dropdown-menu ul li {
+                border-top: 1px solid #f9fafb !important;
+            }
+            .categories-dropdown-wrap .dropdown-menu ul li:first-child {
+                border-top: none !important;
+            }
+
+            /* Sub-item links */
+            .categories-dropdown-wrap .dropdown-menu ul li a {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-size: 13px !important;
+                font-weight: 500 !important;
+                color: #374151 !important;
+                padding: 10px 20px !important;
+                border-left: 3px solid transparent !important;
+                white-space: nowrap !important;
+                transition: background 0.15s, color 0.15s, border-color 0.15s, padding-left 0.15s !important;
+            }
+            .categories-dropdown-wrap .dropdown-menu ul li a:hover {
+                color: #dc2626 !important;
+                background: #fef2f2 !important;
+                border-left-color: #dc2626 !important;
+                padding-left: 24px !important;
+            }
+
+            /* "Show more" button */
+            .more_categories {
+                background: #f8fafc !important;
+                border-top: 1px solid #f0f0f0 !important;
+                color: #dc2626 !important;
+                font-weight: 600 !important;
+                font-size: 13px !important;
+                padding: 11px 20px !important;
+                transition: background 0.15s !important;
+                text-align: center !important;
+            }
+            .more_categories:hover {
+                background: #fef2f2 !important;
             }
         </style>
 
