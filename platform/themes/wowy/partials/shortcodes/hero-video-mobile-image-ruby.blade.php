@@ -1,223 +1,268 @@
 @once
-    <style>
-        .ruby-hero-video-mobile {
-            position: relative;
-            overflow: clip;
-            width: 100%;
-            background: #000;
-            color: #fff;
-            min-height: 800px;
-        }
+<style>
+/* ============================================================
+   RUBY HERO — full-bleed video/image hero with overlay copy
+   ============================================================ */
+.ruby-hero {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #0d0d0d;
+    color: #fff;
+    min-height: 680px;
+}
 
-        .ruby-hero-video-mobile__media {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-        }
+/* ── Media layer ── */
+.ruby-hero__media {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+.ruby-hero__media video,
+.ruby-hero__media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 
-        .ruby-hero-video-mobile__media video,
-        .ruby-hero-video-mobile__media img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center center;
-        }
+/* ── Gradient overlay ── */
+.ruby-hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background:
+        linear-gradient(to bottom,
+            rgba(0,0,0,0.08) 0%,
+            rgba(0,0,0,0.30) 50%,
+            rgba(0,0,0,0.72) 85%,
+            rgba(0,0,0,0.82) 100%),
+        linear-gradient(to right,
+            rgba(0,0,0,0.55) 0%,
+            rgba(0,0,0,0.20) 55%,
+            rgba(0,0,0,0.0)  100%);
+}
 
-        .ruby-hero-video-mobile__overlay {
-            position: absolute;
-            inset: 0;
-            z-index: 2;
-            background:
-                linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.45) 100%),
-                linear-gradient(90deg, rgba(0, 0, 0, 0.62) 0%, rgba(0, 0, 0, 0.25) 44%, rgba(0, 0, 0, 0.06) 100%);
-        }
+/* ── Content wrapper ── */
+.ruby-hero__content {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    min-height: 680px;
+    padding: 48px 40px;
+}
+.ruby-hero__inner {
+    width: 100%;
+    max-width: 1480px;
+    margin: 0 auto;
+}
+.ruby-hero__copy {
+    max-width: 600px;
+}
 
-        .ruby-hero-video-mobile__content {
-            position: relative;
-            z-index: 3;
-            display: flex;
-            align-items: center;
-            min-height: 800px;
-            padding: 24px;
-        }
+/* ── Eyebrow badge ── */
+.ruby-hero__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.22);
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 7px 14px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.92);
+    margin-bottom: 18px;
+}
+.ruby-hero__eyebrow-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ef4444;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px rgba(239,68,68,0.7);
+}
 
-        .ruby-hero-video-mobile__inner {
-            width: 100%;
-            max-width: 1520px;
-            margin: 0 auto;
-        }
+/* ── Headline ── */
+.ruby-hero__title {
+    margin: 0 0 14px;
+    font-size: clamp(2rem, 4.5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #fff;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+}
 
-        .ruby-hero-video-mobile__copy {
-            width: 100%;
-            max-width: 652px;
-        }
+/* ── Subtitle / category pills ── */
+.ruby-hero__subtitle {
+    margin: 0 0 28px;
+    font-size: clamp(0.95rem, 1.6vw, 1.05rem);
+    line-height: 1.6;
+    color: rgba(255,255,255,0.85);
+}
 
-        .ruby-hero-video-mobile__eyebrow {
-            display: inline-flex;
-            align-items: center;
-            border-radius: 9999px;
-            border: 1px solid rgba(255, 255, 255, 0.20);
-            background: rgba(255, 255, 255, 0.10);
-            padding: 8px 14px;
-            font-size: 11px;
-            font-weight: 900;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(10px);
-        }
+/* ── CTA row ── */
+.ruby-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+.ruby-hero__btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    background: #dc2626;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 800;
+    padding: 16px 30px;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    box-shadow: 0 8px 24px rgba(220,38,38,0.35);
+    transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+.ruby-hero__btn-primary:hover {
+    background: #b91c1c;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(185,28,28,0.42);
+    text-decoration: none;
+}
+.ruby-hero__btn-primary svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform 0.18s;
+}
+.ruby-hero__btn-primary:hover svg {
+    transform: translateX(3px);
+}
+.ruby-hero__btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 999px;
+    border: 1.5px solid rgba(255,255,255,0.35);
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: rgba(255,255,255,0.92);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 15px 24px;
+    text-decoration: none;
+    transition: background 0.18s, border-color 0.18s;
+}
+.ruby-hero__btn-secondary:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.55);
+    color: #fff;
+    text-decoration: none;
+}
 
-        .ruby-hero-video-mobile__title {
-            margin: 18px 0 0;
-            font-size: clamp(2rem, 5.2vw, 5rem);
-            font-weight: 800;
-            line-height: 1.2;
-            letter-spacing: -0.03em;
-            color: #fff;
-        }
+/* ── Trust signals ── */
+.ruby-hero__trust {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 16px;
+}
+.ruby-hero__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.78);
+    letter-spacing: 0.02em;
+}
+.ruby-hero__trust-icon {
+    width: 16px;
+    height: 16px;
+    color: #4ade80;
+    flex-shrink: 0;
+}
 
-        .ruby-hero-video-mobile__subtitle {
-            margin: 16px 0 0;
-            max-width: 620px;
-            font-size: clamp(0.98rem, 2vw, 1.15rem);
-            line-height: 1.6;
-            color: rgba(255, 255, 255, 0.90);
-        }
+/* ── Tablet ── */
+@media (max-width: 1024px) {
+    .ruby-hero { min-height: 520px; }
+    .ruby-hero__content { min-height: 520px; padding: 36px 24px; }
+    .ruby-hero__copy { margin: 0 auto; max-width: 100%; }
+}
 
-        .ruby-hero-video-mobile__actions {
-            margin-top: 28px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
+/* ── Mobile ── */
+@media (max-width: 767px) {
+    .ruby-hero {
+        min-height: 460px;
+    }
+    .ruby-hero__overlay {
+        background:
+            linear-gradient(to bottom,
+                rgba(0,0,0,0.05) 0%,
+                rgba(0,0,0,0.18) 35%,
+                rgba(0,0,0,0.72) 70%,
+                rgba(0,0,0,0.88) 100%);
+    }
+    .ruby-hero__content {
+        min-height: 460px;
+        align-items: flex-end;
+        padding: 0 16px 28px;
+    }
+    .ruby-hero__copy {
+        max-width: 100%;
+        text-align: left;
+    }
+    .ruby-hero__eyebrow {
+        font-size: 10px;
+        padding: 6px 11px;
+        margin-bottom: 12px;
+    }
+    .ruby-hero__title {
+        font-size: clamp(1.45rem, 6vw, 1.75rem);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+    }
+    .ruby-hero__subtitle {
+        font-size: 13px;
+        margin-bottom: 16px;
+        color: rgba(255,255,255,0.80);
+    }
+    .ruby-hero__actions {
+        gap: 8px;
+        margin-bottom: 16px;
+    }
+    .ruby-hero__btn-primary {
+        font-size: 13.5px;
+        padding: 13px 22px;
+        box-shadow: 0 6px 16px rgba(220,38,38,0.35);
+    }
+    .ruby-hero__btn-secondary {
+        display: none;
+    }
+    .ruby-hero__trust {
+        gap: 12px;
+    }
+    .ruby-hero__trust-item {
+        font-size: 11.5px;
+        gap: 4px;
+    }
+}
 
-        .ruby-hero-video-mobile__button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 9999px;
-            background: #ed1d24;
-            color: #fff;
-            font-size: 15px;
-            font-weight: 800;
-            line-height: 1;
-            padding: 21px 32px;
-            text-decoration: none;
-            transition:
-                background-color 180ms ease-in-out,
-                transform 180ms ease-in-out,
-                box-shadow 180ms ease-in-out,
-                font-weight 180ms ease-in-out;
-            box-shadow: 0 10px 24px rgba(237, 29, 36, 0.24);
-        }
-
-        .ruby-hero-video-mobile__button:hover {
-            background: #c91920;
-            color: #fff;
-            transform: translateY(-1px) scale(1.01);
-            font-weight: 900;
-            box-shadow: 0 14px 30px rgba(201, 25, 32, 0.34);
-        }
-
-        @media (max-width: 1024px) {
-            .ruby-hero-video-mobile {
-                min-height: 500px;
-            }
-
-            .ruby-hero-video-mobile__content {
-                min-height: 500px;
-                padding: 24px 16px;
-            }
-
-            .ruby-hero-video-mobile__copy {
-                margin: 0 auto;
-                text-align: center;
-            }
-
-            .ruby-hero-video-mobile__title {
-                margin-top: 14px;
-            }
-
-            .ruby-hero-video-mobile__subtitle {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .ruby-hero-video-mobile__actions {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 544px) {
-            .ruby-hero-video-mobile {
-                min-height: 300px;
-            }
-
-            .ruby-hero-video-mobile__content {
-                min-height: 300px;
-                padding: 24px 16px;
-            }
-
-            .ruby-hero-video-mobile__eyebrow {
-                font-size: 10px;
-                padding: 7px 12px;
-            }
-
-            .ruby-hero-video-mobile__actions {
-                margin-top: 20px;
-            }
-
-            .ruby-hero-video-mobile__button {
-                width: auto;
-                min-width: 200px;
-                max-width: 100%;
-                padding: 18px 24px;
-            }
-        }
-
-        @media (max-width: 767px) {
-            .ruby-hero-video-mobile__content {
-                align-items: flex-end;
-                padding: 14px 12px 20px;
-            }
-
-            .ruby-hero-video-mobile__copy {
-                display: block !important;
-                max-width: 100%;
-                text-align: left;
-            }
-
-            .ruby-hero-video-mobile__title {
-                margin: 0;
-                font-size: clamp(1.35rem, 6vw, 1.7rem);
-                line-height: 1.2;
-                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
-            }
-
-            .ruby-hero-video-mobile__subtitle {
-                display: none !important;
-            }
-
-            .ruby-hero-video-mobile__actions {
-                margin-top: 10px;
-                justify-content: flex-start;
-            }
-
-            .ruby-hero-video-mobile__button {
-                min-width: 140px;
-                padding: 12px 18px;
-                font-size: 13px;
-                box-shadow: 0 8px 18px rgba(237, 29, 36, 0.3);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .ruby-hero-video-mobile__button {
-                transition: none;
-            }
-        }
-    </style>
+@media (prefers-reduced-motion: reduce) {
+    .ruby-hero__btn-primary,
+    .ruby-hero__btn-secondary { transition: none; }
+}
+</style>
 @endonce
 
 @php
@@ -227,11 +272,10 @@
 
     $attributes = $attributes ?? [];
 
-    $desktopVideo = Arr::get($attributes, 'desktop_video');
-    $desktopPoster = Arr::get($attributes, 'desktop_poster');
-    $mobileImage = Arr::get($attributes, 'mobile_image');
-
-    $defaultImage = RvMedia::getDefaultImage();
+    $desktopVideo   = Arr::get($attributes, 'desktop_video');
+    $desktopPoster  = Arr::get($attributes, 'desktop_poster');
+    $mobileImage    = Arr::get($attributes, 'mobile_image');
+    $defaultImage   = RvMedia::getDefaultImage();
 
     $desktopVideoUrl = $desktopVideo ? RvMedia::url($desktopVideo) : null;
     $desktopPosterUrl = $desktopPoster
@@ -240,81 +284,99 @@
     $mobileImageUrl = $mobileImage
         ? RvMedia::getImageUrl($mobileImage, 'medium', false, $defaultImage)
         : $desktopPosterUrl;
-    $mobileImageUrlOrigin = $mobileImage
+    $mobileImageUrlFull = $mobileImage
         ? RvMedia::getImageUrl($mobileImage, null, false, $defaultImage)
         : $desktopPosterUrl;
 
-    $title = Arr::get($attributes, 'title') ?: 'เครื่องมือช่างเพื่อมืออาชีพ';
-    $subtitle = Arr::get($attributes, 'subtitle');
-    $buttonText = Arr::get($attributes, 'button_text') ?: 'ดูสินค้า';
-    $buttonLink = Arr::get($attributes, 'button_link') ?: '/';
-    $hasAction = filled($buttonText) && filled($buttonLink);
+    $eyebrow    = Arr::get($attributes, 'eyebrow')      ?: 'RUBYSHOP · เครื่องมือช่างมืออาชีพ';
+    $title      = Arr::get($attributes, 'title')        ?: 'เครื่องพ่นสีและ<br>เครื่องมือช่างมืออาชีพ';
+    $subtitle   = Arr::get($attributes, 'subtitle')     ?: 'พ่นสี · พ่นปูน · กรีดผนัง · เครื่องมือครบครัน';
+    $buttonText = Arr::get($attributes, 'button_text')  ?: 'เลือกซื้อเลย';
+    $buttonLink = Arr::get($attributes, 'button_link')  ?: '/products';
+    $btn2Text   = Arr::get($attributes, 'button2_text') ?: 'ดูหมวดหมู่';
+    $btn2Link   = Arr::get($attributes, 'button2_link') ?: '/product-categories';
+    $hasAction  = filled($buttonText) && filled($buttonLink);
 @endphp
 
-<section
-    class="ruby-hero-video-mobile"
->
-    <div class="ruby-hero-video-mobile__media hidden md:block">
+<section class="ruby-hero" aria-label="Hero">
+    {{-- Desktop media --}}
+    <div class="ruby-hero__media hidden md:block">
         @if ($desktopVideoUrl)
-            <video
-                autoplay
-                muted
-                loop
-                playsinline
-                preload="auto"
-                disablepictureinpicture="true"
-                disableremoteplayback="true"
+            <video autoplay muted loop playsinline preload="auto"
+                disablepictureinpicture disableremoteplayback
                 controlslist="nodownload,nofullscreen,noremoteplayback"
-            >
+                poster="{{ $desktopPosterUrl }}">
                 <source src="{{ $desktopVideoUrl }}" type="video/mp4">
             </video>
         @else
-            <img
-                src="{{ $desktopPosterUrl }}"
-                alt="{{ BaseHelper::clean($title) }}"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-            >
+            <img src="{{ $desktopPosterUrl }}"
+                 alt="{{ BaseHelper::clean($title) }}"
+                 loading="eager" fetchpriority="high" decoding="async">
         @endif
     </div>
 
-    <div class="ruby-hero-video-mobile__media md:hidden">
-        <img
-            src="{{ $mobileImageUrl }}"
-            srcset="{{ $mobileImageUrl }} 768w, {{ $mobileImageUrlOrigin }} 1600w"
-            sizes="100vw"
-            alt="{{ BaseHelper::clean($title) }}"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-        >
+    {{-- Mobile media --}}
+    <div class="ruby-hero__media md:hidden">
+        <img src="{{ $mobileImageUrl }}"
+             srcset="{{ $mobileImageUrl }} 768w, {{ $mobileImageUrlFull }} 1600w"
+             sizes="100vw"
+             alt="{{ BaseHelper::clean($title) }}"
+             loading="eager" fetchpriority="high" decoding="async">
     </div>
 
-    <div class="ruby-hero-video-mobile__overlay" aria-hidden="true"></div>
+    <div class="ruby-hero__overlay" aria-hidden="true"></div>
 
-    <div class="ruby-hero-video-mobile__content">
-        <div class="ruby-hero-video-mobile__inner">
-            <div class="ruby-hero-video-mobile__copy">
+    <div class="ruby-hero__content">
+        <div class="ruby-hero__inner">
+            <div class="ruby-hero__copy">
+
+                {{-- Eyebrow badge --}}
+                <div class="ruby-hero__eyebrow">
+                    <span class="ruby-hero__eyebrow-dot" aria-hidden="true"></span>
+                    {{ $eyebrow }}
+                </div>
+
+                {{-- Headline --}}
                 @if ($title)
-                    <h1 class="ruby-hero-video-mobile__title">
-                        {!! BaseHelper::clean($title) !!}
-                    </h1>
+                    <h1 class="ruby-hero__title">{!! BaseHelper::clean($title) !!}</h1>
                 @endif
 
+                {{-- Subtitle --}}
                 @if ($subtitle)
-                    <p class="ruby-hero-video-mobile__subtitle">
-                        {!! BaseHelper::clean($subtitle) !!}
-                    </p>
+                    <p class="ruby-hero__subtitle">{!! BaseHelper::clean($subtitle) !!}</p>
                 @endif
 
+                {{-- CTAs --}}
                 @if ($hasAction)
-                    <div class="ruby-hero-video-mobile__actions">
-                        <a href="{{ $buttonLink }}" class="ruby-hero-video-mobile__button">
+                    <div class="ruby-hero__actions">
+                        <a href="{{ $buttonLink }}" class="ruby-hero__btn-primary">
                             {{ $buttonText }}
+                            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M3 8h10M9 4l4 4-4 4"/>
+                            </svg>
                         </a>
+                        @if (filled($btn2Text) && filled($btn2Link))
+                            <a href="{{ $btn2Link }}" class="ruby-hero__btn-secondary">{{ $btn2Text }}</a>
+                        @endif
                     </div>
                 @endif
+
+                {{-- Trust signals --}}
+                <div class="ruby-hero__trust">
+                    <span class="ruby-hero__trust-item">
+                        <svg class="ruby-hero__trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l4 4 8-8"/></svg>
+                        ส่งทั่วไทย
+                    </span>
+                    <span class="ruby-hero__trust-item">
+                        <svg class="ruby-hero__trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l4 4 8-8"/></svg>
+                        รับประกันคุณภาพ
+                    </span>
+                    <span class="ruby-hero__trust-item">
+                        <svg class="ruby-hero__trust-icon" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8l4 4 8-8"/></svg>
+                        ช่างมืออาชีพใช้จริง
+                    </span>
+                </div>
+
             </div>
         </div>
     </div>
