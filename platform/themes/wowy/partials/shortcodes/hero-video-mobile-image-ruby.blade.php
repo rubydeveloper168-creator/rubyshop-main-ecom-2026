@@ -177,8 +177,38 @@
         }
 
         @media (max-width: 767px) {
+            .ruby-hero-video-mobile__content {
+                align-items: flex-end;
+                padding: 14px 12px 20px;
+            }
+
             .ruby-hero-video-mobile__copy {
+                display: block !important;
+                max-width: 100%;
+                text-align: left;
+            }
+
+            .ruby-hero-video-mobile__title {
+                margin: 0;
+                font-size: clamp(1.35rem, 6vw, 1.7rem);
+                line-height: 1.2;
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+            }
+
+            .ruby-hero-video-mobile__subtitle {
                 display: none !important;
+            }
+
+            .ruby-hero-video-mobile__actions {
+                margin-top: 10px;
+                justify-content: flex-start;
+            }
+
+            .ruby-hero-video-mobile__button {
+                min-width: 140px;
+                padding: 12px 18px;
+                font-size: 13px;
+                box-shadow: 0 8px 18px rgba(237, 29, 36, 0.3);
             }
         }
 
@@ -231,14 +261,12 @@
                 muted
                 loop
                 playsinline
-                preload="none"
-                poster="{{ $desktopPosterUrl }}"
+                preload="auto"
                 disablepictureinpicture="true"
                 disableremoteplayback="true"
                 controlslist="nodownload,nofullscreen,noremoteplayback"
-                data-ruby-desktop-video="1"
             >
-                <source data-src="{{ $desktopVideoUrl }}" type="video/mp4">
+                <source src="{{ $desktopVideoUrl }}" type="video/mp4">
             </video>
         @else
             <img
@@ -291,34 +319,3 @@
         </div>
     </div>
 </section>
-
-@once
-    <script>
-        (function () {
-            const hydrateDesktopHeroVideo = function () {
-                if (!window.matchMedia('(min-width: 768px)').matches) {
-                    return;
-                }
-
-                document.querySelectorAll('video[data-ruby-desktop-video="1"]').forEach(function (video) {
-                    const source = video.querySelector('source[data-src]');
-
-                    if (!source || source.getAttribute('src')) {
-                        return;
-                    }
-
-                    source.setAttribute('src', source.getAttribute('data-src'));
-                    video.load();
-                });
-            };
-
-            if (document.readyState === 'complete') {
-                setTimeout(hydrateDesktopHeroVideo, 300);
-            } else {
-                window.addEventListener('load', function () {
-                    setTimeout(hydrateDesktopHeroVideo, 300);
-                }, { once: true });
-            }
-        })();
-    </script>
-@endonce
