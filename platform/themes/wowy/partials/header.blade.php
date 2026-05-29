@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         @php
+            $path = trim(request()->path(), '/');
             $isUtilityNoindexPage = request()->is('cart')
                 || request()->is('compare')
                 || request()->is('wishlist')
@@ -14,8 +15,18 @@
                 || request()->is('customer*')
                 || request()->is('orders/tracking*')
                 || request()->is('currency/switch/*');
+            $isListingQueryNoindexPage = request()->query()
+                && (
+                    $path === 'products'
+                    || $path === 'product-categories'
+                    || $path === 'allproducts'
+                    || str_starts_with($path, 'allproducts/category/')
+                    || str_starts_with($path, 'sub/')
+                    || $path === 'search'
+                    || $path === 'blog'
+                );
         @endphp
-        @if ($isUtilityNoindexPage)
+        @if ($isUtilityNoindexPage || $isListingQueryNoindexPage)
             <meta name="robots" content="noindex,follow">
         @endif
         

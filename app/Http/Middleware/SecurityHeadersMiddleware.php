@@ -119,12 +119,37 @@ class SecurityHeadersMiddleware
             return 'noindex, nofollow';
         }
 
-        // Prevent index bloat from products listing filter/sort/pagination URLs.
-        if ($path === 'products' && $request->query()) {
+        // Prevent index bloat from faceted/sorted/paginated listing URLs.
+        if ($this->shouldNoindexListingPage($request, $path)) {
             return 'noindex, follow';
         }
 
         return 'index, follow';
+    }
+
+    private function shouldNoindexListingPage(Request $request, string $path): bool
+    {
+        if (! $request->query()) {
+            return false;
+        }
+
+        $listingPaths = [
+            'products',
+            'product-categories',
+            'allproducts',
+            'allproducts/category',
+            'sub',
+            'search',
+            'blog',
+        ];
+
+        foreach ($listingPaths as $listingPath) {
+            if ($path === $listingPath || Str::startsWith($path, $listingPath . '/')) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private function buildContentSecurityPolicy(): string
