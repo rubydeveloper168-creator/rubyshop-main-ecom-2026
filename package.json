@@ -11,6 +11,7 @@
     "scripts": {
         "dev": "npm run development",
         "development": "mix",
+        "seo:auto-post:run": "node scripts/seo-auto-post-runner.js",
         "build:tailwind": "tailwindcss -i ./resources/css/tailwind.input.css -o ./public/css/tailwind.css --minify",
         "watch:tailwind": "tailwindcss -i ./resources/css/tailwind.input.css -o ./public/css/tailwind.css --watch",
         "watch": "mix watch",
