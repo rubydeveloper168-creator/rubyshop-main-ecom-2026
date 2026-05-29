@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Symfony\Component\HttpFoundation\Response;
 
 class SecurityHeadersMiddleware
@@ -54,6 +55,10 @@ class SecurityHeadersMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($redirect = $this->canonicalHostRedirect($request)) {
+            return $redirect;
+        }
+
         $response = $next($request);
 
         $response->headers->set('X-Content-Type-Options', 'nosniff');
@@ -67,12 +72,59 @@ class SecurityHeadersMiddleware
         $response->headers->set('Cross-Origin-Resource-Policy', 'same-site');
         $response->headers->set('X-Permitted-Cross-Domain-Policies', 'none');
         $response->headers->set('Content-Security-Policy', $this->buildContentSecurityPolicy());
+        $response->headers->set('X-Robots-Tag', $this->buildRobotsHeader($request));
 
         if ($request->isSecure()) {
             $response->headers->set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
         }
 
         return $response;
+    }
+
+    private function canonicalHostRedirect(Request $request): ?Response
+    {
+        if (! app()->environment('production')) {
+            return null;
+        }
+
+        $host = Str::lower($request->getHost());
+        $canonicalHost = 'www.rubyshop.co.th';
+
+        // Keep local/dev hosts untouched.
+        if (
+            $host === '127.0.0.1'
+            || $host === 'localhost'
+            || Str::startsWith($host, '192.168.')
+            || Str::startsWith($host, '10.')
+        ) {
+            return null;
+        }
+
+        // Force apex to canonical www host.
+        if ($host === 'rubyshop.co.th') {
+            $target = 'https://' . $canonicalHost . $request->getRequestUri();
+
+            return redirect()->to($target, 301);
+        }
+
+        return null;
+    }
+
+    private function buildRobotsHeader(Request $request): string
+    {
+        $host = Str::lower($request->getHost());
+        $path = trim($request->path(), '/');
+
+        if ($host === 'shopdee198.rubyshop.co.th') {
+            return 'noindex, nofollow';
+        }
+
+        // Prevent index bloat from products listing filter/sort/pagination URLs.
+        if ($path === 'products' && $request->query()) {
+            return 'noindex, follow';
+        }
+
+        return 'index, follow';
     }
 
     private function buildContentSecurityPolicy(): string
