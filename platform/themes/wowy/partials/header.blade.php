@@ -432,13 +432,6 @@
                 }
             }
 
-            @media (min-width: 992px) and (max-width: 1380px) {
-                .header-bottom .main-categories-wrap,
-                .header-bottom .hotline {
-                    display: none !important;
-                }
-            }
-
             .header-bottom .hotline {
                 display: flex;
                 align-items: center;
@@ -701,6 +694,17 @@
 
         {!! Theme::header() !!}
 
+        {{-- This style block MUST come after Theme::header() so it loads after Bootstrap CSS.
+             Bootstrap's d-lg-block uses display:block !important — loading after ensures ours wins. --}}
+        <style>
+            @media (min-width: 992px) {
+                body:not(.ruby-homepage) .header-bottom .main-categories-wrap,
+                body:not(.ruby-homepage) .header-bottom .hotline {
+                    display: none !important;
+                }
+            }
+        </style>
+
         @php
             $headerStyle = theme_option('header_style') ?: '';
             $page = Theme::get('page');
@@ -715,7 +719,7 @@
         
             @endphp
     </head>
-    <body {!! Theme::bodyAttributes() !!} class="@if (BaseHelper::isRtlEnabled()) rtl @endif header_full_true wowy-template css_scrollbar lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-index wowy_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_full_true header_sticky_true hide_scrolld_true des_header_3 h_banner_true top_bar_true prs_bordered_grid_1 search_pos_canvas lazyload @if (Theme::get('bodyClass')) {{ Theme::get('bodyClass') }} @endif">
+    <body {!! Theme::bodyAttributes() !!} class="@if (BaseHelper::isRtlEnabled()) rtl @endif header_full_true wowy-template css_scrollbar lazy_icons btnt4_style_2 zoom_tp_2 css_scrollbar template-index wowy_toolbar_true hover_img2 swatch_style_rounded swatch_list_size_small label_style_rounded wrapper_full_width header_full_true header_sticky_true hide_scrolld_true des_header_3 h_banner_true top_bar_true prs_bordered_grid_1 search_pos_canvas lazyload @if ($isHomePage) ruby-homepage @endif @if (Theme::get('bodyClass')) {{ Theme::get('bodyClass') }} @endif">
         {!! apply_filters(THEME_FRONT_BODY, null) !!}
         <div id="alert-container"></div>
 

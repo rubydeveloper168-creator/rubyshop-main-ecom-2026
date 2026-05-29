@@ -1186,5 +1186,35 @@
 }());
 </script>
 
+<script>
+// Hide category browse button + hotline in header-bottom at all desktop widths.
+// These are redundant with the main nav dropdowns and phone in header-top.
+// Runs immediately AND after load (with delay) to beat any late jQuery that re-shows them.
+(function () {
+    var isHomepage = document.body.classList.contains('ruby-homepage');
+    function enforceNavHide() {
+        var w = window.innerWidth;
+        var cats = document.querySelector('.header-bottom .main-categories-wrap');
+        var hot  = document.querySelector('.header-bottom .hotline');
+        var hide = (w >= 992) && !isHomepage;
+        [cats, hot].forEach(function (el) {
+            if (!el) return;
+            if (hide) {
+                el.style.setProperty('display', 'none', 'important');
+            } else {
+                el.style.removeProperty('display');
+            }
+        });
+    }
+    // Run immediately (inline scripts execute after DOM is parsed up to this point)
+    enforceNavHide();
+    // Run after all resources + deferred scripts finish
+    window.addEventListener('load', enforceNavHide);
+    // Belt-and-suspenders: catch any jQuery ready handlers that run late
+    window.addEventListener('load', function () { setTimeout(enforceNavHide, 300); });
+    window.addEventListener('resize', enforceNavHide);
+}());
+</script>
+
 </body>
 </html>

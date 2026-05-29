@@ -301,23 +301,18 @@
 @endphp
 
 <section class="ruby-hero" aria-label="Hero">
-    {{-- Desktop media --}}
-    <div class="ruby-hero__media hidden md:block">
-        @if ($desktopVideoUrl)
+    {{-- Desktop: video only, no image poster/fallback --}}
+    @if ($desktopVideoUrl)
+        <div class="ruby-hero__media hidden md:block">
             <video autoplay muted loop playsinline preload="auto"
                 disablepictureinpicture disableremoteplayback
-                controlslist="nodownload,nofullscreen,noremoteplayback"
-                poster="{{ $desktopPosterUrl }}">
+                controlslist="nodownload,nofullscreen,noremoteplayback">
                 <source src="{{ $desktopVideoUrl }}" type="video/mp4">
             </video>
-        @else
-            <img src="{{ $desktopPosterUrl }}"
-                 alt="{{ BaseHelper::clean($title) }}"
-                 loading="eager" fetchpriority="high" decoding="async">
-        @endif
-    </div>
+        </div>
+    @endif
 
-    {{-- Mobile media --}}
+    {{-- Mobile: image only --}}
     <div class="ruby-hero__media md:hidden">
         <img src="{{ $mobileImageUrl }}"
              srcset="{{ $mobileImageUrl }} 768w, {{ $mobileImageUrlFull }} 1600w"
