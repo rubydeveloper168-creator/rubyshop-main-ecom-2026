@@ -49,7 +49,7 @@ Route::get('/blogs/{slug}', [BlogsController::class, 'show'])
 
 
 // All products listing page
-Route::get('/allproducts', [AllProductsController::class, 'index'])->name('allproducts');
+Route::redirect('/allproducts', '/categories', 301)->name('allproducts');
 
 // All categories page
 Route::get('/categories', [AllProductsController::class, 'categories'])->name('categories');

@@ -60,7 +60,7 @@
 
     <div class="mb-3">
         <label class="form-label">{{ __('Button URL') }}</label>
-        <input type="text" name="button_link" value="{{ Arr::get($attributes, 'button_link', '/allproducts') }}" class="form-control" placeholder="/allproducts">
+        <input type="text" name="button_link" value="{{ Arr::get($attributes, 'button_link', '/categories') }}" class="form-control" placeholder="/categories">
     </div>
 
     <div class="mb-3">
