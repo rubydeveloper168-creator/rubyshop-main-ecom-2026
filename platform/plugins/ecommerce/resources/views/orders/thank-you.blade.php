@@ -3,6 +3,25 @@
 @section('title', __('Order successfully. Order number :id', ['id' => $order->code]))
 
 @section('content')
+@php
+    $pixelItems = $order->products->map(fn($item) => [
+        'id'       => (string) $item->product_id,
+        'quantity' => $item->qty,
+    ])->values()->toArray();
+@endphp
+<script>
+if (typeof fbq === 'function') {
+    fbq('track', 'Purchase', {
+        value:        {{ $order->amount ?? 0 }},
+        currency:     'THB',
+        content_ids:  {!! json_encode(collect($pixelItems)->pluck('id')->all()) !!},
+        contents:     {!! json_encode($pixelItems) !!},
+        content_type: 'product',
+        num_items:    {{ $order->products->sum('qty') ?? 1 }},
+        order_id:     '{{ $order->code }}'
+    });
+}
+</script>
     <div class="row">
         <div class="col-lg-7 col-md-6 col-12">
             @include('plugins/ecommerce::orders.partials.logo')

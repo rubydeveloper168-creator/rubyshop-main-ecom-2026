@@ -433,6 +433,17 @@
 </div>
 
 <script>
+    // Meta Pixel — ViewContent
+    if (typeof fbq === 'function') {
+        fbq('track', 'ViewContent', {
+            content_ids: ['{{ $product->id }}'],
+            content_name: '{{ addslashes($product->name) }}',
+            content_type: 'product',
+            value: {{ $product->front_sale_price ?? $product->price ?? 0 }},
+            currency: 'THB'
+        });
+    }
+
     document.addEventListener('DOMContentLoaded', function () {
         var toggle = document.querySelector('.product-more-toggle');
         var menu = document.querySelector('.product-more-menu');

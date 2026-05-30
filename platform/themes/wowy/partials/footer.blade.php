@@ -1187,6 +1187,32 @@
 </script>
 
 <script>
+// Meta Pixel — AddToCart & InitiateCheckout events
+(function () {
+    if (typeof fbq !== 'function') return;
+
+    // AddToCart: fires when any add-to-cart form is submitted
+    document.addEventListener('submit', function (e) {
+        var form = e.target.closest('form.cart-form, form[action*="cart/add"], form[action*="add-to-cart"]');
+        if (!form) return;
+        var productId = form.querySelector('[name="id"], .hidden-product-id');
+        var qty = form.querySelector('[name="qty"]');
+        fbq('track', 'AddToCart', {
+            content_ids: [productId ? productId.value : ''],
+            content_type: 'product',
+            quantity: qty ? parseInt(qty.value) || 1 : 1,
+            currency: 'THB'
+        });
+    }, true);
+
+    // InitiateCheckout: fires when user clicks checkout button on cart page
+    document.addEventListener('click', function (e) {
+        var btn = e.target.closest('a[href*="checkout"], .checkout-btn, [data-checkout]');
+        if (!btn) return;
+        fbq('track', 'InitiateCheckout', { currency: 'THB' });
+    }, true);
+}());
+
 // Hide category browse button + hotline in header-bottom at all desktop widths.
 // These are redundant with the main nav dropdowns and phone in header-top.
 // Runs immediately AND after load (with delay) to beat any late jQuery that re-shows them.
